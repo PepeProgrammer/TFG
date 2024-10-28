@@ -1,0 +1,164 @@
+\section{Propuesta}
+
+\subsection{Descripción}
+
+\subsection{Herramientas de desarrollo elegidas}
+
+\subsection{Ciclo de vida/Metodología}
+
+\subsection{Iteración 0}
+\subsubsection{Product Backlog}
+Prioridades hechas con MoSCoW (tema 4 MDA)
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c |p{7cm}|c |c|} \hline 
+         \multirow[c]{3}{*}{Usuario}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}%Prio. es de prioridad 
+         &  Acceder a la aplicación&  3& M\\ \cline{2-4} 
+         &  Cerrar sesión&  1& M\\ \hline 
+    \end{tabular}
+    \caption{Product backlog de usuarios}
+    \label{tab:pb_usuarios}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c |p{7cm}|c |c|} \hline 
+         \multirow[c]{26}{*}{Asociación}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
+         &  Registrame en la aplicación como asociación&  5& M\\ \cline{2-4} 
+         &  Poner animales en adopción&  8& M\\ \cline{2-4} 
+         &  Anular poner animales en adopción&  3& M\\ \cline{2-4} 
+         &  Ver solucitudes adopción&  5& M\\ \cline{2-4}
+         &  Aceptar solucitudes adopción&  3& M\\ \cline{2-4}
+         &  Rechazar solucitudes adopción&  3& M\\ \cline{2-4}
+         &  Ver historial de adopciones&  3& M\\ \cline{2-4}
+         
+         
+         &  Poner animales en acogida&  8& M\\ \cline{2-4}
+         &  Anular poner animales en acogida&  3& M\\ \cline{2-4} 
+         &  Ver solucitudes acogida&  3& M\\ \cline{2-4}
+         &  Aceptar solucitudes acogida&  3& M\\ \cline{2-4}
+         &  Rechazar solucitudes acogida&  3& M\\ \cline{2-4}
+         &  Ver que usuarios tienen a sus animales en acogida&  5& M\\ \cline{2-4}
+         &  Ver historial de acogidas&  3& M\\ \cline{2-4}
+         
+         
+         &  Poner anuncios de voluntariado&  5& M\\ \cline{2-4}
+         &  Eliminar anuncios de voluntariado&  3& M\\ \cline{2-4}
+         &  Modificar anuncios de voluntariado&  5& M\\ \cline{2-4}
+         &  Ver solicitudes voluntariado propias&  3& M\\ \cline{2-4}
+         &  Aceptar solucitudes voluntariado&  3& M\\ \cline{2-4}
+         &  Rechazar solucitudes voluntariado&  3& M\\ \cline{2-4}
+
+         & Ver solicitudes de intercambio de acogida de sus animales & 3& S\\ \cline{2-4} 
+         & Aceptar solicitudes de intercambio de acogida de sus animales & 3& S\\ \cline{2-4} 
+         & Rechazar solicitudes de intercambio de acogida de sus animales & 3& S\\ \hline 
+        
+    \end{tabular}
+    \caption{Product backlog de Asociaciones}
+    \label{tab:pb_asociaciones}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c |p{7cm}|c |c|} \hline 
+         \multirow[c]{16}{*}{Particular}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
+         &  Registrame en la aplicación como particular&  5& M\\ \cline{2-4} 
+         
+
+         &  Solicitar adopciones&  3& M\\ \cline{2-4}
+         &  Ver adopciones pendientes&  3& S\\ \cline{2-4}
+         &  Ver historial adopciones&  3& S\\ \cline{2-4}
+         
+         &  Solicitar acogidas&  3& M\\ \cline{2-4} 
+         &  Ver acogidas pendientes&  3& M\\ \cline{2-4}
+         &  Ver historial acogidas&  3& S\\ \cline{2-4}
+
+         &  Solicitar voluntariados&  3& M\\ \cline{2-4} 
+         &  Ver voluntariados pendientes&  3& M\\ \cline{2-4}
+         &  Ver historial voluntariados&  3& C\\ \cline{2-4}
+
+         &  Poner petición de intercambio&  3& S\\ \cline{2-4}
+         &  Eliminar petición de intercambio&  3& S\\ \cline{2-4}
+         &  Aceptar petición de intercambio&  3& S\\ \cline{2-4}
+         &  Rechazar petición de intercambio&  3& S\\ \cline{2-4}
+         
+         &  Buscar anuncios en una zona concreta&  5& S\\ \cline{2-4}
+         &  Inscribirse en petición de intercambio&  3& S\\ \hline
+         
+         
+    \end{tabular}
+    \caption{Product backlog de Particulares}
+    \label{tab:pb_particulares}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c |p{7cm}|c |c|} \hline 
+         \multirow[c]{9}{2cm}{Asociación y Particular}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
+
+         &  Ver su perfil &  5& M\\ \cline{2-4}
+         &  Modificar su perfil &  5& M\\ \cline{2-4}
+         &  Eliminar su perfil &  3& M\\ \cline{2-4}
+         
+         &  Eliminar sus publicaciones &  3& M\\ \cline{2-4}
+
+         &  Reportar un perfil &  1& M\\ \cline{2-4}
+         &  Reportar una publicación &  1& M\\ \cline{2-4}
+         
+         &  Chatear con otros usuarios a raiz de una adopción/acogida/voluntariado &  8& M\\ \hline
+
+         
+         
+    \end{tabular}
+    \caption{Product backlog de Particulares y Asociaciones}
+    \label{tab:pb_aso_particular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c |p{7cm}|c |c|} \hline 
+         \multirow[c]{4}{2cm}{Us. Básico y Particular}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
+
+         &  Ver peticiones de acogida&  3& M\\ \cline{2-4}
+         &  Ver peticiones de voluntariado&  3& M\\ \cline{2-4}
+         &  Ver peticiones de intercambio &  3& M\\ \hline
+
+         
+         
+    \end{tabular}
+    \caption{Product backlog de Us. Básico y Particulares}
+    \label{tab:pb_part_usBasico}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|p{7cm}|c|c|} \hline 
+         \multirow[c]{4}{*}{Administrador}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
+         &  Crear usuarios &  5& M\\ \cline{2-4}
+         &  Modificar usuarios &  5& M\\ \cline{2-4}
+         &  Eliminar usuarios &  3& M\\ \hline
+
+         
+         
+    \end{tabular}
+    \caption{Product backlog de Administradores}
+    \label{tab:pb_administradores}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|p{7cm}|c|c|} \hline 
+         \multirow[c]{5}{*}{Moderador}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
+         &  Ver publicaciones reportadas &  5& M\\ \cline{2-4}
+         &  Eliminar publicaciones reportadas &  3& M\\ \cline{2-4}
+
+         &  Ver usuarios reportados &  5& M\\ \cline{2-4}
+         &  Banear usuarios reportados &  3& M\\ \hline
+
+         
+         
+    \end{tabular}
+    \caption{Product backlog de Moderadores}
+    \label{tab:pb_moderadores}
+\end{table}

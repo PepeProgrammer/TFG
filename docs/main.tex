@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[spanish]{babel}
+\usepackage[colorlinks]{hyperref}
+\usepackage{float}
+\usepackage{multirow}
+
+\title{TFG}
+\author{JORDI PEREIRA GIL}
+\date{Octubre 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+Aquí escribiendo la biblia
+
+\begin{table}
+    \centering
+    \caption{Leyenda tabla}
+\scriptsize
+\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|} \hline 
+         \textbf{Característica}&  \textbf{Flutter}&  \textbf{Ionic}& \textbf{React navive}\\ \hline 
+         Lenguaje de programación&  Dart&  JavaScript, HTML, CSS& JavaScript, TypeScript\\ \hline 
+         Rendimiento&  Alto rendimiento (código nativo)&  Depende de WebView (más lento que nativo)& Cerca del rendimiento nativo\\ \hline 
+         Acceso a APIs nativas&  Directamente mediante canales nativos&  Plugins nativos a través de Capacitor& Mediante módulos nativos o librerías\\ \hline 
+         Facilidad de uso&  Curva de aprendizaje moderada (Dart)&  Fácil para desarrolladores web& Familiar para desarrolladores de JavaScript\\ \hline 
+         Soporte multiplataforma&  iOS, Android, Web, Desktop&  iOS, Android, Web& iOS, Android\\ \hline 
+         Componentes UI&  Propios y altamente personalizables&  Utiliza web components y plugins& Usa componentes nativos\\ \hline 
+         Tamaño de la app&  Relativamente grande&  Más pequeño que Flutter& Relativamente pequeño\\ \hline 
+         Licencia&  Open Source (BSD)&  Open Source (MIT)& Open Source (MIT)\\ \hline
+    \end{tabular}
+\caption{Comparativa tecnologías frontend}
+\label{tab:my_table}
+    
+    
+\end{table}
+
+
+\include{Estado del arte}
+\include{Propuesta}
+\end{document}
