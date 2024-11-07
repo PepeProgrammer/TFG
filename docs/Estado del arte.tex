@@ -5,6 +5,8 @@
 \subsection{Revisión de tecnologías: alternativas}
 En esta sección vamos a comparar las distintas tecnologías para el desarrollo de aplicaciones híbridas y entre todas las vistas escogeremos las que sean más optimas para el desarrollo de dicha aplicación.
 
+\subsubsection{IDEs}
+\subsubsection{Control de versiones}
 \subsubsection{Front-end}
 Primero hablaremos de las tecnologías para el front, para ello se muestran las siguientes alternativas.
 
@@ -38,8 +40,8 @@ En esta sección vamos a coger una de las bases de datos relacionales más popul
 \begin{table}[H] %Esto hace que se ponga donde le corresponde en lugar de "flotar"
     \centering
     \begin{tabular}{|p{2cm} |p{4 cm} |p{4cm} |} \hline 
-         &  \textbf{MySQL}&  \textbf{MongoDb}\\  \hline 
-         Tipo &  SQL &  NoSQL \\ \hline 
+         &  \textbf{MongoDb}&  \textbf{MySQL}\\  \hline 
+         Tipo &  NoSQL &  SQL \\ \hline 
          
         Estructura de la base de datos &  Almacena los datos en documentos y colecciones de tipo JSON &  Almacena los datos en una estructura tabular con filas y columnas \\ \hline 
         Arquitectura &  Nexus &  Cliente servidor\\ \hline 
@@ -63,11 +65,11 @@ https://kinsta.com/es/blog/mongodb-vs-mysql/ \\ \\
          &  \textbf{Node}&  \textbf{Python}& \textbf{PHP}\\  \hline 
          Freamwork &  Express &  Django & Laravel\\ \hline 
          
-        Lenguaje de programación &  Dart&  HTML,CSS y Javascript & Javascript\\ \hline 
-        API nativas &  Si&  Si & Si\\ \hline 
-        Despliegue &  Móvil, Web, Escritorio&  Móvil, Web, PWA, Escritorio & Móvil\\ \hline 
-        Rendimiento móvil &  Excelente &  Bueno & Muy bueno\\ \hline 
-        Rendimiento web &  Deficiente &  Excelente & No tiene\\ \hline 
+        Conectividad BBDD &  Dart&  La conectividad de la base de datos es posible, pero no para todos. Además, necesita controladores. & Conectividad sencilla, capaz de conectarse con más de 25 bases de datos sin problemas.\\ \hline 
+        Curva de aprendizaje &  Muy fácil si tienes conocimento de javascript& Fácil & Media\\ \hline 
+        Seguridad &  ofrece prácticas de seguridad que permiten securizar el sistema comodamente&  Más seguro con funciones de ciberseguridad integradas & Se han producido muchos ataques a la seguridad	\\ \hline 
+        velocidad &  Más rápido que php &  Rápido(menos que php) & Muy rápido a partir de la versión 7\\ \hline 
+        Popularidad & Un poco más popular que python 1.8\% &  Menos popular que PHP (alrededor del 1,1\% de todos los sitios de Internet utilizan Python) & Más popular (cerca del 79\% de los sitios web utilizan PHP)\\ \hline 
     \end{tabular}
     \caption{Comparativa tecnologías back-end}
     \label{tab:tec_back}
@@ -75,7 +77,11 @@ https://kinsta.com/es/blog/mongodb-vs-mysql/ \\ \\
 
 
 
-https://keepcoding.io/blog/tecnologias-backend/
+https://keepcoding.io/blog/tecnologias-backend/ \\
+https://kinsta.com/es/blog/node-js-vs-php/
 
 
 \subsection{Revisión de aplicaciones similares}
+
+ASPCA Volunteer Portal: https://play.google.com/store/apps/details?id=org.aspca.volunteer&pli=1
+Amazdog: https://amazdog.com
