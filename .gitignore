@@ -1,4 +1,5 @@
 docs/*
 !docs/main.tex 
 !docs/Propuesta.tex 
-!docs/Estado del arte.tex 
+!docs/Estado del arte.tex
+!docs/**/
