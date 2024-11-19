@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="flex">
   <div class="selectors" >
     <ion-select placeholder="Tipo de animal" [multiple]="true">
       <ion-select-option value="dog">Perro</ion-select-option>
@@ -15,98 +15,106 @@
       <ion-select-option value="other">Otro</ion-select-option>
     </ion-select>
 
-    <ion-select placeholder="Tipo de animal" [multiple]="true">
-      <ion-select-option value="dog">Perro</ion-select-option>
-      <ion-select-option value="cat">Gato</ion-select-option>
-      <ion-select-option value="bird">Pajaro</ion-select-option>
-      <ion-select-option value="other">Otro</ion-select-option>
+    <ion-select placeholder="Edad">
+      <ion-select-option value="cachorro">cachorro</ion-select-option>
+      <ion-select-option value="joven">joven</ion-select-option>
+      <ion-select-option value="adulto">adulto</ion-select-option>
+      <ion-select-option value="todos">Todos</ion-select-option>
     </ion-select>
 
-    <ion-select placeholder="Tipo de animal" [multiple]="true">
-      <ion-select-option value="dog">Perro</ion-select-option>
-      <ion-select-option value="cat">Gato</ion-select-option>
-      <ion-select-option value="bird">Pajaro</ion-select-option>
-      <ion-select-option value="other">Otro</ion-select-option>
-    </ion-select>
-
-    <ion-select placeholder="Tipo de animal" [multiple]="true">
-      <ion-select-option value="dog">Perro</ion-select-option>
-      <ion-select-option value="cat">Gato</ion-select-option>
-      <ion-select-option value="bird">Pajaro</ion-select-option>
-      <ion-select-option value="other">Otro</ion-select-option>
+    <ion-select placeholder="Provincia" [multiple]="true">
+      <ion-select-option value="Granada">Granada</ion-select-option>
+      <ion-select-option value="Málaga">Málaga</ion-select-option>
+      <ion-select-option value="Pontevedra">Pontevedra</ion-select-option>
+      <ion-select-option value="Lugo">Lugo</ion-select-option>
     </ion-select>
 
 
   </div>
-
-<ion-card>
-  <img src="assets/images/perro.jpg">
-  <ion-card-header>
-    <ion-card-title>Paco</ion-card-title>
-    <ion-card-subtitle>Pastor makinarias</ion-card-subtitle>
+<div class="cards">
+  <ion-card>
+    <div class="profile-info">
+      <img src="assets/images/perfil_pruebas.jpg">
+      <span>Asociación Palomera</span>
+    </div>
+    <img src="assets/images/perro.jpg">
+    <ion-card-header>
+      <ion-card-title>Paco</ion-card-title>
+      <ion-card-subtitle>Pastor makinarias</ion-card-subtitle>
+    </ion-card-header>
     <ion-card-content>Paco es un perro estupendo y muy amaigable, te queremos paco</ion-card-content>
     <ion-buttons>
       <ion-button fill="clear" class="card-button" shape="round" size="small" >
-        <img src="assets/icon/black/adoption.png" slot="icon-only" alt="image of a dog">
+        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
       </ion-button>
 
       <ion-button fill="clear" class="card-button" shape="round" size="small" >
-        <img src="assets/icon/black/adoption.png" slot="icon-only" alt="image of a dog">
+        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
       </ion-button>
 
       <ion-button fill="clear" class="card-button" shape="round" size="small" >
-        <img src="assets/icon/black/adoption.png" slot="icon-only" alt="image of a dog">
+        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
       </ion-button>
     </ion-buttons>
-
-  </ion-card-header>
-</ion-card>
+  </ion-card>
 
   <ion-card>
+    <div class="profile-info">
+      <img src="assets/images/perfil_pruebas.jpg">
+      <span>Asociación Palomera</span>
+    </div>
     <img src="assets/images/perro.jpg">
     <ion-card-header>
       <ion-card-title>Paco</ion-card-title>
       <ion-card-subtitle>Pastor makinarias</ion-card-subtitle>
-      <ion-card-content>Paco es un perro estupendo y muy amaigable, te queremos paco</ion-card-content>
-      <ion-buttons>
-        <ion-button fill="clear" class="card-button" shape="round" size="small" >
-          <img src="assets/icon/black/adoption.png" slot="icon-only" alt="image of a dog">
-        </ion-button>
-
-        <ion-button fill="clear" class="card-button" shape="round" size="small" >
-          <img src="assets/icon/black/adoption.png" slot="icon-only" alt="image of a dog">
-        </ion-button>
-
-        <ion-button fill="clear" class="card-button" shape="round" size="small" >
-          <img src="assets/icon/black/adoption.png" slot="icon-only" alt="image of a dog">
-        </ion-button>
-      </ion-buttons>
-
     </ion-card-header>
+    <ion-card-content>Paco es un perro estupendo y muy amaigable, te queremos paco</ion-card-content>
+    <ion-buttons>
+      <ion-button fill="clear" class="card-button" shape="round" size="small" >
+        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
+      </ion-button>
+
+      <ion-button fill="clear" class="card-button" shape="round" size="small" >
+        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
+      </ion-button>
+
+      <ion-button fill="clear" class="card-button" shape="round" size="small" >
+        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
+      </ion-button>
+    </ion-buttons>
   </ion-card>
 
   <ion-card>
+    <div class="profile-info">
+      <img src="assets/images/perfil_pruebas.jpg">
+      <span>Asociación Palomera</span>
+    </div>
     <img src="assets/images/perro.jpg">
     <ion-card-header>
       <ion-card-title>Paco</ion-card-title>
       <ion-card-subtitle>Pastor makinarias</ion-card-subtitle>
-      <ion-card-content>Paco es un perro estupendo y muy amaigable, te queremos paco</ion-card-content>
-      <ion-buttons>
-        <ion-button fill="clear" class="card-button" shape="round" size="small" >
-          <img src="assets/icon/black/adoption.png" slot="icon-only" alt="image of a dog">
-        </ion-button>
-
-        <ion-button fill="clear" class="card-button" shape="round" size="small" >
-          <img src="assets/icon/black/adoption.png" slot="icon-only" alt="image of a dog">
-        </ion-button>
-
-        <ion-button fill="clear" class="card-button" shape="round" size="small" >
-          <img src="assets/icon/black/adoption.png" slot="icon-only" alt="image of a dog">
-        </ion-button>
-      </ion-buttons>
-
     </ion-card-header>
+    <ion-card-content>Paco es un perro estupendo y muy amaigable, te queremos paco</ion-card-content>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" class="card-button" shape="round" size="small" >
+        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
+      </ion-button>
+
+      <ion-button fill="clear" class="card-button" shape="round" size="small" >
+        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
+      </ion-button>
+
+      <ion-button fill="clear" class="card-button" shape="round" size="small" >
+        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
+      </ion-button>
+    </ion-buttons>
   </ion-card>
+
+
+
+</div>
+
+
 
 
 
