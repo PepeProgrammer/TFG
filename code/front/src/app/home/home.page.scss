@@ -69,7 +69,7 @@ ion-card {
 
   .selectors {
     width: 880px;
-    justify-self: center;
+    margin: auto;
     justify-content: space-between;
   }
 
@@ -78,7 +78,7 @@ ion-card {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    justify-self: center;
+    margin: auto;
   }
 
   ion-card {

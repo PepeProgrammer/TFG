@@ -1,5 +1,7 @@
 import express from 'express'
 import { testConection } from './models/db'
+import animalRouter from './routes/animals'
+
 const app = express()
 
 const PORT = 3000
@@ -17,3 +19,5 @@ testConection().then(() => {
 }).catch(() => {
   console.log('error test')
 })
+
+app.use('/api/animals', animalRouter)
