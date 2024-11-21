@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from 'cors'
 import { testConection } from './models/db'
 import animalRouter from './routes/animals'
 
@@ -19,5 +20,5 @@ testConection().then(() => {
 }).catch(() => {
   console.log('error test')
 })
-
+app.use(cors())
 app.use('/api/animals', animalRouter)

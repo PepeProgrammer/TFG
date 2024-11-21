@@ -1,12 +1,22 @@
-import { Component } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
+import {AnimalsService} from "../services/animals.service";
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-  constructor() {}
+  animalService = inject(AnimalsService)
+
+  animals: any = []
+
+  async ngOnInit() {
+    console.log('RESPUESTA')
+    const response = await this.animalService.getAll()
+    console.log(response)
+    this.animals = response
+  }
 
 }

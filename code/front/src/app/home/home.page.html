@@ -32,85 +32,33 @@
 
   </div>
 <div class="cards">
-  <ion-card>
-    <div class="profile-info">
-      <img src="assets/images/perfil_pruebas.jpg">
-      <span>Asociación Palomera</span>
-    </div>
-    <img src="assets/images/perro.jpg">
-    <ion-card-header>
-      <ion-card-title>Paco</ion-card-title>
-      <ion-card-subtitle>Pastor makinarias</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>Paco es un perro estupendo y muy amaigable, te queremos paco</ion-card-content>
-    <ion-buttons>
-      <ion-button fill="clear" class="card-button" shape="round" size="small" >
-        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
-      </ion-button>
+  @for (animal of animals; track animal.id) {
+    <ion-card>
+      <div class="profile-info">
+        <img src="assets/images/{{ animal.user.profile_image}}">
+        <span>{{animal.user.username}}</span>
+      </div>
+      <img src="assets/images/{{animal.images[0].url}}">
+      <ion-card-header>
+        <ion-card-title>{{ animal.name }}</ion-card-title>
+        <ion-card-subtitle>{{ animal.breed }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>{{ animal.description }}</ion-card-content>
+      <ion-buttons>
+        <ion-button fill="clear" class="card-button" shape="round" size="small" >
+          <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
+        </ion-button>
 
-      <ion-button fill="clear" class="card-button" shape="round" size="small" >
-        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
-      </ion-button>
+        <ion-button fill="clear" class="card-button" shape="round" size="small" >
+          <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
+        </ion-button>
 
-      <ion-button fill="clear" class="card-button" shape="round" size="small" >
-        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
-      </ion-button>
-    </ion-buttons>
-  </ion-card>
-
-  <ion-card>
-    <div class="profile-info">
-      <img src="assets/images/perfil_pruebas.jpg">
-      <span>Asociación Palomera</span>
-    </div>
-    <img src="assets/images/perro.jpg">
-    <ion-card-header>
-      <ion-card-title>Paco</ion-card-title>
-      <ion-card-subtitle>Pastor makinarias</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>Paco es un perro estupendo y muy amaigable, te queremos paco</ion-card-content>
-    <ion-buttons>
-      <ion-button fill="clear" class="card-button" shape="round" size="small" >
-        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
-      </ion-button>
-
-      <ion-button fill="clear" class="card-button" shape="round" size="small" >
-        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
-      </ion-button>
-
-      <ion-button fill="clear" class="card-button" shape="round" size="small" >
-        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
-      </ion-button>
-    </ion-buttons>
-  </ion-card>
-
-  <ion-card>
-    <div class="profile-info">
-      <img src="assets/images/perfil_pruebas.jpg">
-      <span>Asociación Palomera</span>
-    </div>
-    <img src="assets/images/perro.jpg">
-    <ion-card-header>
-      <ion-card-title>Paco</ion-card-title>
-      <ion-card-subtitle>Pastor makinarias</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>Paco es un perro estupendo y muy amaigable, te queremos paco</ion-card-content>
-    <ion-buttons slot="end">
-      <ion-button fill="clear" class="card-button" shape="round" size="small" >
-        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
-      </ion-button>
-
-      <ion-button fill="clear" class="card-button" shape="round" size="small" >
-        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
-      </ion-button>
-
-      <ion-button fill="clear" class="card-button" shape="round" size="small" >
-        <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
-      </ion-button>
-    </ion-buttons>
-  </ion-card>
-
-
+        <ion-button fill="clear" class="card-button" shape="round" size="small" >
+          <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
+        </ion-button>
+      </ion-buttons>
+    </ion-card>
+  }
 
 </div>
 
