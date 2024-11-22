@@ -46,4 +46,8 @@ export class User extends Model<InferAttributes<User>, InferCreationAttributes<U
   @Default(false)
   @NotNull
   declare sponsors: boolean
+
+  @Attribute(DataTypes.INTEGER)
+  @NotNull
+  declare state: string
 }

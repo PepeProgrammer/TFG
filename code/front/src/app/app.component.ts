@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {home, search} from "ionicons/icons";
-import {IonTabButton} from "@ionic/angular";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-root',
@@ -8,12 +8,14 @@ import {IonTabButton} from "@ionic/angular";
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang('es');
+  }
 
     protected readonly home = home;
   protected readonly search = search;
 
-  changeSelected(button: Event) {
-    console.log(button);
-  }
+
+
 }

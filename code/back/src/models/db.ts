@@ -3,6 +3,8 @@ import { MySqlDialect } from '@sequelize/mysql'
 import { User } from './users'
 import { Animal } from './animals'
 import { Image } from './images'
+import { State } from './States'
+import { Country } from './countries'
 
 const sequelize = new Sequelize({
   dialect: MySqlDialect,
@@ -23,7 +25,7 @@ export const testConection = async (): Promise<void> => {
   }
 }
 
-sequelize.addModels([User, Animal, Image])
+sequelize.addModels([User, Animal, Image, State, Country])
 
 Animal.hasMany(Image, {
   foreignKey: 'animal_id'
@@ -31,6 +33,10 @@ Animal.hasMany(Image, {
 
 User.hasMany(Animal, {
   foreignKey: 'association_id'
+})
+
+Country.hasMany(State, {
+  foreignKey: 'countryId'
 })
 
 export default sequelize

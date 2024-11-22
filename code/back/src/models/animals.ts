@@ -28,4 +28,8 @@ export class Animal extends Model<InferAttributes<Animal>, InferCreationAttribut
   @Attribute(DataTypes.TEXT)
   @NotNull
   declare description: string
+
+  @Attribute(DataTypes.INTEGER)
+  @NotNull
+  declare age: string
 }
