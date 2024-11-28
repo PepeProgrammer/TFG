@@ -2,6 +2,14 @@
   "dog": "Perro",
   "cat": "Gato",
   "filters": {
-    "apply": "Aplicar"
+    "apply": "Aplicar",
+    "age": {
+      "puppy": "cachorro",
+      "young": "joven",
+      "adult": "adulto",
+      "all": "todos"
+
+}
   }
+
 }
