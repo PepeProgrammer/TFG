@@ -72,7 +72,7 @@ Prioridades hechas con MoSCoW (tema 4 MDA)
 \begin{table}[H]
     \centering
     \begin{tabular}{|c |p{8cm}|c |c|} \hline 
-         \multirow[c]{15}{*}{Particular}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
+         \multirow[c]{14}{*}{Particular}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
          &  Registrame en la aplicación como particular&  5& M\\ \cline{2-4} 
          
 
@@ -92,7 +92,6 @@ Prioridades hechas con MoSCoW (tema 4 MDA)
          &  Ver voluntariados pendientes&  3& M\\ \cline{2-4}
          &  Ver historial voluntariados&  5& C\\ \cline{2-4}
          
-         & Poner aviso de animal perdido encontrado & 5 & M \\ \cline{2-4}
          
          & Apadrinar a un animal&  5& S\\ \hline
          
@@ -106,7 +105,7 @@ Prioridades hechas con MoSCoW (tema 4 MDA)
 \begin{table}[H]
     \centering
     \begin{tabular}{|c |p{8cm}|c |c|} \hline 
-         \multirow[c]{15}{2cm}{Asociación y Particular}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
+         \multirow[c]{17}{2cm}{Asociación y Particular}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
 
          &  Ver su perfil &  5& M\\ \cline{2-4}
          &  Modificar su perfil &  5& M\\ \cline{2-4}
@@ -118,6 +117,9 @@ Prioridades hechas con MoSCoW (tema 4 MDA)
          &  Ver historial de adopciones &  5& M\\ \cline{2-4}
          &  Ver historial de acogidas &  5& M\\ \cline{2-4}
          &  Eliminar sus publicaciones &  3& M\\ \cline{2-4}
+         
+         & Poner aviso de animal perdido encontrado & 5 & M \\ \cline{2-4}
+         & Ver lista de animales perdidos & 5 & M \\ \cline{2-4}
 
          &  Reportar un perfil &  1& M\\ \cline{2-4}
          &  Reportar una publicación &  1& M\\ \cline{2-4}
@@ -183,14 +185,163 @@ Prioridades hechas con MoSCoW (tema 4 MDA)
     \label{tab:pb_moderadores}
 \end{table}
 
-\subsection{Iteración 0}
+\subsection{Iteración 1}
 
-\large{\textbf{Especificación de tareas}}
+\large{\textbf{Especificación de tareas}} \\
 
-\begin{tabular}{|l|l|l|}
+
+\begin{tabular}{|l|p{9.5cm}|p{1cm}|}
 	\hline
-	\multicolumn{3}{|l|}{HU.1 - Poner animales en adopción} \\
+	\multicolumn{3}{|c|}{\textbf{HU.1 - Ver animales en adopción}} \\
 	\hline
-	\textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \textbf{Estimación (días)} \\
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-\end{tabular}
+	1.1 & Realizar bocetos & 0.5 \\ \hline
+	1.2 &  Implementar interfaz para ver las adopciones disponible & 2 \\ \hline
+	1.3 &  Implementar la lógica de obtención de animales en adopción & 1 \\ \hline
+\end{tabular} \\ \\
+
+\begin{tabular}{|l|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.2 - Poner animales en adopción}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\ %Est. es estimación
+	\hline
+	2.1 & Realizar bocetos & 0.5 \\ \hline
+	2.2 &  Implementar interfaz para añadir animales en adopción & 2 \\ \hline
+	2.3 &  Insertar datos de animales en la bd & 2 \\ \hline 
+\end{tabular} \\ \\
+
+\begin{tabular}{|l|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.3 - Ver lista de animales perdidos}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	3.1 & Realizar bocetos & 0.5 \\ \hline
+	3.2 &  Implentar la lógica de acceso a los animales perdidos & 2 \\ \hline
+	3.3 &  Implementar la interfaz para subir el aviso & 1 \\ \hline
+\end{tabular} \\ \\
+
+
+\begin{tabular}{|l|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.4 - Poner aviso de animal perdido encontrado}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	4.1 & Realizar bocetos & 0.5 \\ \hline
+	4.2 &  Actualizar la logíca para añadir avisos a la base de datos & 2 \\ \hline
+	4.3 &  Implementar la interfaz para subir el aviso & 1 \\ \hline
+\end{tabular} \\ \\
+
+
+\begin{tabular}{|l|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.5 - Crear registro de asociaciones}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días} \\
+	\hline
+	5.1 & Realizar bocetos & 0.5 \\ \hline
+	5.2 &  Implementar la lógica de registro & 2 \\ \hline
+	5.3 &  Implementar la interfaz de registro & 1 \\ \hline
+\end{tabular} \\ \\
+
+\begin{tabular}{|l|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.6 - Crear registro de particulares}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	6.1 & Realizar bocetos & 0.5 \\ \hline
+	6.2 &  Implementar la lógica de registro & 2 \\ \hline
+	6.3 &  Implementar la interfaz de registro & 1 \\ \hline
+\end{tabular} \\ \\
+
+
+
+\begin{tabular}{|l|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.7 - Acceder a la aplicación}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	7.1 & Definir la BD con la información de los usuarios & 0.5 \\ \hline
+	7.2 &  Implementar la lógica asociada al inicio de sesión & 1 \\ \hline
+	7.3 &  Implementar la interacción asociada al inicio de sesión de los asociaciones y particulares. & 1 \\ \hline
+	7.4 &  Realizar bocetos. & 0.5 \\ \hline
+\end{tabular} \\ \\
+
+\begin{tabular}{|l|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.8 - Cerrar sesión}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	8.1 & Realizar de bocetos & 0.5 \\ \hline
+	8.2 &  Implementar la lógica asociada al cierre de sesión. & 1 \\ \hline
+	8.3 &  Implementar interfaz asociada al cierre de sesión. & 0.5 \\ \hline
+\end{tabular} \\ \\
+
+\begin{tabular}{|l|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.9 - Realizar documentación}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	9.1 & Realizar documentación para cada tarea & 3 \\ \hline
+	9.2 &  Añadir tareas a las historias de usuario & 0.5 \\ \hline
+\end{tabular} \\ \\
+
+
+Una vez planificadas todas las historias de usuario del sprint empezaremos a realizarlas preferentemente en el orden designado. \\ \\
+
+\Large{\textbf{HU.1 - Ver animales en adopción}} \\
+
+En esta historia nos encargamos de la visualización de los distintos animales de adopción y su filtrado en función a unos parámetros clave, en este caso se han elegido la edad, la especie, y la localización. \\
+
+Además por otra parte cabe destacar que esta será la página principal para los usuarios particulares. \\ 
+
+\textbf{Bocetos}
+
+Lo primero es crear los bocetos de la página para ello hemos hecho uso de la herramienta draw.io la cual permite realizar bocetos simples en poco tiempo.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.31\linewidth]{"bocetos/iteracion 1/adopciones.drawio"}
+	\caption{Boceto de visualización de animales en adopción}
+	\label{fig:adopciones}
+\end{figure}
+
+Como podemos ver la idea para la página es mostrar una lista con los animales en busqueda de adopción en un contenedor con el siguiente formato:
+
+\begin{itemize}
+	\item \textbf{Imágenes de los animales}: Esto será un carrousel de imágenes en el que las asocaciones podrán mostrar el aspecto físico de sus animales.
+	\item \textbf{Información específica}: Aquí se encontarán datos como el nombre, la raza y la edad del animal además de una descripción sobre el mismo.
+	\item \textbf{Botones de acción}: las diferentes acciones a realizar serían la de solicituda de adopción, solicitud de acogida y apadrinamiento. Solicitud y apadrinamiento aparecerán solo si quiere la asocicación y este último tampoco aparecerá si ya está apadrinado.
+\end{itemize}
+
+\textbf{Diseño final} %dimensiones móvil 506x901
+
+\begin{figure}[H]
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=0.5\linewidth]{"Diseños finales/Iteracion 1/adopciones"}
+		\caption{Vista final de la página que muestra a los animales en adopción}
+		\label{fig:adopcionesDef}
+	\end{minipage} \hfill
+	
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=0.5\linewidth]{"Diseños finales/Iteracion 1/adopciones_black"}
+		\caption{Vista final oscura de la página que muestra a los animales en adopción}
+		\label{fig:adopcionesDefBlack}
+	\end{minipage}
+\end{figure}
+
+
+
+
+
+
+
