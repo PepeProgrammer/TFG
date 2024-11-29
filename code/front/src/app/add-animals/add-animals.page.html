@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Añadir adopción</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <form [formGroup]="form">
+    <div class="group">
+      <ion-item fill="outline" shape="round">
+        <ion-input type="text" name="name" formControlName="name" label="{{ 'name' | translate }}:" label-placement="floating"></ion-input>
+      </ion-item>
+
+      <ion-item fill="outline" shape="round">
+        <ion-input type="number" name="age" formControlName="age" label="{{ 'age' | translate }}:" label-placement="floating"></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="group">
+      <ion-select placeholder="{{'filters.animal_species' | translate}}" [(ngModel)]="selectedSpecies">
+        @for (species of species?.species; track species.id) {
+          <ion-select-option value="{{species.id}}">{{species.name | translate}}</ion-select-option>
+        }
+      </ion-select>
+
+      <ion-item shape="round">
+        <ion-input type="text" name="breed" formControlName="breed" label="{{ 'breed' | translate }}:" label-placement="floating"></ion-input>
+      </ion-item>
+    </div>
+
+    <ion-item fill="" shape="round">
+      <ion-textarea type="text" name="description" formControlName="description" label="{{ 'description' | translate }}:" label-placement="floating" auto-grow></ion-textarea>
+    </ion-item>
+
+
+  </form>
+
+</ion-content>

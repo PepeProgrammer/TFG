@@ -9,9 +9,14 @@ import {getBaseUrl} from "../../../dbInfo";
   providedIn: 'root'
 })
 export class AnimalsService {
-  baseUrl: string = getBaseUrl()
+  baseUrl: string = ""
   httpClient = inject(HttpClient)
+
+  constructor() {
+    this.baseUrl = getBaseUrl()
+  }
   getAll(): Promise<any> {
+    console.log(this.baseUrl)
     const options = {
       headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')
     }

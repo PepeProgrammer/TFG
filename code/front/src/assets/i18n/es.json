@@ -8,8 +8,13 @@
       "young": "joven",
       "adult": "adulto",
       "all": "todos"
-
-}
-  }
+    },
+    "animal_species": "Tipo de animal"
+  },
+  "years": "años",
+  "name": "nombre",
+  "age": "edad",
+  "state": "provincia",
+  "description": "descripción"
 
 }

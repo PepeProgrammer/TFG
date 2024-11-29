@@ -1,0 +1,16 @@
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+
+.group {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+   * {
+     width: 200px;
+     max-width: 400px;
+   }
+}

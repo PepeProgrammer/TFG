@@ -64,6 +64,11 @@ ion-card {
   border-radius: 20px;
 }
 
+ion-card-subtitle {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media (min-width: 900px) {
   .flex {
     display: flex;
@@ -94,6 +99,7 @@ ion-card {
     width: 800px;
     align-self: center;
   }
+
 
 
 
