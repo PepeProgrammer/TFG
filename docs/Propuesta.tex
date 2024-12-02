@@ -321,25 +321,37 @@ Como podemos ver la idea para la página es mostrar una lista con los animales e
 	\item \textbf{Botones de acción}: las diferentes acciones a realizar serían la de solicituda de adopción, solicitud de acogida y apadrinamiento. Solicitud y apadrinamiento aparecerán solo si quiere la asocicación y este último tampoco aparecerá si ya está apadrinado.
 \end{itemize}
 
-\textbf{Diseño final} %dimensiones móvil 506x901
+\textbf{Diseño final} %dimensiones móvil 506x901 \\
 
 \begin{figure}[H]
-	\begin{minipage}[t]{0.48\textwidth}
 		\centering
 		\includegraphics[width=0.5\linewidth]{"Diseños finales/Iteracion 1/adopciones"}
-		\caption{Vista final de la página que muestra a los animales en adopción}
+		\caption{Vista final de la página que muestra a los animales en adopción en móviles}
 		\label{fig:adopcionesDef}
-	\end{minipage} \hfill
-	
-	\begin{minipage}[t]{0.48\textwidth}
-		\centering
-		\includegraphics[width=0.5\linewidth]{"Diseños finales/Iteracion 1/adopciones_black"}
-		\caption{Vista final oscura de la página que muestra a los animales en adopción}
-		\label{fig:adopcionesDefBlack}
-	\end{minipage}
 \end{figure}
 
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"Diseños finales/Iteracion 1/adopciones_web"}
+	\caption{Vista final de la página que muestra a los animales en adopción en web}
+	\label{fig:adopcionesDefWeb}
+\end{figure}
+
+Como podemos apreciar en ambos diseños se mantienen los componentes principales que mencionamos en los bocetos. Se ha usado el elemento de \textit{ion-card} para cada animal y en el se han añadido las imágenes pertinentes y una descripción del mismo.
+
+A diferecia de la versión móvil, en web para que el espacio no esté totalmente vacío se ha decidido poner 2 tarjetas por fila, manteniendo su legibilidad y organización básica. \\
+
+
+\textbf{Implentación}
+
+En esta sección comentaremos los elementos más importantes del desarrollo para el correcto funcionamiento de la HU, podremos hablar de funciones específicas en el código o de decisiones tomadas durante su realización. \\
+
+Para esta HU hemos tenido que crear las tablas en la base de datos de animales, usuarios de tipo asociación, pasíses y provincias, este último para poder hacer funcionar el filtro de localizaión para la búsqueda de adopciones. \\
+
+En cuanto al servidor se han tenido que crear funciones para obtener a todos los animales o buscarlos en función de los filtros utilizados. \\
+
+En la parte del cliente básicamente se ha creado la pantalla de vista de animales y un servicio el cual nos permite conectarnos al servidor para hacer las peticiones de obtención tanto de filtros como de las adopciones.
 
 
 

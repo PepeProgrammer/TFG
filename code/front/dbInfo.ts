@@ -12,5 +12,5 @@ const DB_INFO_DEPLOY = {
 }
 
 export const getBaseUrl = () => {
-  return DEPLOY ? `${DB_INFO_DEPLOY.baseUrl}:${DB_INFO_DEPLOY.port}` : `${DB_INFO_LOCAL.baseUrl}:${DB_INFO_LOCAL.port}`
+  return DEPLOY ? `${DB_INFO_DEPLOY.baseUrl}` : `${DB_INFO_LOCAL.baseUrl}:${DB_INFO_LOCAL.port}`
 }
