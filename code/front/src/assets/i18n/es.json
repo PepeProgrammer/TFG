@@ -14,7 +14,16 @@
   "years": "años",
   "name": "nombre",
   "age": "edad",
+  "breed": "raza",
   "state": "provincia",
-  "description": "descripción"
+  "description": "descripción",
+  "add_image": "Añadir imagen",
+  "checks": {
+    "no_parasite": "Desparasitado",
+    "vaccinated": "Vacunado",
+    "sterilized": "Esterilizado",
+    "chip": "Microchip"
+  },
+  "add_adoption": "Añadir adopción"
 
 }

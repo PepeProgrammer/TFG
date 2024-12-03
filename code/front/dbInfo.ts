@@ -1,5 +1,5 @@
 
-const DEPLOY = false
+const DEPLOY = true
 
 const DB_INFO_LOCAL = {
   baseUrl: 'http://localhost',

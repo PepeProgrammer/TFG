@@ -1,16 +1,46 @@
 form {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 10px auto;
+  align-self: center;
+  width: 80%;
 }
 
 
-.group {
+
+
+.photos-container {
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-   * {
-     width: 200px;
-     max-width: 400px;
-   }
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  .img-container {
+
+    padding: 5px;
+    position: relative;
+    img:not(.delete) {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+    .delete {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 30px;
+      border-radius: 50%;
+      background: rgba(175,175,175,0.8);
+      padding: 2px;
+    }
+  }
 }
+
+.submit {
+  position: fixed;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+}
+
+
+
