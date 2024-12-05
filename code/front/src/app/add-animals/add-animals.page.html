@@ -42,15 +42,15 @@
     </ion-item>
 
 
-    <ion-button (click)="addImage()">{{ "add_image" | translate }}</ion-button>
+    <ion-button (click)="selectImage()" class="camera"><ion-icon name="camera"></ion-icon></ion-button>
 
     <ion-item>
       @if (imageUrls.length > 0) {
         <div class="photos-container">
           @for (url of imageUrls; track url; let i = $index) {
             <div class="img-container">
-              <img [src]="url.url"/>
-              <img src="assets/icon/remove.png" class="delete" (click)="deleteImage(i)">
+              <img [src]="url"/>
+              <img src="assets/icon/remove.png" class="delete" (click)="deleteImage(i)"/>
             </div>
 
           }
@@ -59,15 +59,15 @@
 
     </ion-item>
 
-    <div>
+    <div class="checkers">
       <ion-checkbox justify="start" label-placement="end" name="check[]">{{ 'checks.no_parasite' | translate }}</ion-checkbox>
       <ion-checkbox justify="start" label-placement="end" name="check[]">{{ 'checks.chip' | translate }}</ion-checkbox>
       <ion-checkbox justify="start" label-placement="end" name="check[]">{{ 'checks.vaccinated' | translate }}</ion-checkbox>
       <ion-checkbox justify="start" label-placement="end" name="check[]">{{ 'checks.sterilized' | translate }}</ion-checkbox>
     </div>
 
-
-    <ion-button (click)="deleteImage(1)" class="submit">{{ "add_adoption" | translate }}</ion-button>
+    <ion-button (click)="deleteImage(1)" >{{ "add_adoption" | translate }}</ion-button>
   </form>
+
 
 </ion-content>

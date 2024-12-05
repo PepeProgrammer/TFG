@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AddAnimalsPage } from './add-animals.page';
-
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 const routes: Routes = [
   {
     path: '',
@@ -15,3 +15,5 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AddAnimalsPageRoutingModule {}
+
+defineCustomElements(window);
