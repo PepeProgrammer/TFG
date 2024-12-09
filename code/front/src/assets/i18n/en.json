@@ -26,10 +26,9 @@
   },
   "add_adoption": "Añadir adopción",
   "adoptionMessages": {
-    "fill": "Rellena todos los campos de texto",
-    "minAge": "La edad debe ser mínimo 0",
-    "minImages": "Añade al menos una imagen"
-  },
-  "unknown": "Desconocida"
+    "fill": "Please fill all the text fields",
+    "minAge": "Age must be 0 or greater",
+    "minImages": "Please add at least one image"
+  }
 
 }

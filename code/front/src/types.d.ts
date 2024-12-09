@@ -1,22 +1,33 @@
+import {FormControl} from "@angular/forms";
+
 export interface Association {
   id: number,
   username: string,
   take_ins: boolean,
   sponsors:boolean,
   profile_image: string,
-  animals: Animal[]
 }
 
 export interface Animal {
-  id: number,
-  name: string,
-  age: number,
-  species: string,
-  breed: string,
-  description: string,
-  images: Image[],
-  createdAt: string,
+  id: number
+  name: string
+  age: number
+  species: string
+  breed: string
+  description: string
+  images: Image[]
+  createdAt: string
   updatedAt: string
+  user: Association
+  sponsored: boolean
+  adopted: boolean
+  takenIn: boolean
+  information: {
+    noParasite: boolean
+    chip: boolean
+    vaccinated: boolean
+    sterilized: boolean
+  }
 }
 
 interface Image {

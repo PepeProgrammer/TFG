@@ -6,7 +6,7 @@
 
 <ion-content [fullscreen]="true">
 
-  <form [formGroup]="form">
+  <form [formGroup]="form" enctype="multipart/form-data">
     <ion-item-group >
       <ion-item shape="round">
         <ion-input type="text" name="name" formControlName="name" label="{{ 'name' | translate }}:"
@@ -21,7 +21,7 @@
 
     <ion-item-group>
       <ion-item>
-        <ion-select label="{{'filters.animal_species' | translate}}" [(ngModel)]="selectedSpecies"
+        <ion-select label="{{'filters.animal_species' | translate}}"
                     label-placement="floating" formControlName="species">
           @for (species of species?.species; track species.id) {
             <ion-select-option value="{{species.id}}">{{ species.name | translate }}</ion-select-option>
@@ -60,14 +60,20 @@
     </ion-item>
 
     <div class="checkers">
-      <ion-checkbox justify="start" label-placement="end" name="check[]">{{ 'checks.no_parasite' | translate }}</ion-checkbox>
-      <ion-checkbox justify="start" label-placement="end" name="check[]">{{ 'checks.chip' | translate }}</ion-checkbox>
-      <ion-checkbox justify="start" label-placement="end" name="check[]">{{ 'checks.vaccinated' | translate }}</ion-checkbox>
-      <ion-checkbox justify="start" label-placement="end" name="check[]">{{ 'checks.sterilized' | translate }}</ion-checkbox>
+      <ion-checkbox justify="start" label-placement="end" formControlName="noParasite">{{ 'checks.no_parasite' | translate }}</ion-checkbox>
+      <ion-checkbox justify="start" label-placement="end" formControlName="chip" >{{ 'checks.chip' | translate }}</ion-checkbox>
+      <ion-checkbox justify="start" label-placement="end" formControlName="vaccinated" >{{ 'checks.vaccinated' | translate }}</ion-checkbox>
+      <ion-checkbox justify="start" label-placement="end" formControlName="sterilized" >{{ 'checks.sterilized' | translate }}</ion-checkbox>
     </div>
 
-    <ion-button (click)="deleteImage(1)" >{{ "add_adoption" | translate }}</ion-button>
+    <ion-button (click)="addAnimal()">{{ "add_adoption" | translate }}</ion-button>
+
   </form>
 
-
+  <ion-toast
+    [isOpen]="isToastOpen"
+    message="{{ toastMessage | translate}}"
+    [duration]="5000"
+    (didDismiss)="setOpen(false)"
+  ></ion-toast>
 </ion-content>

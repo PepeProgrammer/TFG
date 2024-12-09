@@ -7,6 +7,8 @@ import {AnimalsService} from "../services/animals.service";
 import {DataService} from "../services/data.service";
 import {Filter} from "../../types";
 import {Capacitor} from "@capacitor/core";
+import {getBaseUrl} from "../../../dbInfo";
+import {Buffer} from "buffer";
 
 interface LocalFile {
   name: string
@@ -24,7 +26,6 @@ interface LocalFile {
 export class AddAnimalsPage implements OnInit {
 
   animalService = inject(AnimalsService)
-  dataService = inject(DataService)
 
   imageUrls: any[] = []
 
@@ -32,19 +33,23 @@ export class AddAnimalsPage implements OnInit {
   formData = new FormData()
   species: Filter | undefined
 
-  name = ""
-  selectedSpecies = ""
-  description = ""
+  isToastOpen: boolean = false
+  toastMessage: string = ""
 
   constructor(private platform: Platform) {
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      age: new FormControl('', [Validators.required]),
+      age: new FormControl('', [Validators.required, Validators.min(0)]),
       species: new FormControl('', [Validators.required]),
       breed: new FormControl('', [Validators.required]),
+      images: new FormControl([]),
       description: new FormControl(''),
+      noParasite: new FormControl(false),
+      chip: new FormControl(false),
+      vaccinated: new FormControl(false),
+      sterilized: new FormControl(false),
+      associationId: new FormControl(1) //TODO: cambiar por la asociación del usuario
     })
-
   }
 
   async ngOnInit() {
@@ -69,8 +74,6 @@ export class AddAnimalsPage implements OnInit {
   }
 
 
-
-
   async selectImage() {
     const image = await Camera.getPhoto({
       quality: 60,
@@ -79,57 +82,77 @@ export class AddAnimalsPage implements OnInit {
       source: CameraSource.Photos
     })
 
-    console.log(image);
-    if(image) {
-      //this.saveImage(image)
-      console.log(image.path)
-
-      // const image64 = await this.readAsBase64(image)
-      // console.log(image64)
+    if (image) {
       this.imageUrls.push(image.dataUrl)
     }
 
   }
 
-  async saveImage(photo: Photo) {
+  async addAnimal() {
 
-    const base64Data = await this.readAsBase64(photo)
+    if (this.form.value['name'] === "" || this.form.value['age'] === "" || this.form.value['species'] === "" || this.form.value['description'] === "") {
+      this.toastMessage = "adoptionMessages.fill"
+      this.setOpen(true);
+    } else if (this.form.value['age'] < 0 || this.form.value['age'] === "") {
+      this.toastMessage = "adoptionMessages.minAge"
+      this.setOpen(true);
+    } else if (this.imageUrls.length === 0) {
+      this.toastMessage = "adoptionMessages.minImages"
+      this.setOpen(true);
+    } else {
 
-    console.log(base64Data)
+      if(this.form.value['breed'] === "") {
+        this.form.value['breed'] = "unknown"
+      }
 
-    const fileName = new Date().getTime() + '.jpeg'
-    const savedFile = await Filesystem.writeFile({
-      directory: Directory.Data,
-      path: `photos/${fileName}`,
-      data: base64Data
-    })
+      this.dataURLtoFile(this.imageUrls, this.form.value['name'])
+      this.addToFormData()
+
+      await this.animalService.addAnimal(this.formData)
+      this.formData = new FormData() // con esto evitamos la duplicidad en los campos en caso de que haya sucedido un error en la subida de adopción
+    }
+
 
   }
 
-  private async readAsBase64(photo: Photo) {
-    // "hybrid" will detect Cordova or Capacitor
-    if (this.platform.is('hybrid')) { //android o ios
-      const file = await Filesystem.readFile({
-        path: photo.path!
-      });
 
-      return file.data;
-    }
-    else {
-      // Fetch the photo, read as a blob, then convert to base64 format
-      const response = await fetch(photo.webPath!);
-      const blob = await response.blob();
+  dataURLtoFile = (images: string[], animalName: string) => {
+    const files: File[] = []
+    for (const image of images) {
+      const arr = image.split(',')
 
-      return await this.convertBlobToBase64(blob) as string;
+      // @ts-ignore
+      const mime = arr[0].match(/:(.*?);/)[1]
+      const bstr = atob(arr[1])
+      let n = bstr.length
+      const u8arr = new Uint8Array(n)
+      while (n) {
+        u8arr[n - 1] = bstr.charCodeAt(n - 1)
+        n -= 1 // to make eslint happy
+      }
+      this.formData.append('files', new File([u8arr], `${new Date().getTime()}_${animalName}.jpg`, {type: mime}))
     }
+
   }
 
-  convertBlobToBase64 = (blob: Blob) => new Promise((resolve, reject) => {
-    const reader = new FileReader;
-    reader.onerror = reject;
-    reader.onload = () => {
-      resolve(reader.result);
-    };
-    reader.readAsDataURL(blob);
-  });
+  addToFormData = () => {
+    this.formData.append('name', this.form.value['name'].trim())
+    this.formData.append('age', this.form.value['age'])
+    this.formData.append('species', this.form.value['species'])
+    this.formData.append('breed', this.form.value['breed'].trim())
+    this.formData.append('description', this.form.value['description'].trim())
+    this.formData.append('noParasite', this.form.value['noParasite'])
+    this.formData.append('chip', this.form.value['chip'])
+    this.formData.append('vaccinated', this.form.value['vaccinated'])
+    this.formData.append('sterilized', this.form.value['sterilized'])
+    this.formData.append('associationId', this.form.value['associationId'])
+  }
+
+  setOpen(isOpen: boolean) {
+    this.isToastOpen = isOpen;
+  }
 }
+
+
+
+
