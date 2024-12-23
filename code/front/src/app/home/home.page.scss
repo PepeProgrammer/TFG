@@ -89,6 +89,7 @@ ion-card-subtitle {
     flex-wrap: wrap;
     justify-content: space-between;
     margin: auto;
+    text-align: left;
   }
 
   ion-card {
@@ -100,6 +101,10 @@ ion-card-subtitle {
     align-self: center;
   }
 
+  .empty_animals {
+    margin-top: 10px;
+    text-align: center;
+  }
 
 
 

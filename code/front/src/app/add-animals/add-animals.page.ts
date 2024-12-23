@@ -1,14 +1,10 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {Camera, CameraResultType, CameraSource, Photo} from "@capacitor/camera";
-import {Directory, Filesystem} from "@capacitor/filesystem";
-import {Platform} from "@ionic/angular";
+import {Camera, CameraResultType, CameraSource} from "@capacitor/camera";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AnimalsService} from "../services/animals.service";
-import {DataService} from "../services/data.service";
 import {Filter} from "../../types";
+import {Router} from "@angular/router";
 import {Capacitor} from "@capacitor/core";
-import {getBaseUrl} from "../../../dbInfo";
-import {Buffer} from "buffer";
 
 interface LocalFile {
   name: string
@@ -34,9 +30,10 @@ export class AddAnimalsPage implements OnInit {
   species: Filter | undefined
 
   isToastOpen: boolean = false
+  isModalOpen: boolean = false
   toastMessage: string = ""
 
-  constructor(private platform: Platform) {
+  constructor(private router: Router) {
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       age: new FormControl('', [Validators.required, Validators.min(0)]),
@@ -74,18 +71,19 @@ export class AddAnimalsPage implements OnInit {
   }
 
 
-  async selectImage() {
+  async selectImage(mode: string = 'gallery') {
     const image = await Camera.getPhoto({
       quality: 60,
       allowEditing: false,
       resultType: CameraResultType.DataUrl,
-      source: CameraSource.Photos
+      source: mode === 'gallery' ? CameraSource.Photos : CameraSource.Camera
     })
 
     if (image) {
       this.imageUrls.push(image.dataUrl)
     }
 
+    this.isModalOpen = false
   }
 
   async addAnimal() {
@@ -101,15 +99,22 @@ export class AddAnimalsPage implements OnInit {
       this.setOpen(true);
     } else {
 
-      if(this.form.value['breed'] === "") {
+      if (this.form.value['breed'] === "") {
         this.form.value['breed'] = "unknown"
       }
 
       this.dataURLtoFile(this.imageUrls, this.form.value['name'])
       this.addToFormData()
 
-      await this.animalService.addAnimal(this.formData)
+      const response = await this.animalService.addAnimal(this.formData)
       this.formData = new FormData() // con esto evitamos la duplicidad en los campos en caso de que haya sucedido un error en la subida de adopción
+
+      if (response.success) {
+        this.router.navigate(['/home'])
+      } else {
+        this.toastMessage = "adoptionMessages.error"
+        this.setOpen(true);
+      }
     }
 
 
@@ -151,6 +156,8 @@ export class AddAnimalsPage implements OnInit {
   setOpen(isOpen: boolean) {
     this.isToastOpen = isOpen;
   }
+
+  protected readonly Capacitor = Capacitor;
 }
 
 

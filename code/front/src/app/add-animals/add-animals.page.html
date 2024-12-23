@@ -41,8 +41,11 @@
                     label="{{ 'description' | translate }}:" label-placement="floating" auto-grow></ion-textarea>
     </ion-item>
 
-
-    <ion-button (click)="selectImage()" class="camera"><ion-icon name="camera"></ion-icon></ion-button>
+    @if (!Capacitor.isNativePlatform()){
+      <ion-button (click)="selectImage()" class="camera"><ion-icon name="camera"></ion-icon></ion-button>
+    } @else {
+    <ion-button (click)="isModalOpen = true" class="camera"><ion-icon name="camera"></ion-icon></ion-button>
+    }
 
     <ion-item>
       @if (imageUrls.length > 0) {
@@ -52,7 +55,6 @@
               <img [src]="url"/>
               <img src="assets/icon/remove.png" class="delete" (click)="deleteImage(i)"/>
             </div>
-
           }
         </div>
       }
@@ -69,6 +71,16 @@
     <ion-button (click)="addAnimal()">{{ "add_adoption" | translate }}</ion-button>
 
   </form>
+
+  @if (Capacitor.isNativePlatform()) { <!--Comprobamos si estamos en un dispositivo nativo para mostrar el modal -->
+    <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]" class="modal" [isOpen]="isModalOpen">
+      <ng-template>
+          <ion-button (click)="selectImage('gallery')">{{ 'camera.fromGallery' | translate }}</ion-button>
+          <ion-button (click)="selectImage('camera')">{{ 'camera.fromCamera' | translate }}</ion-button>
+      </ng-template>
+    </ion-modal>
+  }
+
 
   <ion-toast
     [isOpen]="isToastOpen"

@@ -28,8 +28,14 @@
   "adoptionMessages": {
     "fill": "Rellena todos los campos de texto",
     "minAge": "La edad debe ser mínimo 0",
-    "minImages": "Añade al menos una imagen"
+    "minImages": "Añade al menos una imagen",
+    "error": "Ha ocurrido un error"
   },
-  "unknown": "Desconocida"
+  "unknown": "Desconocida",
+  "noAnimals": "No se ha encontrado ningún animal",
+  "camera": {
+    "fromGallery": "Desde la galería",
+    "fromCamera": "Desde la cámara"
+  }
 
 }

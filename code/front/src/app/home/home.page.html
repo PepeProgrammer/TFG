@@ -7,75 +7,83 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="flex">
-  <div class="selectors" >
-    <ion-select placeholder="{{'filters.animal_species' | translate}}" [multiple]="true" [(ngModel)]="selectedSpecies">
+  <div class="selectors">
+    <ion-select placeholder="{{'filters.animal_species' | translate}}" [multiple]="true" [(ngModel)]="selectedSpecies" (ionChange)="cleanOffset()">
       @for (species of filters?.species; track species.id) {
-        <ion-select-option value="{{species.id}}">{{species.name | translate}}</ion-select-option>
+        <ion-select-option value="{{species.id}}">{{ species.name | translate }}</ion-select-option>
       }
     </ion-select>
 
-    <ion-select placeholder="{{'age' | translate}}" [(ngModel)]="selectedAge">
+    <ion-select placeholder="{{'age' | translate}}" [(ngModel)]="selectedAge" (ionChange)="cleanOffset()">
       <ion-select-option value="puppy">{{ "filters.age.puppy" | translate }}</ion-select-option>
       <ion-select-option value="young">{{ "filters.age.young" | translate }}</ion-select-option>
       <ion-select-option value="adult">{{ "filters.age.adult" | translate }}</ion-select-option>
       <ion-select-option value="all">{{ "filters.age.all" | translate }}</ion-select-option>
     </ion-select>
 
-    <ion-select placeholder="{{ 'state' | translate}}" [multiple]="true" [(ngModel)]="selectedState">
+    <ion-select placeholder="{{ 'state' | translate}}" [multiple]="true" [(ngModel)]="selectedState" (ionChange)="cleanOffset()">
       @for (state of filters?.states; track state.id) {
-        <ion-select-option value="{{state.id}}">{{state.name}}</ion-select-option>
+        <ion-select-option value="{{state.id}}">{{ state.name }}</ion-select-option>
       }
     </ion-select>
 
-    <ion-button (click)="applyFilters()"> {{"filters.apply" |translate}}</ion-button>
+    <ion-button (click)="applyFilters()"> {{ "filters.apply" |translate }}</ion-button>
 
   </div>
-<div class="cards">
-    @for (animal of animals; track animal.id) {
-      <ion-card>
-        <div class="profile-info">
-          <img src="{{baseUrl}}/uploads/images/{{ animal.user.profile_image}}">
-          <span>{{animal.user.username}}</span>
+  @if (animals.length === 0) {
+    <p class="empty_animals"> {{ 'noAnimals' | translate }}</p>
+  } @else {
+    <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll-content>
+        <div class="cards">
+          @for (animal of animals; track animal.id) {
+            <ion-card>
+              <div class="profile-info">
+                <img src="{{baseUrl}}/uploads/images/{{ animal.user.profile_image}}">
+                <span>{{ animal.user.username }}</span>
+              </div>
+              <swiper-container [pagination]="true">
+                @for (image of animal.images; track image.url) {
+                  <swiper-slide>
+                    <img src="{{baseUrl}}/uploads/images/{{image.url}}">
+                  </swiper-slide>
+                }
+              </swiper-container>
+              <ion-card-header>
+                <ion-card-title>{{ animal.name }}</ion-card-title>
+                <ion-card-subtitle>
+                  <span>{{ animal.breed | translate }}</span><span>{{ animal.age }} {{ "years" | translate }}</span>
+                </ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>{{ animal.description }}</ion-card-content>
+              <ion-buttons>
+
+                @if (animal.user.sponsors && !animal.sponsored) {
+                  <ion-button fill="clear" class="card-button" shape="round" size="small">
+                    <img src="assets/icon/star.png" slot="icon-only" alt="image of a dog">
+                  </ion-button>
+                }
+
+                @if (animal.user.take_ins && !animal.takenIn) {
+                  <ion-button fill="clear" class="card-button" shape="round" size="small">
+                    <img src="assets/icon/home.png" slot="icon-only" alt="image of a dog">
+                  </ion-button>
+                }
+
+
+                <ion-button fill="clear" class="card-button" shape="round" size="small">
+                  <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
+                </ion-button>
+
+              </ion-buttons>
+            </ion-card>
+          }
+
         </div>
-        <swiper-container [pagination]="true">
-          @for (image of animal.images; track image.url) {
-            <swiper-slide>
-              <img src="{{baseUrl}}/uploads/images/{{image.url}}">
-            </swiper-slide>
-          }
-        </swiper-container>
-        <ion-card-header>
-          <ion-card-title>{{ animal.name }}</ion-card-title>
-          <ion-card-subtitle><span>{{ animal.breed | translate}}</span><span>{{animal.age}} {{"years" | translate}}</span></ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>{{ animal.description }}</ion-card-content>
-        <ion-buttons>
-
-          @if (animal.user.sponsors && !animal.sponsored) {
-            <ion-button fill="clear" class="card-button" shape="round" size="small" >
-              <img src="assets/icon/star.png" slot="icon-only" alt="image of a dog">
-            </ion-button>
-          }
-
-          @if (animal.user.take_ins && !animal.takenIn) {
-            <ion-button fill="clear" class="card-button" shape="round" size="small" >
-              <img src="assets/icon/home.png" slot="icon-only" alt="image of a dog">
-            </ion-button>
-          }
-
-
-          <ion-button fill="clear" class="card-button" shape="round" size="small" >
-            <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
-          </ion-button>
-
-        </ion-buttons>
-      </ion-card>
-    }
-
-</div>
-
-
-
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  }
+  
 
 
 </ion-content>
