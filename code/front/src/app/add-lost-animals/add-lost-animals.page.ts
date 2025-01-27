@@ -1,26 +1,17 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {Camera, CameraResultType, CameraSource} from "@capacitor/camera";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AnimalsService} from "../services/animals.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Filter} from "../../types";
 import {Router} from "@angular/router";
+import {Camera, CameraResultType, CameraSource} from "@capacitor/camera";
 import {Capacitor} from "@capacitor/core";
 
-interface LocalFile {
-  name: string
-  path: string
-  data: string
-}
-
 @Component({
-  selector: 'app-add-animals',
-  templateUrl: './add-animals.page.html',
-  styleUrls: ['./add-animals.page.scss'],
+  selector: 'app-add-lost-animals',
+  templateUrl: './add-lost-animals.page.html',
+  styleUrls: ['./add-lost-animals.page.scss'],
 })
-
-
-export class AddAnimalsPage implements OnInit {
-
+export class AddLostAnimalsPage implements OnInit {
   animalService = inject(AnimalsService)
 
   imageUrls: any[] = []
@@ -36,16 +27,14 @@ export class AddAnimalsPage implements OnInit {
   constructor(private router: Router) {
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      age: new FormControl('', [Validators.required, Validators.min(0)]),
+      postType: new FormControl('', [Validators.required]),
       species: new FormControl('', [Validators.required]),
-      breed: new FormControl('', [Validators.required]),
+      state: new FormControl('', [Validators.required]),
+      city: new FormControl('', [Validators.required, Validators.minLength(1)]),
+      place: new FormControl('', [Validators.required, Validators.minLength(1)]),
       images: new FormControl([]),
-      description: new FormControl(''),
-      noParasite: new FormControl(false),
-      chip: new FormControl(false),
-      vaccinated: new FormControl(false),
-      sterilized: new FormControl(false),
-      associationId: new FormControl(1) //TODO: cambiar por la asociación del usuario
+      description: new FormControl('', [Validators.required, Validators.minLength(1)]),
+      userId: new FormControl(1) //TODO: cambiar por la asociación del usuario
     })
   }
 
@@ -76,17 +65,15 @@ export class AddAnimalsPage implements OnInit {
 
   async addAnimal() {
 
-    if (this.form.value['name'] === "" || this.form.value['age'] === "" || this.form.value['species'] === "" || this.form.value['description'] === "") {
-      this.toastMessage = "adoptionMessages.fill"
-      this.setOpen(true);
-    } else if (this.form.value['age'] < 0 || this.form.value['age'] === "") {
-      this.toastMessage = "adoptionMessages.minAge"
-      this.setOpen(true);
-    } else if (this.imageUrls.length === 0) {
+   if (this.form.value['name'] === "" || this.form.value['species'] === "" || this.form.value['description'] === ""
+     || this.form.value['postType'] === "" || this.form.value['state'] === "" || this.form.value['city'] === "" || this.form.value['place'] === "") {
+      this.toastMessage = "formValidators.allRequired"
+      this.setOpen(true)
+    } else  if (this.imageUrls.length === 0) {
       this.toastMessage = "adoptionMessages.minImages"
-      this.setOpen(true);
+      this.setOpen(true)
     } else {
-
+      return
       if (this.form.value['breed'] === "") {
         this.form.value['breed'] = "unknown"
       }
@@ -146,8 +133,5 @@ export class AddAnimalsPage implements OnInit {
   }
 
   protected readonly Capacitor = Capacitor;
+
 }
-
-
-
-

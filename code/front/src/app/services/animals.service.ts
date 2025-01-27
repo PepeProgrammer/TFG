@@ -32,16 +32,20 @@ export class AnimalsService {
     return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/filters/${country}`, options))
   }
 
-  getAnimalByFilters(states: string, age: string, species: string, offset: number, range: number): Promise<any> {
+  getAnimalByFilters(states: string, species: string, offset: number, range: number, age: string = '', lost = false): Promise<any> {
     const options = {
       headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')
     }
     let url = "filters=1"
 
     url += (states !== "") ? `&states=${states}` : ""
-    url += (age !== "") ? `&age=${age}` : ""
     url += (species !== "") ? `&species=${species}` : ""
-    return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/animals?${url}&offset=${offset}&range=${range}`, options))
+    if(!lost){
+      url += (age !== "") ? `&age=${age}` : ""
+      return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/animals?${url}&offset=${offset}&range=${range}`, options))
+    } else {
+      return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/lost?${url}&offset=${offset}&range=${range}`, options))
+    }
   }
 
   async addAnimal(data: FormData): Promise<any> {

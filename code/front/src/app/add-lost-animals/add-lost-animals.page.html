@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>{{ "pageTitles.addAdoption" | translate }}</ion-title>
+    <ion-title>{{ "pageTitles.addLostAnimal" | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,18 +8,22 @@
 
   <form [formGroup]="form" enctype="multipart/form-data">
     <ion-item-group>
-      <ion-item shape="round">
-        <ion-input type="text" name="name" formControlName="name" label="{{ 'name' | translate }}:"
-                   label-placement="floating"></ion-input>
+      <ion-item>
+        <ion-select label="{{'filters.postType' | translate}}"
+                    label-placement="floating" formControlName="postType">
+          <ion-select-option value="found">{{ "lostOptions.found" | translate }}</ion-select-option>
+          <ion-select-option value="lost">{{ "lostOptions.lost" | translate }}</ion-select-option>
+        </ion-select>
       </ion-item>
 
-      <ion-item>
-        <ion-input type="number" name="age" formControlName="age" label="{{ 'age' | translate }}:"
+      <ion-item shape="round">
+        <ion-input type="text" name="name" formControlName="name" label="{{ 'name' | translate }}:"
                    label-placement="floating"></ion-input>
       </ion-item>
     </ion-item-group>
 
     <ion-item-group>
+
       <ion-item>
         <ion-select label="{{'filters.animal_species' | translate}}"
                     label-placement="floating" formControlName="species">
@@ -28,12 +32,30 @@
           }
         </ion-select>
       </ion-item>
+    </ion-item-group>
+
+    <ion-item-group>
+      <ion-item>
+        <ion-select label="{{'state' | translate}}"
+                    label-placement="floating" formControlName="state">
+          @for (species of species?.species; track species.id) {
+            <ion-select-option value="{{species.id}}">{{ species.name | translate }}</ion-select-option>
+          }
+        </ion-select>
+      </ion-item>
 
 
       <ion-item>
-        <ion-input type="text" name="breed" formControlName="breed" label="{{ 'breed' | translate }}:"
+        <ion-input type="text" name="city" formControlName="city" label="{{ 'city' | translate }}:"
                    label-placement="floating"></ion-input>
       </ion-item>
+
+      <ion-item>
+        <ion-input type="text" name="place" formControlName="place" label="{{ 'getZone' | translate }}:"
+                   label-placement="floating"></ion-input>
+      </ion-item>
+
+
     </ion-item-group>
 
     <ion-item>
@@ -51,7 +73,7 @@
       </ion-button>
     }
     @if (imageUrls.length > 0) {
-      <ion-item>
+    <ion-item>
         <div class="photos-container">
           @for (url of imageUrls; track url; let i = $index) {
             <div class="img-container">
@@ -60,24 +82,8 @@
             </div>
           }
         </div>
-
-      </ion-item>
+    </ion-item>
     }
-
-    <div class="checkers">
-      <ion-checkbox justify="start" label-placement="end"
-                    formControlName="noParasite">{{ 'checks.no_parasite' | translate }}
-      </ion-checkbox>
-      <ion-checkbox justify="start" label-placement="end" formControlName="chip">{{ 'checks.chip' | translate }}
-      </ion-checkbox>
-      <ion-checkbox justify="start" label-placement="end"
-                    formControlName="vaccinated">{{ 'checks.vaccinated' | translate }}
-      </ion-checkbox>
-      <ion-checkbox justify="start" label-placement="end"
-                    formControlName="sterilized">{{ 'checks.sterilized' | translate }}
-      </ion-checkbox>
-    </div>
-
     <ion-button (click)="addAnimal()" class="add">{{ "add_adoption" | translate }}</ion-button>
 
   </form>

@@ -9,7 +9,8 @@
       "adult": "adulto",
       "all": "todos"
     },
-    "animal_species": "Tipo de animal"
+    "animal_species": "Tipo de animal",
+    "postType": "Tipo de publicación"
   },
   "years": "años",
   "name": "nombre",
@@ -36,6 +37,24 @@
   "camera": {
     "fromGallery": "Desde la galería",
     "fromCamera": "Desde la cámara"
+  },
+  "noLostAnimals": "No se ha encontrado ningún animal perdido",
+  "pageTitles": {
+    "home": "Inicio",
+    "adoption": "Adopciones",
+    "adoption": "Adopciones",
+    "lostAnimals": "Animales perdidos",
+    "addAdoption": "Añadir adopción",
+    "addLostAnimal": "Añadir animal perdido"
+  },
+  "lostOptions": {
+    "lost": "Perdido",
+    "found": "Encontrado"
+  },
+  "getZone": "zona de recogida",
+  "city": "ciudad",
+  "formValidators": {
+    "allRequired": "Todos los campos son obligatorios"
   }
 
 }

@@ -12,16 +12,20 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'lost',
-    loadChildren: () => import('./lost/lost.module').then( m => m.LostPageModule)
-  },
-  {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
     path: 'add-animals',
     loadChildren: () => import('./add-animals/add-animals.module').then( m => m.AddAnimalsPageModule)
+  },
+  {
+    path: 'lost-animals',
+    loadChildren: () => import('./lost-animals/lost-animals.module').then( m => m.LostAnimalsPageModule)
+  },
+  {
+    path: 'add-lost-animals',
+    loadChildren: () => import('./add-lost-animals/add-lost-animals.module').then( m => m.AddLostAnimalsPageModule)
   },
 ];
 

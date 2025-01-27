@@ -61,13 +61,17 @@ ion-buttons {
 }
 
 ion-card {
-  text-align: left;
   border-radius: 20px;
+  text-align: left;
 }
 
 ion-card-subtitle {
   display: flex;
   justify-content: space-between;
+}
+
+.cards {
+  margin-bottom: 80px;
 }
 
 @media (min-width: 900px) {
