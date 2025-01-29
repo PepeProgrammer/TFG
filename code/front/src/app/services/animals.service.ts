@@ -5,7 +5,6 @@ import {Filter} from "../../types";
 import {getBaseUrl} from "../../../dbInfo";
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -40,7 +39,7 @@ export class AnimalsService {
 
     url += (states !== "") ? `&states=${states}` : ""
     url += (species !== "") ? `&species=${species}` : ""
-    if(!lost){
+    if (!lost) {
       url += (age !== "") ? `&age=${age}` : ""
       return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/animals?${url}&offset=${offset}&range=${range}`, options))
     } else {
@@ -48,7 +47,7 @@ export class AnimalsService {
     }
   }
 
-  async addAnimal(data: FormData): Promise<any> {
+  async addAnimal(data: FormData, lost = false): Promise<any> {
     const headers = new HttpHeaders().set('enctype', 'multipart/form-data')
     headers.set('Access-Control-Allow-Origin', '*')
     headers.set('Content-Type', 'application/json')
@@ -56,6 +55,9 @@ export class AnimalsService {
       headers: headers
     }
 
-    return firstValueFrom(this.httpClient.post(`${this.baseUrl}/api/animals`, data, options))
+    if (!lost) {
+      return firstValueFrom(this.httpClient.post(`${this.baseUrl}/api/animals`, data, options))
+    }
+    return firstValueFrom(this.httpClient.post(`${this.baseUrl}/api/lost`, data, options))
   }
 }

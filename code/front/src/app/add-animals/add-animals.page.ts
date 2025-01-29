@@ -1,10 +1,12 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject, OnInit, ViewChild} from '@angular/core';
 import {Camera, CameraResultType, CameraSource} from "@capacitor/camera";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AnimalsService} from "../services/animals.service";
 import {Filter} from "../../types";
 import {Router} from "@angular/router";
 import {Capacitor} from "@capacitor/core";
+import {ImageCroppedEvent, ImageCropperComponent, LoadedImage} from "ngx-image-cropper";
+import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 
 interface LocalFile {
   name: string
@@ -20,6 +22,7 @@ interface LocalFile {
 
 
 export class AddAnimalsPage implements OnInit {
+  @ViewChild('cropper') cropper: ImageCropperComponent | undefined;
 
   animalService = inject(AnimalsService)
 
@@ -33,7 +36,12 @@ export class AddAnimalsPage implements OnInit {
   isModalOpen: boolean = false
   toastMessage: string = ""
 
-  constructor(private router: Router) {
+  croppedImage: SafeUrl = '';
+
+  isMobile: boolean = Capacitor.getPlatform() !== 'web'
+  notCropImage: string | undefined = ""
+
+  constructor(private router: Router, private sanitizer: DomSanitizer) {
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       age: new FormControl('', [Validators.required, Validators.min(0)]),
@@ -50,7 +58,7 @@ export class AddAnimalsPage implements OnInit {
   }
 
   async ngOnInit() {
-    this.species = await this.animalService.getFilters(28)
+    this.species = await this.animalService.getFilters(28) //TODO: hacer que solo se traiga el filtro de especies y no el de estados
   }
 
 
@@ -68,7 +76,9 @@ export class AddAnimalsPage implements OnInit {
     })
 
     if (image) {
-      this.imageUrls.push(image.dataUrl)
+      // this.imageUrls.push(image.dataUrl)
+      this.notCropImage = image.dataUrl
+
     }
 
     this.isModalOpen = false
@@ -98,7 +108,7 @@ export class AddAnimalsPage implements OnInit {
       this.formData = new FormData() // con esto evitamos la duplicidad en los campos en caso de que haya sucedido un error en la subida de adopción
 
       if (response.success) {
-        this.router.navigate(['/home'])
+        await this.router.navigate(['/home'])
       } else {
         this.toastMessage = "adoptionMessages.error"
         this.setOpen(true);
@@ -143,6 +153,37 @@ export class AddAnimalsPage implements OnInit {
 
   setOpen(isOpen: boolean) {
     this.isToastOpen = isOpen;
+  }
+
+  imageCropped(event: ImageCroppedEvent) {
+    if (event.objectUrl != null) {
+      this.croppedImage = this.sanitizer.bypassSecurityTrustUrl(event.objectUrl);
+    }
+    // event.blob can be used to upload the cropped image
+  }
+
+  imageLoaded(image: LoadedImage) {
+    // show cropper
+  }
+
+  cropperReady() {
+    // cropper ready
+  }
+
+  loadImageFailed() {
+    console.log('Image load failed');
+  }
+
+  cropImage() {
+    if (this.cropper != null) {
+      const croppedImage = this.cropper.crop('base64')?.base64
+      this.imageUrls.push(croppedImage)
+      this.notCropImage = '' // reset the image
+    }
+  }
+
+  cancelCrop() {
+    this.notCropImage = ''
   }
 
   protected readonly Capacitor = Capacitor;

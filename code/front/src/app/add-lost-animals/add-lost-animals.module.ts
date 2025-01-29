@@ -8,16 +8,18 @@ import { AddLostAnimalsPageRoutingModule } from './add-lost-animals-routing.modu
 
 import { AddLostAnimalsPage } from './add-lost-animals.page';
 import {TranslatePipe} from "@ngx-translate/core";
+import {ImageCropperComponent} from "ngx-image-cropper";
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        IonicModule,
-        AddLostAnimalsPageRoutingModule,
-        ReactiveFormsModule,
-        TranslatePipe
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    AddLostAnimalsPageRoutingModule,
+    ReactiveFormsModule,
+    TranslatePipe,
+    ImageCropperComponent
+  ],
   declarations: [AddLostAnimalsPage]
 })
 export class AddLostAnimalsPageModule {}

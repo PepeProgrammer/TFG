@@ -42,17 +42,19 @@
   "pageTitles": {
     "home": "Inicio",
     "adoption": "Adopciones",
-    "adoption": "Adopciones",
     "lostAnimals": "Animales perdidos",
     "addAdoption": "Añadir adopción",
-    "addLostAnimal": "Añadir animal perdido"
+    "addLostAnimal": "Añadir animal perdido",
+    "cropImage": "Recortar imagen"
   },
   "lostOptions": {
     "lost": "Perdido",
     "found": "Encontrado"
   },
-  "getZone": "zona de recogida",
+  "pickZone": "zona de recogida",
+  "lostZone": "perdido en",
   "city": "ciudad",
+  "title": "título",
   "formValidators": {
     "allRequired": "Todos los campos son obligatorios"
   }

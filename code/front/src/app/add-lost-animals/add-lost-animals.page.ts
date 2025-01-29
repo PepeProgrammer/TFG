@@ -1,10 +1,13 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject, OnInit, ViewChild} from '@angular/core';
 import {AnimalsService} from "../services/animals.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Filter} from "../../types";
 import {Router} from "@angular/router";
 import {Camera, CameraResultType, CameraSource} from "@capacitor/camera";
 import {Capacitor} from "@capacitor/core";
+import 'hammerjs'
+import {ImageCropperComponent, ImageCroppedEvent, LoadedImage} from 'ngx-image-cropper';
+import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-add-lost-animals',
@@ -12,22 +15,28 @@ import {Capacitor} from "@capacitor/core";
   styleUrls: ['./add-lost-animals.page.scss'],
 })
 export class AddLostAnimalsPage implements OnInit {
+
+  @ViewChild('cropper') cropper: ImageCropperComponent | undefined;
   animalService = inject(AnimalsService)
 
   imageUrls: any[] = []
 
   form: FormGroup
   formData = new FormData()
-  species: Filter | undefined
+  filters: Filter | undefined
 
   isToastOpen: boolean = false
   isModalOpen: boolean = false
   toastMessage: string = ""
 
-  constructor(private router: Router) {
+  croppedImage: SafeUrl = '';
+
+  isMobile: boolean = Capacitor.getPlatform() !== 'web'
+  notCropImage: string | undefined = ""
+  constructor(private router: Router, private sanitizer: DomSanitizer) {
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      postType: new FormControl('', [Validators.required]),
+      postType: new FormControl('lost', [Validators.required]),
       species: new FormControl('', [Validators.required]),
       state: new FormControl('', [Validators.required]),
       city: new FormControl('', [Validators.required, Validators.minLength(1)]),
@@ -39,7 +48,8 @@ export class AddLostAnimalsPage implements OnInit {
   }
 
   async ngOnInit() {
-    this.species = await this.animalService.getFilters(28)
+    this.filters = await this.animalService.getFilters(28)
+    console.log(this.filters)
   }
 
 
@@ -56,8 +66,10 @@ export class AddLostAnimalsPage implements OnInit {
       source: mode === 'gallery' ? CameraSource.Photos : CameraSource.Camera
     })
 
+
     if (image) {
-      this.imageUrls.push(image.dataUrl)
+      this.notCropImage = image.dataUrl
+      //this.imageUrls.push(image.dataUrl)
     }
 
     this.isModalOpen = false
@@ -65,27 +77,24 @@ export class AddLostAnimalsPage implements OnInit {
 
   async addAnimal() {
 
-   if (this.form.value['name'] === "" || this.form.value['species'] === "" || this.form.value['description'] === ""
-     || this.form.value['postType'] === "" || this.form.value['state'] === "" || this.form.value['city'] === "" || this.form.value['place'] === "") {
+    if (this.form.value['name'].trim() === "" || this.form.value['filters'] === "" || this.form.value['description'].trim() === ""
+      || this.form.value['postType'] === "" || this.form.value['state'] === "" || this.form.value['city'].trim() === "" || this.form.value['place'].trim() === "") {
       this.toastMessage = "formValidators.allRequired"
       this.setOpen(true)
-    } else  if (this.imageUrls.length === 0) {
+    } else if (this.imageUrls.length === 0) {
       this.toastMessage = "adoptionMessages.minImages"
       this.setOpen(true)
     } else {
-      return
-      if (this.form.value['breed'] === "") {
-        this.form.value['breed'] = "unknown"
-      }
 
       this.dataURLtoFile(this.imageUrls, this.form.value['name'])
       this.addToFormData()
 
-      const response = await this.animalService.addAnimal(this.formData)
+      const response = await this.animalService.addAnimal(this.formData, true)
       this.formData = new FormData() // con esto evitamos la duplicidad en los campos en caso de que haya sucedido un error en la subida de adopción
 
       if (response.success) {
-        this.router.navigate(['/home'])
+        console.log(response)
+        await this.router.navigate(['/lost-animals'])
       } else {
         this.toastMessage = "adoptionMessages.error"
         this.setOpen(true);
@@ -117,19 +126,48 @@ export class AddLostAnimalsPage implements OnInit {
 
   addToFormData = () => {
     this.formData.append('name', this.form.value['name'].trim())
-    this.formData.append('age', this.form.value['age'])
+    this.formData.append('postType', this.form.value['postType'])
     this.formData.append('species', this.form.value['species'])
-    this.formData.append('breed', this.form.value['breed'].trim())
+    this.formData.append('state', this.form.value['state'])
+    this.formData.append('city', this.form.value['city'].trim())
+    this.formData.append('place', this.form.value['place'].trim())
     this.formData.append('description', this.form.value['description'].trim())
-    this.formData.append('noParasite', this.form.value['noParasite'])
-    this.formData.append('chip', this.form.value['chip'])
-    this.formData.append('vaccinated', this.form.value['vaccinated'])
-    this.formData.append('sterilized', this.form.value['sterilized'])
-    this.formData.append('associationId', this.form.value['associationId'])
+    this.formData.append('userId', this.form.value['userId'])
   }
 
   setOpen(isOpen: boolean) {
     this.isToastOpen = isOpen;
+  }
+
+  imageCropped(event: ImageCroppedEvent) {
+    if (event.objectUrl != null) {
+      this.croppedImage = this.sanitizer.bypassSecurityTrustUrl(event.objectUrl);
+    }
+    // event.blob can be used to upload the cropped image
+  }
+
+  imageLoaded(image: LoadedImage) {
+    // show cropper
+  }
+
+  cropperReady() {
+    // cropper ready
+  }
+
+  loadImageFailed() {
+    console.log('Image load failed');
+  }
+
+  cropImage() {
+    if (this.cropper != null) {
+      const croppedImage = this.cropper.crop('base64')?.base64
+      this.imageUrls.push(croppedImage)
+      this.notCropImage = '' // reset the image
+    }
+  }
+
+  cancelCrop() {
+    this.notCropImage = ''
   }
 
   protected readonly Capacitor = Capacitor;

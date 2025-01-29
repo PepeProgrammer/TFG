@@ -80,3 +80,7 @@ ion-modal {
 .add {
   margin-top: 20px;
 }
+
+image-cropper {
+  --cropper-overlay-color: var(--ion-background-color);
+}
