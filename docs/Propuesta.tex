@@ -364,6 +364,7 @@ En la parte del cliente básicamente se ha creado la pantalla de vista de animal
 
 \Large{\textbf{HU.2 - Poner animales en adopción}}
 
+
 En esta historia nos encargamos de de la subida de animales en adopción a la plataforma para que los distintos usuarios los puedan visualizar. \\
 
 \textbf{Bocetos}
@@ -560,7 +561,7 @@ Por último se han creado también funciones para la obtención de imágenes que
 
 \Large{\textbf{HU.3 - Ver lista de animales perdidos}} \\
 
-En esta historia nos encargamos de la visualización de las publicaciones sobre animales perdidos que hayn subido los distintos usuarios filtrando como en la HU.1~\pageref{sec:hu1} por diversos filtros para hacer más eficiente la búsqueda.
+En esta historia nos encargamos de la visualización de las publicaciones sobre animales perdidos que hayan subido los distintos usuarios filtrando como en la HU.1~\pageref{sec:hu1} por diversos filtros para hacer más eficiente la búsqueda.
 
 \textbf{Bocetos}
 
@@ -571,19 +572,19 @@ En esta historia nos encargamos de la visualización de las publicaciones sobre 
 	\label{fig:listaperdidos}
 \end{figure}
 
-Como podemos ver la estructura es la misma que vimos en la página de lista de adopciones, est genera una cohesión en el diseño de la aplicación, haciéndola más intuitiva para el usuario final.
+Como podemos ver la estructura es la misma que vimos en la página de lista de adopciones, ésta genera una cohesión en el diseño de la aplicación, haciéndola más intuitiva para el usuario final.
 
 La única diferencia es que en este caso solo hay un único botón de acción que nos llevará a un chat con la persona que ha publicado el anuncio para poder obtener más información o para dar información sobre la perdida de la mascota.
 
 \textbf{Implementación}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{"sprint 2/hu3/disenoFinal"}
 	\caption{Vista final de la página que muestra la lista de animales perdidos en móviles}
 	\label{fig:listaAdop}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{"sprint 2/hu3/disenoFinalWeb"}
 	\caption{Vista final de la página que lista a los animales perdidos en web}
@@ -595,7 +596,57 @@ Como podemos apreciar no hay una gran diferencia entre el boceto y la implementa
 \textbf{Detalles de implementación} \\ \\
 En cuanto a la parte del servidor hemos tenido que crear dos tablas nuevas, una para los anuncios y otra para las imágenes de las mismas.\\
 
-Además también se han creado funciones para el acceso a dichas tablas para su correcto tratamiento y envío a la aplicación móvil para que se muestren correctamente en el formato deseado. Para los filtros se ha reutilizado la mayor parte del código de la HU.1 por lo que eso ha permitido hacer más rápido el desarrollo de esta historia.
+Además también se han creado funciones para el acceso a dichas tablas para su correcto tratamiento y envío a la aplicación móvil para que se muestren correctamente en el formato deseado. Para los filtros se ha reutilizado la mayor parte del código de la HU.1 por lo que eso ha permitido hacer más rápido el desarrollo de esta historia.\\ \\
+
+\Large{\textbf{HU.4 - Poner aviso de animal perdido encontrado}}
+
+En esta historia nos vamos a encargar de las tareas relacionadas con el añadido de posts a la sección de mascotas perdidas, para ello deberán rellenar un formulario con distinta información del animal.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.31\linewidth]{"sprint 2/hu4/postearPerdido"}
+	\caption{Boceto de la página para añadir publicaciones de animales perdidos}
+	\label{fig:postearperdido}
+\end{figure}
+
+Como podemos ver a diferencia de la página en la que las asociaciones pueden añadir animales a su perfil en esta tenemos información diferente:
+
+\begin{itemize}
+	\item \textbf{Tipo de publicación}: Para este apartado tenemos 2 opciones puede que hayamos encontrado un animal en la calle y lo publiquemos en la aplicación para buscar a su dueño (Encontrado) o por el contrario, hemos perdido a nuestra mascota y queremos encontrarla, en este caso sería una publicación del tipo perdido. \\ 
+	
+	\item \textbf{Campos de ubicación}: Éstos los usaremos para el lugar en el que lo hemos perdido o encontrado al animal en cuestión, además ayudarán a la posterior búsqueda de los mismos gracias a la utilización de los filtros en la página de lista de animales perdidos. \\
+	 
+\end{itemize}
+
+\textbf{Implementación}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"sprint 2/hu4/impPerdidos"}
+	\caption{Vista final de la página para añadir animales perdidos en móviles}
+	\label{fig:impperdidos}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{"sprint 2/hu4/impPerdidosWeb"}
+	\caption{Vista final de la página para añadir animales perdidos en web}
+	\label{fig:impperdidosweb}
+\end{figure}
+
+Como podemos ver en la implentación para móviles en función del tipo de publicación que sea la información que rellena el usuario es ligeramente diferente ya que por ejemplo alguien que haya encontrado un perro perdido no va a saber su nombre como si lo haría el dueño del animal. El otro campo es la zona de desaparición  para el caso de perder a tu mascota, que sería el lugar de de recogida para el que lo encuentre. \\
+
+Además en esta historia cabe destacar de que se soluciona un problema existente en las imágenes, ahora todas deben tener el mismo ratio de escala, para así cuando se vizualicen todas las publicaciones tengan el mismo tamaño, haciendo del diseño algo más consistente.\\
+
+\textbf{Detalles de implementación}
+
+En cuanto a la base de datos gracias a la historia anterior no debemos añadir ninguna tabla más. Por otra parte hemos creado un endpoint del tipo \textit{POST} para añadir publicaciones a la base de datos. \\
+
+Tabién hemos creado una función para añadir la publicación y para agregar las imágenes hemos reutilizado la creada en la adición de animales en adopción, coun unos pequeños cambios, como cambiar la ruta de almacenaje de las imágenes. \\ 
+
+En el frontend hemos añadido la biblioteca \textit{ngx-image-cropper} la cual nos permite recortar las imágenes con un ratio determinado como se ha mencionado anteriormente, lo que ha acelerado el desarrollo de la historia. El funcionamiento es sencillo, cada vez que subimos una imágen se nos pedirá que la recortemos con la proporción adecuada pudiendo mover el selector por la image y haciendola más grande o más pequeña en función de nuestras necesidades.
+
+
 
 
 
