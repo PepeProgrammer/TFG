@@ -14,9 +14,15 @@
   },
   "years": "años",
   "name": "nombre",
+  "lastName": "apellidos",
+  "mail": "correo electrónico",
+  "password": "contraseña",
+  "confirmPassword": "confirmar contraseña",
+  "username": "nombre de usuario",
   "age": "edad",
   "breed": "raza",
   "state": "provincia",
+  "country": "país",
   "description": "descripción",
   "add_image": "Añadir imagen",
   "checks": {
@@ -45,7 +51,8 @@
     "lostAnimals": "Animales perdidos",
     "addAdoption": "Añadir adopción",
     "addLostAnimal": "Añadir animal perdido",
-    "cropImage": "Recortar imagen"
+    "cropImage": "Recortar imagen",
+    "register": "Registrarse"
   },
   "lostOptions": {
     "lost": "Perdido",

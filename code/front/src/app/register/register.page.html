@@ -1,0 +1,139 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ "pageTitles.register" | translate }}</ion-title>
+    <ion-buttons slot="end">
+      @if (notCropImage) {
+        <ion-button (click)="cancelCrop()">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+        <ion-button (click)="cropImage()">
+          <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+        </ion-button>
+      }
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  @if (!notCropImage) {
+    <form [formGroup]="form" enctype="multipart/form-data">
+      <ion-item-group>
+
+        <ion-item>
+          <ion-input type="text" name="name" formControlName="name" label="{{ 'name' | translate }}:"
+                     label-placement="floating"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="text" name="lastName" formControlName="lastname" label="{{ 'lastname' | translate }}:"
+                     label-placement="floating"></ion-input>
+        </ion-item>
+
+      </ion-item-group>
+
+      <ion-item-group>
+        <ion-item>
+          <ion-select label="{{'country' | translate | titlecase}}"
+                      label-placement="floating" formControlName="country">
+            <ion-select-option value="1">Opción 1</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-select label="{{'state' | translate | titlecase}}"
+                      label-placement="floating" formControlName="state">
+            <ion-select-option value="1">Opción 1</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-item-group>
+      <ion-item-group>
+
+        <ion-item>
+          <ion-input type="text" name="username" formControlName="username"
+                     label="{{ 'username' | translate | titlecase }}:"
+                     label-placement="floating"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="text" name="mail" formControlName="mail" label="{{ 'mail' | translate | titlecase}}:"
+                     label-placement="floating"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="password" name="password" formControlName="password"
+                     label="{{ 'password' | translate | titlecase}}:"
+                     label-placement="floating"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="password" name="confirmPassword" formControlName="confirmPassword"
+                     label="{{ 'confirmPassword' | translate | titlecase}}:"
+                     label-placement="floating"></ion-input>
+        </ion-item>
+
+      </ion-item-group>
+
+      <ion-item-group>
+
+        <ion-label type="floating">Foto de perfil</ion-label>
+        <ion-item>
+          <div class="photos-container">
+            <div class="img-container">
+              @if (!Capacitor.isNativePlatform()) {
+                @if (imageUrl === '') {
+                  <img src="assets/icon/defaultUser.png" id="profile_image" (click)="selectImage()"/>
+                } @else {
+                  <img [src]="imageUrl" id="profile_image" (click)="selectImage()"/>
+                  <img src="assets/icon/remove.png" class="delete" (click)="deleteImage()"/>
+                }
+              } @else {
+                @if (imageUrl === '') {
+                  <img src="assets/icon/defaultUser.png" id="profile_image" (click)="isModalOpen = true"/>
+                } @else {
+                  <img [src]="imageUrl" id="profile_image" (click)="isModalOpen = true"/>
+                  <img src="assets/icon/remove.png" class="delete" (click)="deleteImage()"/>
+                }
+              }
+
+            </div>
+          </div>
+        </ion-item>
+
+      </ion-item-group>
+
+      @if (Capacitor.isNativePlatform()) {
+        <!--Comprobamos si estamos en un dispositivo nativo para mostrar el modal -->
+        <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]" class="modal" [isOpen]="isModalOpen">
+          <ng-template>
+            <ion-button (click)="selectImage('gallery')">{{ 'camera.fromGallery' | translate }}</ion-button>
+            <ion-button (click)="selectImage('camera')">{{ 'camera.fromCamera' | translate }}</ion-button>
+          </ng-template>
+        </ion-modal>
+      }
+
+
+<!--      <ion-toast-->
+<!--        [isOpen]="isToastOpen"-->
+<!--        message="{{ toastMessage | translate}}"-->
+<!--        [duration]="5000"-->
+<!--        (didDismiss)="setOpen(false)"-->
+<!--      ></ion-toast>-->
+    </form>
+  }
+
+  <image-cropper
+    #cropper
+    [imageBase64]="notCropImage"
+    [maintainAspectRatio]="true"
+    [roundCropper] = "true"
+    [hideResizeSquares]="isMobile"
+    [hidden]="notCropImage === ''"
+    [aspectRatio]="1 / 1"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded($event)"
+    (cropperReady)="cropperReady()"
+    (loadImageFailed)="loadImageFailed()"
+
+  ></image-cropper>
+</ion-content>
