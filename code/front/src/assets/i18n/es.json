@@ -14,7 +14,7 @@
   },
   "years": "años",
   "name": "nombre",
-  "lastName": "apellidos",
+  "lastname": "apellidos",
   "mail": "correo electrónico",
   "password": "contraseña",
   "confirmPassword": "confirmar contraseña",
@@ -64,6 +64,11 @@
   "title": "título",
   "formValidators": {
     "allRequired": "Todos los campos son obligatorios"
+  },
+  "register": {
+    "minLength": "La contraseña debe tener al menos 8 caracteres",
+    "noMatch": "Las contraseñas no coinciden",
+    "usernameTaken": "El nombre de usuario ya está en uso"
   }
 
 }

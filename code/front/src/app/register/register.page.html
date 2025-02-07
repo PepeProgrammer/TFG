@@ -1,16 +1,19 @@
+<script src="register.page.ts"></script>
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>{{ "pageTitles.register" | translate }}</ion-title>
-    <ion-buttons slot="end">
-      @if (notCropImage) {
+    @if (!notCropImage) {
+      <ion-title>{{ "pageTitles.register" | translate }}</ion-title>
+    } @else {
+      <ion-title>{{ "pageTitles.cropImage" | translate }}</ion-title>
+      <ion-buttons slot="end">
         <ion-button (click)="cancelCrop()">
           <ion-icon slot="icon-only" name="close"></ion-icon>
         </ion-button>
         <ion-button (click)="cropImage()">
           <ion-icon slot="icon-only" name="checkmark"></ion-icon>
         </ion-button>
-      }
-    </ion-buttons>
+      </ion-buttons>
+    }
   </ion-toolbar>
 </ion-header>
 
@@ -20,12 +23,12 @@
       <ion-item-group>
 
         <ion-item>
-          <ion-input type="text" name="name" formControlName="name" label="{{ 'name' | translate }}:"
+          <ion-input type="text" name="name" formControlName="name" label="{{ 'name' | translate | titlecase }}:"
                      label-placement="floating"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-input type="text" name="lastName" formControlName="lastname" label="{{ 'lastname' | translate }}:"
+          <ion-input type="text" name="lastname" formControlName="lastname" label="{{ 'lastname' | translate | titlecase }}:"
                      label-placement="floating"></ion-input>
         </ion-item>
 
@@ -48,14 +51,16 @@
       </ion-item-group>
       <ion-item-group>
 
-        <ion-item>
+        <ion-item id="username">
           <ion-input type="text" name="username" formControlName="username"
                      label="{{ 'username' | translate | titlecase }}:"
-                     label-placement="floating"></ion-input>
+                     label-placement="floating" (ionBlur)="checkUsername()" ></ion-input>
         </ion-item>
-
+        @if(usernameText) {
+          <span class="error">{{ usernameText | translate }}</span>
+        }
         <ion-item>
-          <ion-input type="text" name="mail" formControlName="mail" label="{{ 'mail' | translate | titlecase}}:"
+          <ion-input type="text" name="email" formControlName="email" label="{{ 'email' | translate | titlecase}}:"
                      label-placement="floating"></ion-input>
         </ion-item>
 
@@ -70,7 +75,9 @@
                      label="{{ 'confirmPassword' | translate | titlecase}}:"
                      label-placement="floating"></ion-input>
         </ion-item>
-
+        @if(passText) {
+          <span class="error">{{ passText | translate }}</span>
+        }
       </ion-item-group>
 
       <ion-item-group>
@@ -103,7 +110,8 @@
 
       @if (Capacitor.isNativePlatform()) {
         <!--Comprobamos si estamos en un dispositivo nativo para mostrar el modal -->
-        <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]" class="modal" [isOpen]="isModalOpen">
+        <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]" class="modal"
+                   [isOpen]="isModalOpen">
           <ng-template>
             <ion-button (click)="selectImage('gallery')">{{ 'camera.fromGallery' | translate }}</ion-button>
             <ion-button (click)="selectImage('camera')">{{ 'camera.fromCamera' | translate }}</ion-button>
@@ -112,28 +120,30 @@
       }
 
 
-<!--      <ion-toast-->
-<!--        [isOpen]="isToastOpen"-->
-<!--        message="{{ toastMessage | translate}}"-->
-<!--        [duration]="5000"-->
-<!--        (didDismiss)="setOpen(false)"-->
-<!--      ></ion-toast>-->
+      <!--      <ion-toast-->
+      <!--        [isOpen]="isToastOpen"-->
+      <!--        message="{{ toastMessage | translate}}"-->
+      <!--        [duration]="5000"-->
+      <!--        (didDismiss)="setOpen(false)"-->
+      <!--      ></ion-toast>-->
     </form>
+  } @else {
+    <image-cropper
+      #cropper
+      [imageBase64]="notCropImage"
+      [maintainAspectRatio]="true"
+      [roundCropper]="true"
+      [hideResizeSquares]="isMobile"
+      [hidden]="notCropImage === ''"
+      [aspectRatio]="1 / 1"
+      format="png"
+      (imageCropped)="imageCropped($event)"
+      (imageLoaded)="imageLoaded($event)"
+      (cropperReady)="cropperReady()"
+      (loadImageFailed)="loadImageFailed()"
+
+    ></image-cropper>
   }
 
-  <image-cropper
-    #cropper
-    [imageBase64]="notCropImage"
-    [maintainAspectRatio]="true"
-    [roundCropper] = "true"
-    [hideResizeSquares]="isMobile"
-    [hidden]="notCropImage === ''"
-    [aspectRatio]="1 / 1"
-    format="png"
-    (imageCropped)="imageCropped($event)"
-    (imageLoaded)="imageLoaded($event)"
-    (cropperReady)="cropperReady()"
-    (loadImageFailed)="loadImageFailed()"
 
-  ></image-cropper>
 </ion-content>

@@ -83,4 +83,13 @@ form {
   width: 100%;
 }
 
+.error {
+  background: var(--ion-item-background);
+  color: red;
+  font-size: small;
+  width: 100%;
+  display: block;
+  padding-left: 15px;
+}
+
 

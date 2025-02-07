@@ -1,9 +1,19 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormGroup} from "@angular/forms";
+import {Component, inject, OnInit, ViewChild} from '@angular/core';
+import {
+  AbstractControl,
+  AsyncValidatorFn,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators
+} from "@angular/forms";
 import {Capacitor} from "@capacitor/core";
 import {Camera, CameraResultType, CameraSource} from "@capacitor/camera";
 import {ImageCroppedEvent, ImageCropperComponent, LoadedImage} from "ngx-image-cropper";
 import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
+import {Observable, of} from "rxjs";
+import {UsersService} from "../services/users.service";
 
 @Component({
   selector: 'app-register',
@@ -12,15 +22,27 @@ import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 })
 export class RegisterPage implements OnInit {
   @ViewChild('cropper') cropper: ImageCropperComponent | undefined;
-
+  userService = inject(UsersService)
   notCropImage: string | undefined;
   form: FormGroup
   imageUrl: string | null | undefined
   isModalOpen: boolean;
   isMobile: boolean = Capacitor.getPlatform() !== 'web'
   private croppedImage: SafeUrl | undefined;
+  passText: string | undefined
+  usernameText: string | undefined
+
   constructor(private sanitizer: DomSanitizer) {
-    this.form = new FormGroup({ })
+    this.form = new FormGroup({
+      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      lastname: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      username: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)], this.checkPassword()),
+      country: new FormControl('', [Validators.required]),
+      state: new FormControl('', [Validators.required])
+    })
     this.imageUrl = ''
     this.isModalOpen = false
   }
@@ -81,5 +103,34 @@ export class RegisterPage implements OnInit {
   cancelCrop() {
     this.notCropImage = ''
   }
+
+  checkPassword(): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      const passConfirm = control.value
+
+      const pass = this.form.value['password']
+      if (pass !== passConfirm) {
+        this.passText = 'register.noMatch'
+        return of({notSamePass: true})
+      }
+      this.passText = ''
+      return of(null)
+
+    }
+  }
+
+  async checkUsername() {
+    const username = this.form.value['username']
+
+    const response: any = await this.userService.getByUsername(username)
+    console.log(response)
+    if (!response.success) {
+      this.usernameText = 'register.usernameTaken'
+      return true
+    }
+    this.usernameText = ''
+    return false;
+  }
+
   protected readonly Capacitor = Capacitor;
 }
