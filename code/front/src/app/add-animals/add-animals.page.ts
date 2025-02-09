@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
 import {Capacitor} from "@capacitor/core";
 import {ImageCroppedEvent, ImageCropperComponent, LoadedImage} from "ngx-image-cropper";
 import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
+import {PhotoService} from "../services/photo.service";
 
 interface LocalFile {
   name: string
@@ -25,6 +26,7 @@ export class AddAnimalsPage implements OnInit {
   @ViewChild('cropper') cropper: ImageCropperComponent | undefined;
 
   animalService = inject(AnimalsService)
+  photoService = inject(PhotoService)
 
   imageUrls: any[] = []
 
@@ -101,7 +103,11 @@ export class AddAnimalsPage implements OnInit {
         this.form.value['breed'] = "unknown"
       }
 
-      this.dataURLtoFile(this.imageUrls, this.form.value['name'])
+
+      const file = this.photoService.dataURLtoFile(this.imageUrls, this.form.value['name'])
+      if (file !== undefined) {
+        this.formData.append('files', file)
+      }
       this.addToFormData()
 
       const response = await this.animalService.addAnimal(this.formData)
@@ -115,26 +121,6 @@ export class AddAnimalsPage implements OnInit {
       }
     }
 
-
-  }
-
-
-  dataURLtoFile = (images: string[], animalName: string) => {
-    const files: File[] = []
-    for (const image of images) {
-      const arr = image.split(',')
-
-      // @ts-ignore
-      const mime = arr[0].match(/:(.*?);/)[1]
-      const bstr = atob(arr[1])
-      let n = bstr.length
-      const u8arr = new Uint8Array(n)
-      while (n) {
-        u8arr[n - 1] = bstr.charCodeAt(n - 1)
-        n -= 1 // to make eslint happy
-      }
-      this.formData.append('files', new File([u8arr], `${new Date().getTime()}_${animalName}.jpg`, {type: mime}))
-    }
 
   }
 

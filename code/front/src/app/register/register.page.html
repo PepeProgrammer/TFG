@@ -34,27 +34,32 @@
 
       </ion-item-group>
 
-      <ion-item-group>
-        <ion-item>
-          <ion-select label="{{'country' | translate | titlecase}}"
-                      label-placement="floating" formControlName="country">
-            <ion-select-option value="1">Opción 1</ion-select-option>
-          </ion-select>
-        </ion-item>
+        <ion-item-group>
+          <ion-item>
+            <ion-select label="{{'country' | translate | titlecase}}"
+                        label-placement="floating" formControlName="country" [value]="locationInfo.country.id" (ionChange)="changeStates()">
+              @for (country of locationInfo.countries; track country.id) {
+                <ion-select-option [value]="country.id">{{ country.name }}</ion-select-option>
+              }
+            </ion-select>
+          </ion-item>
 
-        <ion-item>
-          <ion-select label="{{'state' | translate | titlecase}}"
-                      label-placement="floating" formControlName="state">
-            <ion-select-option value="1">Opción 1</ion-select-option>
-          </ion-select>
-        </ion-item>
-      </ion-item-group>
+          <ion-item>
+            <ion-select label="{{'state' | translate | titlecase}}"
+                        label-placement="floating" formControlName="state" [value]="locationInfo.state.id">
+              @for (state of locationInfo.states; track state.id) {
+                <ion-select-option [value]="state.id">{{ state.name }}</ion-select-option>
+              }
+            </ion-select>
+          </ion-item>
+        </ion-item-group>
+
       <ion-item-group>
 
         <ion-item id="username">
           <ion-input type="text" name="username" formControlName="username"
                      label="{{ 'username' | translate | titlecase }}:"
-                     label-placement="floating" (ionBlur)="checkUsername()" ></ion-input>
+                     label-placement="floating" (ionBlur)="checkUsernameAndEmail()" ></ion-input>
         </ion-item>
         @if(usernameText) {
           <span class="error">{{ usernameText | translate }}</span>
@@ -63,7 +68,9 @@
           <ion-input type="text" name="email" formControlName="email" label="{{ 'email' | translate | titlecase}}:"
                      label-placement="floating"></ion-input>
         </ion-item>
-
+        @if(emailText) {
+          <span class="error">{{ emailText | translate }}</span>
+        }
         <ion-item>
           <ion-input type="password" name="password" formControlName="password"
                      label="{{ 'password' | translate | titlecase}}:"
@@ -119,13 +126,14 @@
         </ion-modal>
       }
 
+      <ion-button (click)="addUser()" class="add">{{ "createAccount" | translate }}</ion-button>
 
-      <!--      <ion-toast-->
-      <!--        [isOpen]="isToastOpen"-->
-      <!--        message="{{ toastMessage | translate}}"-->
-      <!--        [duration]="5000"-->
-      <!--        (didDismiss)="setOpen(false)"-->
-      <!--      ></ion-toast>-->
+            <ion-toast
+              [isOpen]="isToastOpen"
+              message="{{ toastMessage | translate}}"
+              [duration]="5000"
+              (didDismiss)="setOpen(false)"
+            ></ion-toast>
     </form>
   } @else {
     <image-cropper

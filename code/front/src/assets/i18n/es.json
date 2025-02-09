@@ -68,7 +68,14 @@
   "register": {
     "minLength": "La contraseña debe tener al menos 8 caracteres",
     "noMatch": "Las contraseñas no coinciden",
-    "usernameTaken": "El nombre de usuario ya está en uso"
-  }
+    "usernameTaken": "El nombre de usuario ya está en uso",
+    "emailTaken": "El correo electrónico ya está en uso",
+    "nameLength": "El nombre debe tener entre mínimo 3 caracteres",
+    "lastnameLength": "El apellido debe tener entre mínimo 3 caracteres",
+    "emailInvalid": "El correo electrónico no es válido",
+    "emptyFields": "Todos los campos de texto deben estar cubiertos",
+    "passwordLength": "La contraseña debe tener al menos 6 caracteres"
+  },
+  "createAccount": "Crear cuenta"
 
 }

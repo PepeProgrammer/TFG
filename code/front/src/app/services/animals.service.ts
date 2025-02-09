@@ -10,7 +10,7 @@ import {getBaseUrl} from "../../../dbInfo";
 })
 export class AnimalsService {
   baseUrl: string = ""
-  httpClient = inject(HttpClient)
+    httpClient = inject(HttpClient)
 
   constructor() {
     this.baseUrl = getBaseUrl()
