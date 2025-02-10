@@ -9,7 +9,7 @@ export  interface User {
   profile_image: string,
   take_ins?: boolean,
   sponsors?: boolean,
-  state?: number,
+  state: number,
 }
 export const castToUser = (data: any): User => {
 

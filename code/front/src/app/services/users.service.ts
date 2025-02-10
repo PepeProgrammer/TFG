@@ -2,7 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {getBaseUrl} from "../../../dbInfo";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
-import {castToUser} from "../parsers/users";
+import {castToUser} from "../middleware/users";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class UsersService {
     this.baseUrl = getBaseUrl()
   }
 
-  checkUsernameEmail(username:string, email:string) {
+  checkUsernameEmail(username: string, email: string) {
     const options = {
       headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')
     }

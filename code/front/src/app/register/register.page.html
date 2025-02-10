@@ -59,7 +59,7 @@
         <ion-item id="username">
           <ion-input type="text" name="username" formControlName="username"
                      label="{{ 'username' | translate | titlecase }}:"
-                     label-placement="floating" (ionBlur)="checkUsernameAndEmail()" ></ion-input>
+                     label-placement="floating" ></ion-input>
         </ion-item>
         @if(usernameText) {
           <span class="error">{{ usernameText | translate }}</span>

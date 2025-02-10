@@ -4,7 +4,7 @@ import * as opencage from 'opencage-api-client'
 import {getBaseUrl} from "../../../dbInfo";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
-import {castToCountry, castToLocation, castToStates} from "../parsers/location";
+import {castToCountry, castToLocation, castToStates} from "../middleware/location";
 
 @Injectable({
   providedIn: 'root'

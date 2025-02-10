@@ -18,6 +18,7 @@ import {GeolocationService} from "../services/geolocation.service";
 import {LocationInfo} from "../../types";
 import {PhotoService} from "../services/photo.service";
 import {image} from "ionicons/icons";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -46,7 +47,7 @@ export class RegisterPage implements OnInit {
   formData = new FormData()
 
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private sanitizer: DomSanitizer, private router: Router) {
     this.locationInfo = {countries: [], country: {id: 0, name: ''}, state: {id: 0, name: '', countryId: 0}, states: []}
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -55,8 +56,8 @@ export class RegisterPage implements OnInit {
       username: new FormControl('', [Validators.required, Validators.minLength(3)]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)], this.checkPassword()),
-      country: new FormControl(this.locationInfo.country.id, [Validators.required]),
-      state: new FormControl(this.locationInfo.state.id, [Validators.required]),
+      country: new FormControl('', [Validators.required]),
+      state: new FormControl('', [Validators.required]),
       type: new FormControl('standard')
     })
     this.imageUrl = ''
@@ -68,6 +69,9 @@ export class RegisterPage implements OnInit {
     const state: string = await this.geolocationService.getStateByCoordinates()
     if(state !== '') {
       this.locationInfo = await this.geolocationService.getLocationInfo(state)
+      this.form.setControl('country', new FormControl(this.locationInfo.country.id, [Validators.required]))
+      this.form.setControl('state', new FormControl(this.locationInfo.state.id, [Validators.required])) // Con setControl sustituimos el control que ya existía por uno nuevo para que al enviar la provincia en
+                                                                                                        // caso de que no se modifique la de la ubicación actual no de error
     } else {
       this.locationInfo.countries = await this.geolocationService.getCountries()
     }
@@ -163,6 +167,8 @@ export class RegisterPage implements OnInit {
       this.emailText = ''
     }
 
+    console.log('SECCESS: ', success)
+
     return success;
   }
 
@@ -195,22 +201,36 @@ export class RegisterPage implements OnInit {
       return false
     }
 
-
-    if (!await this.checkUsernameAndEmail()) {
+    const checkTest = await this.checkUsernameAndEmail()
+    if (!checkTest) {
       return false
     }
 
     // Add user to database
-    if(typeof this.imageUrl === 'string') {
+    if(typeof this.imageUrl === 'string' && this.imageUrl !== '') {
       const file = this.photoService.dataURLtoFile([this.imageUrl], this.form.value['name'])
       if (file !== undefined) {
         this.formData.append('files', file)
       }
-      this.addToFormData()
-
-
-      return true
     }
+      this.addToFormData()
+      console.log('VA A HACER LA PETICION')
+      const user = this.userService.addUser(this.formData)
+      if (user) {
+        console.log(user)
+        this.formData = new FormData() //Reiniciamos el form data para evitar duplicidad si le volvemos a dar al botón de registro
+        //TODO ver que hacer con el usuario devuelto, como hacer para que el usuario se mantenga logueado
+        await this.router.navigate(['/home'])
+        return true
+
+      } else {
+        this.toastMessage = 'error'
+        this.isToastOpen = true
+      }
+
+
+
+
 
     return false
   }
@@ -233,7 +253,6 @@ export class RegisterPage implements OnInit {
     this.formData.append('email', this.form.value['email'].trim())
     this.formData.append('username', this.form.value['username'].trim())
     this.formData.append('password', this.form.value['password'])
-    this.formData.append('country', this.form.value['country'])
     this.formData.append('state', this.form.value['state'])
     this.formData.append('type', this.form.value['type'])
   }

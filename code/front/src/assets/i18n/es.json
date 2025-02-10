@@ -76,6 +76,7 @@
     "emptyFields": "Todos los campos de texto deben estar cubiertos",
     "passwordLength": "La contraseña debe tener al menos 6 caracteres"
   },
+  "error": "Ha ocurrido un error",
   "createAccount": "Crear cuenta"
 
 }
