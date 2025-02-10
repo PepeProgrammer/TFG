@@ -5,6 +5,8 @@ import {getBaseUrl} from "../../../dbInfo";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
 import {castToCountry, castToLocation, castToStates} from "../middleware/location";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {LocationInfo} from "../../types";
 
 @Injectable({
   providedIn: 'root'
@@ -58,4 +60,34 @@ export class GeolocationService {
     const states = await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/states/${country}`, options))
     return castToStates(states)
   }
+
+  async getCountryStatesByStateName(state: string) {
+    const options = {
+      headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')
+    }
+
+    const states = await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/states?name=${state}`, options))
+    return castToStates(states)
+  }
+
+  async checkPermission() {
+    return await Geolocation.checkPermissions()
+  }
+
+
+  async fillLocationData(locationInfo: LocationInfo) {
+    const permissions = await Geolocation.checkPermissions()
+    if (permissions.location === 'granted') { // Si tenemos permisos de geolocalización
+      const state: string = await this.getStateByCoordinates()
+      if (state !== '') {
+        locationInfo = await this.getLocationInfo(state)
+      } else {
+        locationInfo.countries = await this.getCountries()
+      }
+    } else {
+      locationInfo.countries = await this.getCountries()
+    }
+    return locationInfo
+  }
 }
+

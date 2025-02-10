@@ -56,10 +56,19 @@
 
       <ion-item-group>
         <ion-item>
-          <ion-select label="{{'state' | translate}}"
-                      label-placement="floating" formControlName="state">
-            @for (state of filters?.states; track state.id) {
-              <ion-select-option value="{{state.id}}">{{ state.name | translate }}</ion-select-option>
+          <ion-select label="{{'country' | translate | titlecase}}"
+                      label-placement="floating" formControlName="country" [value]="locationInfo.country.id" (ionChange)="changeStates()">
+            @for (country of locationInfo.countries; track country.id) {
+              <ion-select-option [value]="country.id">{{ country.name }}</ion-select-option>
+            }
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-select label="{{'state' | translate | titlecase}}"
+                      label-placement="floating" formControlName="state" [value]="locationInfo.state.id">
+            @for (state of locationInfo.states; track state.id) {
+              <ion-select-option [value]="state.id">{{ state.name }}</ion-select-option>
             }
           </ion-select>
         </ion-item>

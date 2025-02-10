@@ -66,14 +66,10 @@ export class RegisterPage implements OnInit {
 
   async ngOnInit() {
     console.log("Register page")
-    const state: string = await this.geolocationService.getStateByCoordinates()
-    if(state !== '') {
-      this.locationInfo = await this.geolocationService.getLocationInfo(state)
+    this.locationInfo = await this.geolocationService.fillLocationData(this.locationInfo)
+    if(this.locationInfo.state.id !== 0){ // Si se ha podido obtener la ubicación actual del usuario
       this.form.setControl('country', new FormControl(this.locationInfo.country.id, [Validators.required]))
-      this.form.setControl('state', new FormControl(this.locationInfo.state.id, [Validators.required])) // Con setControl sustituimos el control que ya existía por uno nuevo para que al enviar la provincia en
-                                                                                                        // caso de que no se modifique la de la ubicación actual no de error
-    } else {
-      this.locationInfo.countries = await this.geolocationService.getCountries()
+      this.form.setControl('state', new FormControl(this.locationInfo.state.id, [Validators.required])) // Con setControl sustituimos el control que ya existía por uno nuevo para que al enviar la provincia en// caso de que no se modifique la de la ubicación actual no de error
     }
 
   }

@@ -1,7 +1,7 @@
 import {Component, inject, OnInit, ViewChild} from '@angular/core';
 import {AnimalsService} from "../services/animals.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Filter} from "../../types";
+import {Filter, LocationInfo} from "../../types";
 import {Router} from "@angular/router";
 import {Camera, CameraResultType, CameraSource} from "@capacitor/camera";
 import {Capacitor} from "@capacitor/core";
@@ -9,6 +9,7 @@ import 'hammerjs'
 import {ImageCropperComponent, ImageCroppedEvent, LoadedImage} from 'ngx-image-cropper';
 import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 import {PhotoService} from "../services/photo.service";
+import {GeolocationService} from "../services/geolocation.service";
 
 @Component({
   selector: 'app-add-lost-animals',
@@ -20,12 +21,14 @@ export class AddLostAnimalsPage implements OnInit {
   @ViewChild('cropper') cropper: ImageCropperComponent | undefined;
   animalService = inject(AnimalsService)
   photoService = inject(PhotoService)
+  geolocationService = inject(GeolocationService)
 
   imageUrls: any[] = []
 
   form: FormGroup
   formData = new FormData()
   filters: Filter | undefined
+  locationInfo: LocationInfo
 
   isToastOpen: boolean = false
   isModalOpen: boolean = false
@@ -35,12 +38,16 @@ export class AddLostAnimalsPage implements OnInit {
 
   isMobile: boolean = Capacitor.getPlatform() !== 'web'
   notCropImage: string | undefined = ""
+
   constructor(private router: Router, private sanitizer: DomSanitizer) {
+    this.locationInfo = {countries: [], country: {id: 0, name: ''}, state: {id: 0, name: '', countryId: 0}, states: []}
+
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       postType: new FormControl('lost', [Validators.required]),
       species: new FormControl('', [Validators.required]),
       state: new FormControl('', [Validators.required]),
+      country: new FormControl('', [Validators.required]),
       city: new FormControl('', [Validators.required, Validators.minLength(1)]),
       place: new FormControl('', [Validators.required, Validators.minLength(1)]),
       images: new FormControl([]),
@@ -50,8 +57,13 @@ export class AddLostAnimalsPage implements OnInit {
   }
 
   async ngOnInit() {
-    this.filters = await this.animalService.getFilters(28)
-    console.log(this.filters)
+
+    this.locationInfo = await this.geolocationService.fillLocationData(this.locationInfo)
+    if(this.locationInfo.state.id !== 0){ // Si se ha podido obtener la ubicación actual del usuario
+      this.form.setControl('country', new FormControl(this.locationInfo.country.id, [Validators.required]))
+      this.form.setControl('state', new FormControl(this.locationInfo.state.id, [Validators.required])) // Con setControl sustituimos el control que ya existía por uno nuevo para que al enviar la provincia en
+                                                                                                        // caso de que no se modifique la de la ubicación actual no de error
+    }
   }
 
 
@@ -154,6 +166,10 @@ export class AddLostAnimalsPage implements OnInit {
 
   cancelCrop() {
     this.notCropImage = ''
+  }
+
+  async changeStates() {
+    this.locationInfo.states = await this.geolocationService.getStatesFromCountry(this.form.value['country'])
   }
 
   protected readonly Capacitor = Capacitor;
