@@ -55,22 +55,25 @@ form {
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
+
   .img-container {
 
     padding: 5px;
     position: relative;
+
     img:not(.delete) {
       width: 133px;
       height: 100px;
       object-fit: cover;
     }
+
     .delete {
       position: absolute;
       top: 6px;
       right: 6px;
       width: 30px;
       border-radius: 50%;
-      background: rgba(175,175,175,0.8);
+      background: rgba(175, 175, 175, 0.8);
       padding: 2px;
     }
   }
@@ -95,5 +98,14 @@ form {
 ion-toast {
   text-align: center;
 }
+
+
+.light {
+  form {
+    --ion-item-background: #efefef;
+  }
+}
+
+
 
 

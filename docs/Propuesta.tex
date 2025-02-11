@@ -516,26 +516,32 @@ Por último se han creado también funciones para la obtención de imágenes que
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
 	\hline
-	\multicolumn{3}{|c|}{\textbf{HU.5 - Acceder a la aplicación}} \\
-	\hline
-	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
-	\hline
-	5.1 & Definir la BD con la información de los usuarios & 0.5 \\ \hline
-	5.2 &  Implementar la lógica asociada al inicio de sesión & 2 \\ \hline
-	5.3 &  Implementar la interacción asociada al inicio de sesión de los asociaciones y particulares. & 1,5 \\ \hline
-	5.4 &  Realizar bocetos. & 0.5 \\ \hline
-\end{tabular} \\ \\
-
-\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
-	\hline
-	\multicolumn{3}{|c|}{\textbf{HU.6 - Crear registro de asociaciones}} \\
+	\multicolumn{3}{|c|}{\textbf{HU.5 - Crear registro de particulares}} \\
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días} \\
 	\hline
-	6.1 & Realizar bocetos & 0.5 \\ \hline
-	6.2 &  Implementar la lógica de registro & 2 \\ \hline
-	6.3 &  Implementar la interfaz de registro & 1 \\ \hline
+	5.1 & Realizar bocetos & 0.5 \\ \hline
+	5.2 &  Implementar la lógica de registro & 2 \\ \hline
+	5.3 &  Implementar la interfaz de registro & 1 \\ \hline
+	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
+	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que los campos deben estar cumplimentados correctamente antes de realizar la petición} \\ \hline
+	2 & \multicolumn{2}{|p{10cm}|}{Asegurarse de que la imagen recortada se almacena apropiadamente} \\ \hline
+	3 & \multicolumn{2}{|p{10cm}|}{Ver que la cámara funcione correctamente en dispositivos móviles} \\ \hline
+	4 & \multicolumn{2}{|p{10cm}|}{Ver que los campos de ubicación se autocompletan correctamente} \\ \hline
+\end{tabular} \\ \\\\
+
+\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.6 - Acceder a la aplicación}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	6.1 &  Implementar la lógica asociada al inicio de sesión & 2 \\ \hline
+	6.2 &  Implementar la interacción asociada al inicio de sesión de los asociaciones y particulares. & 1,5 \\ \hline
+	6.3 &  Realizar bocetos. & 0.5 \\ \hline
 \end{tabular} \\ \\
+
+
 
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
@@ -600,8 +606,8 @@ Además también se han creado funciones para el acceso a dichas tablas para su 
 
 \Large{\textbf{HU.4 - Poner aviso de animal perdido encontrado}}
 
-En esta historia nos vamos a encargar de las tareas relacionadas con el añadido de posts a la sección de mascotas perdidas, para ello deberán rellenar un formulario con distinta información del animal.
-
+En esta historia nos vamos a encargar de las tareas relacionadas con el añadido de posts a la sección de mascotas perdidas, para ello deberán rellenar un formulario con distinta información del animal. \\
+\textbf{Bocetos}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.31\linewidth]{"sprint 2/hu4/postearPerdido"}
@@ -644,7 +650,73 @@ En cuanto a la base de datos gracias a la historia anterior no debemos añadir n
 
 Tabién hemos creado una función para añadir la publicación y para agregar las imágenes hemos reutilizado la creada en la adición de animales en adopción, coun unos pequeños cambios, como cambiar la ruta de almacenaje de las imágenes. \\ 
 
-En el frontend hemos añadido la biblioteca \textit{ngx-image-cropper} la cual nos permite recortar las imágenes con un ratio determinado como se ha mencionado anteriormente, lo que ha acelerado el desarrollo de la historia. El funcionamiento es sencillo, cada vez que subimos una imágen se nos pedirá que la recortemos con la proporción adecuada pudiendo mover el selector por la image y haciendola más grande o más pequeña en función de nuestras necesidades.
+En el frontend hemos añadido la biblioteca \textit{ngx-image-cropper} la cual nos permite recortar las imágenes con un ratio determinado como se ha mencionado anteriormente, lo que ha acelerado el desarrollo de la historia. El funcionamiento es sencillo, cada vez que subimos una imágen se nos pedirá que la recortemos con la proporción adecuada pudiendo mover el selector por la image y haciendola más grande o más pequeña en función de nuestras necesidades. \\
+
+
+\Large{\textbf{HU.5 - Crear registro de particulares}}
+
+Esta historia, como su título nos indica comprende la creación del registro de usuarios, esta página se trata de un formulario con la información pertinente para su correcta gestión.\\
+
+\textbf{Bocetos}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.31\linewidth]{"sprint 2/hu5/registro_particulares"}
+	\caption{Boceto de la página de registro de particulares}
+	\label{fig:registroparticulares}
+\end{figure}
+
+La estructura básica de la página es simple, tenemos un conjunto de campos a cubrir y un botón el cual nos permitirá envíar la información al servidor para realizar la creación del mismo. \\
+
+\textbf{Implementación}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"sprint 2/hu5/impRegistroParticulares"}
+	\caption{Vista final de la página de creación de particulares en móviles}
+	\label{fig:impregistroparticulares}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"sprint 2/hu5/impRegistroParticularesWeb"}
+	\caption{Vista final de la página de creación de particulares en Web}
+	\label{fig:impregistroparticularesweb}
+\end{figure}
+
+
+Como vemos en cuanto a diferencia con los bocetos no hay demasiada en la implementación final lo que sí que podemos observar es que a diferencia de los otros formularios en el tema claro de éste los elementos tienen un color de fondo grisaceo asemejándose así al tema oscuro. Esto se ha decidido para hacer más homogénea la aplicación. Cabe destacar que este cambio ha sido aplicado al resto de formularios de forma retroactiva.
+
+Además en cuanto al apartado de diseño también se ha ajustado el ancho en la versión web, para que los elementos no ocupen todo el ancho de la página.
+
+En cuanto a la programación, debemos destacar los siguientes aspectos:
+
+\begin{itemize}
+	\item \textbf{Obtención dinámica de localización}: Para esta historia se ha implementado la geolocalización, lo que nos permite acceder a la ubicación del dispositivo y así autocompletar la información referente a la ubicación sin que el usuario tenga que hacer nada. Para ello hemos hecho uso de la biblioteca \textit{opencage-api-client}, la cual nos devuelve información sobre la locacización actual del dispositivo, en este caso utilizamos la provincia y desde ella obtenemos el país al cual pertenece en nuestra base de datos. 
+	
+	En caso de no tener activada la geolocaclización el usuario debe introducirlo manualmente, si no la aplicación le avisará de un error.
+	
+	Esto se ha implementado también en la página de publicar animales perdidos por motivos de practicidad.
+	
+
+	\item \textbf{Control de errores}: En caso de que el usuario se deje alguno de los campos obligatorios sin rellenar cuando pulse el botón de crear cuenta se le avisará mediante un \textit{toast}, en este caso todos los campos son obligatorios a excepción de la fotografía.
+	
+	Además también en el momento de la inserción se comprueba previamente si tanto el correo como el nombre de usuario están en uso actualmente, y, en caso de estarlo, se le notificará al usuario que alguno de éstos ya está en uso.
+\end{itemize}
+
+
+\textbf{Implementación del servidor}\\
+
+En este programa se han creado funciones para la obtención dinámica de la ubicación, para ello éste recibe la provincia y de ella obtiene el país al que pertenece y se retorna a la aplicación un estructura con todos los países y sus provincias la provincia actual y el país al que pertenece, esto es lo que en el front end nos permite rellenar los selectores correctamente.
+
+Se ha creado un endpoint para la información que tenga que ver con los usuarios, en este caso su creación y la comprobación de que el usuario a registrar en la aplicación no exista actualmente.
+
+Un detalle a comentar es que en el diagrama de la iteración 1 los usuarios no tenían el campo de contraseña, este ya se ha añadido como se reflejará en el diagrama al final de esta iteración.
+
+
+
+
+
+
 
 
 

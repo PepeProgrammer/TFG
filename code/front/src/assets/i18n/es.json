@@ -52,7 +52,8 @@
     "addAdoption": "Añadir adopción",
     "addLostAnimal": "Añadir animal perdido",
     "cropImage": "Recortar imagen",
-    "register": "Registrarse"
+    "register": "Registrarse",
+    "login": "Iniciar sesión"
   },
   "lostOptions": {
     "lost": "Perdido",

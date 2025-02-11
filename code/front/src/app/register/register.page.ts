@@ -71,7 +71,6 @@ export class RegisterPage implements OnInit {
       this.form.setControl('country', new FormControl(this.locationInfo.country.id, [Validators.required]))
       this.form.setControl('state', new FormControl(this.locationInfo.state.id, [Validators.required])) // Con setControl sustituimos el control que ya existía por uno nuevo para que al enviar la provincia en// caso de que no se modifique la de la ubicación actual no de error
     }
-
   }
 
   deleteImage() {
@@ -252,4 +251,8 @@ export class RegisterPage implements OnInit {
     this.formData.append('state', this.form.value['state'])
     this.formData.append('type', this.form.value['type'])
   }
+
+
+
+
 }
