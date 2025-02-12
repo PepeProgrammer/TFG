@@ -14,3 +14,7 @@ const DB_INFO_DEPLOY = {
 export const getBaseUrl = () => {
   return DEPLOY ? `${DB_INFO_DEPLOY.baseUrl}` : `${DB_INFO_LOCAL.baseUrl}:${DB_INFO_LOCAL.port}`
 }
+
+let auth = false
+export const isAuth = () => { return auth }
+export const setAuth = (value: boolean) => { auth = value }

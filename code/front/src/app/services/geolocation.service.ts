@@ -1,7 +1,7 @@
 import {inject, Injectable} from '@angular/core'
 import {Geolocation} from "@capacitor/geolocation";
 import * as opencage from 'opencage-api-client'
-import {getBaseUrl} from "../../../dbInfo";
+import {getBaseUrl} from "../../../variables";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
 import {castToCountry, castToLocation, castToStates} from "../middleware/location";

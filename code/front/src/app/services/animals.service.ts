@@ -2,7 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
 import {Filter} from "../../types";
-import {getBaseUrl} from "../../../dbInfo";
+import {getBaseUrl} from "../../../variables";
 
 
 @Injectable({

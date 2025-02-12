@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {getBaseUrl} from "../../../dbInfo";
+import {getBaseUrl} from "../../../variables";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
 import {castToUser} from "../middleware/users";

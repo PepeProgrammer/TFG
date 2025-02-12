@@ -10,3 +10,41 @@
 //  flex-direction: column;
 // align-items: center;
 //}
+
+
+ion-grid{
+  height: 100%;
+}
+ion-row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.options span:hover, .options span:active {
+  color: var(--ion-color-primary);
+  cursor: pointer;
+}
+
+
+ion-button {
+  margin-top: 20px;
+}
+
+ion-card {
+  border-radius: 20px;
+  ion-card-title {
+    text-align: center;
+    font-weight: bolder;
+  }
+}
+
+ion-item {
+    --padding-start: 0;
+}

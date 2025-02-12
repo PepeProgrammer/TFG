@@ -209,8 +209,7 @@ export class RegisterPage implements OnInit {
       }
     }
       this.addToFormData()
-      console.log('VA A HACER LA PETICION')
-      const user = this.userService.addUser(this.formData)
+      const user = await this.userService.addUser(this.formData)
       if (user) {
         console.log(user)
         this.formData = new FormData() //Reiniciamos el form data para evitar duplicidad si le volvemos a dar al botón de registro

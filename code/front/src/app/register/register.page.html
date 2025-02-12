@@ -120,13 +120,13 @@
         <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]" class="modal"
                    [isOpen]="isModalOpen">
           <ng-template>
-            <ion-button (click)="selectImage('gallery')">{{ 'camera.fromGallery' | translate }}</ion-button>
-            <ion-button (click)="selectImage('camera')">{{ 'camera.fromCamera' | translate }}</ion-button>
+            <ion-button shape="round" (click)="selectImage('gallery')">{{ 'camera.fromGallery' | translate }}</ion-button>
+            <ion-button shape="round" (click)="selectImage('camera')">{{ 'camera.fromCamera' | translate }}</ion-button>
           </ng-template>
         </ion-modal>
       }
 
-      <ion-button (click)="addUser()" class="add">{{ "createAccount" | translate }}</ion-button>
+      <ion-button shape="round" (click)="addUser()" class="add">{{ "createAccount" | translate }}</ion-button>
 
             <ion-toast
               [isOpen]="isToastOpen"

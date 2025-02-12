@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {AnimalsService} from "../services/animals.service";
 import {Filter} from "../../types";
-import {getBaseUrl} from "../../../dbInfo";
+import {getBaseUrl} from "../../../variables";
 import {InfiniteScrollCustomEvent} from "@ionic/angular";
 
 @Component({

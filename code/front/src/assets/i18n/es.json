@@ -78,6 +78,9 @@
     "passwordLength": "La contraseña debe tener al menos 6 caracteres"
   },
   "error": "Ha ocurrido un error",
-  "createAccount": "Crear cuenta"
+  "createAccount": "Crear cuenta",
+  "appName": "AdoptApp",
+  "forgotPassword": "Olvide mi contraseña"
+
 
 }
