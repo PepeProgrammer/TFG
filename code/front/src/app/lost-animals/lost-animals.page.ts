@@ -36,6 +36,7 @@ export class LostAnimalsPage implements OnInit {
 
   async applyFilters() {
     if(this.selectedState !== '' || this.selectedSpecies !== '') {
+      this.offset = 0
       this.animals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, '', true)
       this.offset += this.range
     }

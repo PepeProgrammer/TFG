@@ -20,13 +20,13 @@
                 <ion-item-group>
                   <ion-item>
                     <ion-input type="text" name="username" label="{{ 'username' | translate | titlecase}}:"
-                               label-placement="floating"></ion-input>
+                               label-placement="floating" id="username"></ion-input>
                   </ion-item>
 
                   <ion-item>
                     <ion-input type="password" name="password"
                                label="{{ 'password' | translate | titlecase}}:"
-                               label-placement="floating"></ion-input>
+                               label-placement="floating" id="password"></ion-input>
                   </ion-item>
                 </ion-item-group>
 
@@ -35,7 +35,9 @@
                   <span>{{ "forgotPassword" | translate }}</span>
                 </div>
 
-                <ion-button shape="round">{{ "pageTitles.login" | translate }}</ion-button>
+                <span class="error">{{error | translate}}</span>
+
+                <ion-button shape="round" (click)="login()">{{ "pageTitles.login" | translate }}</ion-button>
               </form>
             </ion-card-content>
           </ion-card>

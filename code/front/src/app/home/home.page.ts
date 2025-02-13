@@ -34,7 +34,9 @@ export class HomePage implements OnInit {
   }
 
   async applyFilters() {
+    console.log('Provincia: ', this.selectedState)
     if (this.selectedState !== '' || this.selectedAge !== '' || this.selectedSpecies !== '') {
+      this.offset = 0
       this.animals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, this.selectedAge)
       this.offset += this.range
     }

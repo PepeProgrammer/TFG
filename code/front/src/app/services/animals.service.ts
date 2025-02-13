@@ -39,6 +39,7 @@ export class AnimalsService {
 
     url += (states !== "") ? `&states=${states}` : ""
     url += (species !== "") ? `&species=${species}` : ""
+    console.log('url: ', url)
     if (!lost) {
       url += (age !== "") ? `&age=${age}` : ""
       return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/animals?${url}&offset=${offset}&range=${range}`, options))

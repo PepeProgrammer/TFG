@@ -1,4 +1,3 @@
-
 const DEPLOY = false
 
 const DB_INFO_LOCAL = {
@@ -15,6 +14,32 @@ export const getBaseUrl = () => {
   return DEPLOY ? `${DB_INFO_DEPLOY.baseUrl}` : `${DB_INFO_LOCAL.baseUrl}:${DB_INFO_LOCAL.port}`
 }
 
-let auth = false
-export const isAuth = () => { return auth }
-export const setAuth = (value: boolean) => { auth = value }
+export enum UserTypes {
+  STANDARD = 'standard',
+  ASSOCIATION = 'association',
+  MODERATOR = 'moderator',
+  ADMIN = 'admin'
+}
+
+class LoggedUser {
+  private auth = false
+  private type: UserTypes = UserTypes.STANDARD
+
+  isAuth() {
+    return this.auth
+  }
+
+  setAuth(value: boolean) {
+    this.auth = value
+  }
+
+  getType() {
+    return this.type
+  }
+  setType(value: UserTypes) {
+    this.type = value
+  }
+
+}
+
+export const loggedUser = new LoggedUser()

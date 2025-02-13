@@ -22,10 +22,14 @@ export class AuthenticationService {
   }
 
   async isSessionValid() {
+    const headers = new HttpHeaders().set('enctype', 'multipart/form-data')
+    headers.set('Access-Control-Allow-Origin', '*')
+    headers.set('credentials', 'include')
     const options = {
-      headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')
+      headers: headers,
+      withCredentials: true
     }
     const session: any =  await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/login`, options))
-    return session.session as boolean
+    return session
   }
 }

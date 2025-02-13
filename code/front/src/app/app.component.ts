@@ -3,7 +3,7 @@ import {home, search} from "ionicons/icons";
 import {TranslateService} from "@ngx-translate/core";
 import {ThemeService} from "./services/theme.service";
 import {AuthenticationService} from "./services/authentication.service";
-import {setAuth} from "../../variables";
+import {loggedUser} from "../../variables";
 
 @Component({
   selector: 'app-root',
@@ -15,9 +15,10 @@ export class AppComponent implements OnInit {
   authService = inject(AuthenticationService)
 
   async ngOnInit() {
-    const isValid = await this.authService.isSessionValid()
-    setAuth(isValid)
-    console.log(isValid)
+    const loggedData = await this.authService.isSessionValid()
+    loggedUser.setAuth(loggedData.isSessionEnabled)
+    loggedUser.setType(loggedData.type)
+    console.log(loggedData)
   }
 
   constructor(private translate: TranslateService) {
