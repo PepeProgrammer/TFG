@@ -2,6 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {getBaseUrl} from "../../../variables";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
+import {CapacitorCookies, CapacitorHttp, HttpOptions, HttpResponse} from "@capacitor/core";
 
 @Injectable({
   providedIn: 'root'
@@ -13,23 +14,25 @@ export class AuthenticationService {
     this.baseUrl = getBaseUrl()
   }
 
-  login(username: string, password: string) {
+  async login(username: string, password: string) {
     console.log(this.baseUrl)
     const options = {
-      headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')
+      withCredentials: true
     }
     return firstValueFrom(this.httpClient.post(`${this.baseUrl}/api/login`, {username, password}, options))
+
   }
 
   async isSessionValid() {
-    const headers = new HttpHeaders().set('enctype', 'multipart/form-data')
-    headers.set('Access-Control-Allow-Origin', '*')
-    headers.set('credentials', 'include')
+    // headers.set('credentials', 'include')
+    console.log("headers", this.baseUrl)
+    console.log(await CapacitorCookies.getCookies({url: this.baseUrl}))
     const options = {
-      headers: headers,
       withCredentials: true
     }
     const session: any =  await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/login`, options))
     return session
+
+
   }
 }

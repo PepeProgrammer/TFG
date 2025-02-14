@@ -8,13 +8,18 @@ import {Router} from "@angular/router";
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage {
+export class LoginPage implements OnInit{
   authenticationService = inject(AuthenticationService);
   error: string = '';
 
   constructor(private router: Router) {
   }
 
+  ngOnInit() {
+    if(loggedUser.isAuth()) {
+      this.router.navigate(['/home'])
+    }
+  }
   async login() {
     const username = (document.getElementById('username') as HTMLInputElement).value;
     const password = (document.getElementById('password') as HTMLInputElement).value;
@@ -36,6 +41,8 @@ export class LoginPage {
 
 
   }
+
+
 
 
 }

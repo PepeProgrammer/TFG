@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   authService = inject(AuthenticationService)
 
   async ngOnInit() {
+    console.log('NgInit')
     const loggedData = await this.authService.isSessionValid()
     loggedUser.setAuth(loggedData.isSessionEnabled)
     loggedUser.setType(loggedData.type)
