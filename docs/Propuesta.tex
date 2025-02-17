@@ -229,7 +229,7 @@ Sprint 5 \\
 	\label{fig:sprint5}
 \end{figure}
 
-Porduct backlog restante \\
+Product backlog restante \\
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{pb}
@@ -349,11 +349,6 @@ Como podemos apreciar en ambos diseños se mantienen los componentes principales
 
 A diferecia de la versión móvil, en web para que el espacio no esté totalmente vacío se ha decidido poner 2 tarjetas por fila, manteniendo su legibilidad y organización básica. \\
 
-
-\textbf{Detalles de Implementación}
-
-En esta sección comentaremos los elementos más importantes del desarrollo para el correcto funcionamiento de la HU, podremos hablar de funciones específicas en el código o de decisiones tomadas durante su realización. \\
-
 Para esta HU hemos tenido que crear las tablas en la base de datos de animales, usuarios de tipo asociación, pasíses y provincias, este último para poder hacer funcionar el filtro de localizaión para la búsqueda de adopciones. \\
 
 En cuanto al servidor se han tenido que crear funciones para obtener a todos los animales o buscarlos en función de los filtros utilizados. \\
@@ -403,9 +398,6 @@ Podemos apreciar que en esta página será básicamente un formulario que se div
 
 Como podemos apreciar en diferencia con el boceto los campos básicos aparecen en vértical de uno en uno en lugar de ir por bloques, esto se ha decido para aportar mayor legibilidad y orden, ya que de la otra manera tendrían tamaños irregulares y en ciertos modelos de teléfono probablemnete hubiese errores de superposción de elementos. \\
 
-
-\textbf{Detalles de implementación} \\
-
 Para esta historia de usuario se ha modificado la tabla de animales para añadir los campos del checkbox y su correspondiente actualización en el backend. También hemos creado sendos métodos para la subida de imágenes, que se guardan en la carpeta uploads del servidor y se enlaza con una tupla en la tabla \textit{images} en la base de datos la cual contiene su nombre, y animales. En caso de que no se puedan añadir las imágenes se borrará de la base de datos al animal y se le avisará al usuario de que ha habido un error. \\
 
 
@@ -413,10 +405,9 @@ En cuanto al frontend hemos creado una página nueva en el proyecto la cual cont
 
 Por último se han creado también funciones para la obtención de imágenes que puede ser tanto desde la galería como desde la cámara en su versión móvil y solo desde los archivos en la versión web y la posibilidad de eliminar imágenes en caso de que no las queramos antes de la subida de los animales.\\
 
-\textbf{Fin del Sprint}
+\Large{\textbf{Fin del Sprint}}
 
-\begin{enumerate}
-	\item Velocidad del Sprint \\ \\
+\textbf{Velocidad del Sprint} \\ \\
 	Como bien se puede ver en la tabla del sprint 0 se habían planificado una serie de tareas para este mismo, pero una vez terminado debemos hacer una reestimación de la velocidad ya que el aprendizaje e investigación de las tecnologías ha suspuesto más tiempo del esperado, produciendo así retrasos en la realización de las tareas. Debido a esto la planificación estimada de los siguientes sprints quedaría de la siguiente manera: \\
 	
 	Sprint 2 \\
@@ -453,9 +444,9 @@ Por último se han creado también funciones para la obtención de imágenes que
 		\label{fig:newsprint5}
 	\end{figure}
 	
-	El resto de tareas se moverán al backlog para su futura realización.
+	El resto de tareas se moverán al backlog para su futura realización. \\ 
 	
-	\item Backend
+	\textbf{Backend} \\
 	
 	Como hemos visto en apartados anteriores (explicar en descripción de la propuesta que uso modelo-vista-controlador) en el back se encuentran tanto los controladores como los modelos para el acceso a la base de datos y su envío a la aplicación móvil. \\
 	
@@ -464,7 +455,7 @@ Por último se han creado también funciones para la obtención de imágenes que
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{"sprint 1/directoriosBack"}
-		\caption{Estructura de directorios del backen al final del sprint}
+		\caption{Estructura de directorios del backend al final del sprint 1}
 		\label{fig:directoriosback1}
 	\end{figure}
 	
@@ -476,8 +467,6 @@ Por último se han creado también funciones para la obtención de imágenes que
 		\caption{Diagrama de clases de la primera iteración}
 		\label{fig:clases}
 	\end{figure}
-	
-\end{enumerate}
 
 
 \subsection{Iteración 2}
@@ -599,7 +588,6 @@ La única diferencia es que en este caso solo hay un único botón de acción qu
 
 Como podemos apreciar no hay una gran diferencia entre el boceto y la implementación final en la aplicación ya que se mantien los elementos principales además se le ha añadido un botón en la esquina inferior izquierda que nos lleva a la página de para añadir una publicación de mascota perdida, la cual veremos más adelante.\\
 
-\textbf{Detalles de implementación} \\ \\
 En cuanto a la parte del servidor hemos tenido que crear dos tablas nuevas, una para los anuncios y otra para las imágenes de las mismas.\\
 
 Además también se han creado funciones para el acceso a dichas tablas para su correcto tratamiento y envío a la aplicación móvil para que se muestren correctamente en el formato deseado. Para los filtros se ha reutilizado la mayor parte del código de la HU.1 por lo que eso ha permitido hacer más rápido el desarrollo de esta historia.\\ \\
@@ -643,8 +631,6 @@ Como podemos ver a diferencia de la página en la que las asociaciones pueden a�
 Como podemos ver en la implentación para móviles en función del tipo de publicación que sea la información que rellena el usuario es ligeramente diferente ya que por ejemplo alguien que haya encontrado un perro perdido no va a saber su nombre como si lo haría el dueño del animal. El otro campo es la zona de desaparición  para el caso de perder a tu mascota, que sería el lugar de de recogida para el que lo encuentre. \\
 
 Además en esta historia cabe destacar de que se soluciona un problema existente en las imágenes, ahora todas deben tener el mismo ratio de escala, para así cuando se vizualicen todas las publicaciones tengan el mismo tamaño, haciendo del diseño algo más consistente.\\
-
-\textbf{Detalles de implementación}
 
 En cuanto a la base de datos gracias a la historia anterior no debemos añadir ninguna tabla más. Por otra parte hemos creado un endpoint del tipo \textit{POST} para añadir publicaciones a la base de datos. \\
 
@@ -703,14 +689,80 @@ En cuanto a la programación, debemos destacar los siguientes aspectos:
 	Además también en el momento de la inserción se comprueba previamente si tanto el correo como el nombre de usuario están en uso actualmente, y, en caso de estarlo, se le notificará al usuario que alguno de éstos ya está en uso.
 \end{itemize}
 
-
-\textbf{Implementación del servidor}\\
-
-En este programa se han creado funciones para la obtención dinámica de la ubicación, para ello éste recibe la provincia y de ella obtiene el país al que pertenece y se retorna a la aplicación un estructura con todos los países y sus provincias la provincia actual y el país al que pertenece, esto es lo que en el front end nos permite rellenar los selectores correctamente.
+En el servidor se han creado funciones para la obtención dinámica de la ubicación, para ello éste recibe la provincia y de ella obtiene el país al que pertenece y se retorna a la aplicación un estructura con todos los países y sus provincias la provincia actual y el país al que pertenece, esto es lo que en el front end nos permite rellenar los selectores correctamente.
 
 Se ha creado un endpoint para la información que tenga que ver con los usuarios, en este caso su creación y la comprobación de que el usuario a registrar en la aplicación no exista actualmente.
 
-Un detalle a comentar es que en el diagrama de la iteración 1 los usuarios no tenían el campo de contraseña, este ya se ha añadido como se reflejará en el diagrama al final de esta iteración.
+Un detalle a comentar es que en el diagrama de la iteración 1 los usuarios no tenían el campo de contraseña, este ya se ha añadido como se reflejará en el diagrama al final de esta iteración. \\
+
+
+\Large{\textbf{HU.6 - Acceder a la aplicación}} 
+
+En el desarrollo de esta historia hemos realizado la creación de la página de \textit{log in} para que los distintos usuarios puedan acceder a la misma y acceder a contenido limitado o especíco de un tipo de usuario concreto. \\ 
+
+\textbf{Bocetos}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.31\linewidth]{"sprint 2/hu6/login"}
+	\caption{Boceto de la pantalla de acceso}
+	\label{fig:login}
+\end{figure}
+
+Como podemos apreciar en el boceto la página contará con un pequeño formulario de inicio de sesión en el cual se deberá rellenar con el nombre de usuario y su contraseña pertinente. Además también vemos que desde esta página se podrá ir a la de registro. \\
+
+\textbf{Implementación}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"sprint 2/hu6/ImpLoginMovil"}
+	\caption{Diseño final de la página de acceso en móviles}
+	\label{fig:imploginmovil}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"sprint 2/hu6/ImpLoginWeb"}
+	\caption{Diseño final de la página de acceso en web}
+	\label{fig:imploginweb}
+\end{figure}
+
+\textbf{Implentación} \\
+
+Como podemos ver en el diseño final no ha habido cambios significativos con respecto a los bocetos, pero si que se ha cambiado la estética en los botones de la aplicación, esto se ha hecho con caracter retroactivo aplicándose al resto de páginas, esto se ha hecho para hacer una interfaz más acorde a las corrientes actuales.
+
+En esta página hemos creado un pequeño formulario con los datos de inicio de sesión que se enviarán al servidor en cuanto le demos aceptar.
+
+Si se hayan fallos en las credenciales se le notificará al usuario que ha habido un error, si son correctas se accederá de manera normal a la aplicación.
+
+Para mantener al usuario conectado hemos hecho uso sesiones. Para esto hemos instalado la biblioteca \textit{express-session} la cual nos permite almacenar los datos que necesitemos para mantener las sesiones de los usuarios además de envíar una cookie con el id de la sessión al usuario, lo que nos permitirá acceder a su información cuando se hagan peticiones al servidor.
+
+Hemos creado un endpoint para el login (/api/login) en el cual tenemos 2 métodos, uno para comprobar si las credenciales son correctas y otro para saber si el usuario tiene ya una sesión activa. En el primero debemos aseguranos de crear la sesión y enviarle la cookie a la aplicación.
+
+Con todo esto ya tenemos terminada la lógica del acceso en el servidor, pero también hemos tenido que controlar el acceso a las páginas de la aplicación a las que no se puede acceder si no estás logueado y hacer que aparezcan o no ciertos elementos en función del tipo de usuario que esté conectado, esto además se irá actualizando co el tiempo a medida que se vayan creando nuevas páginas. \\
+
+\Large{\textbf{Fin del sprint}} \\
+
+La estructura actual de directorios en el backend es la siguiente: 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"sprint 2/directoriosBackS2"}
+	\caption{Estructura de directorios del backend al final del sprint}
+	\label{fig:directoriosbacks2}
+\end{figure}
+
+Además también se ha actualizado el diagrama de clases, aunque en esta iteración no se han creado nuevas clases se han realizado otros cambios, como añadir los métodos necesarios para la búsqueda de país a partir de una provincia o los asociados a la creación de usuarios.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{"sprint 2/clases"}
+	\caption{Diagrama de clases de la segunda iteración}
+	\label{fig:clases2}
+\end{figure}
+
+
 
 
 
