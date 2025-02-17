@@ -4,9 +4,11 @@
       Home
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button [routerLink]="['/login']">
-        <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
-      </ion-button>
+      @if (!loggedUser.isAuth()){
+        <ion-button [routerLink]="['/login']">
+          <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+        </ion-button>
+      }
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -90,8 +92,13 @@
     </ion-infinite-scroll>
   }
 
-
-
+  @if (loggedUser.getType() === UserTypes.ASSOCIATION) {
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button [routerLink]="['/add-animals']">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  }
 </ion-content>
 
 

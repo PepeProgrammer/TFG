@@ -31,4 +31,5 @@ export class AppComponent implements OnInit {
   protected readonly search = search;
 
 
+  protected readonly loggedUser = loggedUser;
 }

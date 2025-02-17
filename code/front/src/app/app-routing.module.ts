@@ -1,5 +1,7 @@
-import { NgModule } from '@angular/core';
+import {inject, NgModule} from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {loggedUser} from "../../variables";
+import {AuthGuardService} from "./services/auth-guard.service";
 
 const routes: Routes = [
   {
@@ -13,11 +15,13 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule),
+    canActivate: [AuthGuardService]
   },
   {
     path: 'add-animals',
-    loadChildren: () => import('./add-animals/add-animals.module').then( m => m.AddAnimalsPageModule)
+    loadChildren: () => import('./add-animals/add-animals.module').then( m => m.AddAnimalsPageModule),
+    canActivate: [AuthGuardService]
   },
   {
     path: 'lost-animals',
@@ -29,11 +33,13 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule),
+    canActivate: [AuthGuardService]
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    canActivate: [AuthGuardService]
   },
 ];
 
@@ -41,6 +47,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
+  providers: [AuthGuardService],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

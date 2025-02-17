@@ -9,20 +9,29 @@
         Home
       </ion-tab-button>
 
-      <ion-tab-button tab="add-animals" [routerLink]="['/add-animals']">
-        <ion-icon name="search"></ion-icon>
-        Search
-      </ion-tab-button>
+<!--      <ion-tab-button tab="add-animals" [routerLink]="['/add-animals']">-->
+<!--        <ion-icon name="search"></ion-icon>-->
+<!--        Search-->
+<!--      </ion-tab-button>-->
 
       <ion-tab-button tab="lost-animals" [routerLink]="['/lost-animals']">
         <ion-icon name="search"></ion-icon>
         Search
       </ion-tab-button>
 
-      <ion-tab-button tab="register" [routerLink]="['/register']">
-        <ion-icon name="person-circle-outline"></ion-icon>
-        Profile
-      </ion-tab-button>
+      @if (loggedUser.isAuth()){
+        <ion-tab-button tab="profile" [routerLink]="['/profile']">
+          <ion-icon name="person-circle-outline"></ion-icon>
+          Profile
+        </ion-tab-button>
+      } @else {
+        <ion-tab-button tab="login" [routerLink]="['/login']">
+          <ion-icon name="person-circle-outline"></ion-icon>
+          Profile
+        </ion-tab-button>
+      }
+
+
     </ion-tab-bar>
   </ion-tabs>
 </ion-app>

@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {AnimalsService} from "../services/animals.service";
 import {Animal, Association, Filter} from "../../types";
-import {getBaseUrl} from "../../../variables";
+import {getBaseUrl, loggedUser, UserTypes} from "../../../variables";
 import {InfiniteScrollCustomEvent} from "@ionic/angular";
 
 @Component({
@@ -63,4 +63,6 @@ export class HomePage implements OnInit {
   }
 
 
+    protected readonly loggedUser = loggedUser;
+  protected readonly UserTypes = UserTypes;
 }
