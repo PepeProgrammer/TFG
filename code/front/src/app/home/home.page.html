@@ -13,7 +13,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="flex">
+<ion-content [fullscreen]="false" class="flex">
   <div class="selectors">
     <ion-select placeholder="{{'filters.animal_species' | translate}}" [multiple]="true" [(ngModel)]="selectedSpecies" (ionChange)="cleanOffset()">
       @for (species of filters?.species; track species.id) {

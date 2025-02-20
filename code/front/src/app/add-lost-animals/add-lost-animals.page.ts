@@ -10,6 +10,7 @@ import {ImageCropperComponent, ImageCroppedEvent, LoadedImage} from 'ngx-image-c
 import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 import {PhotoService} from "../services/photo.service";
 import {GeolocationService} from "../services/geolocation.service";
+import {Species} from "../middleware/species";
 
 @Component({
   selector: 'app-add-lost-animals',
@@ -29,6 +30,7 @@ export class AddLostAnimalsPage implements OnInit {
   formData = new FormData()
   filters: Filter | undefined
   locationInfo: LocationInfo
+  species: Species[] = []
 
   isToastOpen: boolean = false
   isModalOpen: boolean = false
@@ -57,7 +59,7 @@ export class AddLostAnimalsPage implements OnInit {
   }
 
   async ngOnInit() {
-
+    this.species = await this.animalService.getAllSpecies()
     this.locationInfo = await this.geolocationService.fillLocationData(this.locationInfo)
     if(this.locationInfo.state.id !== 0){ // Si se ha podido obtener la ubicación actual del usuario
       this.form.setControl('country', new FormControl(this.locationInfo.country.id, [Validators.required]))

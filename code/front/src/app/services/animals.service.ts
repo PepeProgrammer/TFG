@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
 import {Filter} from "../../types";
 import {getBaseUrl} from "../../../variables";
+import {castToSpecies, Species} from "../middleware/species";
 
 
 @Injectable({
@@ -60,5 +61,11 @@ export class AnimalsService {
       return firstValueFrom(this.httpClient.post(`${this.baseUrl}/api/animals`, data, options))
     }
     return firstValueFrom(this.httpClient.post(`${this.baseUrl}/api/lost`, data, options))
+  }
+
+  async getAllSpecies(): Promise<Species[]> {
+    const species = await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/species`))
+
+    return castToSpecies(species as any)
   }
 }
