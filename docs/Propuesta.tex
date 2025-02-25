@@ -1,191 +1,222 @@
 \section{Propuesta}
 
 \subsection{Descripción}
-
+Esta aplicación se implementará tanto para dispositivos móviles como para navegadores web. Se realizarán las pruebas y ajustes necesarios para cada una de ellas, como se irá viendo a lo largo del desarrollo.
 \subsection{Herramientas de desarrollo elegidas}
 
 \subsection{Ciclo de vida/Metodología}
-En esta sección hableremos de la métodología empleada, que en este caso hemos decidido usar la famosa metodología ágil scrum. \\
+En esta sección hablaremos de la metodología empleada, que en este caso hemos decidido usar la famosa metodología ágil scrum, que vamos a adaptar a nuestro caso. \\
 
-En este caso debido a la fluctuación temporal hemos decicido hacer sprints largos de un mes. Con esto tratamos de conseguir obtener un prototipo con cambios considerables a lo largo de cada sprint.
+El desarrollo se va a realizar por una sola persona, el autor de este TFG, el cual mantendrá reuniones periódicas con su tutora, especialmente al inicio y fin de cada iteración o sprint.
 
+Debido a la fluctuación temporal, es posible que haya semanas en las que la carga de trabajo sea elevada, debido a exámenes o trabajos, y no podamos desarrollar la aplicación. Hemos decidido hacer sprints largos de un mes. Con esto tratamos de conseguir obtener un prototipo que va evolucionando con cambios considerables a lo largo de cada sprint.
+
+Vamos a incluir una iteración 0 para describir a los actores del sistema y los requisitos de la aplicación a desarrollar, creando un product backlog de historias de usuario. Calcularemos  su prioridad y haremos una estimación temporal de cada una en puntos de historia.  
 
 \subsection{Iteración 0}
-
-Hablando con las asociaciones nos hemos dado cuenta de que los intercambios de acogidas no son una buena idea por lo que se ha descartado. \\
+xx Antes de empezar con la realización de las historias de usuario, debemos tener en cuenta los actores que participarán en la aplicación, los hemos dividido en 5 principales.
+\begin{itemize}
+	\item \textbf{Usuario básico}: este es el único usuario que no necesitará registrarse en la aplicación, y solo podrá hacer consultas, como por ejemplo ver los animales en adopción o las publicaciones de animales perdido/encontrado.
+	\item \textbf{Usuario estándar}: Es el tipo de usuario registrado más común que habrá en la aplicación. Éste podrá, además de lo mencionado para el básico, crear publicaciones de animal perdido/encontrado, acceder a su perfil, hablar con las asociaciones para adoptar o apadrinar un animal y también hacerse voluntarios si hay asociaciones que lo deseen y ayudarlas en lo que necesiten.
+	\item \textbf{Asociaciones}: Este tipo de usuarios se caracteriza por ser los únicos que pueden subir publicaciones de animales en adopción. Éstas también podrán poner publicaciones de animales perdidos/encontrados y además decidirán si quieren que sus animales puedan ser acogidos o apadrinados, en caso de que alguna asociación no quiera ninguna de estas 2 opciones.
+	\item \textbf{Moderadores}: Son los encargados de que las publicaciones subidas a la aplicación sean consistentes, por ejemplo si alguien sube alguna publicación de animal perdido y son fotos de la cara de una persona, la gente podrá reportarlo y los moderadores decidirán si eliminarla o no, en este caso la eliminarían.
+	\item \textbf{Administradores}: Estos usuarios son los encargados de crear a los moderadores o asignar a usuarios estándar como tal, además podrá crear o eliminar todo tipo de usuarios.
+\end{itemize}
 \subsubsection{Product Backlog}
-Prioridades hechas con MoSCoW (tema 4 MDA)
+Para obtener las prioridades hemos hecho uso de MoSCoW (tema 4 MDA) que es una herramienta de decisión y priorización de tareas y funcionalidades para la gestión de proyectos.
+
+La utilidad principal del método MoSCoW está enfocada en el desarrollo de productos y servicios digitales. Es una herramienta que ayuda a priorizar y gestionar los requisitos y tareas para avanzar.
+
+MoSCoW es un método bastante eficaz en entornos de desarrollo ágil, permitiendo priorizar las funciones necesarias para lanzar un nuevo producto o funcionalidad.
+
+A continuación se mostrará el product backlog, pero vale la pena detenernos a explicar los campos \textit{duración} y \textit{Prio.(prioridad)}.
+
+El primero son los puntos de historia, que pueden tener 1,3,5,8 como valor y se refieren a la estimación de tiempo para la realización de la misma.
+
+La prioridad se marca con las siguientes letras:
+\begin{itemize}
+	\item  \textbf{M}ust: Estas características serán las absolutamente críticas para el proyecto, y sin ellas es un fracaso.
+	\item \textbf{S}hould: Estos aspectos del proyecto son críticos también, pero no imprescindibles.
+	\item \textbf{C}ould: Estas iniciativas son las que estaría bien tenerlas, ya que añadirían valor al proyecto, pero no son críticas.
+	\item \textbf{W}on't: Estas características no se merecen la inversión y no aportan ningún beneficio en este momento y se podrían considerar más tarde.
+\end{itemize}
+
 \begin{table}[H]
-    \centering
-    \begin{tabular}{|c |p{8cm}|c |c|} \hline 
-         \multirow[c]{3}{*}{Usuario}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}%Prio. es de prioridad 
-         &  Acceder a la aplicación&  5& M\\ \cline{2-4} 
-         &  Cerrar sesión&  1& M\\ \hline 
-    \end{tabular}
-    \caption{Product backlog de usuarios}
-    \label{tab:pb_usuarios}
+	\centering
+	\begin{tabular}{|c |p{8cm}|c |c|} \hline 
+		\multirow[c]{3}{*}{Usuario}&  \textbf{Tarea}&  \textbf{Duración}& \textbf{Prio.}\\  \cline{2-4}%Prio. es de prioridad 
+		&  Acceder a la aplicación&  5& M\\ \cline{2-4} 
+		&  Cerrar sesión&  1& M\\ \hline 
+	\end{tabular}
+	\caption{Product backlog de usuarios}
+	\label{tab:pb_usuarios}
 \end{table}
 
 \begin{table}[H]
-    \centering
-    \begin{tabular}{|c |p{8cm}|c |c|} \hline 
-         \multirow[c]{23}{*}{Asociación}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
-         
-         &  Registrame en la aplicación como asociación&  5& M\\ \cline{2-4} 
-         &  Poner animales en adopción&  8& M\\ \cline{2-4} 
-         &  Anular poner animales en adopción&  3& M\\ \cline{2-4} 
-         &  Ver solucitudes adopción&  5& M\\ \cline{2-4}
-         &  Aceptar solucitudes adopción&  3& M\\ \cline{2-4}
-         &  Rechazar solucitudes adopción&  3& M\\ \cline{2-4}
-         
-         
-         &  Poner animales en acogida&  3& M\\ \cline{2-4}
-         &  Anular poner animales en acogida&  3& M\\ \cline{2-4} 
-         &  Ver solucitudes acogida&  3& M\\ \cline{2-4}
-        
-         &  Ver que usuarios tienen a sus animales en acogida&  5& M\\ \cline{2-4}
-         &  Buscar usuarios que estén como casa de acogida&  5& M\\ \cline{2-4}
-         &  Solicitar acogida a particular &  5& M\\ \cline{2-4}
-         
-         
-         &  Decidir si desean ser voluntarios o no&  3& M\\ \cline{2-4}
-         &  Ver solicitudes voluntariado propias&  3& M\\ \cline{2-4}
-         &  Aceptar solucitudes voluntariado&  3& M\\ \cline{2-4}
-         &  Rechazar solucitudes voluntariado&  3& M\\ \cline{2-4}
-         
-         &  Mandar contrato adopción firmado al adoptante&  8& S\\ \cline{2-4}
-         
-         &  Elegir si poner a sus animales como apadrinables o no &  5& S\\ \cline{2-4}
-         &  Rechazar solucitudes voluntariado&  3& M\\ \cline{2-4}
-         
-         &  Modificar su descripción para que los usuarios vean a que se dedican & 5 & M \\ \hline
-
-         
-         
-        
-    \end{tabular}
-    \caption{Product backlog de Asociaciones}
-    \label{tab:pb_asociaciones}
+	\centering
+	\begin{tabular}{|c |p{8cm}|c |c|} \hline 
+		\multirow[c]{25}{*}{Asociación}&  \textbf{Tarea}&  \textbf{Duración}& \textbf{Prio.}\\  \cline{2-4}
+		
+		&  Registrarme en la aplicación como asociación&  5& M\\ \cline{2-4} 
+		&  Crear publicación de animal en adopción&  8& M\\ \cline{2-4} 
+		&  Anular poner animal en adopción&  3& M\\ \cline{2-4} 
+		&  Ver solicitudes de adopción por parte de los particulares&  5& M\\ \cline{2-4}
+		&  Aceptar solicitudes de adopción&  3& M\\ \cline{2-4}
+		&  Rechazar solicitudes de adopción&  3& M\\ \cline{2-4}
+		
+		
+		&  Poner animales en acogida&  3& M\\ \cline{2-4}
+		&  Anular poner animal en acogida&  3& M\\ \cline{2-4} 
+		&  Ver solicitudes de acogida por parte de los particulares&  3& M\\ \cline{2-4}
+		
+		&  Ver que particulares tienen a sus animales en acogida&  5& M\\ \cline{2-4}
+		&  Buscar usuarios que estén como casa de acogida&  5& M\\ \cline{2-4}
+		&  Solicitar acogida a particular puesto como casa de acogida &  5& M\\ \cline{2-4}
+		
+		
+		&  Decidir si desean ser voluntarios o no&  3& M\\ \cline{2-4}
+		&  Ver solicitudes voluntariado propias&  3& M\\ \cline{2-4}
+		&  Aceptar solicitudes voluntariado&  3& M\\ \cline{2-4}
+		&  Rechazar solicitudes voluntariado&  3& M\\ \cline{2-4}
+		
+		&  Mandar contrato adopción firmado al adoptante&  8& S\\ \cline{2-4}
+		
+		&  Elegir si poner a sus animales como apadrinables o no &  5& S\\ \cline{2-4}
+		
+		&  Modificar su descripción para que los usuarios vean a que se dedican & 5 & M \\ \hline
+		
+		
+		
+		
+	\end{tabular}
+	\caption{Product backlog de Asociaciones}
+	\label{tab:pb_asociaciones}
 \end{table}
 
 
 \begin{table}[H]
-    \centering
-    \begin{tabular}{|c |p{8cm}|c |c|} \hline 
-         \multirow[c]{14}{*}{Particular}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
-         &  Registrame en la aplicación como particular&  5& M\\ \cline{2-4} 
-         
-
-         &  Solicitar adopciones&  3& M\\ \cline{2-4}
-         &  Ver adopciones pendientes&  3& S\\ \cline{2-4}
-         
-         &  Solicitar acogidas&  3& M\\ \cline{2-4} 
-         &  Ver acogidas pendientes&  3& M\\ \cline{2-4}
-       
-         &  Ponerse como casa de acogida&  3& S\\ \cline{2-4}
-         
-         &  Cumplimentar el formulario de solicitud de adopciones/acogidas &  5& S\\ \cline{2-4}
-		 &  Firmar contrato de adopción electrónicamente&  8& S\\ \cline{2-4}
-		 
-		 
-         &  Solicitar voluntariados&  3& M\\ \cline{2-4} 
-         &  Ver voluntariados pendientes&  3& M\\ \cline{2-4}
-         &  Ver historial voluntariados&  5& C\\ \cline{2-4}
-         
-         
-         & Apadrinar a un animal&  5& S\\ \hline
-         
-         
-         
-    \end{tabular}
-    \caption{Product backlog de Particulares}
-    \label{tab:pb_particulares}
+	\centering
+	\begin{tabular}{|c |p{8cm}|c |c|} \hline 
+		\multirow[c]{14}{*}{Particular}&  \textbf{Tarea}&  \textbf{Duración}& \textbf{Prio.}\\  \cline{2-4}
+		&  Registrarme en la aplicación como particular&  5& M\\ \cline{2-4} 
+		
+		
+		&  Solicitar adopciones&  3& M\\ \cline{2-4}
+		&  Ver adopciones pendientes&  3& S\\ \cline{2-4}
+		
+		&  Solicitar acogidas&  3& M\\ \cline{2-4} 
+		&  Ver acogidas pendientes&  3& M\\ \cline{2-4}
+		
+		&  Ponerse como casa de acogida&  3& S\\ \cline{2-4}
+		
+		&  Cumplimentar el formulario de solicitud de adopciones/acogidas &  5& S\\ \cline{2-4}
+		&  Firmar contrato de adopción electrónicamente&  8& S\\ \cline{2-4}
+		
+		
+		&  Solicitar voluntariados&  3& M\\ \cline{2-4} 
+		&  Ver servicios de voluntariado pendientes&  3& M\\ \cline{2-4}
+		&  Ver historial de servicios de voluntariado&  5& C\\ \cline{2-4}
+		
+		
+		& Apadrinar a un animal&  5& S\\ \hline
+		
+		
+		
+	\end{tabular}
+	\caption{Product backlog de Particulares}
+	\label{tab:pb_particulares}
 \end{table}
 
 \begin{table}[H]
-    \centering
-    \begin{tabular}{|c |p{8cm}|c |c|} \hline 
-         \multirow[c]{17}{2cm}{Asociación y Particular}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
-
-         &  Ver su perfil &  5& M\\ \cline{2-4}
-         &  Modificar su perfil &  5& M\\ \cline{2-4}
-         &  Eliminar su perfil &  3& M\\ \cline{2-4}
-         
-         &  Aceptar solucitudes acogida&  3& M\\ \cline{2-4}
-         &  Rechazar solucitudes acogida&  3& M\\ \cline{2-4}
-         
-         &  Ver historial de adopciones &  5& M\\ \cline{2-4}
-         &  Ver historial de acogidas &  5& M\\ \cline{2-4}
-         &  Eliminar sus publicaciones &  3& M\\ \cline{2-4}
-         
-         & Poner aviso de animal perdido encontrado & 5 & M \\ \cline{2-4}
-         & Ver lista de animales perdidos & 5 & M \\ \cline{2-4}
-
-         &  Reportar un perfil &  1& M\\ \cline{2-4}
-         &  Reportar una publicación &  1& M\\ \cline{2-4}
-         
-         &  Realizar el seguimiento de adoción de la mascota adoptada&  8& C\\ \cline{2-4}
-         
-         &  Chatear con otros usuarios a raiz de una adopción/acogida/voluntariado &  8& M\\ \hline
-
-         
-         
-    \end{tabular}
-    \caption{Product backlog de Particulares y Asociaciones}
-    \label{tab:pb_aso_particular}
+	\centering
+	\begin{tabular}{|c |p{8cm}|c |c|} \hline 
+		\multirow[c]{16}{2cm}{Asociación y Particular}&  \textbf{Tarea}&  \textbf{Duración}& \textbf{Prio.}\\  \cline{2-4}
+		
+		&  Ver su perfil &  5& M\\ \cline{2-4}
+		&  Modificar su perfil &  5& M\\ \cline{2-4}
+		&  Eliminar su perfil &  3& M\\ \cline{2-4}
+		
+		&  Aceptar solicitudes acogida&  3& M\\ \cline{2-4}
+		&  Rechazar solicitudes acogida&  3& M\\ \cline{2-4}
+		
+		&  Ver historial de adopciones &  5& M\\ \cline{2-4}
+		&  Ver historial de acogidas &  5& M\\ \cline{2-4}
+		&  Eliminar publicación de animal perdido/encontrado &  3& M\\ \cline{2-4}
+		
+		& Añadir publicación de animal perdido o encontrado & 5 & M \\ \cline{2-4}
+		
+		
+		&  Reportar un perfil &  1& M\\ \cline{2-4}
+		&  Reportar una publicación &  1& M\\ \cline{2-4}
+		
+		&  Realizar el seguimiento de adopción por parte de la asociación al adoptante&  8& C\\ \cline{2-4}
+		
+		&  Chatear con otros usuarios a raíz de una adopción/acogida/voluntariado &  8& M\\ \hline
+		
+		
+		
+	\end{tabular}
+	\caption{Product backlog de Particulares y Asociaciones}
+	\label{tab:pb_aso_particular}
 \end{table}
 
 \begin{table}[H]
-    \centering
-    \begin{tabular}{|c |p{8cm}|c |c|} \hline 
-         \multirow[c]{4}{2cm}{Us. Básico y Particular}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
-         
-		 &  Buscar anuncios en una zona concreta&  5& S\\ \cline{2-4}		
-         &  Ver peticiones de adopción&  8& M\\ \hline
-
-         
-         
-    \end{tabular}
-    \caption{Product backlog de Us. Básico y Particulares}
-    \label{tab:pb_part_usBasico}
+	\centering
+	\begin{tabular}{|c |p{8cm}|c |c|} \hline 
+		\multirow[c]{4}{2cm}{Us. Básico y Particular}&  \textbf{Tarea}&  \textbf{Duración}& \textbf{Prio.}\\  \cline{2-4}
+		& Ver lista de animales perdidos/encontrados & 5 & M \\ \cline{2-4}
+		&  Buscar publicaciones en una zona concreta&  5& S\\ \cline{2-4}		
+		&  Ver peticiones de adopción&  8& M\\ \hline
+		
+		
+		
+	\end{tabular}
+	\caption{Product backlog de Us. Básico y Particulares}
+	\label{tab:pb_part_usBasico}
 \end{table}
 
 \begin{table}[H]
-    \centering
-    \begin{tabular}{|c|p{8cm}|c|c|} \hline 
-         \multirow[c]{4}{*}{Administrador}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
-         &  Crear usuarios &  5& M\\ \cline{2-4}
-         &  Modificar usuarios &  5& M\\ \cline{2-4}
-         &  Eliminar usuarios &  3& M\\ \hline
-
-         
-         
-    \end{tabular}
-    \caption{Product backlog de Administradores}
-    \label{tab:pb_administradores}
+	\centering
+	\begin{tabular}{|c|p{8cm}|c|c|} \hline 
+		\multirow[c]{4}{*}{Administrador}&  \textbf{Tarea}&  \textbf{Duración}& \textbf{Prio.}\\  \cline{2-4}
+		&  Crear usuarios &  5& M\\ \cline{2-4}
+		&  Modificar usuarios &  5& M\\ \cline{2-4}
+		&  Eliminar usuarios &  3& M\\ \hline
+		
+		
+		
+	\end{tabular}
+	\caption{Product backlog de Administradores}
+	\label{tab:pb_administradores}
 \end{table}
 
 \begin{table}[H]
-    \centering
-    \begin{tabular}{|c|p{8cm}|c|c|} \hline 
-         \multirow[c]{7}{*}{Moderador}&  \textbf{Tarea}&  \textbf{Coste}& \textbf{Prio.}\\  \cline{2-4}
-         &  Ver publicaciones reportadas &  5& M\\ \cline{2-4}
-         &  Eliminar publicaciones reportadas &  3& M\\ \cline{2-4}
-
-         &  Ver usuarios reportados &  5& M\\ \cline{2-4}
-         &  Banear usuarios reportados &  3& M\\ \cline{2-4}
-         
-         &  Ver lista de asociaciones recién registradas &  5& M\\ \cline{2-4}
-         &  Validar las asociaciones recién registradas& 5 & M\\ \hline
-
-         
-         
-    \end{tabular}
-    \caption{Product backlog de Moderadores}
-    \label{tab:pb_moderadores}
+	\centering
+	\begin{tabular}{|c|p{8cm}|c|c|} \hline 
+		\multirow[c]{7}{*}{Moderador}&  \textbf{Tarea}&  \textbf{Duración}& \textbf{Prio.}\\  \cline{2-4}
+		&  Ver publicaciones reportadas &  5& M\\ \cline{2-4}
+		&  Eliminar publicaciones reportadas &  3& M\\ \cline{2-4}
+		
+		&  Ver usuarios reportados &  5& M\\ \cline{2-4}
+		&  Impedir acceso a usuarios reportados &  3& M\\ \cline{2-4}
+		
+		&  Ver lista de asociaciones recién registradas &  5& M\\ \cline{2-4}
+		&  Validar las asociaciones recién registradas& 5 & M\\ \hline
+		
+		
+		
+	\end{tabular}
+	\caption{Product backlog de Moderadores}
+	\label{tab:pb_moderadores}
 \end{table}
 
-Una vez creadas todas las historias de usuario procedemos a su planificación y asignación en los diferentes sprints, la idea es hacer un scrum con sprints de un mes. A continucación se muestran las tareas asignadas a cada sprint: \\ \\
+Una vez creadas todas las historias de usuario y considerando el tiempo estimado para realizar cada una, procedemos a su planificación y asignación en los diferentes sprints. La idea es seguir la metodología scrum con sprints de un mes.  \\
+
+La  velocidad del sprint será aproximadamente de unos 35-40 puntos. Esta estimación es muy subjetiva y puede variar con el tiempo ya que no tengo sprints anteriores con los que calcular dicha velocidad de manera más meticulosa.
+
+Hablando con las asociaciones nos hemos dado cuenta de que los intercambios de acogidas no son una buena idea, por lo que se han descartado las historias de usuario relacionadas con las acogidas. \\
+
+A continuación se muestran las tareas asignadas a cada sprint, para la administración del trabajo hemos utilizado la herramienta \textit{JIRA} y lo que se muestra son capturas de la misma: \\
 
 Sprint 1 \\ 
 \begin{figure}[H]
@@ -243,6 +274,7 @@ Product backlog restante \\
 
 \subsection{Iteración 1}
 
+En esta iteración se realizarán las historias que hacen referencia a los animales en adopción y su documentación asociada. Hay pocas historias de usuario debido a que en esta iteración también se realizará el aprendizaje de las tecnologías a utilizar, por lo que el desarrollo será más lento.
 \large{\textbf{Especificación de tareas}} \\
 
 
@@ -253,11 +285,11 @@ Product backlog restante \\
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
 	1.1 & Realizar bocetos & 0.5 \\ \hline
-	1.2 &  Implementar interfaz para ver las adopciones disponible & 2 \\ \hline
+	1.2 &  Implementar interfaz para ver las adopciones disponibles & 2 \\ \hline
 	1.3 &  Implementar la lógica de obtención de animales en adopción & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|l|}{Mostrar mensaje en caso de que no haya animales} \\ \hline
-	2 & \multicolumn{2}{|l|}{Mostrar lista de todos los animales} \\ \hline
+	2 & \multicolumn{2}{|l|}{Mostrar lista de todos los animales con diferentes filtros de consulta} \\ \hline
 	3 & \multicolumn{2}{|l|}{Que los filtros funcionen correctamente} \\ \hline
 	
 \end{tabular} \\ \\
@@ -266,17 +298,19 @@ Product backlog restante \\
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
 	\hline
-	\multicolumn{3}{|c|}{\textbf{HU.2 - Poner animales en adopción}} \\
+	\multicolumn{3}{|c|}{\textbf{HU.2 - Crear publicación de animal en adopción}} \\
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\ %Est. es estimación
 	\hline
 	2.1 & Realizar bocetos & 0.5 \\ \hline
-	2.2 &  Implementar interfaz para añadir animales en adopción & 2 \\ \hline
+	2.2 &  Implementar formulario con previsualización de imágenes antes de subirlas al servidor para añadir un animal en adopción & 2 \\ \hline
 	2.3 &  Insertar datos de animales en la bd & 2 \\ \hline 
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
-	1 & \multicolumn{2}{|l|}{Mostrar avisos en caso de error en el fomulario} \\ \hline
+	1 & \multicolumn{2}{|l|}{Mostrar avisos en caso de error en el formulario} \\ \hline
 	2 & \multicolumn{2}{|l|}{Previsualizar imágenes asociadas al animal} \\ \hline
-	3 & \multicolumn{2}{|l|}{Poder eliminar imágenes concretas antes subirlas al servidor} \\ \hline
+	3 & \multicolumn{2}{|l|}{Poder eliminar imágenes concretas antes subirlas al servidor} \\\hline
+	4 & \multicolumn{2}{|l|}{Comprobar que el animal se ha añadido correctamente a la base de datos} \\\hline
+	
 \end{tabular} \\ \\
 
 
@@ -307,34 +341,34 @@ Una vez planificadas todas las historias de usuario del sprint empezaremos a rea
 
 En esta historia nos encargamos de la visualización de los distintos animales de adopción y su filtrado en función a unos parámetros clave, en este caso se han elegido la edad, la especie, y la localización. \\
 
-Además por otra parte cabe destacar que esta será la página principal para los usuarios particulares. \\ 
+Además, por otra parte, cabe destacar que ésta será la página inicial para los usuarios particulares. \\ 
 
 \textbf{Bocetos}
 
-Lo primero es crear los bocetos de la página para ello hemos hecho uso de la herramienta draw.io la cual permite realizar bocetos simples en poco tiempo.
+Lo primero es crear los bocetos de la página; para ello, hemos hecho uso de la herramienta draw.io, la cual permite realizar bocetos simples en poco tiempo. Esta herramienta se usará para todos los bocetos.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.31\linewidth]{"bocetos/iteracion 1/adopciones.drawio"}
+	\includegraphics[width=0.31\linewidth]{"bocetos/iteracion 1/adopciones"}
 	\caption{Boceto de visualización de animales en adopción}
 	\label{fig:adopciones}
 \end{figure}
 
-Como podemos ver la idea para la página es mostrar una lista con los animales en busqueda de adopción en un contenedor con el siguiente formato:
+Como podemos ver, la idea para la página es mostrar una lista con los animales en búsqueda de adopción en un contenedor con el siguiente formato:
 
 \begin{itemize}
-	\item \textbf{Imágenes de los animales}: Esto será un carrousel de imágenes en el que las asocaciones podrán mostrar el aspecto físico de sus animales.
-	\item \textbf{Información específica}: Aquí se encontarán datos como el nombre, la raza y la edad del animal además de una descripción sobre el mismo.
-	\item \textbf{Botones de acción}: las diferentes acciones a realizar serían la de solicituda de adopción, solicitud de acogida y apadrinamiento. Solicitud y apadrinamiento aparecerán solo si quiere la asocicación y este último tampoco aparecerá si ya está apadrinado.
+	\item \textbf{Imágenes de los animales}: Esto será un carrusel de imágenes en el que las asociaciones podrán mostrar el aspecto físico de sus animales.
+	\item \textbf{Información específica}: Aquí se encontrarán datos como el nombre, la raza y la edad del animal, además de una descripción sobre el mismo.
+	\item \textbf{Botones de acción}: las diferentes acciones a realizar serían la de solicitud de adopción, solicitud de acogida y apadrinamiento. Solicitud y apadrinamiento aparecerán solo si quiere la asociación y el apadrinamiento tampoco aparecerá si ya está apadrinado.
 \end{itemize}
 
 \textbf{Implementación} %dimensiones móvil 506x901 \\
 
 \begin{figure}[H]
-		\centering
-		\includegraphics[width=0.5\linewidth]{"Diseños finales/Iteracion 1/adopciones"}
-		\caption{Vista final de la página que muestra a los animales en adopción en móviles}
-		\label{fig:adopcionesDef}
+	\centering
+	\includegraphics[width=0.5\linewidth]{"Diseños finales/Iteracion 1/adopciones"}
+	\caption{Vista final de la página que muestra a los animales en adopción en móviles}
+	\label{fig:adopcionesDef}
 \end{figure}
 
 
@@ -344,29 +378,34 @@ Como podemos ver la idea para la página es mostrar una lista con los animales e
 	\caption{Vista final de la página que muestra a los animales en adopción en web}
 	\label{fig:adopcionesDefWeb}
 \end{figure}
+Para la implantación de todas las historias de usuario usaremos las herramientas elegidas anteriormente, usaremos ionic basado en Angular para la aplicación del cliente y node.js con sequelize como ORM en el servidor. Para esto debemos instalar los paquetes necesarios que en este caso se descargan todos con el comando \textit{npm install "nombre del paquete"}.
 
-Como podemos apreciar en ambos diseños se mantienen los componentes principales que mencionamos en los bocetos. Se ha usado el elemento de \textit{ion-card} para cada animal y en el se han añadido las imágenes pertinentes y una descripción del mismo.
+En la parte de ionic debemos crear una página con el comando \textit{ionic generate page "nombre de la página"}, a parir de ahí obtenemos 3 archivos principales uno html donde organizaremos la información con etiquetas tanto html como propias de ionic, otro archivo de typescript en el que se encontrará la lógica del cliente y el último es un archivo scss, que es una ampliación del css en el que por ejemplo se pueden anidar clases de estilos y usar variables, en el que estableceremos el diseño de la página.
 
-A diferecia de la versión móvil, en web para que el espacio no esté totalmente vacío se ha decidido poner 2 tarjetas por fila, manteniendo su legibilidad y organización básica. \\
+Como podemos apreciar en ambos diseños se mantienen los componentes principales que mencionamos en los bocetos. Se ha usado la etiqueta \textit{ion-card} de ionic para cada animal y en él se han añadido las imágenes pertinentes obtenidas del servidor, el cual ha hecho una consulta a la base de datos, y una descripción del mismo.
 
-Para esta HU hemos tenido que crear las tablas en la base de datos de animales, usuarios de tipo asociación, pasíses y provincias, este último para poder hacer funcionar el filtro de localizaión para la búsqueda de adopciones. \\
+A diferencia de la versión móvil, en web para que el espacio no esté totalmente vacío se ha decidido poner 2 tarjetas por fila, manteniendo su legibilidad y organización básica. \\
 
-En cuanto al servidor se han tenido que crear funciones para obtener a todos los animales o buscarlos en función de los filtros utilizados. \\
+Debemos saber que la implementación abarca 3 partes, la implementación del cliente(aplicación ionic) servidor(node.js) y base de datos(mySql).
 
-En la parte del cliente básicamente se ha creado la pantalla de vista de animales y un servicio el cual nos permite conectarnos al servidor para hacer las peticiones de obtención tanto de filtros como de las adopciones. \\ 
+Para esta HU hemos tenido que crear las tablas en la base de datos de animales, usuarios de tipo asociación, países y provincias, esta última para poder hacer funcionar el filtro de localización para la búsqueda de adopciones. Al final de esta iteración se mostrará un diagrama con la estructura de la base de datos.\\
+
+En cuanto al servidor, se han tenido que crear funciones para obtener a todos los animales o buscarlos en función de los filtros utilizados. \\
+
+En la parte del cliente básicamente se ha creado la pantalla de vista de animales y un servicio de ionic (generado con el comando \textit{ionic generate service nombre-servicio} el cual nos permite conectarnos al servidor mediante una petición http para hacer las peticiones de obtención tanto de los filtros para las búsquedas como de las adopciones que concuerden con los filtros especificados. \\ 
 
 
 
-\Large{\textbf{HU.2 - Poner animales en adopción}}
+\Large{\textbf{HU.2 - Crear publicación de animal en adopción}}
 
 
-En esta historia nos encargamos de de la subida de animales en adopción a la plataforma para que los distintos usuarios los puedan visualizar. \\
+En esta historia nos encargamos de la subida de animales en adopción a la plataforma para que luego los distintos usuarios los puedan visualizar. \\
 
 \textbf{Bocetos}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.31\linewidth]{"bocetos/iteracion 1/poner-adopción.drawio"}
+	\includegraphics[width=0.31\linewidth]{"bocetos/iteracion 1/poner-adopción"}
 	\caption{Boceto de página para añadir animales en adopción}
 	\label{fig:poner-adopcion}
 \end{figure}
@@ -376,7 +415,7 @@ Podemos apreciar que en esta página será básicamente un formulario que se div
 \begin{itemize}
 	\item \textbf{Datos básicos}: Este apartado contendrá la información necesaria (nombre, edad, especie, etc.) del animal en cuestión.
 	\item \textbf{Imágenes}: En este apartado se pondrán las fotos que se quiera.
-	\item \textbf{Datos específicos}: Estos son un conjunto de \textit{checkboxes} en los que se dará informción mas detallada y clínica sobre tratamientos a los que haya sido sometidos como por ejemplo castración o desparasitación entre otros.
+	\item \textbf{Datos específicos}: Estos son un conjunto de \textit{checkboxes} en los que se dará información  clínica sobre tratamientos a los que haya sido sometido el animal, como por ejemplo castración o desparasitación entre otros, esto se me ha ocurrido gracias a la aplicación de \textit{Amazdog}, ya que tienen algo similar.
 \end{itemize}
 
 \textbf{Implementación} \\
@@ -391,82 +430,82 @@ Podemos apreciar que en esta página será básicamente un formulario que se div
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{"Diseños finales/Iteracion 1/subAdopWeb"}
+	\includegraphics[width=1\linewidth]{"Diseños finales/Iteracion 1/subAdopWeb2"}
 	\caption{Diseño de subida de adopciones web}
 	\label{fig:subadopweb}
 \end{figure}
 
-Como podemos apreciar en diferencia con el boceto los campos básicos aparecen en vértical de uno en uno en lugar de ir por bloques, esto se ha decido para aportar mayor legibilidad y orden, ya que de la otra manera tendrían tamaños irregulares y en ciertos modelos de teléfono probablemnete hubiese errores de superposción de elementos. \\
+Como podemos apreciar en diferencia con el boceto, los campos básicos aparecen en vertical de uno en uno en lugar de ir por bloques, esto se ha decido para aportar mayor legibilidad y orden, ya que de la otra manera tendrían tamaños irregulares y en ciertos modelos de teléfono probablemente hubiese errores de superposición de elementos. \\
 
-Para esta historia de usuario se ha modificado la tabla de animales para añadir los campos del checkbox y su correspondiente actualización en el backend. También hemos creado sendos métodos para la subida de imágenes, que se guardan en la carpeta uploads del servidor y se enlaza con una tupla en la tabla \textit{images} en la base de datos la cual contiene su nombre, y animales. En caso de que no se puedan añadir las imágenes se borrará de la base de datos al animal y se le avisará al usuario de que ha habido un error. \\
+Para esta historia de usuario se ha modificado la tabla de animales creada para la historia previa para añadir los campos del checkbox y su correspondiente actualización en el backend. También hemos creado sendos métodos para la subida de imágenes, que se guardan en la carpeta uploads del servidor y se enlaza con una tupla en la tabla \textit{images} en la base de datos, la cual contiene su nombre, y el id del animal al que pertenece. En caso de que no se puedan añadir las imágenes por algún error de conexión con el servidor, se borrará de la base de datos al animal y se le avisará al usuario de que ha habido un error. \\
 
 
-En cuanto al frontend hemos creado una página nueva en el proyecto la cual contiene un formulario y hemos hecho uso de FormGrup de Angular el cual nos permite hacer validaciones básicas como por ejemplo que una cadena tenga x caracteres, también se ha creado una función de validación de campos en la que se le da información al usuario de los errores mediante un elemento \textit{Toast}. \\
+En cuanto al frontend hemos creado una página nueva en el proyecto, la cual contiene un formulario, y hemos hecho uso de \textit{FormGroup} de Angular. Éste es una clase la cual nos permite hacer validaciones básicas en los campos que contenga, como por ejemplo que una cadena tenga x caracteres. También se ha creado una función de validación de campos en la que se le da información al usuario de los errores de entrada en los campos a rellenar mediante un elemento \textit{Toast}. \\
 
-Por último se han creado también funciones para la obtención de imágenes que puede ser tanto desde la galería como desde la cámara en su versión móvil y solo desde los archivos en la versión web y la posibilidad de eliminar imágenes en caso de que no las queramos antes de la subida de los animales.\\
+Por último, se han creado también funciones para la obtención de imágenes que pueden ser tomadas tanto desde la galería como desde la cámara en su versión móvil, y solo desde los archivos en la versión web. En el formulario de añadir animal podemos eliminar las imágenes seleccionadas, si así lo deseamos, esto se permite por si el usuario ha seleccionado alguna imagen incorrecta.\\
 
 \Large{\textbf{Fin del Sprint}}
 
 \textbf{Velocidad del Sprint} \\ \\
-	Como bien se puede ver en la tabla del sprint 0 se habían planificado una serie de tareas para este mismo, pero una vez terminado debemos hacer una reestimación de la velocidad ya que el aprendizaje e investigación de las tecnologías ha suspuesto más tiempo del esperado, produciendo así retrasos en la realización de las tareas. Debido a esto la planificación estimada de los siguientes sprints quedaría de la siguiente manera: \\
-	
-	Sprint 2 \\
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=1\linewidth]{newSprint2}
-		\caption{Nuevas tareas sprint 2}
-		\label{fig:newsprint2}
-	\end{figure}
-	
-	
-	Sprint 3 \\
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=1\linewidth]{newSprint3}
-		\caption{Nuevas tareas sprint 3}
-		\label{fig:newsprint3}
-	\end{figure}
-	
-	Sprint 4 \\
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=1\linewidth]{newSprint4}
-		\caption{Nuevas tareas sprint 4}
-		\label{fig:newsprint4}
-	\end{figure}
-	
-	
-	Sprint 5 \\ 
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=1\linewidth]{newSprint5}
-		\caption{Nuevas tareas sprint 5}
-		\label{fig:newsprint5}
-	\end{figure}
-	
-	El resto de tareas se moverán al backlog para su futura realización. \\ 
-	
-	\textbf{Backend} \\
-	
-	Como hemos visto en apartados anteriores (explicar en descripción de la propuesta que uso modelo-vista-controlador) en el back se encuentran tanto los controladores como los modelos para el acceso a la base de datos y su envío a la aplicación móvil. \\
-	
-	En la finalización del primer sprint la estructura de directorios es la siguiente:
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.7\linewidth]{"sprint 1/directoriosBack"}
-		\caption{Estructura de directorios del backend al final del sprint 1}
-		\label{fig:directoriosback1}
-	\end{figure}
-	
-	Además al utilizar un ORM se accede a la base de datos mediante clases por lo que para ilustrar su estructura se ha realizado un diagrama con sus relaciones y funciones básicas:
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=1\linewidth]{"sprint 1/clases"}
-		\caption{Diagrama de clases de la primera iteración}
-		\label{fig:clases}
-	\end{figure}
+Como bien se puede ver, en la tabla del sprint 0 se habían planificado una serie de tareas para este mismo, pero una vez terminado debemos hacer una reestimación de la velocidad ya que el aprendizaje e investigación de las tecnologías ha supuesto más tiempo del esperado, produciendo así retrasos en la realización de las tareas. Debido a esto la planificación estimada de los siguientes sprints quedaría de la siguiente manera: \\
+
+Sprint 2 \\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{newSprint2}
+	\caption{Nuevas tareas sprint 2}
+	\label{fig:newsprint2}
+\end{figure}
+
+
+Sprint 3 \\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{newSprint3}
+	\caption{Nuevas tareas sprint 3}
+	\label{fig:newsprint3}
+\end{figure}
+
+Sprint 4 \\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{newSprint4}
+	\caption{Nuevas tareas sprint 4}
+	\label{fig:newsprint4}
+\end{figure}
+
+
+Sprint 5 \\ 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{newSprint5}
+	\caption{Nuevas tareas sprint 5}
+	\label{fig:newsprint5}
+\end{figure}
+
+El resto de tareas se moverán al backlog para su futura realización. \\ 
+
+\textbf{Backend} \\
+
+Como hemos visto en apartados anteriores (explicar en descripción de la propuesta que uso modelo-vista-controlador) en el back se encuentran tanto los controladores como los modelos para el acceso a la base de datos y su envío a la aplicación móvil. \\
+
+En la finalización del primer sprint la estructura de directorios es la siguiente:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"sprint 1/directoriosBack"}
+	\caption{Estructura de directorios del backend al final del sprint 1}
+	\label{fig:directoriosback1}
+\end{figure}
+
+Además al utilizar un ORM se accede a la base de datos mediante clases por lo que para ilustrar su estructura se ha realizado un diagrama con sus relaciones y funciones básicas:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{"sprint 1/clases"}
+	\caption{Diagrama de clases de la primera iteración}
+	\label{fig:clases}
+\end{figure}
 
 
 \subsection{Iteración 2}
@@ -474,32 +513,33 @@ Por último se han creado también funciones para la obtención de imágenes que
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
 	\hline
-	\multicolumn{3}{|c|}{\textbf{HU.3 - Ver lista de animales perdidos}} \\
+	\multicolumn{3}{|c|}{\textbf{HU.3 - Ver lista de animales perdidos/encontrados}} \\
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
 	3.1 & Realizar bocetos & 0.5 \\ \hline
-	3.2 &  Implentar la lógica de acceso a los animales perdidos & 2 \\ \hline
-	3.3 &  Implementar la interfaz para subir el aviso & 1 \\ \hline
+	3.2 &  Implementar la lógica de acceso a los animales perdidos & 2 \\ \hline
+	3.3 &  Implementar la interfaz obtener la lista de publicaciones & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|l|}{Mostrar mensaje en caso de que no haya animales perdidos} \\ \hline
 	2 & \multicolumn{2}{|l|}{Mostrar lista de todos los animales perdidos} \\ \hline
-	3 & \multicolumn{2}{|l|}{Que los filtros funcionen correctamente} \\ \hline
+	3 & \multicolumn{2}{|l|}{Que los filtros de búsqueda funcionen correctamente} \\ \hline
 \end{tabular} \\ \\
 
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
 	\hline
-	\multicolumn{3}{|c|}{\textbf{HU.4 - Poner aviso de animal perdido encontrado}} \\
+	\multicolumn{3}{|c|}{\textbf{HU.4 - Añadir publicación de animal perdido o encontrado}} \\
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	4.1 & Realizar bocetos & 0.5 \\ \hline
-	4.2 &  Actualizar la logíca para añadir avisos a la base de datos & 2 \\ \hline
-	4.3 &  Implementar la interfaz para subir el aviso & 1 \\ \hline
+	4.1 & Realizar bocetos & 0,5 \\ \hline
+	4.2 &  Actualizar la lógica para añadir publicaciones de perdido o encontrado a la base de datos & 2 \\ \hline
+	4.3 &  Implementar la interfaz para subir la publicación & 1 \\ \hline
+	4.4 &  Implementar la funcionalidad de añadir imágenes a las publicaciones de animal perdido/encontrado & 0,5 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
-	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que los campos deben estar cumplimentados antes de realizar la petición} \\ \hline
-	2 & \multicolumn{2}{|p{10cm}|}{Que la imagen recortada se almacena apropiadamente} \\ \hline
+	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que los campos deben estar cumplimentados antes de realizar la petición de creación al servidor} \\ \hline
+	2 & \multicolumn{2}{|p{10cm}|}{Que las imágenes seleccionadas se almacenan apropiadamente} \\ \hline
 	3 & \multicolumn{2}{|p{10cm}|}{Que la cámara funcione correctamente en dispositivos móviles} \\ \hline
 \end{tabular} \\ \\
 
@@ -507,16 +547,18 @@ Por último se han creado también funciones para la obtención de imágenes que
 	\hline
 	\multicolumn{3}{|c|}{\textbf{HU.5 - Crear registro de particulares}} \\
 	\hline
-	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días} \\
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
 	5.1 & Realizar bocetos & 0.5 \\ \hline
 	5.2 &  Implementar la lógica de registro & 2 \\ \hline
 	5.3 &  Implementar la interfaz de registro & 1 \\ \hline
+	5.4 &  Implementar la funcionalidad de añadir imágenes de perfil & 0,5 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
-	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que los campos deben estar cumplimentados correctamente antes de realizar la petición} \\ \hline
-	2 & \multicolumn{2}{|p{10cm}|}{Asegurarse de que la imagen recortada se almacena apropiadamente} \\ \hline
+	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que los campos deben estar cumplimentados correctamente antes de realizar la petición al servidor} \\ \hline
+	2 & \multicolumn{2}{|p{10cm}|}{Asegurarse de que la imágenes seleccionadas se almacena apropiadamente} \\ \hline
 	3 & \multicolumn{2}{|p{10cm}|}{Ver que la cámara funcione correctamente en dispositivos móviles} \\ \hline
-	4 & \multicolumn{2}{|p{10cm}|}{Ver que los campos de ubicación se autocompletan correctamente} \\ \hline
+	4 & \multicolumn{2}{|p{10cm}|}{Ver que los campos de ubicación se autocompletan correctamente en caso de tener los permisos activados} \\ 
+	5 & \multicolumn{2}{|p{10cm}|}{Comprobar que no se pueda realizar la petición al servidor sin que los campos estén rellenados correctamente} \\\hline
 \end{tabular} \\ \\\\
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
@@ -525,23 +567,9 @@ Por último se han creado también funciones para la obtención de imágenes que
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	6.1 &  Implementar la lógica asociada al inicio de sesión & 2 \\ \hline
-	6.2 &  Implementar la interacción asociada al inicio de sesión de los asociaciones y particulares. & 1,5 \\ \hline
-	6.3 &  Realizar bocetos. & 0.5 \\ \hline
-\end{tabular} \\ \\
-
-
-
-
-\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
-	\hline
-	\multicolumn{3}{|c|}{\textbf{HU.7 - Cerrar sesión}} \\
-	\hline
-	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
-	\hline
-	7.1 & Realizar de bocetos & 0.5 \\ \hline
-	7.2 &  Implementar la lógica asociada al cierre de sesión. & 1 \\ \hline
-	7.3 &  Implementar interfaz asociada al cierre de sesión. & 0.5 \\ \hline
+	6.2 &  Implementar la lógica asociada al inicio de sesión & 2 \\ \hline
+	6.3 &  Implementar la interfaz asociada al inicio de sesión de las asociaciones y particulares. & 1,5 \\ \hline
+	
 \end{tabular} \\ \\
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
@@ -554,7 +582,7 @@ Por último se han creado también funciones para la obtención de imágenes que
 	1.2 &  Añadir tareas a las historias de usuario & 0.5 \\ \hline
 \end{tabular} \\ \\
 
-\Large{\textbf{HU.3 - Ver lista de animales perdidos}} \\
+\Large{\textbf{HU.3 - Ver lista de animales perdidos/encontrados}} \\
 
 En esta historia nos encargamos de la visualización de las publicaciones sobre animales perdidos que hayan subido los distintos usuarios filtrando como en la HU.1~\pageref{sec:hu1} por diversos filtros para hacer más eficiente la búsqueda.
 
@@ -563,11 +591,11 @@ En esta historia nos encargamos de la visualización de las publicaciones sobre 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.31\linewidth]{"sprint 2/hu3/listaPerdidos"}
-	\caption{Boceto de la página que lista los animales perdidos}
+	\caption{Boceto de la página que lista los animales perdidos/encontrados}
 	\label{fig:listaperdidos}
 \end{figure}
 
-Como podemos ver la estructura es la misma que vimos en la página de lista de adopciones, ésta genera una cohesión en el diseño de la aplicación, haciéndola más intuitiva para el usuario final.
+Como podemos ver en la figura \ref{fig:adopciones}, la estructura es la misma que vimos en la página de lista de adopciones, lo cual genera una cohesión en el diseño de la aplicación, haciéndola más intuitiva para el usuario final.
 
 La única diferencia es que en este caso solo hay un único botón de acción que nos llevará a un chat con la persona que ha publicado el anuncio para poder obtener más información o para dar información sobre la perdida de la mascota.
 
@@ -586,30 +614,30 @@ La única diferencia es que en este caso solo hay un único botón de acción qu
 	\label{fig:disenofinalweb}
 \end{figure}
 
-Como podemos apreciar no hay una gran diferencia entre el boceto y la implementación final en la aplicación ya que se mantien los elementos principales además se le ha añadido un botón en la esquina inferior izquierda que nos lleva a la página de para añadir una publicación de mascota perdida, la cual veremos más adelante.\\
+Como podemos apreciar, no hay una gran diferencia entre el boceto y la implementación final en la aplicación ya que se mantienen los elementos principales. Además se le ha añadido un botón en la esquina inferior derecha que nos llevará a la página  para añadir una publicación de mascota perdida o encontrada, la cual veremos más adelante.\\
 
-En cuanto a la parte del servidor hemos tenido que crear dos tablas nuevas, una para los anuncios y otra para las imágenes de las mismas.\\
+En cuanto a la parte del servidor hemos tenido que crear dos tablas nuevas en la base de datos, una para las publicaciones y otra para las imágenes asociadas a las mismas.\\
 
-Además también se han creado funciones para el acceso a dichas tablas para su correcto tratamiento y envío a la aplicación móvil para que se muestren correctamente en el formato deseado. Para los filtros se ha reutilizado la mayor parte del código de la HU.1 por lo que eso ha permitido hacer más rápido el desarrollo de esta historia.\\ \\
+Además, también se han creado funciones para el acceso a dichas tablas para su correcto tratamiento y envío a la aplicación móvil para que se muestren correctamente en el formato deseado. Para los filtros se ha reutilizado la mayor parte del código de la HU.1 por lo que eso ha permitido hacer más rápido el desarrollo de esta historia.\\ \\
 
-\Large{\textbf{HU.4 - Poner aviso de animal perdido encontrado}}
+\Large{\textbf{HU.4 - Añadir publicación de animal perdido o encontrado}}
 
-En esta historia nos vamos a encargar de las tareas relacionadas con el añadido de posts a la sección de mascotas perdidas, para ello deberán rellenar un formulario con distinta información del animal. \\
+En esta historia nos vamos a encargar de las tareas relacionadas con el añadido de publicaciones a la sección de mascotas perdidas, para ello deberán rellenar un formulario con distinta información del animal. \\
 \textbf{Bocetos}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.31\linewidth]{"sprint 2/hu4/postearPerdido"}
-	\caption{Boceto de la página para añadir publicaciones de animales perdidos}
+	\caption{Boceto de la página para añadir publicaciones de animales perdidos/encontrados}
 	\label{fig:postearperdido}
 \end{figure}
 
-Como podemos ver a diferencia de la página en la que las asociaciones pueden añadir animales a su perfil en esta tenemos información diferente:
+Como podemos ver, a diferencia de la página en la que las asociaciones pueden añadir animales a su perfil en esta tenemos información diferente:
 
 \begin{itemize}
-	\item \textbf{Tipo de publicación}: Para este apartado tenemos 2 opciones puede que hayamos encontrado un animal en la calle y lo publiquemos en la aplicación para buscar a su dueño (Encontrado) o por el contrario, hemos perdido a nuestra mascota y queremos encontrarla, en este caso sería una publicación del tipo perdido. \\ 
+	\item \textbf{Tipo de publicación}: Para este apartado tenemos 2 opciones y son que puede que hayamos \textit{encontrado} un animal en la calle y lo publiquemos en la aplicación para buscar a su dueño, o por el contrario, hemos perdido a nuestra mascota y queremos encontrarla, en este caso sería una publicación del tipo \textit{perdido}. \\ 
 	
-	\item \textbf{Campos de ubicación}: Éstos los usaremos para el lugar en el que lo hemos perdido o encontrado al animal en cuestión, además ayudarán a la posterior búsqueda de los mismos gracias a la utilización de los filtros en la página de lista de animales perdidos. \\
-	 
+	\item \textbf{Campos de ubicación}: Éstos los usaremos para identificar el lugar en el que hemos perdido o encontrado al animal en cuestión. Además ayudarán a la posterior consulta de los mismos gracias a la utilización de los filtros en la página de lista de animales perdidos. \\
+	
 \end{itemize}
 
 \textbf{Implementación}
@@ -617,31 +645,33 @@ Como podemos ver a diferencia de la página en la que las asociaciones pueden a�
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{"sprint 2/hu4/impPerdidos"}
-	\caption{Vista final de la página para añadir animales perdidos en móviles}
+	\caption{Vista final de la página para añadir animales perdidos/encontrados en móviles}
 	\label{fig:impperdidos}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{"sprint 2/hu4/impPerdidosWeb"}
-	\caption{Vista final de la página para añadir animales perdidos en web}
+	\caption{Vista final de la página para añadir animales perdidos/encontrados en web}
 	\label{fig:impperdidosweb}
 \end{figure}
 
-Como podemos ver en la implentación para móviles en función del tipo de publicación que sea la información que rellena el usuario es ligeramente diferente ya que por ejemplo alguien que haya encontrado un perro perdido no va a saber su nombre como si lo haría el dueño del animal. El otro campo es la zona de desaparición  para el caso de perder a tu mascota, que sería el lugar de de recogida para el que lo encuentre. \\
+Como podemos ver en la implementación para móviles, en función del tipo de publicación que sea (perdido o encontrado), la información que rellena el usuario es ligeramente diferente, ya que por ejemplo alguien que haya encontrado un perro perdido no va a saber su nombre como sí lo haría el dueño del animal. El otro campo es la zona de desaparición para el caso de perder a tu mascota, que sería el lugar de de recogida para el que lo encuentre y/o la zona en la que se halle ahora mismo. \\
 
-Además en esta historia cabe destacar de que se soluciona un problema existente en las imágenes, ahora todas deben tener el mismo ratio de escala, para así cuando se vizualicen todas las publicaciones tengan el mismo tamaño, haciendo del diseño algo más consistente.\\
+Además, en esta historia cabe destacar que se soluciona un problema existente en las imágenes. Antes se podían subir imágenes de cualquier tamaño a la aplicación, haciendo que el ancho y el alto de las publicaciones pudiera llegar a ser diferentes, ahora todas deben tener el mismo ratio de escala, para que así cuando se visualicen todas las publicaciones, éstas tengan el mismo tamaño, haciendo del diseño algo más consistente.\\
 
-En cuanto a la base de datos gracias a la historia anterior no debemos añadir ninguna tabla más. Por otra parte hemos creado un endpoint del tipo \textit{POST} para añadir publicaciones a la base de datos. \\
+En el frontend hemos añadido la biblioteca \textit{ngx-image-cropper}, la cual nos permite recortar las imágenes con un ratio determinado, como se ha mencionado anteriormente, lo que ha acelerado el desarrollo de la historia. El funcionamiento es sencillo, cada vez que subimos una imagen se nos pedirá que la recortemos con la proporción adecuada, pudiendo mover el selector por la imagen y haciéndola más grande o más pequeña en función de nuestras necesidades. \\
 
-Tabién hemos creado una función para añadir la publicación y para agregar las imágenes hemos reutilizado la creada en la adición de animales en adopción, coun unos pequeños cambios, como cambiar la ruta de almacenaje de las imágenes. \\ 
+En cuanto a la base de datos, gracias a la historia anterior no debemos añadir ninguna tabla más. Por otra parte hemos creado un endpoint del tipo \textit{POST}, esto es un punto de acceso en el servidor para recibir peticiones del cliente, para añadir publicaciones a la base de datos. \\
 
-En el frontend hemos añadido la biblioteca \textit{ngx-image-cropper} la cual nos permite recortar las imágenes con un ratio determinado como se ha mencionado anteriormente, lo que ha acelerado el desarrollo de la historia. El funcionamiento es sencillo, cada vez que subimos una imágen se nos pedirá que la recortemos con la proporción adecuada pudiendo mover el selector por la image y haciendola más grande o más pequeña en función de nuestras necesidades. \\
+También hemos creado una función para añadir la publicación, y para agregar las imágenes, hemos reutilizado la creada en la adición de animales en adopción, con unos pequeños cambios, como cambiar la ruta de almacenaje de las imágenes. \\ 
+
+
 
 
 \Large{\textbf{HU.5 - Crear registro de particulares}}
 
-Esta historia, como su título nos indica comprende la creación del registro de usuarios, esta página se trata de un formulario con la información pertinente para su correcta gestión.\\
+Esta historia, como su título nos indica comprende la creación de una página para el registro de usuarios, se trata de un formulario con la información pertinente para su correcta gestión.\\
 
 \textbf{Bocetos}
 \begin{figure}[H]
@@ -651,7 +681,7 @@ Esta historia, como su título nos indica comprende la creación del registro de
 	\label{fig:registroparticulares}
 \end{figure}
 
-La estructura básica de la página es simple, tenemos un conjunto de campos a cubrir y un botón el cual nos permitirá envíar la información al servidor para realizar la creación del mismo. \\
+La estructura básica de la página es simple, tenemos un conjunto de campos a cubrir y un botón el cual nos permitirá enviar la información al servidor para realizar la creación del mismo. \\
 
 \textbf{Implementación}
 
@@ -670,35 +700,35 @@ La estructura básica de la página es simple, tenemos un conjunto de campos a c
 \end{figure}
 
 
-Como vemos en cuanto a diferencia con los bocetos no hay demasiada en la implementación final lo que sí que podemos observar es que a diferencia de los otros formularios en el tema claro de éste los elementos tienen un color de fondo grisaceo asemejándose así al tema oscuro. Esto se ha decidido para hacer más homogénea la aplicación. Cabe destacar que este cambio ha sido aplicado al resto de formularios de forma retroactiva.
+Como vemos para la parte del frontend, no hay demasiada diferencia con los bocetos en la implementación final. Lo que sí que podemos observar es que a diferencia de los otros formularios, en el tema claro los elementos tienen un fondo grisáceo asemejándose así al tema oscuro. Cabe destacar que este cambio ha sido aplicado al resto de formularios de forma retroactiva. Esto se ha decidido para hacer más homogénea la aplicación.
 
-Además en cuanto al apartado de diseño también se ha ajustado el ancho en la versión web, para que los elementos no ocupen todo el ancho de la página.
+Además, en cuanto al apartado de diseño también se ha ajustado el ancho en la versión web, para que los elementos no ocupen todo el ancho de la página.
 
 En cuanto a la programación, debemos destacar los siguientes aspectos:
 
 \begin{itemize}
-	\item \textbf{Obtención dinámica de localización}: Para esta historia se ha implementado la geolocalización, lo que nos permite acceder a la ubicación del dispositivo y así autocompletar la información referente a la ubicación sin que el usuario tenga que hacer nada. Para ello hemos hecho uso de la biblioteca \textit{opencage-api-client}, la cual nos devuelve información sobre la locacización actual del dispositivo, en este caso utilizamos la provincia y desde ella obtenemos el país al cual pertenece en nuestra base de datos. 
+	\item \textbf{Obtención dinámica de localización}: Para esta historia se ha implementado la geolocalización, lo que nos permite acceder a la ubicación del dispositivo y así autocompletar la información referente a la ubicación sin que el usuario tenga que hacer nada. Para ello hemos hecho uso de la biblioteca \textit{opencage-api-client}, la cual nos devuelve información sobre la localización actual del dispositivo. En este caso utilizamos la provincia, y desde ella obtenemos el país al cual pertenece en nuestra base de datos. 
 	
-	En caso de no tener activada la geolocaclización el usuario debe introducirlo manualmente, si no la aplicación le avisará de un error.
+	En el servidor se han creado funciones para la obtención dinámica de la ubicación, para ello éste recibe la provincia del cliente y de ella obtiene el país al que pertenece y se retorna a la aplicación un estructura con todos los países y sus provincias, la provincia actual y el país al que pertenece, esto es lo que en el frontend nos permite rellenar los selectores correctamente.
 	
-	Esto se ha implementado también en la página de publicar animales perdidos por motivos de practicidad.
+	En caso de no tener activada la geolocalización, el usuario debe introducirlo manualmente, si no la aplicación le avisará de un error.
 	
-
-	\item \textbf{Control de errores}: En caso de que el usuario se deje alguno de los campos obligatorios sin rellenar cuando pulse el botón de crear cuenta se le avisará mediante un \textit{toast}, en este caso todos los campos son obligatorios a excepción de la fotografía.
+	Esto se ha implementado también en la página de publicar animales perdidos por motivos prácticos.
 	
-	Además también en el momento de la inserción se comprueba previamente si tanto el correo como el nombre de usuario están en uso actualmente, y, en caso de estarlo, se le notificará al usuario que alguno de éstos ya está en uso.
+	
+	\item \textbf{Control de errores}: En caso de que el usuario se deje alguno de los campos obligatorios sin rellenar cuando pulse el botón de crear cuenta, se le avisará mediante un \textit{toast}, esto es una alerta temporal que aparece en la parte inferior de la pantalla. En este caso todos los campos son obligatorios, a excepción de la fotografía.
+	
+	Además, también en el momento de la inserción se comprueba previamente si tanto el correo como el nombre de usuario están en uso actualmente, y, en caso de estarlo, se le notificará al usuario que alguno de éstos ya está en uso.
 \end{itemize}
-
-En el servidor se han creado funciones para la obtención dinámica de la ubicación, para ello éste recibe la provincia y de ella obtiene el país al que pertenece y se retorna a la aplicación un estructura con todos los países y sus provincias la provincia actual y el país al que pertenece, esto es lo que en el front end nos permite rellenar los selectores correctamente.
 
 Se ha creado un endpoint para la información que tenga que ver con los usuarios, en este caso su creación y la comprobación de que el usuario a registrar en la aplicación no exista actualmente.
 
-Un detalle a comentar es que en el diagrama de la iteración 1 los usuarios no tenían el campo de contraseña, este ya se ha añadido como se reflejará en el diagrama al final de esta iteración. \\
+Un detalle a comentar sobre la estructura de la base de datos es que en el diagrama de la iteración 1 los usuarios no tenían el campo de contraseña, este ya se ha añadido, como se reflejará en el diagrama al final de esta iteración. \\
 
 
 \Large{\textbf{HU.6 - Acceder a la aplicación}} 
 
-En el desarrollo de esta historia hemos realizado la creación de la página de \textit{log in} para que los distintos usuarios puedan acceder a la misma y acceder a contenido limitado o especíco de un tipo de usuario concreto. \\ 
+En el desarrollo de esta historia hemos realizado la creación de la página de \textit{log in} para que los distintos usuarios puedan acceder a la misma y acceder a contenido limitado o específico de un tipo de usuario concreto. \\ 
 
 \textbf{Bocetos}
 
@@ -710,7 +740,7 @@ En el desarrollo de esta historia hemos realizado la creación de la página de 
 	\label{fig:login}
 \end{figure}
 
-Como podemos apreciar en el boceto la página contará con un pequeño formulario de inicio de sesión en el cual se deberá rellenar con el nombre de usuario y su contraseña pertinente. Además también vemos que desde esta página se podrá ir a la de registro. \\
+Como podemos apreciar en el boceto la página, ésta contará con un pequeño formulario de inicio de sesión en el cual se deberá rellenar con el nombre de usuario y su contraseña pertinente. Además también vemos que desde esta página se podrá ir a la de registro (Crear cuenta), en el caso de no estar registrado previamente. \\
 
 \textbf{Implementación}
 
@@ -728,19 +758,19 @@ Como podemos apreciar en el boceto la página contará con un pequeño formulari
 	\label{fig:imploginweb}
 \end{figure}
 
-\textbf{Implentación} \\
+\textbf{Implementación} \\
 
-Como podemos ver en el diseño final no ha habido cambios significativos con respecto a los bocetos, pero si que se ha cambiado la estética en los botones de la aplicación, esto se ha hecho con caracter retroactivo aplicándose al resto de páginas, esto se ha hecho para hacer una interfaz más acorde a las corrientes actuales.
+Como podemos ver en el diseño final, no ha habido cambios significativos con respecto a los bocetos, pero si que se ha cambiado la estética en los botones de la aplicación ahora son más redondeados, esto se ha hecho con carácter retroactivo aplicándose al resto de páginas. El motivo ha sido hacer una interfaz más acorde a las corrientes actuales.
 
 En esta página hemos creado un pequeño formulario con los datos de inicio de sesión que se enviarán al servidor en cuanto le demos aceptar.
 
-Si se hayan fallos en las credenciales se le notificará al usuario que ha habido un error, si son correctas se accederá de manera normal a la aplicación.
+Si se hayan fallos en las credenciales, se le notificará al usuario que ha habido un error, si son correctas se accederá de manera normal a la aplicación.
 
-Para mantener al usuario conectado hemos hecho uso sesiones. Para esto hemos instalado la biblioteca \textit{express-session} la cual nos permite almacenar los datos que necesitemos para mantener las sesiones de los usuarios además de envíar una cookie con el id de la sessión al usuario, lo que nos permitirá acceder a su información cuando se hagan peticiones al servidor.
+Para mantener al usuario conectado hemos hecho uso sesiones. Para esto hemos instalado la biblioteca \textit{express-session} la cual nos permite almacenar los datos que necesitemos para mantener las sesiones de los usuarios, además de enviar una \textit{cookie} con el id de la sesión al usuario, lo que nos permitirá acceder a su información cuando se hagan peticiones al servidor.
 
-Hemos creado un endpoint para el login (/api/login) en el cual tenemos 2 métodos, uno para comprobar si las credenciales son correctas y otro para saber si el usuario tiene ya una sesión activa. En el primero debemos aseguranos de crear la sesión y enviarle la cookie a la aplicación.
+Hemos creado un endpoint para el \textit{login (/api/login)} en el cual tenemos 2 métodos, uno para comprobar si las credenciales son correctas y otro para saber si el usuario tiene ya una sesión activa. En el primero debemos asegurarnos de crear la sesión y enviarle la cookie a la aplicación.
 
-Con todo esto ya tenemos terminada la lógica del acceso en el servidor, pero también hemos tenido que controlar el acceso a las páginas de la aplicación a las que no se puede acceder si no estás logueado y hacer que aparezcan o no ciertos elementos en función del tipo de usuario que esté conectado, esto además se irá actualizando co el tiempo a medida que se vayan creando nuevas páginas. \\
+Con todo esto ya tenemos terminada la lógica del acceso en el servidor, pero también hemos tenido que controlar el acceso a las páginas de la aplicación a las que no se puede acceder si no estás "logueado", y hacer que aparezcan o no ciertos elementos en función del tipo de usuario que esté conectado. Esto además se irá actualizando con el tiempo a medida que se vayan creando nuevas páginas. \\
 
 \Large{\textbf{Fin del sprint}} \\
 
@@ -753,7 +783,7 @@ La estructura actual de directorios en el backend es la siguiente:
 	\label{fig:directoriosbacks2}
 \end{figure}
 
-Además también se ha actualizado el diagrama de clases, aunque en esta iteración no se han creado nuevas clases se han realizado otros cambios, como añadir los métodos necesarios para la búsqueda de país a partir de una provincia o los asociados a la creación de usuarios.
+Además también se ha actualizado el diagrama de clases, ya que aunque en esta iteración no se han creado nuevas clases se han realizado otros cambios, como añadir los métodos necesarios para la búsqueda de país a partir de una provincia o los asociados a la creación de usuarios.
 
 \begin{figure}[H]
 	\centering
@@ -761,6 +791,139 @@ Además también se ha actualizado el diagrama de clases, aunque en esta iteraci
 	\caption{Diagrama de clases de la segunda iteración}
 	\label{fig:clases2}
 \end{figure}
+
+
+Como cierre de la iteración a nivel de tareas se han realizado todas las HU propuestas. No obstante, la realización de pruebas y corrección de este documento ha abarcado más de lo esperado ocupando 4 días del siguiente sprint.
+
+\subsection{Iteración 3}
+
+\textbf{Especificación de tareas}
+
+\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.7 - Cerrar sesión}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	7.1 & Realizar de bocetos & 0.5 \\ \hline
+	7.2 &  Implementar la lógica asociada al cierre de sesión. & 1 \\ \hline
+	7.3 &  Implementar interfaz asociada al cierre de sesión. & 0.5 \\ \hline
+\end{tabular} \\ \\
+
+\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.8 - Crear registro de asociaciones}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	5.1 & Realizar bocetos & 0.5 \\ \hline
+	5.2 &  Implementar la lógica de registro & 2 \\ \hline
+	5.3 &  Implementar la interfaz de registro & 1 \\ \hline
+	5.4 &  Implementar la funcionalidad de añadir imágenes de perfil & 0,5 \\ \hline
+	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
+	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que los campos deben estar cumplimentados correctamente antes de realizar la petición al servidor} \\ \hline
+	2 & \multicolumn{2}{|p{10cm}|}{Asegurarse de que la imágenes seleccionadas se almacena apropiadamente} \\ \hline
+	3 & \multicolumn{2}{|p{10cm}|}{Ver que la cámara funcione correctamente en dispositivos móviles} \\ \hline
+	4 & \multicolumn{2}{|p{10cm}|}{Ver que los campos de ubicación se autocompletan correctamente en caso de tener los permisos activados} \\ \hline
+	5 & \multicolumn{2}{|p{10cm}|}{Comprobar que no se pueda realizar la petición al servidor sin que los campos estén rellenados correctamente} \\\hline
+	
+\end{tabular} \\ \\
+
+\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.9 - Ver solicitudes de adopción}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	5.1 & Realizar bocetos & 0.5 \\ \hline
+	5.2 &  Implementar la lógica & 2 \\ \hline
+	5.3 &  Implementar la interfaz para la visualización & 1 \\ \hline
+	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
+	1 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	2 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	3 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	
+\end{tabular} \\ \\
+
+\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.10 - Ver solicitudes de acogida}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	5.1 & Realizar bocetos & 0.5 \\ \hline
+	5.2 &  Implementar la lógica & 1 \\ \hline
+	5.3 &  Implementar la interfaz para la visualización & 1 \\ \hline
+	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
+	1 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	2 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	3 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	
+\end{tabular} \\ \\
+
+\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.11 - Ver tu perfil}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	5.1 & Realizar bocetos & 0.5 \\ \hline
+	5.2 &  Implementar la lógica de obtención del perfil & 2 \\ \hline
+	5.3 &  Implementar la interfaz para la visualización del perfil & 1 \\ \hline
+	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
+	1 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	2 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	3 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	
+\end{tabular} \\ \\
+
+\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.12 - Ponerse como casa de acogida}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	5.1 & Realizar bocetos & 0.5 \\ \hline
+	5.2 &  Implementar la lógica & 2 \\ \hline
+	5.3 &  Implementar la interfaz & 1 \\ \hline
+	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
+	1 & \multicolumn{2}{|p{10cm}|}{Ver que el usuario particular sea el único que pueda acceder a esta opción} \\ \hline
+	2 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	3 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	
+\end{tabular} \\ \\
+
+\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.13 - Buscar usuarios que estén como casa de acogida}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	5.1 & Realizar bocetos & 0.5 \\ \hline
+	5.2 &  Implementar la lógica & 2 \\ \hline
+	5.3 &  Implementar la interfaz & 1 \\ \hline
+	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
+	1 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	2 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	3 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	
+\end{tabular} \\ \\
+
+\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.6 - Acceder a la aplicación}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	6.2 &  Implementar la lógica asociada al inicio de sesión & 2 \\ \hline
+	6.3 &  Implementar la interfaz asociada al inicio de sesión de las asociaciones y particulares. & 1,5 \\ \hline
+	
+\end{tabular} \\ \\
+
+\Large{\textbf{HU.8 - Crear registro de asociaciones}}
+
+Explicar que es el acta fundacional y para que la necesita la aplicación (ver en marcadores firefox).
+
 
 
 

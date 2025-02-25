@@ -20,75 +20,102 @@
 <ion-content [fullscreen]="true">
   @if (!notCropImage) {
     <form [formGroup]="form" enctype="multipart/form-data">
+
       <ion-item-group>
-
         <ion-item>
-          <ion-input type="text" name="name" formControlName="name" label="{{ 'name' | translate | titlecase }}:"
-                     label-placement="floating"></ion-input>
+          <ion-select label="{{'userType' | translate | titlecase}}"
+                      label-placement="floating" formControlName="userType" value="standard"
+                      (ionChange)="changeUserType()" id="userType">
+            <ion-select-option value="standard">{{ 'standard' | translate }}</ion-select-option>
+            <ion-select-option value="association">{{ 'association' | translate }}</ion-select-option>
+
+          </ion-select>
+
         </ion-item>
 
-        <ion-item>
-          <ion-input type="text" name="lastname" formControlName="lastname" label="{{ 'lastname' | translate | titlecase }}:"
-                     label-placement="floating"></ion-input>
-        </ion-item>
+        @if (userType === 'standard') {
+          <ion-item>
+            <ion-input type="text" name="name" formControlName="name" label="{{ 'name' | translate }}:"
+                       label-placement="floating"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" name="lastname" formControlName="lastname" label="{{ 'lastname' | translate }}:"
+                       label-placement="floating"></ion-input>
+          </ion-item>
+        } @else {
+          <ion-item>
+            <ion-input type="text" name="name" formControlName="name" label="{{ 'associationName' | translate }}:"
+                       label-placement="floating"></ion-input>
+          </ion-item>
+        }
 
       </ion-item-group>
 
-        <ion-item-group>
-          <ion-item>
-            <ion-select label="{{'country' | translate | titlecase}}"
-                        label-placement="floating" formControlName="country" [value]="locationInfo.country.id" (ionChange)="changeStates()">
-              @for (country of locationInfo.countries; track country.id) {
-                <ion-select-option [value]="country.id">{{ country.name }}</ion-select-option>
-              }
-            </ion-select>
-          </ion-item>
+      <ion-item-group>
+        <ion-item>
+          <ion-select label="{{'country' | translate}}"
+                      label-placement="floating" formControlName="country" [value]="locationInfo.country.id"
+                      (ionChange)="changeStates()">
+            @for (country of locationInfo.countries; track country.id) {
+              <ion-select-option [value]="country.id">{{ country.name }}</ion-select-option>
+            }
+          </ion-select>
+        </ion-item>
 
-          <ion-item>
-            <ion-select label="{{'state' | translate | titlecase}}"
-                        label-placement="floating" formControlName="state" [value]="locationInfo.state.id">
-              @for (state of locationInfo.states; track state.id) {
-                <ion-select-option [value]="state.id">{{ state.name }}</ion-select-option>
-              }
-            </ion-select>
-          </ion-item>
-        </ion-item-group>
+        <ion-item>
+          <ion-select label="{{'state' | translate}}"
+                      label-placement="floating" formControlName="state" [value]="locationInfo.state.id">
+            @for (state of locationInfo.states; track state.id) {
+              <ion-select-option [value]="state.id">{{ state.name }}</ion-select-option>
+            }
+          </ion-select>
+        </ion-item>
+      </ion-item-group>
 
       <ion-item-group>
 
         <ion-item id="username">
           <ion-input type="text" name="username" formControlName="username"
-                     label="{{ 'username' | translate | titlecase }}:"
-                     label-placement="floating" ></ion-input>
+                     label="{{ 'username' | translate }}:"
+                     label-placement="floating"></ion-input>
         </ion-item>
-        @if(usernameText) {
+        @if (usernameText) {
           <span class="error">{{ usernameText | translate }}</span>
         }
         <ion-item>
-          <ion-input type="text" name="email" formControlName="email" label="{{ 'email' | translate | titlecase}}:"
+          <ion-input type="text" name="email" formControlName="email" label="{{ 'email' | translate}}:"
                      label-placement="floating"></ion-input>
         </ion-item>
-        @if(emailText) {
+        @if (emailText) {
           <span class="error">{{ emailText | translate }}</span>
         }
         <ion-item>
           <ion-input type="password" name="password" formControlName="password"
-                     label="{{ 'password' | translate | titlecase}}:"
+                     label="{{ 'password' | translate}}:"
                      label-placement="floating"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-input type="password" name="confirmPassword" formControlName="confirmPassword"
-                     label="{{ 'confirmPassword' | translate | titlecase}}:"
+                     label="{{ 'confirmPassword' | translate}}:"
                      label-placement="floating"></ion-input>
         </ion-item>
-        @if(passText) {
+        @if (passText) {
           <span class="error">{{ passText | translate }}</span>
         }
       </ion-item-group>
 
+      @if (userType === 'association') {
+        <ion-item-group>
+          <ion-label type="floating">{{ 'Acta fundacional' | translate }}:</ion-label>
+          <ion-item>
+            <input type="file" name="file" formControlName="fondedAct"
+                   accept="application/pdf" class="file">
+          </ion-item>
+        </ion-item-group>
+      }
       <ion-item-group>
-
         <ion-label type="floating">Foto de perfil</ion-label>
         <ion-item>
           <div class="photos-container">
@@ -120,7 +147,8 @@
         <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]" class="modal"
                    [isOpen]="isModalOpen">
           <ng-template>
-            <ion-button shape="round" (click)="selectImage('gallery')">{{ 'camera.fromGallery' | translate }}</ion-button>
+            <ion-button shape="round" (click)="selectImage('gallery')">{{ 'camera.fromGallery' | translate }}
+            </ion-button>
             <ion-button shape="round" (click)="selectImage('camera')">{{ 'camera.fromCamera' | translate }}</ion-button>
           </ng-template>
         </ion-modal>
@@ -128,12 +156,12 @@
 
       <ion-button shape="round" (click)="addUser()" class="add">{{ "createAccount" | translate }}</ion-button>
 
-            <ion-toast
-              [isOpen]="isToastOpen"
-              message="{{ toastMessage | translate}}"
-              [duration]="5000"
-              (didDismiss)="setOpen(false)"
-            ></ion-toast>
+      <ion-toast
+        [isOpen]="isToastOpen"
+        message="{{ toastMessage | translate}}"
+        [duration]="5000"
+        (didDismiss)="setOpen(false)"
+      ></ion-toast>
     </form>
   } @else {
     <image-cropper

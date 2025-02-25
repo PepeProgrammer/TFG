@@ -66,3 +66,5 @@ export class HomePage implements OnInit {
     protected readonly loggedUser = loggedUser;
   protected readonly UserTypes = UserTypes;
 }
+
+//TODO: Quitar los márgenes de las páginas de visualización de animales tanto aquí como en lost-animals.page.ts

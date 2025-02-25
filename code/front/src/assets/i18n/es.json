@@ -80,7 +80,12 @@
   "error": "Ha ocurrido un error",
   "createAccount": "Crear cuenta",
   "appName": "AdoptApp",
-  "forgotPassword": "Olvide mi contraseña"
+  "forgotPassword": "Olvide mi contraseña",
+  "association": "Asociación",
+  "associationName": "Nombre de la asociación",
+  "standard": "Normal",
+  "userType": "Tipo de usuario"
+
 
 
 }

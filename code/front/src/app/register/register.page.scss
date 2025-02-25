@@ -18,7 +18,10 @@ ion-item-group {
     display: block;
   }
 }
-
+.file {
+  height: 100px;
+  align-content: center;
+}
 
 @media (min-width: 900px) {
   form {

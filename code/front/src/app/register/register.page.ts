@@ -46,6 +46,7 @@ export class RegisterPage implements OnInit {
   locationInfo: LocationInfo
   formData = new FormData()
 
+  userType: 'standard' | 'association' = 'standard'
 
   constructor(private sanitizer: DomSanitizer, private router: Router) {
     this.locationInfo = {countries: [], country: {id: 0, name: ''}, state: {id: 0, name: '', countryId: 0}, states: []}
@@ -251,7 +252,9 @@ export class RegisterPage implements OnInit {
     this.formData.append('type', this.form.value['type'])
   }
 
-
+  changeUserType() {
+    this.userType = (document.getElementById('userType') as any).value
+  }
 
 
 }
