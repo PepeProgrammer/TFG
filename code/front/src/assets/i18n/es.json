@@ -75,7 +75,9 @@
     "lastnameLength": "El apellido debe tener entre mínimo 3 caracteres",
     "emailInvalid": "El correo electrónico no es válido",
     "emptyFields": "Todos los campos de texto deben estar cubiertos",
-    "passwordLength": "La contraseña debe tener al menos 6 caracteres"
+    "passwordLength": "La contraseña debe tener al menos 6 caracteres",
+    "missingAct": "El acta fundacional es obligatoria",
+    "usernameWhiteSpace": "El nombre de usuario no puede contener espacios en blanco"
   },
   "error": "Ha ocurrido un error",
   "createAccount": "Crear cuenta",

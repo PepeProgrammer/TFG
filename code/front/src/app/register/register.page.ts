@@ -68,7 +68,7 @@ export class RegisterPage implements OnInit {
   async ngOnInit() {
     console.log("Register page")
     this.locationInfo = await this.geolocationService.fillLocationData(this.locationInfo)
-    if(this.locationInfo.state.id !== 0){ // Si se ha podido obtener la ubicación actual del usuario
+    if (this.locationInfo.state.id !== 0) { // Si se ha podido obtener la ubicación actual del usuario
       this.form.setControl('country', new FormControl(this.locationInfo.country.id, [Validators.required]))
       this.form.setControl('state', new FormControl(this.locationInfo.state.id, [Validators.required])) // Con setControl sustituimos el control que ya existía por uno nuevo para que al enviar la provincia en// caso de que no se modifique la de la ubicación actual no de error
     }
@@ -173,12 +173,12 @@ export class RegisterPage implements OnInit {
   }
 
   async addUser() {
-
+    let files: File[] = []
     if (this.form.value["name"].trim().length < 3) {
       this.toastMessage = 'register.nameLength'
       this.isToastOpen = true
       return false
-    } else if (this.form.value["lastname"].trim().length < 3) {
+    } else if (this.form.value["lastname"].trim().length < 3 && this.userType === 'standard') {
       this.toastMessage = 'register.lastnameLength'
       this.isToastOpen = true
       return false
@@ -195,36 +195,46 @@ export class RegisterPage implements OnInit {
       this.toastMessage = 'register.emptyFields'
       this.isToastOpen = true
       return false
+    } else if (this.hasWhiteSpace(this.form.value["username"].trim())) {
+      this.toastMessage = 'register.usernameWhiteSpace'
+      this.isToastOpen = true
+      return false
+    } else if (this.userType === 'association' && (document.getElementById("foundedAct") as any).files[0] === undefined) {
+      this.toastMessage = 'register.missingAct'
+      this.isToastOpen = true
+      return false
     }
-
+    if (this.userType === 'association') {
+      // files.push((document.getElementById("foundedAct") as any).files[0])
+      this.formData.append('files[]', (document.getElementById("foundedAct") as any).files[0])
+    }
     const checkTest = await this.checkUsernameAndEmail()
     if (!checkTest) {
       return false
     }
 
     // Add user to database
-    if(typeof this.imageUrl === 'string' && this.imageUrl !== '') {
+    if (typeof this.imageUrl === 'string' && this.imageUrl !== '') {
       const file = this.photoService.dataURLtoFile([this.imageUrl], this.form.value['name'])
       if (file !== undefined) {
-        this.formData.append('files', file)
+        // files.push(file)
+        this.formData.append('files[]', file)
       }
     }
-      this.addToFormData()
-      const user = await this.userService.addUser(this.formData)
-      if (user) {
-        console.log(user)
-        this.formData = new FormData() //Reiniciamos el form data para evitar duplicidad si le volvemos a dar al botón de registro
-        //TODO ver que hacer con el usuario devuelto, como hacer para que el usuario se mantenga logueado
-        await this.router.navigate(['/home'])
-        return true
+    this.addToFormData()
+    const user = await this.userService.addUser(this.formData)
+    this.formData = new FormData() //Reiniciamos el form data para evitar duplicidad si le volvemos a dar al botón de registro
 
-      } else {
-        this.toastMessage = 'error'
-        this.isToastOpen = true
-      }
+    if (user) {
+      console.log(user)
+      //TODO ver que hacer con el usuario devuelto, como hacer para que el usuario se mantenga logueado
+      await this.router.navigate(['/home'])
+      return true
 
-
-
+    } else {
+      this.toastMessage = 'error'
+      this.isToastOpen = true
+    }
 
 
     return false
@@ -243,6 +253,9 @@ export class RegisterPage implements OnInit {
   }
 
   addToFormData = () => {
+    if (this.userType === 'association') {
+      this.formData.append('fondedAct', this.form.value['fondedAct'])
+    }
     this.formData.append('name', this.form.value['name'].trim())
     this.formData.append('lastname', this.form.value['lastname'].trim())
     this.formData.append('email', this.form.value['email'].trim())
@@ -254,6 +267,10 @@ export class RegisterPage implements OnInit {
 
   changeUserType() {
     this.userType = (document.getElementById('userType') as any).value
+  }
+
+  hasWhiteSpace(s: string) {
+    return s.indexOf(' ') >= 0;
   }
 
 

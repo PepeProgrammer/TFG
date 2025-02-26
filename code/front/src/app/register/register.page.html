@@ -24,7 +24,7 @@
       <ion-item-group>
         <ion-item>
           <ion-select label="{{'userType' | translate | titlecase}}"
-                      label-placement="floating" formControlName="userType" value="standard"
+                      label-placement="floating" formControlName="type" value="standard"
                       (ionChange)="changeUserType()" id="userType">
             <ion-select-option value="standard">{{ 'standard' | translate }}</ion-select-option>
             <ion-select-option value="association">{{ 'association' | translate }}</ion-select-option>
@@ -110,7 +110,7 @@
         <ion-item-group>
           <ion-label type="floating">{{ 'Acta fundacional' | translate }}:</ion-label>
           <ion-item>
-            <input type="file" name="file" formControlName="fondedAct"
+            <input type="file" name="file" id="foundedAct"
                    accept="application/pdf" class="file">
           </ion-item>
         </ion-item-group>
