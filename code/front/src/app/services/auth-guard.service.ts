@@ -17,7 +17,7 @@ export class AuthGuardService implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
-    const TEMPORAL = true
+    const TEMPORAL = false
     let home = false
 
     if (TEMPORAL) { // Por si me quiero saltar la autenticación //TODO: Eliminar esto en producción

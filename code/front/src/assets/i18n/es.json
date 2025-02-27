@@ -48,13 +48,16 @@
   "pageTitles": {
     "home": "Inicio",
     "adoption": "Adopciones",
-    "lostAnimals": "Animales perdidos",
+    "lostAnimals": "Animales perdidos/encontrados",
     "addAdoption": "Añadir adopción",
     "addLostAnimal": "Añadir animal perdido",
     "cropImage": "Recortar imagen",
     "register": "Registrarse",
-    "login": "Iniciar sesión"
+    "login": "Iniciar sesión",
+    "requests": "Solicitudes",
+    "profile": "Perfil"
   },
+  "lost": "Perdidos",
   "lostOptions": {
     "lost": "Perdido",
     "found": "Encontrado"
@@ -86,7 +89,8 @@
   "association": "Asociación",
   "associationName": "Nombre de la asociación",
   "standard": "Normal",
-  "userType": "Tipo de usuario"
+  "userType": "Tipo de usuario",
+  "closeSession": "Cerrar sesión"
 
 
 

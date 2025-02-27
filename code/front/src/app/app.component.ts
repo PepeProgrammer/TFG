@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
     loggedUser.setAuth(loggedData.isSessionEnabled)
     loggedUser.setType(loggedData.type)
     console.log(loggedData)
+
   }
 
   constructor(private translate: TranslateService) {

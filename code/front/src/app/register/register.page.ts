@@ -19,6 +19,7 @@ import {LocationInfo} from "../../types";
 import {PhotoService} from "../services/photo.service";
 import {image} from "ionicons/icons";
 import {Router} from "@angular/router";
+import {loggedUser} from "../../../variables";
 
 @Component({
   selector: 'app-register',
@@ -63,6 +64,8 @@ export class RegisterPage implements OnInit {
     })
     this.imageUrl = ''
     this.isModalOpen = false
+
+
   }
 
   async ngOnInit() {
@@ -71,6 +74,9 @@ export class RegisterPage implements OnInit {
     if (this.locationInfo.state.id !== 0) { // Si se ha podido obtener la ubicación actual del usuario
       this.form.setControl('country', new FormControl(this.locationInfo.country.id, [Validators.required]))
       this.form.setControl('state', new FormControl(this.locationInfo.state.id, [Validators.required])) // Con setControl sustituimos el control que ya existía por uno nuevo para que al enviar la provincia en// caso de que no se modifique la de la ubicación actual no de error
+    }
+    if(loggedUser.isAuth()){
+      await this.router.navigate(['/home'])
     }
   }
 

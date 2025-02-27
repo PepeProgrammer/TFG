@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{"pageTitles.requests" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item class="request">
+      <img src="assets/images/perro2.jpg" alt="imagen de perfil de juan">
+      <div>
+        <ion-text>¡Juanglz quiere adoptar a manchas! <span>1d</span></ion-text>
+        <ion-buttons>
+          <ion-button slot="icon-only" shape="round"><ion-icon name="send"></ion-icon></ion-button>
+          <ion-button slot="icon-only" shape="round"><ion-icon name="trash"></ion-icon></ion-button>
+        </ion-buttons>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

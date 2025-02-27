@@ -18,12 +18,14 @@ export enum UserTypes {
   STANDARD = 'standard',
   ASSOCIATION = 'association',
   MODERATOR = 'moderator',
-  ADMIN = 'admin'
+  ADMIN = 'admin',
+  NO_REGISTERED = 'noRegister',
+  NONE = 'none'
 }
 
 class LoggedUser {
   private auth = false
-  private type: UserTypes = UserTypes.STANDARD
+  private type: UserTypes = UserTypes.NONE
 
   isAuth() {
     return this.auth

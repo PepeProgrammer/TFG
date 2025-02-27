@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProfilePageRoutingModule } from './profile-routing.module';
+import { RequestsPageRoutingModule } from './requests-routing.module';
 
-import { ProfilePage } from './profile.page';
+import { RequestsPage } from './requests.page';
 import {TranslatePipe} from "@ngx-translate/core";
 
 @NgModule({
@@ -14,9 +14,9 @@ import {TranslatePipe} from "@ngx-translate/core";
         CommonModule,
         FormsModule,
         IonicModule,
-        ProfilePageRoutingModule,
+        RequestsPageRoutingModule,
         TranslatePipe
     ],
-  declarations: [ProfilePage]
+  declarations: [RequestsPage]
 })
-export class ProfilePageModule {}
+export class RequestsPageModule {}

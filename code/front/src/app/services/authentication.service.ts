@@ -38,4 +38,11 @@ export class AuthenticationService {
 
 
   }
+
+  async logout() {
+    const options = {
+      withCredentials: true
+    }
+    return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/logout`, options))
+  }
 }

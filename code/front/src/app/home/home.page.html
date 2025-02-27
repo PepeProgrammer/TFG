@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Home
+      {{ "pageTitles.home" | translate }}
     </ion-title>
     <ion-buttons slot="end">
       @if (!loggedUser.isAuth()){
