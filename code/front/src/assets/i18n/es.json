@@ -90,7 +90,12 @@
   "associationName": "Nombre de la asociación",
   "standard": "Normal",
   "userType": "Tipo de usuario",
-  "closeSession": "Cerrar sesión"
+  "closeSession": "Cerrar sesión",
+  "requests" : {
+    "adopt": "quiere adoptar a",
+    "host": "quiere acoger a",
+    "noRequests": "No hay solicitudes pendientes"
+  }
 
 
 

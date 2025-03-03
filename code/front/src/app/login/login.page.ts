@@ -13,9 +13,7 @@ export class LoginPage {
   error: string = '';
 
   constructor(private router: Router) {
-    if (loggedUser.isAuth()) {
-      this.router.navigate(['/home'])
-    }
+
   }
 
   async login() {
@@ -41,5 +39,10 @@ export class LoginPage {
 
   }
 
+  ionViewWillEnter() {
+    if (loggedUser.isAuth()) {
+      this.router.navigate(['/home'])
+    }
+  }
 
 }

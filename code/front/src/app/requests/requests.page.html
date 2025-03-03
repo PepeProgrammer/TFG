@@ -1,20 +1,51 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>{{"pageTitles.requests" | translate}}</ion-title>
+    <ion-title>{{ "pageTitles.requests" | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item class="request">
-      <img src="assets/images/perro2.jpg" alt="imagen de perfil de juan">
-      <div>
-        <ion-text>¡Juanglz quiere adoptar a manchas! <span>1d</span></ion-text>
-        <ion-buttons>
-          <ion-button slot="icon-only" shape="round"><ion-icon name="send"></ion-icon></ion-button>
-          <ion-button slot="icon-only" shape="round"><ion-icon name="trash"></ion-icon></ion-button>
-        </ion-buttons>
-      </div>
-    </ion-item>
+    @for (request of requests; track request.id) {
+      <ion-item class="request">
+        @if (request.applicant.profileImage !== '') {
+          <img src="{{baseUrl}}/uploads/images/profiles/{{request.applicant.profileImage}}"
+               alt="imagen de perfil de {{request.applicant.username}}">
+        } @else {
+          <img src="{{baseUrl}}/uploads/images/profiles/defaultUser.png"
+               alt="imagen de perfil de {{request.applicant.username}}">
+        }
+        <div>
+          @if (request.type === RequestType.ADOPTION) {
+            <ion-text>{{ request.applicant.username }} {{ "requests.adopt" | translate }} {{ request.animal.name }}
+              <span>{{ request.createdAt }}</span></ion-text>
+          } @else {
+            <ion-text>{{ request.applicant.username }} {{ "requests.host" | translate }} {{ request.animal.name }}
+              <span>{{ request.createdAt }}</span></ion-text>
+          }
+          <ion-buttons>
+            <ion-button slot="icon-only" shape="round">
+              <ion-icon name="send"></ion-icon>
+            </ion-button>
+            <ion-button slot="icon-only" shape="round">
+              <ion-icon name="trash"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </div>
+      </ion-item>
+    }
+    @if (requests.length === 0) {
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-col size-xl="5" size-lg="6" size-md="9" size-xs="12">
+
+            <p>{{ "requests.noRequests" | translate }}</p>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    }
+
   </ion-list>
 </ion-content>
