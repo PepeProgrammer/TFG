@@ -4,7 +4,7 @@
       {{ "pageTitles.home" | translate }}
     </ion-title>
     <ion-buttons slot="end">
-      @if (!loggedUser.isAuth()){
+      @if (!loggedUser.isAuth()) {
         <ion-button [routerLink]="['/login']">
           <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
         </ion-button>
@@ -15,7 +15,8 @@
 
 <ion-content [fullscreen]="false" class="flex">
   <div class="selectors">
-    <ion-select placeholder="{{'filters.animal_species' | translate}}" [multiple]="true" [(ngModel)]="selectedSpecies" (ionChange)="cleanOffset()">
+    <ion-select placeholder="{{'filters.animal_species' | translate}}" [multiple]="true" [(ngModel)]="selectedSpecies"
+                (ionChange)="cleanOffset()">
       @for (species of filters?.species; track species.id) {
         <ion-select-option value="{{species.id}}">{{ species.name | translate }}</ion-select-option>
       }
@@ -28,7 +29,8 @@
       <ion-select-option value="all">{{ "filters.age.all" | translate }}</ion-select-option>
     </ion-select>
 
-    <ion-select placeholder="{{ 'state' | translate}}" [multiple]="true" [(ngModel)]="selectedState" (ionChange)="cleanOffset()">
+    <ion-select placeholder="{{ 'state' | translate}}" [multiple]="true" [(ngModel)]="selectedState"
+                (ionChange)="cleanOffset()">
       @for (state of filters?.states; track state.id) {
         <ion-select-option value="{{state.id}}">{{ state.name }}</ion-select-option>
       }
@@ -62,24 +64,26 @@
           </ion-card-header>
           <ion-card-content>{{ animal.description }}</ion-card-content>
           <ion-buttons>
+            @if (loggedUser.getType() !== UserTypes.ASSOCIATION) {
+              @if (animal.user.sponsors && !animal.sponsored) {
+                <ion-button fill="clear" class="card-button" shape="round" size="small">
+                  <img src="assets/icon/star.png" slot="icon-only" alt="image of a dog">
+                </ion-button>
+              }
 
-            @if (animal.user.sponsors && !animal.sponsored) {
-              <ion-button fill="clear" class="card-button" shape="round" size="small">
-                <img src="assets/icon/star.png" slot="icon-only" alt="image of a dog">
+              @if (animal.user.take_ins && !animal.takenIn) {
+                <ion-button fill="clear" class="card-button" shape="round" size="small"
+                            (click)="sendRequest(animal.id, RequestType.HOST)">
+                  <img src="assets/icon/home.png" slot="icon-only" alt="image of a dog">
+                </ion-button>
+              }
+
+
+              <ion-button fill="clear" class="card-button" shape="round" size="small"
+                          (click)="sendRequest(animal.id, RequestType.ADOPTION)">
+                <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
               </ion-button>
             }
-
-            @if (animal.user.take_ins && !animal.takenIn) {
-              <ion-button fill="clear" class="card-button" shape="round" size="small">
-                <img src="assets/icon/home.png" slot="icon-only" alt="image of a dog">
-              </ion-button>
-            }
-
-
-            <ion-button fill="clear" class="card-button" shape="round" size="small">
-              <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
-            </ion-button>
-
           </ion-buttons>
         </ion-card>
       }
@@ -99,6 +103,13 @@
       </ion-fab-button>
     </ion-fab>
   }
+
+  <ion-toast
+    [isOpen]="isToastOpen"
+    message="{{ toastMessage | translate}}"
+    [duration]="3000"
+    (didDismiss)="setOpen(false)"
+  ></ion-toast>
 </ion-content>
 
 

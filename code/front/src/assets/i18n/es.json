@@ -36,7 +36,8 @@
     "fill": "Rellena todos los campos de texto",
     "minAge": "La edad debe ser mínimo 0",
     "minImages": "Añade al menos una imagen",
-    "error": "Ha ocurrido un error"
+    "error": "Ha ocurrido un error",
+    "petitionSent": "Petición enviada correctamente"
   },
   "unknown": "Desconocida",
   "noAnimals": "No se ha encontrado ningún animal",
@@ -94,9 +95,13 @@
   "requests" : {
     "adopt": "quiere adoptar a",
     "host": "quiere acoger a",
-    "noRequests": "No hay solicitudes pendientes"
-  }
-
+    "noRequests": "No hay solicitudes pendientes",
+    "deleteRequest": "Eliminar solicitud",
+    "deleteRequestMessage": "¿Estás seguro de que quieres eliminar esta solicitud?"
+  },
+  "noLogged": "Debes iniciar sesión para hacer esto",
+ "accept": "Aceptar",
+  "cancel": "Cancelar"
 
 
 }

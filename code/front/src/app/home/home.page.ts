@@ -3,6 +3,8 @@ import {AnimalsService} from "../services/animals.service";
 import {Animal, Association, Filter} from "../../types";
 import {getBaseUrl, loggedUser, UserTypes} from "../../../variables";
 import {InfiniteScrollCustomEvent} from "@ionic/angular";
+import {RequestsService} from "../services/requests.service";
+import {RequestType} from "../middleware/requests";
 
 @Component({
   selector: 'app-home',
@@ -12,6 +14,7 @@ import {InfiniteScrollCustomEvent} from "@ionic/angular";
 export class HomePage implements OnInit {
 
   animalService = inject(AnimalsService)
+  requestService = inject(RequestsService)
 
   animals: Animal[] = []
   filters: Filter | undefined
@@ -25,6 +28,10 @@ export class HomePage implements OnInit {
   range = 5
 
   disableScroll: boolean = false
+
+  isToastOpen: boolean = false
+  toastMessage: string = ""
+
 
   async ngOnInit() {
     this.filters = await this.animalService.getFilters(28) // TODO: found a way to get the country
@@ -62,9 +69,28 @@ export class HomePage implements OnInit {
     this.offset = 0
   }
 
+  async sendRequest(animalId: number, type: number) {
+    if (loggedUser.isAuth()) {
+      const response = await this.requestService.addRequest({animalId, type})
+      if (response) {
+        this.toastMessage = "adoptionMessages.petitionSent"
+      } else {
+        this.toastMessage = "adoptionMessages.error"
+      }
+    } else {
+      this.toastMessage = "noLogged"
+    }
+    this.setOpen(true);
+  }
 
-    protected readonly loggedUser = loggedUser;
+  setOpen(isOpen: boolean) {
+    this.isToastOpen = isOpen;
+  }
+
+
+  protected readonly loggedUser = loggedUser;
   protected readonly UserTypes = UserTypes;
+  protected readonly RequestType = RequestType;
 }
 
 //TODO: Quitar los márgenes de las páginas de visualización de animales tanto aquí como en lost-animals.page.ts

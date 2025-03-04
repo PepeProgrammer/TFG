@@ -32,7 +32,7 @@
       @for (animal of animals; track animal.id) {
         <ion-card>
           <div class="profile-info">
-            <img src="{{baseUrl}}/uploads/images/{{ animal.user.profile_image }}">
+            <img src="{{baseUrl}}/uploads/images/profiles/{{ animal.user.profile_image }}">
             <span>{{animal.user.username}}</span>
           </div>
           <swiper-container [pagination]="true">

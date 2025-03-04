@@ -23,4 +23,19 @@ export class RequestsService {
     const requests: any = await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/requests`, options))
     return castToRequests(requests)
   }
+
+  async addRequest(data: {animalId: number, type: number}) {
+    const options = {
+      withCredentials: true
+    }
+    const response: any = await firstValueFrom(this.httpClient.post(`${this.baseUrl}/api/requests`, data, options))
+    return response.success
+  }
+
+  async deleteRequest(id: number) {
+    const options = {
+      withCredentials: true
+    }
+    const response: any = await firstValueFrom(this.httpClient.delete(`${this.baseUrl}/api/requests/${id}`, options))
+  }
 }

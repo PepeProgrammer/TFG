@@ -27,7 +27,7 @@
             <ion-button slot="icon-only" shape="round">
               <ion-icon name="send"></ion-icon>
             </ion-button>
-            <ion-button slot="icon-only" shape="round">
+            <ion-button slot="icon-only" shape="round" (click)="selectedRequest(request)">
               <ion-icon name="trash"></ion-icon>
             </ion-button>
           </ion-buttons>
@@ -48,4 +48,13 @@
     }
 
   </ion-list>
+
+
+  <ion-alert
+    header="{{ 'requests.deleteRequest' | translate }}"
+    message="{{ 'requests.deleteRequestMessage' | translate }}"
+    [buttons]="alertButtons"
+    [isOpen]="selRequest"
+  ></ion-alert>
+
 </ion-content>
