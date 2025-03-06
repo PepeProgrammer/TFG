@@ -5,6 +5,42 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  @if (user !== null) {
+    <div class="container">
+      <div class="user-info">
+        <img src="{{this.baseUrl}}/uploads/images/profiles/{{user.profile_image}}" class="profile-img"/>
+        <div>
+          <p>{{ user.username }}</p>
+          <p>{{ user.name }}</p>
+        </div>
+      </div>
+      @if (user.description !== '') {
+        <div class="description">
+          <span>Descripción</span>
+          {{ user.description }}
+        </div>
+      }
+      @if (user.type === UserTypes.STANDARD) {
+        <div>
+          <ion-toggle [checked]="user.shelterHome" justify="start" (ionChange)="changeShelterHomeStatus()">Casa de
+            acogida
+          </ion-toggle>
+          @if (shelterHomeStatusChanged) {
+            <ion-button shape="round" class="save" (click)="saveChanges()">{{ "save" | translate }}</ion-button>
+          }
+        </div>
+      }
+    </div>
+  }
 
-  <ion-button shape="round" color="danger" (click)="logout()">{{ "closeSession" | translate }}</ion-button>
+  <ion-toast
+    [isOpen]="isToastOpen"
+    message="{{ toastMessage | translate}}"
+    [duration]="3000"
+    (didDismiss)="setOpen(false)"
+  ></ion-toast>
 </ion-content>
+<ion-footer>
+  <ion-button shape="round" color="danger" (click)="logout()" expand="full">{{ "closeSession" | translate }}
+  </ion-button>
+</ion-footer>

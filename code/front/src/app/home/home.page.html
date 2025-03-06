@@ -29,12 +29,15 @@
       <ion-select-option value="all">{{ "filters.age.all" | translate }}</ion-select-option>
     </ion-select>
 
-    <ion-select placeholder="{{ 'state' | translate}}" [multiple]="true" [(ngModel)]="selectedState"
-                (ionChange)="cleanOffset()">
-      @for (state of filters?.states; track state.id) {
-        <ion-select-option value="{{state.id}}">{{ state.name }}</ion-select-option>
-      }
-    </ion-select>
+    @if (loggedUser.getType() !== UserTypes.ASSOCIATION) {
+      <ion-select placeholder="{{ 'state' | translate}}" [multiple]="true" [(ngModel)]="selectedState"
+                  (ionChange)="cleanOffset()">
+        @for (state of filters?.states; track state.id) {
+          <ion-select-option value="{{state.id}}">{{ state.name }}</ion-select-option>
+        }
+      </ion-select>
+    }
+
 
     <ion-button shape="round" (click)="applyFilters()"> {{ "filters.apply" |translate }}</ion-button>
 
@@ -45,10 +48,12 @@
     <div class="cards">
       @for (animal of animals; track animal.id) {
         <ion-card>
-          <div class="profile-info">
-            <img src="{{baseUrl}}/uploads/images/profiles/{{ animal.user.profile_image}}">
-            <span>{{ animal.user.username }}</span>
-          </div>
+          @if (loggedUser.getType() !== UserTypes.ASSOCIATION) {
+            <div class="profile-info">
+              <img src="{{baseUrl}}/uploads/images/profiles/{{ animal.user.profile_image}}">
+              <span>{{ animal.user.username }}</span>
+            </div>
+          }
           <swiper-container [pagination]="true">
             @for (image of animal.images; track image.url) {
               <swiper-slide>
@@ -83,6 +88,15 @@
                           (click)="sendRequest(animal.id, RequestType.ADOPTION)">
                 <img src="assets/icon/adoption_blue.png" slot="icon-only" alt="image of a dog">
               </ion-button>
+            } @else {
+              <ion-button fill="clear" class="card-button" shape="round" size="small" slot="icon-only"
+                          (click)="setOpenModal(true)">
+                <img src="assets/icon/home.png" slot="icon-only" alt="image of a dog">
+              </ion-button>
+
+              <ion-button fill="clear" class="card-button circle" slot="icon-only">
+                <ion-icon name="create-outline" color="primary"></ion-icon>
+              </ion-button>
             }
           </ion-buttons>
         </ion-card>
@@ -102,6 +116,78 @@
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
     </ion-fab>
+
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Modal</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="setOpenModal(false)">Close</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <div class="search-bar">
+            <ion-searchbar placeholder="Buscar casas de acogida" show-clear-button="focus"></ion-searchbar>
+            <ion-buttons slot="end" class="searcher">
+              <ion-button shape="round" fill="clear" slot="center" (click)="showModalFilters(true)">
+                <ion-icon name="filter-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </div>
+          @if (AreModalFiltersOpen) {
+            <div class="selectors">
+              <ion-select placeholder="{{ 'state' | translate}}" [multiple]="true" [(ngModel)]="selectedStateModal"
+                          (ionChange)="cleanOffset()">
+                @for (state of filters?.states; track state.id) {
+                  <ion-select-option value="{{state.name}}">{{ state.name }}</ion-select-option>
+                }
+              </ion-select>
+              <ion-button shape="round" (click)="applyFiltersModal()"> {{ "filters.apply" |translate }}</ion-button>
+            </div>
+          }
+          @if (statesChip) {
+            <ion-chip>
+              <ion-label>{{ 'state' | translate }}s: {{selectedStateModal}}</ion-label>
+              <ion-icon name="close-circle" (click)="removeFilterModal('state')"></ion-icon>
+            </ion-chip>
+          }
+          <ion-list>
+<!--            @for (request of requests; track request.id) {-->
+<!--              <ion-item class="request">-->
+<!--                @if (request.applicant.profileImage !== '') {-->
+<!--                  <img src="{{baseUrl}}/uploads/images/profiles/{{request.applicant.profileImage}}"-->
+<!--                       alt="imagen de perfil de {{request.applicant.username}}">-->
+<!--                } @else {-->
+<!--                  <img src="{{baseUrl}}/uploads/images/profiles/defaultUser.png"-->
+<!--                       alt="imagen de perfil de {{request.applicant.username}}">-->
+<!--                }-->
+<!--                <div>-->
+<!--                  @if (request.type === RequestType.ADOPTION) {-->
+<!--                    <ion-text>{{ request.applicant.username }} {{ "requests.adopt" | translate }} {{ request.animal.name }}-->
+<!--                      <span>{{ request.createdAt }}</span></ion-text>-->
+<!--                  } @else {-->
+<!--                    <ion-text>{{ request.applicant.username }} {{ "requests.host" | translate }} {{ request.animal.name }}-->
+<!--                      <span>{{ request.createdAt }}</span></ion-text>-->
+<!--                  }-->
+<!--                  <ion-buttons>-->
+<!--                    <ion-button slot="icon-only" shape="round">-->
+<!--                      <ion-icon name="send"></ion-icon>-->
+<!--                    </ion-button>-->
+<!--                    <ion-button slot="icon-only" shape="round" (click)="selectedRequest(request)">-->
+<!--                      <ion-icon name="trash"></ion-icon>-->
+<!--                    </ion-button>-->
+<!--                  </ion-buttons>-->
+<!--                </div>-->
+<!--              </ion-item>-->
+<!--            }-->
+<!--          </ion-list>-->
+<!--          }-->
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
   }
 
   <ion-toast

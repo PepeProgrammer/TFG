@@ -101,7 +101,9 @@
   },
   "noLogged": "Debes iniciar sesión para hacer esto",
  "accept": "Aceptar",
-  "cancel": "Cancelar"
+  "cancel": "Cancelar",
+  "save": "Guardar cambios",
+  "updateSuccess": "Cambios guardados correctamente"
 
 
 }

@@ -116,5 +116,20 @@ ion-select, ion-label, ion-input, ion-card-content {
     //font-size: 18px !important;
 }
 
+ion-button.circle {
+  --border-radius: 50% !important;
+  height: 48px !important;
+  width: 48px !important;
+
+}
+
+ion-buttons.searcher {
+  align-self: center !important;
+}
+
+.search-bar{
+  display: flex;
+  flex-direction: row;
+}
 
 

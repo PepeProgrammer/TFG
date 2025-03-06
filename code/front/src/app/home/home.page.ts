@@ -5,6 +5,7 @@ import {getBaseUrl, loggedUser, UserTypes} from "../../../variables";
 import {InfiniteScrollCustomEvent} from "@ionic/angular";
 import {RequestsService} from "../services/requests.service";
 import {RequestType} from "../middleware/requests";
+import {User} from "../middleware/users";
 
 @Component({
   selector: 'app-home',
@@ -32,6 +33,12 @@ export class HomePage implements OnInit {
   isToastOpen: boolean = false
   toastMessage: string = ""
 
+  isModalOpen: boolean = false
+  statesChip = false
+  selectedStateModal  = ''
+  AreModalFiltersOpen = false
+
+  shelterHomeUsers: User[] | undefined
 
   async ngOnInit() {
     this.filters = await this.animalService.getFilters(28) // TODO: found a way to get the country
@@ -48,7 +55,22 @@ export class HomePage implements OnInit {
       this.offset += this.range
     }
   }
+  applyFiltersModal() {
+    if(this.selectedStateModal !== ''){
+      this.statesChip = true
+    }
+    this.showModalFilters(false)
+  }
 
+  removeFilterModal(filter: string) {
+    if (filter === 'state') {
+      this.statesChip = false
+      this.selectedStateModal = ''
+    }
+
+    this.applyFiltersModal()
+
+  }
 
   async onIonInfinite(event: any) {
     const newAnimals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, this.selectedAge)
@@ -87,10 +109,17 @@ export class HomePage implements OnInit {
     this.isToastOpen = isOpen;
   }
 
+  setOpenModal(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
+
+  showModalFilters(show: boolean) {
+    this.AreModalFiltersOpen = show
+  }
+
 
   protected readonly loggedUser = loggedUser;
   protected readonly UserTypes = UserTypes;
   protected readonly RequestType = RequestType;
 }
 
-//TODO: Quitar los márgenes de las páginas de visualización de animales tanto aquí como en lost-animals.page.ts

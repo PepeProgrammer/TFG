@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  @if(requests.length > 0){
   <ion-list>
     @for (request of requests; track request.id) {
       <ion-item class="request">
@@ -34,20 +35,20 @@
         </div>
       </ion-item>
     }
-    @if (requests.length === 0) {
-      <ion-grid>
-        <ion-row class="ion-justify-content-center">
-          <ion-col size-xl="5" size-lg="6" size-md="9" size-xs="12">
-
-            <p>{{ "requests.noRequests" | translate }}</p>
-
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-    }
-
   </ion-list>
+  }
+  @else {
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col size-xl="5" size-lg="6" size-md="9" size-xs="12">
+
+          <p>{{ "requests.noRequests" | translate }}</p>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  }
 
 
   <ion-alert

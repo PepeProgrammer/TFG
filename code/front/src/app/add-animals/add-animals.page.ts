@@ -121,7 +121,6 @@ export class AddAnimalsPage implements OnInit {
       }
     }
 
-
   }
 
   addToFormData = () => {

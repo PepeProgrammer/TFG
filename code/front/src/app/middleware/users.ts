@@ -10,6 +10,8 @@ export interface User {
   take_ins?: boolean,
   sponsors?: boolean,
   state: number,
+  description: string,
+  shelterHome: boolean
 }
 export const castToUser = (data: any): User => {
 
@@ -23,6 +25,8 @@ export const castToUser = (data: any): User => {
     profile_image: data.profile_image,
     take_ins: data.take_ins,
     sponsors: data.sponsors,
-    state: data.state
+    state: data.state,
+    description: data.description,
+    shelterHome: data.shelterHome
   }
 }
