@@ -1,11 +1,13 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {AnimalsService} from "../services/animals.service";
-import {Animal, Association, Filter} from "../../types";
+import {Association, Filter} from "../../types";
 import {getBaseUrl, loggedUser, UserTypes} from "../../../variables";
 import {InfiniteScrollCustomEvent} from "@ionic/angular";
 import {RequestsService} from "../services/requests.service";
 import {RequestType} from "../middleware/requests";
-import {User} from "../middleware/users";
+import {User, UserShelter} from "../middleware/users";
+import {UsersService} from "../services/users.service";
+import {Animal, createVoidAnimal} from "../middleware/animals";
 
 @Component({
   selector: 'app-home',
@@ -16,6 +18,7 @@ export class HomePage implements OnInit {
 
   animalService = inject(AnimalsService)
   requestService = inject(RequestsService)
+  userService = inject(UsersService)
 
   animals: Animal[] = []
   filters: Filter | undefined
@@ -38,8 +41,13 @@ export class HomePage implements OnInit {
   selectedStateModal  = ''
   AreModalFiltersOpen = false
 
+  usersShelter: UserShelter[] = []
+  animalSelected: Animal
   shelterHomeUsers: User[] | undefined
 
+  constructor() {
+    this.animalSelected = createVoidAnimal()
+  }
   async ngOnInit() {
     this.filters = await this.animalService.getFilters(28) // TODO: found a way to get the country
     this.animals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, this.selectedAge)
@@ -91,9 +99,9 @@ export class HomePage implements OnInit {
     this.offset = 0
   }
 
-  async sendRequest(animalId: number, type: number) {
+  async sendRequest(animalId: number, requestedId: number, type: number) {
     if (loggedUser.isAuth()) {
-      const response = await this.requestService.addRequest({animalId, type})
+      const response = await this.requestService.addRequest({animalId, requestedId, type})
       if (response) {
         this.toastMessage = "adoptionMessages.petitionSent"
       } else {
@@ -102,6 +110,7 @@ export class HomePage implements OnInit {
     } else {
       this.toastMessage = "noLogged"
     }
+    this.isModalOpen = false
     this.setOpen(true);
   }
 
@@ -109,8 +118,15 @@ export class HomePage implements OnInit {
     this.isToastOpen = isOpen;
   }
 
-  setOpenModal(isOpen: boolean) {
+  async setOpenModal(isOpen: boolean, animal: Animal = createVoidAnimal()) {
+    if(this.usersShelter.length === 0){
+      this.usersShelter = await this.userService.getShelterUsers()
+      console.log(this.usersShelter)
+    }
+      this.animalSelected = animal
+
     this.isModalOpen = isOpen;
+
   }
 
   showModalFilters(show: boolean) {

@@ -8,28 +8,6 @@ export interface Association {
   profile_image: string,
 }
 
-export interface Animal {
-  id: number
-  name: string
-  age: number
-  species: string
-  breed: string
-  description: string
-  images: Image[]
-  createdAt: string
-  updatedAt: string
-  user: Association
-  sponsored: boolean
-  adopted: boolean
-  takenIn: boolean
-  information: {
-    noParasite: boolean
-    chip: boolean
-    vaccinated: boolean
-    sterilized: boolean
-  }
-}
-
 interface Image {
   url: string
 }

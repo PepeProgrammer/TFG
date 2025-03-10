@@ -97,7 +97,8 @@
     "host": "quiere acoger a",
     "noRequests": "No hay solicitudes pendientes",
     "deleteRequest": "Eliminar solicitud",
-    "deleteRequestMessage": "¿Estás seguro de que quieres eliminar esta solicitud?"
+    "deleteRequestMessage": "¿Estás seguro de que quieres eliminar esta solicitud?",
+    "wantHost": "quiere que acojas a"
   },
   "noLogged": "Debes iniciar sesión para hacer esto",
  "accept": "Aceptar",

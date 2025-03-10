@@ -1,4 +1,4 @@
-
+@import "../../app/requests/requests.page";
 
 img {
   width: max-content;
@@ -30,7 +30,7 @@ ion-buttons {
 
 }
 
-.selectors {
+.selectors, .selectors-modal {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;

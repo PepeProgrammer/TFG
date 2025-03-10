@@ -20,8 +20,11 @@
           @if (request.type === RequestType.ADOPTION) {
             <ion-text>{{ request.applicant.username }} {{ "requests.adopt" | translate }} {{ request.animal.name }}
               <span>{{ request.createdAt }}</span></ion-text>
-          } @else {
+          } @else if (request.type === RequestType.HOST) {
             <ion-text>{{ request.applicant.username }} {{ "requests.host" | translate }} {{ request.animal.name }}
+              <span>{{ request.createdAt }}</span></ion-text>
+          } @else if(request.type === RequestType.WANT_HOST){
+            <ion-text>{{ request.applicant.username }} {{ "requests.wantHost" | translate }} {{ request.animal.name }}
               <span>{{ request.createdAt }}</span></ion-text>
           }
           <ion-buttons>

@@ -2,7 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {getBaseUrl} from "../../../variables";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
-import {castToUser, User} from "../middleware/users";
+import {castToUser, User, UserShelter} from "../middleware/users";
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class UsersService {
     const options = {
       headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')
     }
-    return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/users?username=${username}&email=${email}&noReturn=0`, options))
+    return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/users?username=${username}&email=${email}&option=check`, options))
   }
 
   async addUser(data: FormData) {
@@ -32,7 +32,7 @@ export class UsersService {
     }
 
     const user: any = await firstValueFrom(this.httpClient.post(`${this.baseUrl}/api/users?option=create`, data, options))
-    if(user.id === undefined){
+    if (user.id === undefined) {
       return null
     }
     return castToUser(user)
@@ -42,11 +42,11 @@ export class UsersService {
     const options = {
       withCredentials: true
     }
-    const user: any = await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/users`, options))
-    if(user.id === undefined){
+    const user: any = await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/users?option=userData`, options))
+    if (user.id === undefined) {
       return null
     }
-      return castToUser(user)
+    return castToUser(user)
   }
 
   async updateUser(user: User) {
@@ -54,10 +54,25 @@ export class UsersService {
       withCredentials: true
     }
     const userResponse: any = await firstValueFrom(this.httpClient.post(`${this.baseUrl}/api/users?option=update`, user, options))
-    if(userResponse.id === undefined){
+    if (userResponse.id === undefined) {
       return null
     }
 
     return castToUser(userResponse)
   }
+
+  async getShelterUsers(filters: any = {}): Promise<UserShelter[]>{
+    let data = ''
+    const options = {
+      withCredentials: true
+    }
+    if(filters.states !== undefined) {
+      data += `&states=${filters.states}`
+    }
+    const users: any = await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/users?option=shelters${data}`, options))
+    return users.length > 0 ? users.map((user: any) => castToUser(user)) : []
+
+
+  }
+
 }

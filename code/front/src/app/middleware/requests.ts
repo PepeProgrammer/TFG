@@ -15,7 +15,8 @@ export interface Requests {
 
 export enum RequestType {
   ADOPTION = 1,
-  HOST = 2
+  HOST = 2,
+  WANT_HOST = 4
 }
 
 

@@ -24,7 +24,7 @@ export class RequestsService {
     return castToRequests(requests)
   }
 
-  async addRequest(data: {animalId: number, type: number}) {
+  async addRequest(data: {animalId: number, requestedId: number, type: number}) {
     const options = {
       withCredentials: true
     }
