@@ -38,51 +38,61 @@ export class HomePage implements OnInit {
 
   isModalOpen: boolean = false
   statesChip = false
-  selectedStateModal  = ''
+
   AreModalFiltersOpen = false
 
   usersShelter: UserShelter[] = []
   animalSelected: Animal
   shelterHomeUsers: User[] | undefined
-
+  modalFilters: { states: string[] }
+  modalStateNames: string[] = []
   constructor() {
     this.animalSelected = createVoidAnimal()
+    this.modalFilters = {states: []}
   }
+
   async ngOnInit() {
     this.filters = await this.animalService.getFilters(28) // TODO: found a way to get the country
-    this.animals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, this.selectedAge)
+  }
 
+  async ionViewDidEnter() {
+    this.offset = 0
+    this.animals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, this.selectedAge)
+    console.log(this.animals)
     this.offset += this.range//con esto hago que la próxima vez busque los siguientes 5 animales
+
   }
 
   async applyFilters() {
-    console.log('Provincia: ', this.selectedState)
     if (this.selectedState !== '' || this.selectedAge !== '' || this.selectedSpecies !== '') {
       this.offset = 0
       this.animals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, this.selectedAge)
       this.offset += this.range
     }
   }
-  applyFiltersModal() {
-    if(this.selectedStateModal !== ''){
+
+  async applyFiltersModal() {
+    if (this.modalFilters.states.length > 0) {
       this.statesChip = true
+      this.getStateNames()
     }
+
+    this.usersShelter = await this.userService.getShelterUsers(this.modalFilters)
     this.showModalFilters(false)
   }
 
-  removeFilterModal(filter: string) {
+  async removeFilterModal(filter: string) {
     if (filter === 'state') {
       this.statesChip = false
-      this.selectedStateModal = ''
+      this.modalFilters.states = []
     }
 
-    this.applyFiltersModal()
+    await this.applyFiltersModal()
 
   }
 
   async onIonInfinite(event: any) {
     const newAnimals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, this.selectedAge)
-    console.log(newAnimals)
     if (newAnimals.length !== 0) {
       this.animals.push(...newAnimals)
       this.offset += this.range
@@ -119,11 +129,10 @@ export class HomePage implements OnInit {
   }
 
   async setOpenModal(isOpen: boolean, animal: Animal = createVoidAnimal()) {
-    if(this.usersShelter.length === 0){
+    if (this.usersShelter.length === 0) {
       this.usersShelter = await this.userService.getShelterUsers()
-      console.log(this.usersShelter)
     }
-      this.animalSelected = animal
+    this.animalSelected = animal
 
     this.isModalOpen = isOpen;
 
@@ -131,6 +140,13 @@ export class HomePage implements OnInit {
 
   showModalFilters(show: boolean) {
     this.AreModalFiltersOpen = show
+  }
+
+  getStateNames() {
+    this.modalStateNames = []
+    for (const statesId in this.modalFilters.states) {
+      this.modalStateNames.push(this.filters?.states.find(state => state.id === +this.modalFilters.states[statesId])?.name as string)
+    }
   }
 
 

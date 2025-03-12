@@ -74,6 +74,16 @@ ion-card-subtitle {
   margin-bottom: 80px;
 }
 
+#user-info.user-info {
+  display: flex;
+  flex-direction: column;
+
+  .subtext {
+    font-size: small;
+    //font-weight: lighter;
+  }
+}
+
 @media (min-width: 800px) {
   .flex {
     display: flex;

@@ -48,11 +48,9 @@ export class RequestsPage implements OnInit {
 
   async ionViewWillEnter() {
     this.requests = await this.requestService.getRequests()
-    console.log(this.requests)
   }
 
   async deleteRequest() {
-    console.log('borrar')
     await this.requestService.deleteRequest(this.selRequest)
     this.selRequest = 0
     this.requests = await this.requestService.getRequests()

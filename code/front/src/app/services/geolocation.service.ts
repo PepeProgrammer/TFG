@@ -38,7 +38,6 @@ export class GeolocationService {
       headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')
     }
     const location = await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/countries?state=${state}`, options))
-    console.log('LOCATION: ', location)
     return castToLocation(location)
 
   }

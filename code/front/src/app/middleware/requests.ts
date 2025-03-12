@@ -48,14 +48,18 @@ const calcDays = (date: string) => {
   const now = new Date()
   const createdAt = new Date(date)
   const diff = now.getTime() - createdAt.getTime()
-  let letter = 'd'
-  let time = Math.floor(diff / (1000 * 60 * 60 * 24)) // days
-  if (time === 0) {
-    time = Math.floor(diff / (1000 * 60 * 60)) // hours
-    letter = 'h'
+  let letter = 'w'
+  let time = Math.floor(diff / (1000 * 60 * 60 * 24 * 7)) // weeks
+  if(time === 0) {
+    time = Math.floor(diff / (1000 * 60 * 60 * 24)) // days
+    letter = 'd'
     if (time === 0) {
-      time = Math.floor(diff / (1000 * 60)) // minutes
-      letter = 'm'
+      time = Math.floor(diff / (1000 * 60 * 60)) // hours
+      letter = 'h'
+      if (time === 0) {
+        time = Math.floor(diff / (1000 * 60)) // minutes
+        letter = 'm'
+      }
     }
   }
 

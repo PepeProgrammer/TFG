@@ -31,7 +31,6 @@ export class LostAnimalsPage implements OnInit {
 
     this.offset += this.range//con esto hago que la próxima vez busque los siguientes 5 animales
 
-    console.log(this.animals)
   }
 
   async applyFilters() {

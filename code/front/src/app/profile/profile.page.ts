@@ -33,9 +33,9 @@ export class ProfilePage implements OnInit {
   }
 
   async logout() {
-    await this.authenticationService.logout()
     loggedUser.setAuth(false)
     loggedUser.setType(UserTypes.NO_REGISTERED)
+    await this.authenticationService.logout()
     await this.router.navigate(['/home'])
   }
 

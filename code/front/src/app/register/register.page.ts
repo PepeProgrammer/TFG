@@ -69,7 +69,6 @@ export class RegisterPage implements OnInit {
   }
 
   async ngOnInit() {
-    console.log("Register page")
     this.locationInfo = await this.geolocationService.fillLocationData(this.locationInfo)
     if (this.locationInfo.state.id !== 0) { // Si se ha podido obtener la ubicación actual del usuario
       this.form.setControl('country', new FormControl(this.locationInfo.country.id, [Validators.required]))
@@ -153,7 +152,6 @@ export class RegisterPage implements OnInit {
     const email = this.form.value['email']
     const response: any = await this.userService.checkUsernameEmail(username, email)
     let success = true
-    console.log(response)
     if (response.username) { // Si ya existe un usuario con ese username
       this.usernameText = 'register.usernameTaken'
       success = false
@@ -169,7 +167,6 @@ export class RegisterPage implements OnInit {
       this.emailText = ''
     }
 
-    console.log('SECCESS: ', success)
 
     return success;
   }
@@ -232,8 +229,6 @@ export class RegisterPage implements OnInit {
     this.formData = new FormData() //Reiniciamos el form data para evitar duplicidad si le volvemos a dar al botón de registro
 
     if (user) {
-      console.log(user)
-      //TODO ver que hacer con el usuario devuelto, como hacer para que el usuario se mantenga logueado
       await this.router.navigate(['/home'])
       return true
 

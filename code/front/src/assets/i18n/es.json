@@ -56,7 +56,8 @@
     "register": "Registrarse",
     "login": "Iniciar sesión",
     "requests": "Solicitudes",
-    "profile": "Perfil"
+    "profile": "Perfil",
+    "searchShelter": "Buscar casa de acogida"
   },
   "lost": "Perdidos",
   "lostOptions": {

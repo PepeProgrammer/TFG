@@ -121,27 +121,24 @@
       <ng-template>
         <ion-header>
           <ion-toolbar>
-            <ion-title>Modal</ion-title>
+            <ion-title>{{ 'pageTitles.searchShelter' | translate }}</ion-title>
             <ion-buttons slot="end">
-              <ion-button (click)="setOpenModal(false)">Close</ion-button>
+              <ion-button shape="round" fill="clear" slot="center" (click)="showModalFilters(true)">
+                <ion-icon name="filter-outline"></ion-icon>
+              </ion-button>
+              <ion-button (click)="setOpenModal(false)" shape="round" fill="clear">
+                <ion-icon name="close-outline"></ion-icon>
+              </ion-button>
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
         <ion-content class="ion-padding">
-          <div class="search-bar">
-            <ion-searchbar placeholder="Buscar casas de acogida" show-clear-button="focus"></ion-searchbar>
-            <ion-buttons slot="end" class="searcher">
-              <ion-button shape="round" fill="clear" slot="center" (click)="showModalFilters(true)">
-                <ion-icon name="filter-outline"></ion-icon>
-              </ion-button>
-            </ion-buttons>
-          </div>
           @if (AreModalFiltersOpen) {
             <div class="selectors-modal">
-              <ion-select placeholder="{{ 'state' | translate}}" [multiple]="true" [(ngModel)]="selectedStateModal"
+              <ion-select placeholder="{{ 'state' | translate}}s" [multiple]="true" [(ngModel)]="modalFilters.states"
                           (ionChange)="cleanOffset()">
                 @for (state of filters?.states; track state.id) {
-                  <ion-select-option value="{{state.name}}">{{ state.name }}</ion-select-option>
+                  <ion-select-option value="{{state.id}}">{{ state.name }}</ion-select-option>
                 }
               </ion-select>
               <ion-button shape="round" (click)="applyFiltersModal()"> {{ "filters.apply" |translate }}</ion-button>
@@ -149,7 +146,7 @@
           }
           @if (statesChip) {
             <ion-chip>
-              <ion-label>{{ 'state' | translate }}s: {{ selectedStateModal }}</ion-label>
+              <ion-label>{{ 'state' | translate }}s: {{ modalStateNames }}</ion-label>
               <ion-icon name="close-circle" (click)="removeFilterModal('state')"></ion-icon>
             </ion-chip>
           }
@@ -167,7 +164,11 @@
                   }
                   <div>
 
-                    <ion-text>{{ user.username }}</ion-text>
+                    <div class="user-info" id="user-info">
+                      <ion-text>{{ user.username }}</ion-text>
+                      <ion-text class="subtext">{{ user.state.name }}</ion-text>
+                    </div>
+
 
                     <ion-buttons>
                       <ion-button slot="icon-only" shape="round" (click)="sendRequest(animalSelected.id, user.id, RequestType.WANT_HOST)">

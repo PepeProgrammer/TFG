@@ -66,8 +66,9 @@ export class UsersService {
     const options = {
       withCredentials: true
     }
-    if(filters.states !== undefined) {
-      data += `&states=${filters.states}`
+    if(filters.states !== undefined && filters.states.length > 0){
+      data += `&states=${filters.states.join(',')}`
+
     }
     const users: any = await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/users?option=shelters${data}`, options))
     return users.length > 0 ? users.map((user: any) => castToUser(user)) : []

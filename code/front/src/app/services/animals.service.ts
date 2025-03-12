@@ -2,7 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
 import {Filter} from "../../types";
-import {getBaseUrl} from "../../../variables";
+import {getBaseUrl, loggedUser} from "../../../variables";
 import {castToSpecies, Species} from "../middleware/species";
 
 
@@ -18,7 +18,6 @@ export class AnimalsService {
   }
 
   getAll(offset: number, range: number): Promise<any> {
-    console.log(this.baseUrl)
     const options = {
       headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')
     }
@@ -33,14 +32,13 @@ export class AnimalsService {
   }
 
   getAnimalByFilters(states: string, species: string, offset: number, range: number, age: string = '', lost = false): Promise<any> {
-    const options = {
-      headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')
+    const options: any = {
+      withCredentials: true
     }
     let url = "filters=1"
 
     url += (states !== "") ? `&states=${states}` : ""
     url += (species !== "") ? `&species=${species}` : ""
-    console.log('url: ', url)
     if (!lost) {
       url += (age !== "") ? `&age=${age}` : ""
       return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/animals?${url}&offset=${offset}&range=${range}`, options))

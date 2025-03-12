@@ -26,7 +26,6 @@ export class LoginPage {
     }
 
     const response: any = await this.authenticationService.login(username, password)
-    console.log('response', response)
     if (response.id !== undefined) {
       loggedUser.setAuth(true)
       loggedUser.setType(response.type)

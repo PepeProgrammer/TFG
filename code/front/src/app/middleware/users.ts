@@ -14,7 +14,11 @@ export interface User {
   shelterHome: boolean
 }
 
-export interface UserShelter extends Pick<User, 'id' | 'username' | 'profile_image'>{}
+export interface UserShelter extends Pick<User, 'id' | 'username' | 'profile_image'>{
+  state: {
+    name: string
+  }
+}
 export const castToUser = (data: any): User => {
 
   return {
@@ -37,6 +41,9 @@ export const castToUserShelter = (data: any): UserShelter => {
   return {
     id: data.id,
     username: data.username,
-    profile_image: data.profile_image
+    profile_image: data.profile_image,
+    state: {
+      name: data.state
+    }
   }
 }

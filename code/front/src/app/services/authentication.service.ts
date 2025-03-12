@@ -15,7 +15,6 @@ export class AuthenticationService {
   }
 
   async login(username: string, password: string) {
-    console.log(this.baseUrl)
     const options = {
       withCredentials: true
     }
@@ -25,14 +24,12 @@ export class AuthenticationService {
 
   async isSessionValid() {
     // headers.set('credentials', 'include')
-    console.log("headers", this.baseUrl)
     // console.log(await CapacitorCookies.getCookies({url: this.baseUrl}))
     // const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*')
     const options = {
       withCredentials: true,
       // headers
     }
-    console.log('LA RUTA', `${this.baseUrl}/api/login`)
     const session: any =  await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/login`, options))
     return session
 

@@ -112,7 +112,6 @@ export class AddLostAnimalsPage implements OnInit {
       this.formData = new FormData() // con esto evitamos la duplicidad en los campos en caso de que haya sucedido un error en la subida de adopción
 
       if (response.success) {
-        console.log(response)
         await this.router.navigate(['/lost-animals'])
       } else {
         this.toastMessage = "adoptionMessages.error"
