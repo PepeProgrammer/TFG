@@ -660,7 +660,7 @@ Como podemos ver en la implementación para móviles, en función del tipo de pu
 
 Además, en esta historia cabe destacar que se soluciona un problema existente en las imágenes. Antes se podían subir imágenes de cualquier tamaño a la aplicación, haciendo que el ancho y el alto de las publicaciones pudiera llegar a ser diferentes, ahora todas deben tener el mismo ratio de escala, para que así cuando se visualicen todas las publicaciones, éstas tengan el mismo tamaño, haciendo del diseño algo más consistente.\\
 
-En el frontend hemos añadido la biblioteca \textit{ngx-image-cropper}, la cual nos permite recortar las imágenes con un ratio determinado, como se ha mencionado anteriormente, lo que ha acelerado el desarrollo de la historia. El funcionamiento es sencillo, cada vez que subimos una imagen se nos pedirá que la recortemos con la proporción adecuada, pudiendo mover el selector por la imagen y haciéndola más grande o más pequeña en función de nuestras necesidades. \\
+En el frontend hemos añadido la librería \textit{ngx-image-cropper}, la cual nos permite recortar las imágenes con un ratio determinado, como se ha mencionado anteriormente, lo que ha acelerado el desarrollo de la historia. El funcionamiento es sencillo, cada vez que subimos una imagen se nos pedirá que la recortemos con la proporción adecuada, pudiendo mover el selector por la imagen y haciéndola más grande o más pequeña en función de nuestras necesidades. \\
 
 En cuanto a la base de datos, gracias a la historia anterior no debemos añadir ninguna tabla más. Por otra parte hemos creado un endpoint del tipo \textit{POST}, esto es un punto de acceso en el servidor para recibir peticiones del cliente, para añadir publicaciones a la base de datos. \\
 
@@ -707,7 +707,7 @@ Además, en cuanto al apartado de diseño también se ha ajustado el ancho en la
 En cuanto a la programación, debemos destacar los siguientes aspectos:
 
 \begin{itemize}
-	\item \textbf{Obtención dinámica de localización}: Para esta historia se ha implementado la geolocalización, lo que nos permite acceder a la ubicación del dispositivo y así autocompletar la información referente a la ubicación sin que el usuario tenga que hacer nada. Para ello hemos hecho uso de la biblioteca \textit{opencage-api-client}, la cual nos devuelve información sobre la localización actual del dispositivo. En este caso utilizamos la provincia, y desde ella obtenemos el país al cual pertenece en nuestra base de datos. 
+	\item \textbf{Obtención dinámica de localización}: Para esta historia se ha implementado la geolocalización, lo que nos permite acceder a la ubicación del dispositivo y así autocompletar la información referente a la ubicación sin que el usuario tenga que hacer nada. Para ello hemos hecho uso de la librería \textit{opencage-api-client}, la cual nos devuelve información sobre la localización actual del dispositivo. En este caso utilizamos la provincia, y desde ella obtenemos el país al cual pertenece en nuestra base de datos. 
 	
 	En el servidor se han creado funciones para la obtención dinámica de la ubicación, para ello éste recibe la provincia del cliente y de ella obtiene el país al que pertenece y se retorna a la aplicación un estructura con todos los países y sus provincias, la provincia actual y el país al que pertenece, esto es lo que en el frontend nos permite rellenar los selectores correctamente.
 	
@@ -766,7 +766,7 @@ En esta página hemos creado un pequeño formulario con los datos de inicio de s
 
 Si se hayan fallos en las credenciales, se le notificará al usuario que ha habido un error, si son correctas se accederá de manera normal a la aplicación.
 
-Para mantener al usuario conectado hemos hecho uso sesiones. Para esto hemos instalado la biblioteca \textit{express-session} la cual nos permite almacenar los datos que necesitemos para mantener las sesiones de los usuarios, además de enviar una \textit{cookie} con el id de la sesión al usuario, lo que nos permitirá acceder a su información cuando se hagan peticiones al servidor.
+Para mantener al usuario conectado hemos hecho uso sesiones. Para esto hemos instalado la librería \textit{express-session} la cual nos permite almacenar los datos que necesitemos para mantener las sesiones de los usuarios, además de enviar una \textit{cookie} con el id de la sesión al usuario, lo que nos permitirá acceder a su información cuando se hagan peticiones al servidor.
 
 Hemos creado un endpoint para el \textit{login (/api/login)} en el cual tenemos 2 métodos, uno para comprobar si las credenciales son correctas y otro para saber si el usuario tiene ya una sesión activa. En el primero debemos asegurarnos de crear la sesión y enviarle la cookie a la aplicación.
 
@@ -818,10 +818,10 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	5.1 & Realizar bocetos. & 0.5 \\ \hline
-	5.2 &  Implementar la lógica de registro. & 2 \\ \hline
-	5.3 &  Implementar la interfaz de registro. & 1 \\ \hline
-	5.4 &  Implementar la funcionalidad de añadir imágenes de perfil. & 0,5 \\ \hline
+	8.1 & Realizar bocetos. & 0.5 \\ \hline
+	8.2 &  Implementar la lógica de registro. & 2 \\ \hline
+	8.3 &  Implementar la interfaz de registro. & 1 \\ \hline
+	8.4 &  Implementar la funcionalidad de añadir imágenes de perfil. & 0,5 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que los campos deben estar cumplimentados correctamente antes de realizar la petición al servidor.} \\ \hline
 	2 & \multicolumn{2}{|p{10cm}|}{Asegurarse de que la imágenes seleccionadas se almacena apropiadamente.} \\ \hline
@@ -837,14 +837,15 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	5.1 & Realizar bocetos. & 0.5 \\ \hline
-	5.2 &  Implementar la lógica. & 2 \\ \hline
-	5.3 &  Implementar la interfaz para la visualización. & 1 \\ \hline
+	9.1 & Realizar bocetos. & 0.5 \\ \hline
+	9.2 &  Implementar la lógica. & 2 \\ \hline
+	9.3 &  Implementar la interfaz para la visualización. & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que las solicitudes se envían correctamente.} \\ \hline
 	2 & \multicolumn{2}{|p{10cm}|}{Comprobar que las asociaciones no puedan hacer peticiones de adopción.} \\ \hline
 	3 & \multicolumn{2}{|p{10cm}|}{Comprobar que a un usuario no registrado se le avise de que no puede adoptar en caso de intentarlo.} \\ \hline
 	4 & \multicolumn{2}{|p{10cm}|}{Comprobar que a un usuario no registrado se le avise de que no puede adoptar en caso de intentarlo.} \\ \hline
+	5 & \multicolumn{2}{|p{10cm}|}{Comprobar que no se guardan notificaciones repetidas.} \\ \hline
 	
 	
 \end{tabular} \\ \\
@@ -855,14 +856,15 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	5.1 & Realizar bocetos. & 0.5 \\ \hline
-	5.2 &  Implementar la lógica. & 1 \\ \hline
-	5.3 &  Implementar la interfaz para la visualización. & 1 \\ \hline
+	10.1 & Realizar bocetos. & 0.5 \\ \hline
+	10.2 &  Implementar la lógica. & 1 \\ \hline
+	10.3 &  Implementar la interfaz para la visualización. & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que las solicitudes se envían correctamente.} \\ \hline
 	2 & \multicolumn{2}{|p{10cm}|}{Comprobar que las asociaciones no puedan hacer peticiones de acogida.} \\ \hline
 	3 & \multicolumn{2}{|p{10cm}|}{Comprobar que a un usuario no registrado se le avise de que no puede acoger en caso de intentarlo.} \\ \hline
 	4 & \multicolumn{2}{|p{10cm}|}{Comprobar que a un usuario no registrado se le avise de que no puede acoger en caso de intentarlo.} \\ \hline
+	5 & \multicolumn{2}{|p{10cm}|}{Comprobar que no se guardan notificaciones repetidas.} \\ \hline
 	
 \end{tabular} \\ \\
 
@@ -872,13 +874,11 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	5.1 & Realizar bocetos & 0.5 \\ \hline
-	5.2 &  Implementar la lógica de obtención del perfil & 2 \\ \hline
-	5.3 &  Implementar la interfaz para la visualización del perfil & 1 \\ \hline
+	11.1 & Realizar bocetos & 0.5 \\ \hline
+	11.2 &  Implementar la lógica de obtención del perfil & 2 \\ \hline
+	11.3 &  Implementar la interfaz para la visualización del perfil & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
-	1 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
-	2 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
-	3 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que los datos obtenidos sean correctos} \\ \hline
 	
 \end{tabular} \\ \\
 
@@ -888,13 +888,12 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	5.1 & Realizar bocetos & 0.5 \\ \hline
-	5.2 &  Implementar la lógica & 2 \\ \hline
-	5.3 &  Implementar la interfaz & 1 \\ \hline
+	12.1 & Realizar bocetos & 0.5 \\ \hline
+	12.2 &  Implementar la lógica & 2 \\ \hline
+	12.3 &  Implementar la interfaz & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|p{10cm}|}{Ver que el usuario particular sea el único que pueda acceder a esta opción} \\ \hline
-	2 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
-	3 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	2 & \multicolumn{2}{|p{10cm}|}{Comprobar que los datos son actualizados correctamente en la base de datos} \\ \hline
 	
 \end{tabular} \\ \\
 
@@ -904,15 +903,57 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	5.1 & Realizar bocetos & 0.5 \\ \hline
-	5.2 &  Implementar la lógica & 2 \\ \hline
-	5.3 &  Implementar la interfaz & 1 \\ \hline
+	13.1 & Realizar bocetos & 0.5 \\ \hline
+	13.2 &  Implementar la lógica & 2 \\ \hline
+	13.3 &  Implementar la interfaz & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
-	1 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
-	2 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
-	3 & \multicolumn{2}{|p{10cm}|}{} \\ \hline
+	1 & \multicolumn{2}{|p{12cm}|}{Que solo aparezcan usuarios de tipo estándar que estén como casa de acogida} \\ \hline
+	2 & \multicolumn{2}{|p{12cm}|}{Cuando se le envíe a alguien una petición para acoger, éste la reciba correctamente} \\ \hline
+	3 & \multicolumn{2}{|p{12cm}|}{Que el filtro de provincias funcione correctamente} \\ \hline
 	
 \end{tabular} \\ \\
+
+\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.14 - Solicitar Adopciones/Acogidas}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	14.1 &  Implementar la lógica & 2 \\ \hline
+	14.2 &  Implementar la interfaz & 1 \\ \hline
+	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
+	1 & \multicolumn{2}{|p{12cm}|}{En caso de error se le notifique al usuario} \\ \hline
+	2 & \multicolumn{2}{|p{12cm}|}{En caso de que sea satisfactoria se le notifique al usuario} \\ \hline
+	
+\end{tabular} \\ \\
+
+\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.15 - Eliminar solicitudes de Adopciones/Acogidas}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	15.1 &  Implementar la lógica & 2 \\ \hline
+	15.2 &  Implementar la interfaz & 1 \\ \hline
+	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
+	1 & \multicolumn{2}{|p{12cm}|}{Que se muestre el aviso de borrado para confirmarlo} \\ \hline
+	2 & \multicolumn{2}{|p{12cm}|}{Cuando se vuelvan a obtener las notificaciones no aparezca la eliminada} \\ \hline
+	
+\end{tabular} \\ \\
+
+\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
+	\hline
+	\multicolumn{3}{|c|}{\textbf{HU.16 - Añadir persistencia a las sesiones}} \\
+	\hline
+	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
+	\hline
+	16.1 &  Implementar la lógica & 2 \\ \hline
+	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
+	1 & \multicolumn{2}{|p{12cm}|}{Cuando se reinicie el servidor se siga manteniendo la sesión} \\ \hline
+	2 & \multicolumn{2}{|p{12cm}|}{Ver que te deja acceder al login cuando cierras la sesión} \\ \hline
+	
+\end{tabular} \\ \\
+
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
 	\hline
@@ -926,7 +967,161 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 
 \Large{\textbf{HU.8 - Crear registro de asociaciones}}
 
-Explicar que es el acta fundacional y para que la necesita la aplicación (ver en marcadores firefox).
+\textbf{Bocetos} \\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.31\linewidth]{sprint 3//hu8/registro_asociaciones.png}
+	\caption{Boceto del registro de asociaciones}
+	\label{fig:boceto_regAso}
+\end{figure}
+
+\textbf{Implementación}
+
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=1\linewidth]{sprint 3//hu8/implementacion.png}
+	\caption{Diseño del registro de asociaciones en móviles}
+	\label{fig:impRegAso}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{sprint 3//hu8/implementacionWeb.png}
+	\caption{Diseño del registro de asociaciones en web}
+\end{figure}
+
+\Large{\textbf{HU.9 - Ver solicitudes de adopción y HU.10 - Ver solicitudes de acogida}} \\
+
+Para estas historias finalmente se ha decidido juntarlas en una página llamada solicitudes, ya que el código de ambas era muy similar y así evitamos duplicidad de código.
+
+\textbf{Bocetos}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.31\linewidth]{sprint 3//hu9-10/solicitudesAcogidaAdopción.png}
+	\caption{Boceto del la página de solicitudes}
+	\label{fig:boceto_adopt}
+\end{figure}
+
+
+\textbf{Implementación}
+
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=1\linewidth]{sprint 3//hu9-10/solicitudes.png}
+	\caption{Diseño de la página de solicitudes de asociaciones en móviles}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{sprint 3//hu9-10/solicitudesWeb.png}
+	\caption{Diseño de la página de solicitudes de asociaciones en web}
+\end{figure}
+
+\Large{\textbf{HU.11 - Ver tu perfil y HU.12 - Ponerse como casa de acogida}} \\
+
+Hemos decidido juntar estas dos historias ya que ponerse como casa de acogida se realiza dentro del perfil del usuario en cuestión.
+
+\textbf{Bocetos} \\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.31\linewidth]{sprint 3//hu11-12/boceto.png}
+	\caption{Boceto de la página del perfil}
+\end{figure}
+
+\textbf{Implementación}
+
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=1\linewidth]{sprint 3//hu11-12/implementacion.png}
+	\caption{Diseño de la página para ver el perfil en móviles}
+	\label{fig:impPerfil}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{sprint 3//hu11-12/implementacionWeb.png}
+	\caption{Diseño de la página para ver el perfil en web}
+\end{figure}
+
+\Large{\textbf{HU.13 - Buscar usuarios que estén como casa de acogida}}
+
+\textbf{Bocetos} \\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.31\linewidth]{sprint 3//hu13/boceto.png}
+	\caption{Boceto del modal de búsqueda de casas de acogida }
+\end{figure}
+
+\textbf{Implementación}
+
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=1\linewidth]{sprint 3//hu13/implementacion.png}
+	\caption{Diseño del modal de búsqueda de casas de acogida en móviles}
+	\label{fig:impBusquedaAcogida}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{sprint 3//hu13/implementacionWeb.png}
+	\caption{Diseño del modal de búsqueda de casas de acogida en web}
+\end{figure}
+
+
+Como podemos ver en la figura \ref{fig:impRegAso} el registro de asociaciones utiliza la misma página en el de usuarios estándar en la figura \ref{fig:impregistroparticulares}, simplemente hemos añadido un selector para elegir la opción de registro deseado. Debemos mencionar que en el futuro la creación de asociaciones será revisada por los moderadores y aceptada o denegada por éstes, para ello haremos uso del acta fundacional \cite{actaFundacional}, que es un documento que se necesita a la hora de crear asociaciones. En este documento se encuentra información de relevancia como el NIF, nombre de la asociación, etc.
+
+A consecuencia de esto nos surge la necesidad de encriptar el archivo según la lay de protección de datos, ya que contiene información sensible la cual no debe se accesible desde la base de datos. Para esto hemos usado la librería nativa de node \textit{crypto}, la cual nos permite almacenar el archivo encriptado en el servidor de manera segura.
+
+A coalición de lo último hemos tenido que crear la tabla \textit{Files} en la base de datos, la cual contiene el nombre del archivo encriptado y el usuario al que pertenece.
+
+
+En el proceso de la creación de la página de perfil \ref{fig:impPerfil} se hizo evidente la necesidad de mostrar una pequeña descripción sobre el usuario, por lo que hemos creado el campo \textit{description} en la tabla \textit{Users} de la base de datos.
+
+La búsqueda de casas de acogida nos hizo darnos cuenta de que la página principal de asociaciones debía ser distinta a la de usuarios estándar. Ahora a las asociaciones en su página principal solo se les muestra sus animales y tienen una serie de botones de acción como el de buscar casa de acogida para ese animal en concreto.
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.31\linewidth]{"sprint 3/homeAsociaciones"}
+	\caption{Implementación del diseño final de página principal de asociaciones}
+	\label{fig:homeasociaciones}
+\end{figure}
+
+Al pulsar en el botón de la izquierda se mostrará el modal de búsqueda de asociaciones \ref{fig:impBusquedaAcogida}. Un modal es un cuadro de diálogo que aparece sobre el contenido de la aplicación y que ésta debe cerrar antes de reanudar la interacción.
+
+\textbf{Fin del Sprint}
+
+En esta iteración debido a que se han hecho las tareas en menor tiempo al estimado y por el flujo de la programación se han añadido a mayores la HU-14 y HU-15 que son enviar solicitudes de acogida/adopción y borrarlas respectivamente, incluyendo también el envío de solicitudes de búsqueda de casa de acogida.
+
+Hemos tenido que crear la tabla \textbf{Requests} en la base de datos para almacenar las solicitudes.
+
+También hemos modificado las sesiones, ya que cuando el servidor se caía o apagaba estas desaparecían por completo. Para ello hemos hecho uso de la librería \textit{express-session-mysql} la cual aporta persistencia a las sesiones, es decir, se almacenan en la tabla \textit{Sessions} de la base de datos.
+
+
+
+La estructura de directorios al final de esta iteración es la siguiente:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"sprint 3/structuraBack"}
+	\caption{Estructura de directorios del backend al final del sprint 3}
+	\label{fig:structuraback}
+\end{figure}
+
+A continuación se muestra el diagrama de clases al final de la tercera iteración con los añadidos que hemos mencionado anteriormente.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"sprint 3/clases"}
+	\caption{Diagrama de clases de la tercera\dfrac{segunda}{\right } iteración}
+	\label{fig:clases3}
+\end{figure}
+
+
+En general hemos ido mejor de lo esperado en la planificación de la iteración, pero es en parte debido a la unión de las páginas de muestra de solicitudes, teniendo todo el sentido ya que tendrían la misma estructura y estética, además de que en la base de datos se almacenan exactamente igual a excepción del tipo de solicitud. 
+
+
 
 
 
