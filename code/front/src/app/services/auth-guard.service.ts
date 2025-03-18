@@ -9,9 +9,9 @@ import {Location} from "@angular/common";
 export class AuthGuardService implements CanActivate {
 
   loginPages = ['login', 'register']
-  allUsersPages = ['home', 'lost-animals']
+  allUsersPages = ['home', 'lost-animals', 'requests']
   associationPages = ['add-animals', 'add-lost-animals', 'profile']
-  standardUserPages = ['add-lost-animals', 'profile']
+  standardUserPages = ['add-lost-animals', 'profile', 'adoption-form']
 
   constructor(private router: Router, private location: Location) {
   }

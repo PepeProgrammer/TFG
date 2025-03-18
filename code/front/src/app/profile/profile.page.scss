@@ -20,8 +20,18 @@
       display: flex;
       flex-direction: column;
       align-self: center;
-      height: 100%;
+      width: 100%;
 
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        p {
+          margin: 5px 0;
+        }
+
+      }
       p {
         margin: 5px 0;
       }
@@ -43,6 +53,30 @@
     margin-top: 30px;
     align-self: center;
   }
+
+  .images-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    .images{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .add-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 20px;
+      }
+    }
+
+  }
+}
+
+.option-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 

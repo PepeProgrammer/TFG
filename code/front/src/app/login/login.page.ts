@@ -27,6 +27,8 @@ export class LoginPage {
 
     const response: any = await this.authenticationService.login(username, password)
     if (response.id !== undefined) {
+      (document.getElementById('username') as HTMLInputElement).value = ''
+      const password = (document.getElementById('password') as HTMLInputElement).value = ''
       loggedUser.setAuth(true)
       loggedUser.setType(response.type)
       await this.router.navigate(['/home'])

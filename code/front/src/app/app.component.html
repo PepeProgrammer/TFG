@@ -4,37 +4,43 @@
 
   <ion-tabs>
     <ion-tab-bar slot="bottom" [selectedTab]="search">
-      <ion-tab-button tab="home" [routerLink]="['/home']" >
+      <ion-tab-button tab="home" [routerLink]="['/home']">
         <ion-icon name="home"></ion-icon>
         {{ "pageTitles.home" | translate }}
       </ion-tab-button>
 
-<!--      <ion-tab-button tab="add-animals" [routerLink]="['/add-animals']">-->
-<!--        <ion-icon name="search"></ion-icon>-->
-<!--        Search-->
-<!--      </ion-tab-button>-->
+      <!--      <ion-tab-button tab="add-animals" [routerLink]="['/add-animals']">-->
+      <!--        <ion-icon name="search"></ion-icon>-->
+      <!--        Search-->
+      <!--      </ion-tab-button>-->
 
       <ion-tab-button tab="lost-animals" [routerLink]="['/lost-animals']">
         <ion-icon name="search"></ion-icon>
-        {{ "lost" | translate}}
+        {{ "lost" | translate }}
       </ion-tab-button>
 
-      <ion-tab-button tab="requests" [routerLink]="['/requests']">
+      <ion-tab-button tab="adoption-form" [routerLink]="['/adoption-form']">
         <ion-icon name="clipboard"></ion-icon>
-        {{ "pageTitles.requests" | translate}}
-
+        {{ "pageTitles.requests" | translate }}
       </ion-tab-button>
 
-      @if (loggedUser.isAuth()){
+      @if (loggedUser.isAuth()) {
+        <ion-tab-button tab="requests" [routerLink]="['/requests']">
+          <ion-icon name="clipboard"></ion-icon>
+          {{ "pageTitles.requests" | translate }}
+        </ion-tab-button>
+      }
+
+      @if (loggedUser.isAuth()) {
         <ion-tab-button tab="profile" [routerLink]="['/profile']">
           <ion-icon name="person-circle-outline"></ion-icon>
-          {{ "pageTitles.profile" | translate}}
+          {{ "pageTitles.profile" | translate }}
 
         </ion-tab-button>
       } @else {
         <ion-tab-button tab="login" [routerLink]="['/login']">
           <ion-icon name="person-circle-outline"></ion-icon>
-          {{ "pageTitles.profile" | translate}}
+          {{ "pageTitles.profile" | translate }}
         </ion-tab-button>
       }
 

@@ -3,7 +3,7 @@ import {home, search} from "ionicons/icons";
 import {TranslateService} from "@ngx-translate/core";
 import {ThemeService} from "./services/theme.service";
 import {AuthenticationService} from "./services/authentication.service";
-import {loggedUser} from "../../variables";
+import {loggedUser, UserTypes} from "../../variables";
 
 @Component({
   selector: 'app-root',
@@ -31,4 +31,5 @@ export class AppComponent implements OnInit {
 
 
   protected readonly loggedUser = loggedUser;
+    protected readonly UserTypes = UserTypes;
 }

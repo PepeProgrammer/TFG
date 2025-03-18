@@ -8,6 +8,7 @@ import { ProfilePageRoutingModule } from './profile-routing.module';
 
 import { ProfilePage } from './profile.page';
 import {TranslatePipe} from "@ngx-translate/core";
+import {ImageCropperComponent} from "ngx-image-cropper";
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import {TranslatePipe} from "@ngx-translate/core";
         FormsModule,
         IonicModule,
         ProfilePageRoutingModule,
-        TranslatePipe
+        TranslatePipe,
+        ImageCropperComponent
     ],
   declarations: [ProfilePage]
 })

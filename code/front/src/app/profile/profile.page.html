@@ -1,46 +1,133 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    @if(!notCropImage) {
+      <ion-title>{{ "pageTitles.profile" | translate }}</ion-title>
+    } @else {
+      <ion-title>{{ "pageTitles.cropImage" | translate }}</ion-title>
+    }
+    <ion-buttons slot="end">
+      @if (notCropImage) {
+        <ion-button (click)="cancelCrop()">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+        <ion-button (click)="cropImage()">
+          <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+        </ion-button>
+      }
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  @if (user !== null) {
-    <div class="container">
-      <div class="user-info">
-        <img src="{{this.baseUrl}}/uploads/images/profiles/{{user.profile_image}}" class="profile-img"/>
-        <div>
-          <p>{{ user.username }}</p>
-          <p>{{ user.name }}</p>
-        </div>
-      </div>
-      @if (user.description !== '') {
-        <div class="description">
-          <span>Descripción</span>
-          {{ user.description }}
-        </div>
-      }
-      @if (user.type === UserTypes.STANDARD) {
-        <div>
-          <ion-toggle [checked]="user.shelterHome" justify="start" (ionChange)="changeShelterHomeStatus()">Casa de
-            acogida
-          </ion-toggle>
-          @if (shelterHomeStatusChanged) {
-            <ion-button shape="round" class="save" (click)="saveChanges()">{{ "save" | translate }}</ion-button>
-          }
-        </div>
-      }
-    </div>
-  }
+  @if (!notCropImage) {
+    @if (user !== null) {
+      <div class="container">
+        <div class="user-info">
+          <img src="{{this.baseUrl}}/uploads/images/profiles/{{user.profile_image}}" class="profile-img"/>
+          <div>
+            <div>
+              <p>{{ user.username }}</p>
 
-  <ion-toast
-    [isOpen]="isToastOpen"
-    message="{{ toastMessage | translate}}"
-    [duration]="3000"
-    (didDismiss)="setOpen(false)"
-  ></ion-toast>
+              @if (!editMode) {
+                <ion-buttons slot="end">
+                  <ion-button shape="round" (click)="changeEditMode(true)">
+                    Editar
+                  </ion-button>
+                </ion-buttons>
+              }
+
+
+            </div>
+            <p>{{ user.name }}</p>
+          </div>
+        </div>
+
+        @if (user.type === UserTypes.ASSOCIATION && editMode) {
+          <div class="images-container">
+            <div class="images">
+              <div>
+                <img src="{{this.imageUrls[0]}}" class="add-image" (click)="addImageToSlot(0)" id="img0">
+                <img src="{{this.imageUrls[1]}}" class="add-image" (click)="addImageToSlot(1)" id="img1">
+                <img src="{{this.imageUrls[2]}}" class="add-image" (click)="addImageToSlot(2)" id="img2">
+              </div>
+
+              <div>
+                <img src="{{this.imageUrls[3]}}" class="add-image" (click)="addImageToSlot(3)" id="img3">
+                <img src="{{this.imageUrls[4]}}" class="add-image" (click)="addImageToSlot(4)" id="img4">
+                <img src="{{this.imageUrls[5]}}" class="add-image" (click)="addImageToSlot(5)" id="img5">
+              </div>
+            </div>
+          </div>
+        }
+
+        @if (user.description !== '' || editMode) {
+          <div class="description">
+            <span>Descripción</span>
+
+            @if (editMode) {
+              <ion-textarea [(ngModel)]="user.description" placeholder="Descripción" fill="outline" color="primary"
+                            rows="6"></ion-textarea>
+            } @else {
+              {{ user.description }}
+            }
+          </div>
+        }
+        @if (user.type === UserTypes.STANDARD) {
+          <div>
+            <ion-toggle [checked]="user.shelterHome" justify="start" (ionChange)="changeShelterHomeStatus()">Casa de
+              acogida
+            </ion-toggle>
+            @if (shelterHomeStatusChanged) {
+              <ion-button shape="round" class="save" (click)="saveChanges()">{{ "save" | translate }}</ion-button>
+            }
+          </div>
+        }
+
+
+      </div>
+    }
+
+    @if (Capacitor.isNativePlatform()) {
+      <!--Comprobamos si estamos en un dispositivo nativo para mostrar el modal -->
+      <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]" class="modal"
+                 [isOpen]="isModalOpen">
+        <ng-template>
+          <ion-button shape="round" (click)="selectImage('gallery')">{{ 'camera.fromGallery' | translate }}</ion-button>
+          <ion-button shape="round" (click)="selectImage('camera')">{{ 'camera.fromCamera' | translate }}</ion-button>
+        </ng-template>
+      </ion-modal>
+    }
+    <ion-toast
+      [isOpen]="isToastOpen"
+      message="{{ toastMessage | translate}}"
+      [duration]="3000"
+      (didDismiss)="setOpen(false)"
+    ></ion-toast>
+  }
+  <image-cropper
+    #cropper
+    [imageBase64]="notCropImage"
+    [maintainAspectRatio]="true"
+    [hideResizeSquares]="isMobile"
+    [hidden]="notCropImage === ''"
+    [aspectRatio]="1"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded($event)"
+    (cropperReady)="cropperReady()"
+    (loadImageFailed)="loadImageFailed()"
+
+  ></image-cropper>
 </ion-content>
 <ion-footer>
-  <ion-button shape="round" color="danger" (click)="logout()" expand="full">{{ "closeSession" | translate }}
-  </ion-button>
+  @if (!editMode) {
+    <ion-button shape="round" color="danger" (click)="logout()" expand="full">{{ "closeSession" | translate }}
+    </ion-button>
+  } @else if(!notCropImage) {
+    <div class="option-buttons">
+      <ion-button shape="round" class="save" (click)="changeEditMode(false)" color="danger">{{ "cancel" | translate }}
+      </ion-button>
+      <ion-button shape="round" class="save" (click)="saveChanges()">{{ "save" | translate }}</ion-button>
+    </div>
+  }
 </ion-footer>

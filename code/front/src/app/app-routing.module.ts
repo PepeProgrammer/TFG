@@ -43,7 +43,13 @@ const routes: Routes = [
   },
   {
     path: 'requests',
-    loadChildren: () => import('./requests/requests.module').then( m => m.RequestsPageModule)
+    loadChildren: () => import('./requests/requests.module').then( m => m.RequestsPageModule),
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'adoption-form',
+    loadChildren: () => import('./adoption-form/adoption-form.module').then( m => m.AdoptionFormPageModule),
+    canActivate: [AuthGuardService]
   },
 ];
 
