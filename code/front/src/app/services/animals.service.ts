@@ -52,7 +52,8 @@ export class AnimalsService {
     headers.set('Access-Control-Allow-Origin', '*')
     headers.set('Content-Type', 'application/json')
     const options = {
-      headers: headers
+      headers,
+      withCredentials: true
     }
 
     if (!lost) {

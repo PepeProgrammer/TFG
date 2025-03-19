@@ -25,10 +25,10 @@ export class PhotoService {
         u8arr[n - 1] = bstr.charCodeAt(n - 1)
         n -= 1 // to make eslint happy
       }
-      return new File([u8arr], `${new Date().getTime()}_${name}.jpg`, {type: mime})
+      files.push(new File([u8arr], `${new Date().getTime()}_${name}.jpg`, {type: mime}))
     }
 
-    return undefined
+    return files
 
   }
 }

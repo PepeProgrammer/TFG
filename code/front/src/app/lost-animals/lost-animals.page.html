@@ -37,7 +37,7 @@
           </div>
           <swiper-container [pagination]="true">
 
-            @for (image of animal.lostImages; track image.url) {
+            @for (image of animal.images; track image.url) {
               <swiper-slide>
                 <img src="{{baseUrl}}/uploads/images/lost/{{ image.url}}">
               </swiper-slide>

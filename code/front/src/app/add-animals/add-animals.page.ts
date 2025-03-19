@@ -55,7 +55,6 @@ export class AddAnimalsPage implements OnInit {
       chip: new FormControl(false),
       vaccinated: new FormControl(false),
       sterilized: new FormControl(false),
-      associationId: new FormControl(1) //TODO: cambiar por la asociación del usuario
     })
   }
 
@@ -104,9 +103,9 @@ export class AddAnimalsPage implements OnInit {
       }
 
 
-      const file = this.photoService.dataURLtoFile(this.imageUrls, this.form.value['name'])
-      if (file !== undefined) {
-        this.formData.append('files', file)
+      const files = this.photoService.dataURLtoFile(this.imageUrls, this.form.value['name'])
+      for (let i = 0; i < files.length; i++) {
+        this.formData.append(`file${i}`, files[i])
       }
       this.addToFormData()
 

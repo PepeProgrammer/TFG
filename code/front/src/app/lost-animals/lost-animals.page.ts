@@ -27,10 +27,16 @@ export class LostAnimalsPage implements OnInit {
 
   async ngOnInit() {
     this.filters = await this.animalService.getFilters(28) // TODO: found a way to get the country
+  }
+
+  async ionViewWillEnter() {
+    this.animals = []
+    this.offset = 0
+    this.disableScroll = false
+    console.log('entra', this.offset)
+
     this.animals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, '', true)
-
     this.offset += this.range//con esto hago que la próxima vez busque los siguientes 5 animales
-
   }
 
   async applyFilters() {
@@ -43,6 +49,7 @@ export class LostAnimalsPage implements OnInit {
 
   async onIonInfinite(event: any) {
     const newAnimals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, '', true)
+    console.log('nuevos:', newAnimals)
     if(newAnimals.length !== 0) {
       this.animals.push(...newAnimals)
       this.offset += this.range

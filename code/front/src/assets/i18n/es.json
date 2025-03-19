@@ -32,6 +32,7 @@
     "chip": "Microchip"
   },
   "add_adoption": "Añadir adopción",
+  "add_post": "Añadir publicación",
   "adoptionMessages": {
     "fill": "Rellena todos los campos de texto",
     "minAge": "La edad debe ser mínimo 0",

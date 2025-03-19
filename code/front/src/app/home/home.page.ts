@@ -55,8 +55,10 @@ export class HomePage implements OnInit {
     this.filters = await this.animalService.getFilters(28) // TODO: found a way to get the country
   }
 
-  async ionViewDidEnter() {
+  async ionViewWillEnter() {
+    this.animals = []
     this.offset = 0
+    this.disableScroll = false
     this.animals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, this.selectedAge)
     console.log(this.animals)
     this.offset += this.range//con esto hago que la próxima vez busque los siguientes 5 animales

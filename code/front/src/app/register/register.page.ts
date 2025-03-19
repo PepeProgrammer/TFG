@@ -221,7 +221,7 @@ export class RegisterPage implements OnInit {
       const file = this.photoService.dataURLtoFile([this.imageUrl], this.form.value['name'])
       if (file !== undefined) {
         // files.push(file)
-        this.formData.append('files[]', file)
+        this.formData.append('files[]', file[0])
       }
     }
     this.addToFormData()

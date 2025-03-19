@@ -53,8 +53,7 @@ export class AddLostAnimalsPage implements OnInit {
       city: new FormControl('', [Validators.required, Validators.minLength(1)]),
       place: new FormControl('', [Validators.required, Validators.minLength(1)]),
       images: new FormControl([]),
-      description: new FormControl('', [Validators.required, Validators.minLength(1)]),
-      userId: new FormControl(1) //TODO: cambiar por la asociación del usuario
+      description: new FormControl('', [Validators.required, Validators.minLength(1)])
     })
   }
 
@@ -102,9 +101,9 @@ export class AddLostAnimalsPage implements OnInit {
       this.setOpen(true)
     } else {
 
-      const file = this.photoService.dataURLtoFile(this.imageUrls, this.form.value['name'])
-      if (file !== undefined) {
-        this.formData.append('files', file)
+      const files = this.photoService.dataURLtoFile(this.imageUrls, this.form.value['name'])
+      for (let i = 0; i < files.length; i++) {
+        this.formData.append(`file${i}`, files[i])
       }
       this.addToFormData()
 

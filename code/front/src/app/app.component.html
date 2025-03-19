@@ -19,10 +19,10 @@
         {{ "lost" | translate }}
       </ion-tab-button>
 
-      <ion-tab-button tab="adoption-form" [routerLink]="['/adoption-form']">
+      <!--<ion-tab-button tab="adoption-form" [routerLink]="['/adoption-form']">
         <ion-icon name="clipboard"></ion-icon>
         {{ "pageTitles.requests" | translate }}
-      </ion-tab-button>
+      </ion-tab-button>-->
 
       @if (loggedUser.isAuth()) {
         <ion-tab-button tab="requests" [routerLink]="['/requests']">
