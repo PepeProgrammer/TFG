@@ -12,6 +12,7 @@ export interface User {
   state: number,
   description: string,
   shelterHome: boolean
+  images?: string[]
 }
 
 export interface UserShelter extends Pick<User, 'id' | 'username' | 'profile_image'>{

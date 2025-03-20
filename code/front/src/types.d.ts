@@ -23,12 +23,6 @@ interface Species {
   name: string
 }
 
-interface State {
-  id: number,
-  name: string
-}
-
-
 export interface LocationInfo {
   country: {id: number, name: string},
   state: {id: number, name: string, countryId: number},

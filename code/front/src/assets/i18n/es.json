@@ -106,7 +106,7 @@
  "accept": "Aceptar",
   "cancel": "Cancelar",
   "save": "Guardar cambios",
-  "updateSuccess": "Cambios guardados correctamente"
-
+  "updateSuccess": "Cambios guardados correctamente",
+  "speciesKept": "Especies a mantener"
 
 }

@@ -23,7 +23,7 @@
 
       <ion-item-group>
         <ion-item>
-          <ion-select label="{{'userType' | translate | titlecase}}"
+          <ion-select label="{{'userType' | translate}}"
                       label-placement="floating" formControlName="type" value="standard"
                       (ionChange)="changeUserType()" id="userType">
             <ion-select-option value="standard">{{ 'standard' | translate }}</ion-select-option>
@@ -47,6 +47,18 @@
           <ion-item>
             <ion-input type="text" name="name" formControlName="name" label="{{ 'associationName' | translate }}:"
                        label-placement="floating"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-select label="{{'speciesKept' | translate}}"
+                        label-placement="floating" formControlName="species" value="standard"
+                        id="animals" [multiple]="true">
+
+              @for (species of speciesList; track species.id) {
+                <ion-select-option value="{{species.id}}">{{ species.name | translate }}</ion-select-option>
+              }
+
+            </ion-select>
           </ion-item>
         }
 

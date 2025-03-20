@@ -20,6 +20,8 @@ import {PhotoService} from "../services/photo.service";
 import {image} from "ionicons/icons";
 import {Router} from "@angular/router";
 import {loggedUser} from "../../../variables";
+import {AnimalsService} from "../services/animals.service";
+import {Species} from "../middleware/species";
 
 @Component({
   selector: 'app-register',
@@ -31,7 +33,7 @@ export class RegisterPage implements OnInit {
   userService = inject(UsersService)
   geolocationService = inject(GeolocationService)
   photoService = inject(PhotoService)
-
+  animalService = inject(AnimalsService)
 
   notCropImage: string | undefined;
   form: FormGroup
@@ -48,7 +50,7 @@ export class RegisterPage implements OnInit {
   formData = new FormData()
 
   userType: 'standard' | 'association' = 'standard'
-
+  speciesList: Species[] = []
   constructor(private sanitizer: DomSanitizer, private router: Router) {
     this.locationInfo = {countries: [], country: {id: 0, name: ''}, state: {id: 0, name: '', countryId: 0}, states: []}
     this.form = new FormGroup({
@@ -60,7 +62,8 @@ export class RegisterPage implements OnInit {
       confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)], this.checkPassword()),
       country: new FormControl('', [Validators.required]),
       state: new FormControl('', [Validators.required]),
-      type: new FormControl('standard')
+      type: new FormControl('standard'),
+      species: new FormControl(''),
     })
     this.imageUrl = ''
     this.isModalOpen = false
@@ -74,6 +77,7 @@ export class RegisterPage implements OnInit {
       this.form.setControl('country', new FormControl(this.locationInfo.country.id, [Validators.required]))
       this.form.setControl('state', new FormControl(this.locationInfo.state.id, [Validators.required])) // Con setControl sustituimos el control que ya existía por uno nuevo para que al enviar la provincia en// caso de que no se modifique la de la ubicación actual no de error
     }
+    this.speciesList = await this.animalService.getAllSpecies()
     if(loggedUser.isAuth()){
       await this.router.navigate(['/home'])
     }
@@ -264,6 +268,7 @@ export class RegisterPage implements OnInit {
     this.formData.append('password', this.form.value['password'])
     this.formData.append('state', this.form.value['state'])
     this.formData.append('type', this.form.value['type'])
+    this.formData.append('species', this.form.value['species'])
   }
 
   changeUserType() {

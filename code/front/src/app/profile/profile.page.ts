@@ -9,6 +9,8 @@ import {ImageCroppedEvent, ImageCropperComponent, LoadedImage} from "ngx-image-c
 import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 import {Capacitor} from "@capacitor/core";
 import {image} from "ionicons/icons";
+import {Species} from "../middleware/species";
+import {AnimalsService} from "../services/animals.service";
 
 @Component({
   selector: 'app-profile',
@@ -18,6 +20,7 @@ import {image} from "ionicons/icons";
 export class ProfilePage implements OnInit {
   authenticationService = inject(AuthenticationService);
   userService = inject(UsersService)
+  animalService = inject(AnimalsService)
   baseUrl: string
 
   user: User | null = null
@@ -37,7 +40,7 @@ export class ProfilePage implements OnInit {
   croppedImage: SafeUrl = '';
   imageUrls: any[] = []
   currentSlot = -1
-
+  speciesList: Species[] = []
   constructor(private router: Router, private sanitizer: DomSanitizer) {
     this.baseUrl = getBaseUrl()
     this.changeImages()
@@ -65,8 +68,23 @@ export class ProfilePage implements OnInit {
     }
   }
 
+  changeTakeInsStatus() {
+    if (this.user !== null) {
+      this.user.take_ins = !this.user.take_ins
+    }
+  }
+
+  changeSponsorsStatus() {
+    if (this.user !== null) {
+      this.user.sponsors = !this.user.sponsors
+    }
+  }
+
   async saveChanges() {
     if (this.user !== null) {
+      if(this.user.type === UserTypes.ASSOCIATION){
+        this.user.images = this.imageUrls
+      }
       const user = await this.userService.updateUser(this.user)
       if (user !== null) {
         this.changeEditMode(false)
@@ -82,9 +100,11 @@ export class ProfilePage implements OnInit {
     this.isToastOpen = isOpen;
   }
 
-  changeEditMode(mode: boolean) {
+ async changeEditMode(mode: boolean) {
     this.editMode = mode
-
+    if(this.speciesList.length === 0){
+      this.speciesList = await this.animalService.getAllSpecies()
+    }
     if (mode) {
       this.description = this.user?.description || ''
     } else {

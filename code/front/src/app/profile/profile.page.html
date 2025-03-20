@@ -67,6 +67,27 @@
             @if (editMode) {
               <ion-textarea [(ngModel)]="user.description" placeholder="Descripción" fill="outline" color="primary"
                             rows="6"></ion-textarea>
+              <ion-select label="Especies que tiene en adopción" label-placement="floating" multiple="true">
+                @for (species of speciesList; track species.id) {
+
+                  <ion-select-option value="{{species.id}}">{{species.name | translate}}</ion-select-option>
+                }
+              </ion-select>
+              <ion-select label="Especies que puede acoger" label-placement="floating" multiple="true">
+                @for (species of speciesList; track species.id) {
+
+                  <ion-select-option value="{{species.id}}">{{species.name | translate}}</ion-select-option>
+                }
+              </ion-select>
+              <ion-toggle [checked]="user.shelterHome" justify="space-between" (ionChange)="changeShelterHomeStatus()">
+                Casa de acogida
+              </ion-toggle>
+              <ion-toggle [checked]="user.take_ins" justify="space-between" (ionChange)="changeTakeInsStatus()">
+               Que se pueda acoger a mis animales
+              </ion-toggle>
+              <ion-toggle [checked]="user.sponsors" justify="space-between" (ionChange)="changeSponsorsStatus()">
+                Que se pueda apadrinar a mis animales
+              </ion-toggle>
             } @else {
               {{ user.description }}
             }
