@@ -49,11 +49,15 @@ export class UsersService {
     return castToUser(user)
   }
 
-  async updateUser(user: User) {
+  async updateUser(data: FormData) {
+    const headers = new HttpHeaders().set('enctype', 'multipart/form-data')
+    headers.set('Content-Type', 'application/json')
     const options = {
-      withCredentials: true
+      withCredentials: true,
+      headers
+
     }
-    const userResponse: any = await firstValueFrom(this.httpClient.post(`${this.baseUrl}/api/users?option=update`, user, options))
+    const userResponse: any = await firstValueFrom(this.httpClient.post(`${this.baseUrl}/api/users?option=update`, data, options))
     if (userResponse.id === undefined) {
       return null
     }

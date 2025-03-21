@@ -9,6 +9,7 @@ export interface Association {
 }
 
 interface Image {
+  id?: number,
   url: string
 }
 

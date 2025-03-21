@@ -1,3 +1,4 @@
+import {Image} from "../../types";
 
 export interface User {
   id: number,
@@ -11,8 +12,9 @@ export interface User {
   sponsors?: boolean,
   state: number,
   description: string,
-  shelterHome: boolean
-  images?: string[]
+  shelterHome: boolean,
+  images?: File[],
+  serverImages?: Image[]
 }
 
 export interface UserShelter extends Pick<User, 'id' | 'username' | 'profile_image'>{
@@ -34,7 +36,8 @@ export const castToUser = (data: any): User => {
     sponsors: data.sponsors,
     state: data.state,
     description: data.description,
-    shelterHome: data.shelterHome
+    shelterHome: data.shelterHome,
+    serverImages: data.serverImages !== undefined ? data.serverImages : []
   }
 }
 

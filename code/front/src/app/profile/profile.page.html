@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    @if(!notCropImage) {
+    @if (!notCropImage) {
       <ion-title>{{ "pageTitles.profile" | translate }}</ion-title>
     } @else {
       <ion-title>{{ "pageTitles.cropImage" | translate }}</ion-title>
@@ -41,22 +41,44 @@
             <p>{{ user.name }}</p>
           </div>
         </div>
+        <div class="chips-info">
+          @if(user.shelterHome) {
+            <ion-chip>
+              <ion-label>Casa de acogida</ion-label>
+            </ion-chip>
+          }
 
-        @if (user.type === UserTypes.ASSOCIATION && editMode) {
+          @if (user.sponsors) {
+            <ion-chip>
+              <ion-label>Permite apadrinar</ion-label>
+            </ion-chip>
+          }
+
+          @if (user.take_ins) {
+            <ion-chip>
+              <ion-label>Permite acoger</ion-label>
+            </ion-chip>
+          }
+        </div>
+
+        @if (user.type === UserTypes.ASSOCIATION) {
           <div class="images-container">
             <div class="images">
               <div>
-                <img src="{{this.imageUrls[0]}}" class="add-image" (click)="addImageToSlot(0)" id="img0">
-                <img src="{{this.imageUrls[1]}}" class="add-image" (click)="addImageToSlot(1)" id="img1">
-                <img src="{{this.imageUrls[2]}}" class="add-image" (click)="addImageToSlot(2)" id="img2">
+                <img src="{{this.imageUrls[0].url}}" class="add-image" (click)="addImageToSlot(0)" id="img0">
+                <img src="{{this.imageUrls[1].url}}" class="add-image" (click)="addImageToSlot(1)" id="img1">
+                <img src="{{this.imageUrls[2].url}}" class="add-image" (click)="addImageToSlot(2)" id="img2">
               </div>
 
               <div>
-                <img src="{{this.imageUrls[3]}}" class="add-image" (click)="addImageToSlot(3)" id="img3">
-                <img src="{{this.imageUrls[4]}}" class="add-image" (click)="addImageToSlot(4)" id="img4">
-                <img src="{{this.imageUrls[5]}}" class="add-image" (click)="addImageToSlot(5)" id="img5">
+                <img src="{{this.imageUrls[3].url}}" class="add-image" (click)="addImageToSlot(3)" id="img3">
+                <img src="{{this.imageUrls[4].url}}" class="add-image" (click)="addImageToSlot(4)" id="img4">
+                <img src="{{this.imageUrls[5].url}}" class="add-image" (click)="addImageToSlot(5)" id="img5">
               </div>
             </div>
+          </div>
+          <div>
+
           </div>
         }
 
@@ -67,27 +89,34 @@
             @if (editMode) {
               <ion-textarea [(ngModel)]="user.description" placeholder="Descripción" fill="outline" color="primary"
                             rows="6"></ion-textarea>
-              <ion-select label="Especies que tiene en adopción" label-placement="floating" multiple="true">
-                @for (species of speciesList; track species.id) {
+              @if (user.type === UserTypes.ASSOCIATION) {
+                <ion-select label="Especies que tiene en adopción" label-placement="floating" multiple="true">
+                  @for (species of speciesList; track species.id) {
 
-                  <ion-select-option value="{{species.id}}">{{species.name | translate}}</ion-select-option>
-                }
-              </ion-select>
-              <ion-select label="Especies que puede acoger" label-placement="floating" multiple="true">
-                @for (species of speciesList; track species.id) {
+                    <ion-select-option value="{{species.id}}">{{ species.name | translate }}</ion-select-option>
+                  }
+                </ion-select>
+                <ion-select label="Especies que puede acoger" label-placement="floating" multiple="true">
+                  @for (species of speciesList; track species.id) {
 
-                  <ion-select-option value="{{species.id}}">{{species.name | translate}}</ion-select-option>
-                }
-              </ion-select>
-              <ion-toggle [checked]="user.shelterHome" justify="space-between" (ionChange)="changeShelterHomeStatus()">
-                Casa de acogida
-              </ion-toggle>
-              <ion-toggle [checked]="user.take_ins" justify="space-between" (ionChange)="changeTakeInsStatus()">
-               Que se pueda acoger a mis animales
-              </ion-toggle>
-              <ion-toggle [checked]="user.sponsors" justify="space-between" (ionChange)="changeSponsorsStatus()">
-                Que se pueda apadrinar a mis animales
-              </ion-toggle>
+                    <ion-select-option value="{{species.id}}">{{ species.name | translate }}</ion-select-option>
+                  }
+                </ion-select>
+                <ion-toggle [checked]="user.shelterHome" justify="space-between"
+                            (ionChange)="changeShelterHomeStatus()">
+                  Casa de acogida
+                </ion-toggle>
+                <ion-toggle [checked]="user.take_ins" justify="space-between" (ionChange)="changeTakeInsStatus()">
+                  Que se pueda acoger a mis animales
+                </ion-toggle>
+                <ion-toggle [checked]="user.sponsors" justify="space-between" (ionChange)="changeSponsorsStatus()">
+                  Que se pueda apadrinar a mis animales
+                </ion-toggle>
+              } @else {
+                <ion-toggle [checked]="user.shelterHome" justify="start" (ionChange)="changeShelterHomeStatus()">Casa de
+                  acogida
+                </ion-toggle>
+              }
             } @else {
               {{ user.description }}
             }
@@ -144,7 +173,7 @@
   @if (!editMode) {
     <ion-button shape="round" color="danger" (click)="logout()" expand="full">{{ "closeSession" | translate }}
     </ion-button>
-  } @else if(!notCropImage) {
+  } @else if (!notCropImage) {
     <div class="option-buttons">
       <ion-button shape="round" class="save" (click)="changeEditMode(false)" color="danger">{{ "cancel" | translate }}
       </ion-button>

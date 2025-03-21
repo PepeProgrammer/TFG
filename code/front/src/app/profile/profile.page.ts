@@ -8,9 +8,11 @@ import {Camera, CameraResultType, CameraSource} from "@capacitor/camera";
 import {ImageCroppedEvent, ImageCropperComponent, LoadedImage} from "ngx-image-cropper";
 import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 import {Capacitor} from "@capacitor/core";
-import {image} from "ionicons/icons";
+import {image, images} from "ionicons/icons";
 import {Species} from "../middleware/species";
 import {AnimalsService} from "../services/animals.service";
+import {PhotoService} from "../services/photo.service";
+import {Image} from "../../types";
 
 @Component({
   selector: 'app-profile',
@@ -21,6 +23,7 @@ export class ProfilePage implements OnInit {
   authenticationService = inject(AuthenticationService);
   userService = inject(UsersService)
   animalService = inject(AnimalsService)
+  photoService = inject(PhotoService)
   baseUrl: string
 
   user: User | null = null
@@ -38,12 +41,13 @@ export class ProfilePage implements OnInit {
   notCropImage: string | undefined = ''
   isModalOpen: boolean = false
   croppedImage: SafeUrl = '';
-  imageUrls: any[] = []
+  imageUrls: Image[] = [] // Lista para mostrar las imágenes en los espacios asignados
+  imagesList: any[] = [] // Lista para transformar las imágenes a formato de archivo
+  deletedImages: number[] = [] // Lista para guardar las imágenes eliminadas
   currentSlot = -1
   speciesList: Species[] = []
   constructor(private router: Router, private sanitizer: DomSanitizer) {
     this.baseUrl = getBaseUrl()
-    this.changeImages()
   }
 
   ngOnInit() {
@@ -52,6 +56,11 @@ export class ProfilePage implements OnInit {
 
   async ionViewWillEnter() {
     this.user = await this.userService.getUserLogged()
+    this.imagesList = []
+    this.imageUrls = []
+    this.deletedImages = []
+    this.changeImages()
+
   }
 
   async logout() {
@@ -82,13 +91,24 @@ export class ProfilePage implements OnInit {
 
   async saveChanges() {
     if (this.user !== null) {
-      if(this.user.type === UserTypes.ASSOCIATION){
-        this.user.images = this.imageUrls
+      const formData = new FormData()
+      formData.append('user', JSON.stringify(this.user))
+
+      if(this.user.type === UserTypes.ASSOCIATION && this.imageUrls.length > 0){
+        const files = this.photoService.dataURLtoFile(this.imagesList, this.user.username)
+        for(let i = 0; i < files.length; i++){
+          formData.append(`images${i}`, files[i])
+        }
+        if(this.deletedImages.length > 0){
+          formData.append('deletedImages', JSON.stringify(this.deletedImages))
+        }
       }
-      const user = await this.userService.updateUser(this.user)
+
+      const user = await this.userService.updateUser(formData)
       if (user !== null) {
-        this.changeEditMode(false)
+        await this.changeEditMode(false)
         this.user = user
+        this.changeImages()
         this.shelterHomeStatusChanged = false
         this.toastMessage = "updateSuccess"
         this.setOpen(true)
@@ -154,11 +174,14 @@ export class ProfilePage implements OnInit {
 
   cropImage() {
     if (this.cropper != null) {
-      this.imageUrls[this.currentSlot] = this.cropper.crop('base64')?.base64
+      if(this.imageUrls[this.currentSlot].id !== -1) { // Saber que imágenes van a ser eliminadas de la base de datos
+        this.deletedImages.push(this.imageUrls[this.currentSlot].id as number)
+      }
+      this.imageUrls[this.currentSlot] = {url: this.cropper.crop('base64')?.base64 as string, id: -1}
+      this.imagesList.push(this.cropper.crop('base64')?.base64)
       this.notCropImage = ''; // reset the image
     }
 
-    console.log(this.imageUrls)
   }
 
   cancelCrop() {
@@ -166,19 +189,27 @@ export class ProfilePage implements OnInit {
   }
 
   async addImageToSlot(slot: number) {
-    this.currentSlot = slot
+    if(this.editMode){
+      this.currentSlot = slot
 
-    if (Capacitor.isNativePlatform()) {
-      this.isModalOpen = true
-    } else {
-      await this.selectImage()
+      if (Capacitor.isNativePlatform()) {
+        this.isModalOpen = true
+      } else {
+        await this.selectImage()
+      }
     }
+
   }
 
   changeImages() {
+    this.imageUrls = []
     const urls = []
-    for (let i = 0; i < this.MAX_IMAGES; i++) {
-      urls.push('assets/images/addImage.png')
+    for(const image of this.user?.serverImages || []){
+      urls.push({id: image.id, url: `${this.baseUrl}/uploads/images/associations/${image.url}`})
+    }
+    const numImages = this.user?.serverImages?.length || 0
+    for (let i = 0; i < this.MAX_IMAGES - numImages; i++) {
+      urls.push({id:-1, url: 'assets/images/addImage.png'})
     }
     this.imageUrls = urls
   }
