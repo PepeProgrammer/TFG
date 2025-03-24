@@ -1,8 +1,9 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {AnimalsService} from "../services/animals.service";
 import {Filter} from "../../types";
-import {getBaseUrl} from "../../../variables";
+import {getBaseUrl, selectedUser} from "../../../variables";
 import {InfiniteScrollCustomEvent} from "@ionic/angular";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-lost-animals',
@@ -23,7 +24,7 @@ export class LostAnimalsPage implements OnInit {
 
   baseUrl = getBaseUrl()
   disableScroll: boolean = false
-  constructor() { }
+  constructor(private router: Router) { }
 
   async ngOnInit() {
     this.filters = await this.animalService.getFilters(28) // TODO: found a way to get the country
@@ -64,5 +65,10 @@ export class LostAnimalsPage implements OnInit {
   cleanOffset() {
     this.offset = 0
   }
+  async goToProfile(username: string) {
+    console.log('go tooo')
+    selectedUser.username = username
+    await this.router.navigate(['/profile'])
 
+  }
 }

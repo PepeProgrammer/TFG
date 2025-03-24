@@ -15,6 +15,14 @@ export interface User {
   shelterHome: boolean,
   images?: File[],
   serverImages?: Image[]
+  species?: [{
+    id: number,
+    name: string,
+    AsoSpecie: {
+      toAdopt: boolean
+      toShelter: boolean
+    }
+  }]
 }
 
 export interface UserShelter extends Pick<User, 'id' | 'username' | 'profile_image'>{
@@ -37,7 +45,8 @@ export const castToUser = (data: any): User => {
     state: data.state,
     description: data.description,
     shelterHome: data.shelterHome,
-    serverImages: data.serverImages !== undefined ? data.serverImages : []
+    serverImages: data.serverImages !== undefined ? data.serverImages : [],
+    species: data.species !== undefined ? data.species : []
   }
 }
 

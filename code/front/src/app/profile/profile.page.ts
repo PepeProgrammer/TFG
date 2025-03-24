@@ -1,7 +1,7 @@
 import {Component, inject, OnInit, ViewChild} from '@angular/core';
 import {AuthenticationService} from "../services/authentication.service";
 import {Router} from "@angular/router";
-import {getBaseUrl, loggedUser, UserTypes} from "../../../variables";
+import {getBaseUrl, loggedUser, selectedUser, UserTypes} from "../../../variables";
 import {UsersService} from "../services/users.service";
 import {User} from "../middleware/users";
 import {Camera, CameraResultType, CameraSource} from "@capacitor/camera";
@@ -35,6 +35,8 @@ export class ProfilePage implements OnInit {
 
   isMobile: boolean = Capacitor.getPlatform() !== 'web'
 
+  selectedAdoptions: string[] = []
+  selectedShelters: string[] = []
   // Variables relacionadas con las imágenes
   @ViewChild('cropper') cropper: ImageCropperComponent | undefined;
   MAX_IMAGES = 6
@@ -55,11 +57,12 @@ export class ProfilePage implements OnInit {
   }
 
   async ionViewWillEnter() {
-    this.user = await this.userService.getUserLogged()
+    this.user = await this.userService.getUserLogged(selectedUser.username)
     this.imagesList = []
     this.imageUrls = []
     this.deletedImages = []
     this.changeImages()
+    this.updateSelectors()
 
   }
 
@@ -92,23 +95,55 @@ export class ProfilePage implements OnInit {
   async saveChanges() {
     if (this.user !== null) {
       const formData = new FormData()
-      formData.append('user', JSON.stringify(this.user))
 
-      if(this.user.type === UserTypes.ASSOCIATION && this.imageUrls.length > 0){
+      if(this.user.type === UserTypes.ASSOCIATION && this.imageUrls.length > 0) {
         const files = this.photoService.dataURLtoFile(this.imagesList, this.user.username)
-        for(let i = 0; i < files.length; i++){
+        for (let i = 0; i < files.length; i++) {
           formData.append(`images${i}`, files[i])
         }
-        if(this.deletedImages.length > 0){
+        if (this.deletedImages.length > 0) {
           formData.append('deletedImages', JSON.stringify(this.deletedImages))
         }
+
+        for (const selectedAdopt of this.selectedAdoptions) {
+          let exists = false
+          for (const species of this.user.species || []) {
+            if(species.id === Number(selectedAdopt)){
+              exists = true
+              break
+            }
+          }
+          if(!exists){
+            this.user.species?.push({id: Number(selectedAdopt), name: '', AsoSpecie: {toAdopt: true, toShelter: false}})
+          }
+        }
+
+        for (const selectedShelter of this.selectedShelters) {
+          let exists = false
+          for (const species of this.user.species || []) {
+            if(species.id === Number(selectedShelter)){
+              exists = true
+              break
+            }
+          }
+          if(!exists){
+            this.user.species?.push({id: Number(selectedShelter), name: '', AsoSpecie: {toAdopt: false, toShelter: true}})
+          }
+        }
+        for (const species of this.user.species || []) { // Actualizar las especies seleccionadas
+          species.AsoSpecie.toAdopt = this.selectedAdoptions.includes(String(species.id));
+          species.AsoSpecie.toShelter = this.selectedShelters.includes(String(species.id));
+        }
+
       }
+      formData.append('user', JSON.stringify(this.user))
 
       const user = await this.userService.updateUser(formData)
       if (user !== null) {
         await this.changeEditMode(false)
         this.user = user
         this.changeImages()
+        this.updateSelectors()
         this.shelterHomeStatusChanged = false
         this.toastMessage = "updateSuccess"
         this.setOpen(true)
@@ -214,7 +249,22 @@ export class ProfilePage implements OnInit {
     this.imageUrls = urls
   }
 
+  updateSelectors() {
+    this.selectedAdoptions = []
+    this.selectedShelters = []
+    for (const species of this.user?.species || []) {
+      if(species.AsoSpecie.toAdopt){
+        this.selectedAdoptions.push(String(species.id))
+      }
+      if(species.AsoSpecie.toShelter){
+        this.selectedShelters.push(String(species.id))
+      }
+    }
+  }
+
   protected readonly loggedUser = loggedUser;
   protected readonly UserTypes = UserTypes;
   protected readonly Capacitor = Capacitor;
+  protected readonly console = console;
+  protected readonly selectedUser = selectedUser;
 }

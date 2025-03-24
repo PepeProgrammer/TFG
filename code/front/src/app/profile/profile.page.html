@@ -28,7 +28,7 @@
             <div>
               <p>{{ user.username }}</p>
 
-              @if (!editMode) {
+              @if (!editMode && selectedUser.username === '') {
                 <ion-buttons slot="end">
                   <ion-button shape="round" (click)="changeEditMode(true)">
                     Editar
@@ -41,42 +41,85 @@
             <p>{{ user.name }}</p>
           </div>
         </div>
-        <div class="chips-info">
-          @if(user.shelterHome) {
-            <ion-chip>
-              <ion-label>Casa de acogida</ion-label>
-            </ion-chip>
-          }
+        @if (!editMode) {
+          <div class="chips-info">
+            @if (user.type === UserTypes.ASSOCIATION) {
+              <ion-chip>
+                <ion-label>Asociación</ion-label>
+              </ion-chip>
+              <ion-chip>
+                <ion-label> Tiene en adopción:
+                  @for (species of user.species; track species.id) {
+                    @if (species.AsoSpecie.toAdopt) {
+                      {{ species.name | translate }}
+                    }
+                  }
+                </ion-label>
+              </ion-chip>
+            }
+            @if (user.shelterHome) {
+              <ion-chip>
+                <ion-label>Casa de acogida
+                  @if (user.type === UserTypes.ASSOCIATION) {
+                    :
+                    @for (species of user.species; track species.id) {
+                      @if (species.AsoSpecie.toShelter) {
+                        {{ species.name | translate }}
+                      }
+                    }
+                  }</ion-label>
+              </ion-chip>
+            }
 
-          @if (user.sponsors) {
-            <ion-chip>
-              <ion-label>Permite apadrinar</ion-label>
-            </ion-chip>
-          }
+            @if (user.sponsors) {
+              <ion-chip>
+                <ion-label>Permite apadrinar</ion-label>
+              </ion-chip>
+            }
 
-          @if (user.take_ins) {
-            <ion-chip>
-              <ion-label>Permite acoger</ion-label>
-            </ion-chip>
-          }
-        </div>
+            @if (user.take_ins) {
+              <ion-chip>
+                <ion-label>Permite acoger</ion-label>
+              </ion-chip>
+            }
+          </div>
+        }
 
         @if (user.type === UserTypes.ASSOCIATION) {
-          <div class="images-container">
-            <div class="images">
-              <div>
-                <img src="{{this.imageUrls[0].url}}" class="add-image" (click)="addImageToSlot(0)" id="img0">
-                <img src="{{this.imageUrls[1].url}}" class="add-image" (click)="addImageToSlot(1)" id="img1">
-                <img src="{{this.imageUrls[2].url}}" class="add-image" (click)="addImageToSlot(2)" id="img2">
-              </div>
+          @if (selectedUser.username !== '') {
+            <div class="images-container">
+              <div class="images">
+                <div>
+                  <img src="{{this.imageUrls[0].url}}" class="add-image" (click)="addImageToSlot(0)" *ngIf="this.imageUrls[0].url !== 'assets/images/addImage.png'">
+                  <img src="{{this.imageUrls[1].url}}" class="add-image" (click)="addImageToSlot(1)" *ngIf="this.imageUrls[0].url !== 'assets/images/addImage.png'">
+                  <img src="{{this.imageUrls[2].url}}" class="add-image" (click)="addImageToSlot(2)" *ngIf="this.imageUrls[0].url !== 'assets/images/addImage.png'">
+                </div>
 
-              <div>
-                <img src="{{this.imageUrls[3].url}}" class="add-image" (click)="addImageToSlot(3)" id="img3">
-                <img src="{{this.imageUrls[4].url}}" class="add-image" (click)="addImageToSlot(4)" id="img4">
-                <img src="{{this.imageUrls[5].url}}" class="add-image" (click)="addImageToSlot(5)" id="img5">
+                <div>
+                  <img src="{{this.imageUrls[3].url}}" class="add-image" (click)="addImageToSlot(3)" *ngIf="this.imageUrls[0].url !== 'assets/images/addImage.png'">
+                  <img src="{{this.imageUrls[4].url}}" class="add-image" (click)="addImageToSlot(4)" *ngIf="this.imageUrls[0].url !== 'assets/images/addImage.png'">
+                  <img src="{{this.imageUrls[5].url}}" class="add-image" (click)="addImageToSlot(5)" *ngIf="this.imageUrls[0].url !== 'assets/images/addImage.png'">
+                </div>
               </div>
             </div>
-          </div>
+          } @else {
+            <div class="images-container">
+              <div class="images">
+                <div>
+                  <img src="{{this.imageUrls[0].url}}" class="add-image" (click)="addImageToSlot(0)" id="img0">
+                  <img src="{{this.imageUrls[1].url}}" class="add-image" (click)="addImageToSlot(1)" id="img1">
+                  <img src="{{this.imageUrls[2].url}}" class="add-image" (click)="addImageToSlot(2)" id="img2">
+                </div>
+
+                <div>
+                  <img src="{{this.imageUrls[3].url}}" class="add-image" (click)="addImageToSlot(3)" id="img3">
+                  <img src="{{this.imageUrls[4].url}}" class="add-image" (click)="addImageToSlot(4)" id="img4">
+                  <img src="{{this.imageUrls[5].url}}" class="add-image" (click)="addImageToSlot(5)" id="img5">
+                </div>
+              </div>
+            </div>
+          }
+
           <div>
 
           </div>
@@ -90,15 +133,16 @@
               <ion-textarea [(ngModel)]="user.description" placeholder="Descripción" fill="outline" color="primary"
                             rows="6"></ion-textarea>
               @if (user.type === UserTypes.ASSOCIATION) {
-                <ion-select label="Especies que tiene en adopción" label-placement="floating" multiple="true">
+                <ion-select label="Especies que tiene en adopción" label-placement="floating" multiple="true"
+                            [(ngModel)]="selectedAdoptions">
                   @for (species of speciesList; track species.id) {
 
                     <ion-select-option value="{{species.id}}">{{ species.name | translate }}</ion-select-option>
                   }
                 </ion-select>
-                <ion-select label="Especies que puede acoger" label-placement="floating" multiple="true">
+                <ion-select label="Especies que puede acoger" label-placement="floating" multiple="true"
+                            [(ngModel)]="selectedShelters">
                   @for (species of speciesList; track species.id) {
-
                     <ion-select-option value="{{species.id}}">{{ species.name | translate }}</ion-select-option>
                   }
                 </ion-select>
@@ -119,16 +163,6 @@
               }
             } @else {
               {{ user.description }}
-            }
-          </div>
-        }
-        @if (user.type === UserTypes.STANDARD) {
-          <div>
-            <ion-toggle [checked]="user.shelterHome" justify="start" (ionChange)="changeShelterHomeStatus()">Casa de
-              acogida
-            </ion-toggle>
-            @if (shelterHomeStatusChanged) {
-              <ion-button shape="round" class="save" (click)="saveChanges()">{{ "save" | translate }}</ion-button>
             }
           </div>
         }
@@ -170,14 +204,17 @@
   ></image-cropper>
 </ion-content>
 <ion-footer>
-  @if (!editMode) {
-    <ion-button shape="round" color="danger" (click)="logout()" expand="full">{{ "closeSession" | translate }}
-    </ion-button>
-  } @else if (!notCropImage) {
-    <div class="option-buttons">
-      <ion-button shape="round" class="save" (click)="changeEditMode(false)" color="danger">{{ "cancel" | translate }}
+  @if (selectedUser.username === '') {
+    @if (!editMode) {
+      <ion-button shape="round" color="danger" (click)="logout()" expand="full">{{ "closeSession" | translate }}
       </ion-button>
-      <ion-button shape="round" class="save" (click)="saveChanges()">{{ "save" | translate }}</ion-button>
-    </div>
+    } @else if (!notCropImage) {
+      <div class="option-buttons">
+        <ion-button shape="round" class="save" (click)="changeEditMode(false)" color="danger">{{ "cancel" | translate }}
+        </ion-button>
+        <ion-button shape="round" class="save" (click)="saveChanges()">{{ "save" | translate }}</ion-button>
+      </div>
+    }
   }
+
 </ion-footer>

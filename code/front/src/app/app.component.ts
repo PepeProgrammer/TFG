@@ -3,7 +3,8 @@ import {home, search} from "ionicons/icons";
 import {TranslateService} from "@ngx-translate/core";
 import {ThemeService} from "./services/theme.service";
 import {AuthenticationService} from "./services/authentication.service";
-import {loggedUser, UserTypes} from "../../variables";
+import {loggedUser, selectedUser, UserTypes} from "../../variables";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -21,10 +22,20 @@ export class AppComponent implements OnInit {
 
   }
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, private router: Router) {
     this.translate.setDefaultLang('es');
     this.themeService.initializeAppTheaming()
   }
+
+async goToMyProfile() {
+    console.log('a mi perfil')
+  selectedUser.username = ''
+  if(this.router.url === '/profile') {
+    console.log('ola')
+    await this.router.navigate(['/home'])
+  }
+  await this.router.navigate(['/profile'])
+}
 
   protected readonly home = home;
   protected readonly search = search;

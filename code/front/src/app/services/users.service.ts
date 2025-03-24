@@ -38,11 +38,11 @@ export class UsersService {
     return castToUser(user)
   }
 
-  async getUserLogged() {
+  async getUserLogged(username: string) {
     const options = {
       withCredentials: true
     }
-    const user: any = await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/users?option=userData`, options))
+    const user: any = await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/users?option=userData&username=${username}`, options))
     if (user.id === undefined) {
       return null
     }

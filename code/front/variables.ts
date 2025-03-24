@@ -44,4 +44,8 @@ class LoggedUser {
 
 }
 
+export let selectedUser = {
+  username: ''
+}
+
 export const loggedUser = new LoggedUser()

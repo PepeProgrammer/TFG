@@ -27,11 +27,13 @@
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
+
         p {
           margin: 5px 0;
         }
 
       }
+
       p {
         margin: 5px 0;
       }
@@ -45,9 +47,11 @@
       display: block;
       font-weight: bold;
     }
+
     * {
       margin-bottom: 5px;
     }
+
     margin-bottom: 30px;
   }
 
@@ -57,15 +61,17 @@
     align-self: center;
   }
 
-  .images-container{
+  .images-container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
-    .images{
+
+    .images {
       display: flex;
       flex-direction: column;
       align-items: center;
+
       .add-image {
         margin-right: 5px;
         width: 100px;
@@ -81,6 +87,28 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.chips-info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 800px) {
+  .container{
+    .images-container {
+      .images {
+        .add-image {
+          width: 200px;
+          height: 200px;
+        }
+      }
+    }
+  }
+
+
 }
 
 

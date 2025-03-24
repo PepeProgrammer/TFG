@@ -1,13 +1,14 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {AnimalsService} from "../services/animals.service";
 import {Association, Filter} from "../../types";
-import {getBaseUrl, loggedUser, UserTypes} from "../../../variables";
+import {getBaseUrl, loggedUser, selectedUser, UserTypes} from "../../../variables";
 import {InfiniteScrollCustomEvent} from "@ionic/angular";
 import {RequestsService} from "../services/requests.service";
 import {RequestType} from "../middleware/requests";
 import {User, UserShelter} from "../middleware/users";
 import {UsersService} from "../services/users.service";
 import {Animal, createVoidAnimal} from "../middleware/animals";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -46,7 +47,7 @@ export class HomePage implements OnInit {
   shelterHomeUsers: User[] | undefined
   modalFilters: { states: string[] }
   modalStateNames: string[] = []
-  constructor() {
+  constructor(private router: Router) {
     this.animalSelected = createVoidAnimal()
     this.modalFilters = {states: []}
   }
@@ -151,6 +152,11 @@ export class HomePage implements OnInit {
     }
   }
 
+  async goToProfile(username: string) {
+    selectedUser.username = username
+    await this.router.navigate(['/profile'])
+
+  }
 
   protected readonly loggedUser = loggedUser;
   protected readonly UserTypes = UserTypes;

@@ -32,7 +32,7 @@
       }
 
       @if (loggedUser.isAuth()) {
-        <ion-tab-button tab="profile" [routerLink]="['/profile']">
+        <ion-tab-button tab="profile" (click)="goToMyProfile()">
           <ion-icon name="person-circle-outline"></ion-icon>
           {{ "pageTitles.profile" | translate }}
 
