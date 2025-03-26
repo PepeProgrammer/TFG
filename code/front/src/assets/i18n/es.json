@@ -23,7 +23,7 @@
   "breed": "raza",
   "state": "provincia",
   "country": "país",
-  "description": "descripción",
+  "description": "Descripción",
   "add_image": "Añadir imagen",
   "checks": {
     "no_parasite": "Desparasitado",
@@ -100,13 +100,27 @@
     "noRequests": "No hay solicitudes pendientes",
     "deleteRequest": "Eliminar solicitud",
     "deleteRequestMessage": "¿Estás seguro de que quieres eliminar esta solicitud?",
-    "wantHost": "quiere que acojas a"
+    "rejectRequest": "Rechazar solicitud",
+    "rejectRequestMessage": "¿Estás seguro de que quieres rechazar esta solicitud?",
+    "wantHost": "quiere que acojas a",
+    "rejectAdoption": "ha rechazado tu petición de adoptar a",
+    "rejectHost": "ha rechazado tu petición de acoger a",
+    "rejectSponsor": "ha rechazado tu petición de apadrinar a"
   },
   "noLogged": "Debes iniciar sesión para hacer esto",
  "accept": "Aceptar",
   "cancel": "Cancelar",
   "save": "Guardar cambios",
   "updateSuccess": "Cambios guardados correctamente",
-  "speciesKept": "Especies a mantener"
+  "speciesKept": "Especies a mantener",
+  "hasAdoption": "Tiene en adopción",
+  "shelter": "Casa de acogida",
+  "allowSponsor": "Permitir apadrinar",
+  "allowShelter": "Permitir acoger",
+  "adoptionSpecies": "Especies en adopción",
+  "shelterSpecies": "Especies que puedo acoger",
+  "allowShelterOwn": "Que se pueda acoger a mis animales",
+  "allowSponsorOwn": "Que se pueda apadrinar a mis animales",
+  "animalsAdoption": "Animales en adopción"
 
 }

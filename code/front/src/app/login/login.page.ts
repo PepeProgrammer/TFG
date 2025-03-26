@@ -31,6 +31,7 @@ export class LoginPage {
       const password = (document.getElementById('password') as HTMLInputElement).value = ''
       loggedUser.setAuth(true)
       loggedUser.setType(response.type)
+      loggedUser.setUsername(response.username)
       await this.router.navigate(['/home'])
       return
     }

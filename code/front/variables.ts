@@ -26,6 +26,7 @@ export enum UserTypes {
 class LoggedUser {
   private auth = false
   private type: UserTypes = UserTypes.NONE
+  private username: string = ''
 
   isAuth() {
     return this.auth
@@ -40,6 +41,13 @@ class LoggedUser {
   }
   setType(value: UserTypes) {
     this.type = value
+  }
+
+  getUsername() {
+    return this.username
+  }
+  setUsername(value: string) {
+    this.username = value
   }
 
 }

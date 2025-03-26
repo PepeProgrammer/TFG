@@ -4,7 +4,7 @@ import {Association, Filter} from "../../types";
 import {getBaseUrl, loggedUser, selectedUser, UserTypes} from "../../../variables";
 import {InfiniteScrollCustomEvent} from "@ionic/angular";
 import {RequestsService} from "../services/requests.service";
-import {RequestType} from "../middleware/requests";
+import {RequestType} from "../middleware/request";
 import {User, UserShelter} from "../middleware/users";
 import {UsersService} from "../services/users.service";
 import {Animal, createVoidAnimal} from "../middleware/animals";
@@ -30,7 +30,7 @@ export class HomePage implements OnInit {
 
   baseUrl = getBaseUrl()
   offset = 0
-  range = 5
+  range = 8
 
   disableScroll: boolean = false
 
@@ -61,7 +61,6 @@ export class HomePage implements OnInit {
     this.offset = 0
     this.disableScroll = false
     this.animals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, this.selectedAge)
-    console.log(this.animals)
     this.offset += this.range//con esto hago que la próxima vez busque los siguientes 5 animales
 
   }

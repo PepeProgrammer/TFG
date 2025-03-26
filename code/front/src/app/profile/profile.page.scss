@@ -95,7 +95,9 @@
   flex-wrap: wrap;
   margin-bottom: 10px;
 }
-
+.title {
+  margin-top: 15px;
+}
 @media (min-width: 800px) {
   .container{
     .images-container {

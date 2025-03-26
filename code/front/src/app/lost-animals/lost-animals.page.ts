@@ -17,7 +17,7 @@ export class LostAnimalsPage implements OnInit {
   filters: Filter | undefined
   animals: any  = []
   offset: number = 0
-  range: number = 5
+  range: number = 8
 
   selectedSpecies: string = ''
   selectedState: string = ''

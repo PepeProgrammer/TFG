@@ -13,6 +13,10 @@ import {Species} from "../middleware/species";
 import {AnimalsService} from "../services/animals.service";
 import {PhotoService} from "../services/photo.service";
 import {Image} from "../../types";
+import {RequestType} from "../middleware/request";
+import {InfiniteScrollCustomEvent} from "@ionic/angular";
+import {Animal} from "../middleware/animals";
+import {RequestsService} from "../services/requests.service";
 
 @Component({
   selector: 'app-profile',
@@ -24,6 +28,7 @@ export class ProfilePage implements OnInit {
   userService = inject(UsersService)
   animalService = inject(AnimalsService)
   photoService = inject(PhotoService)
+  requestService = inject(RequestsService)
   baseUrl: string
 
   user: User | null = null
@@ -48,6 +53,13 @@ export class ProfilePage implements OnInit {
   deletedImages: number[] = [] // Lista para guardar las imágenes eliminadas
   currentSlot = -1
   speciesList: Species[] = []
+
+  // Visualización de animales de asociación
+  animals: Animal[] = []
+  offset = 0
+  range = 8
+  disableScroll = false
+
   constructor(private router: Router, private sanitizer: DomSanitizer) {
     this.baseUrl = getBaseUrl()
   }
@@ -57,7 +69,21 @@ export class ProfilePage implements OnInit {
   }
 
   async ionViewWillEnter() {
+    if(loggedUser.getUsername() === selectedUser.username){ // Por si el usuario decide pulsar en un post suyo y entrar en su propio perfil, así lo podrá editar
+      selectedUser.username = ''
+    }
+
     this.user = await this.userService.getUserLogged(selectedUser.username)
+    console.log(this.user?.username)
+    console.log(loggedUser.getUsername())
+    console.log(loggedUser.getUsername() === this.user?.username)
+    if(this.user?.type === UserTypes.ASSOCIATION && this.user.username !== loggedUser.getUsername()){
+      console.log('en el perfil estoy')
+      this.offset = 0
+      this.animals = await this.animalService.getAnimalByFilters('', '', this.offset, this.range, '', false, this.user.id)
+      this.offset += this.range//con esto hago que la próxima vez busque los siguientes 5 animales
+    }
+
     this.imagesList = []
     this.imageUrls = []
     this.deletedImages = []
@@ -262,9 +288,41 @@ export class ProfilePage implements OnInit {
     }
   }
 
+
+  async onIonInfinite(event: any) {
+    const newAnimals = await this.animalService.getAnimalByFilters('', '', this.offset, this.range, '', false, this.user !== null ? this.user.id : -1)
+    if (newAnimals.length !== 0) {
+      this.animals.push(...newAnimals)
+      this.offset += this.range
+      setTimeout(() => {
+        (event as InfiniteScrollCustomEvent).target.complete();
+      }, 500);
+    } else {
+      this.disableScroll = true
+    }
+
+  }
+
+
+  async sendRequest(animalId: number, requestedId: number, type: number) {
+    if (loggedUser.isAuth()) {
+      const response = await this.requestService.addRequest({animalId, requestedId, type})
+      if (response) {
+        this.toastMessage = "adoptionMessages.petitionSent"
+      } else {
+        this.toastMessage = "adoptionMessages.error"
+      }
+    } else {
+      this.toastMessage = "noLogged"
+    }
+    this.isModalOpen = false
+    this.setOpen(true);
+  }
+
   protected readonly loggedUser = loggedUser;
   protected readonly UserTypes = UserTypes;
   protected readonly Capacitor = Capacitor;
   protected readonly console = console;
   protected readonly selectedUser = selectedUser;
+  protected readonly RequestType = RequestType;
 }

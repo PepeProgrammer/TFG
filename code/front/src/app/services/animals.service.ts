@@ -31,7 +31,7 @@ export class AnimalsService {
     return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/filters/${country}`, options))
   }
 
-  getAnimalByFilters(states: string, species: string, offset: number, range: number, age: string = '', lost = false): Promise<any> {
+  getAnimalByFilters(states: string, species: string, offset: number, range: number, age: string = '', lost = false, userId: number = -1): Promise<any> {
     const options: any = {
       withCredentials: true
     }
@@ -41,7 +41,7 @@ export class AnimalsService {
     url += (species !== "") ? `&species=${species}` : ""
     if (!lost) {
       url += (age !== "") ? `&age=${age}` : ""
-      return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/animals?${url}&offset=${offset}&range=${range}`, options))
+      return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/animals?${url}&offset=${offset}&range=${range}&userId=${userId}`, options))
     } else {
       return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/lost?${url}&offset=${offset}&range=${range}`, options))
     }

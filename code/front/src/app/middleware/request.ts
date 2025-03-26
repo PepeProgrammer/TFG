@@ -1,4 +1,4 @@
-export interface Requests {
+export interface Request {
   id: number
   applicant: {
     id: number,
@@ -14,14 +14,20 @@ export interface Requests {
 }
 
 export enum RequestType {
+  NONE = 0,
   ADOPTION = 1,
   HOST = 2,
-  WANT_HOST = 4
+  SPONSOR = 3,
+  WANT_HOST = 4,
+  REJECTED_ADOPTION = 5,
+  REJECTED_HOST = 6,
+  REJECTED_SPONSOR = 7
+
 }
 
 
 export const castToRequests = (data: any[]) => {
-  const requests: Requests[] = []
+  const requests: Request[] = []
   if (data.length > 0) {
     data.forEach((request) => {
       requests.push({

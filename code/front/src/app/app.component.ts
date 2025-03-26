@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
     const loggedData = await this.authService.isSessionValid()
     loggedUser.setAuth(loggedData.isSessionEnabled)
     loggedUser.setType(loggedData.type)
+    loggedUser.setUsername(loggedData.username)
 
   }
 
@@ -28,10 +29,8 @@ export class AppComponent implements OnInit {
   }
 
 async goToMyProfile() {
-    console.log('a mi perfil')
   selectedUser.username = ''
   if(this.router.url === '/profile') {
-    console.log('ola')
     await this.router.navigate(['/home'])
   }
   await this.router.navigate(['/profile'])

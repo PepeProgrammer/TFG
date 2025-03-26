@@ -1,6 +1,6 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {RequestsService} from "../services/requests.service";
-import {Requests, RequestType} from "../middleware/requests";
+import {Request, RequestType} from "../middleware/request";
 import {getBaseUrl} from "../../../variables";
 import {TranslateService} from "@ngx-translate/core";
 
@@ -13,7 +13,7 @@ export class RequestsPage implements OnInit {
   requestService = inject(RequestsService)
   translationService = inject(TranslateService)
 
-  requests: Requests[] = []
+  requests: Request[] = []
   baseUrl: string
   selRequest: number
   public alertButtons = [
@@ -56,8 +56,12 @@ export class RequestsPage implements OnInit {
     this.requests = await this.requestService.getRequests()
   }
 
-  selectedRequest(request: Requests) {
+  selectedRequest(request: Request) {
     this.selRequest = request.id
+  }
+
+  async markAsViewed(request: Request) {
+    await this.requestService.deleteRequest(request.id, request.type)
   }
   protected readonly RequestType = RequestType;
 }

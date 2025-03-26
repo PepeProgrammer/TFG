@@ -2,7 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {getBaseUrl} from "../../../variables";
 import {firstValueFrom} from "rxjs";
-import {castToRequests} from "../middleware/requests";
+import {castToRequests} from "../middleware/request";
 
 @Injectable({
   providedIn: 'root'
@@ -32,10 +32,10 @@ export class RequestsService {
     return response.success
   }
 
-  async deleteRequest(id: number) {
+  async deleteRequest(id: number, type: number = -1) {
     const options = {
       withCredentials: true
     }
-    const response: any = await firstValueFrom(this.httpClient.delete(`${this.baseUrl}/api/requests/${id}`, options))
+    const response: any = await firstValueFrom(this.httpClient.delete(`${this.baseUrl}/api/requests/${id}?type${type}`, options))
   }
 }
