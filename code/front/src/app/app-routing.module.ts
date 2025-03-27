@@ -51,6 +51,10 @@ const routes: Routes = [
     loadChildren: () => import('./adoption-form/adoption-form.module').then( m => m.AdoptionFormPageModule),
     canActivate: [AuthGuardService]
   },
+  {
+    path: 'animal',
+    loadChildren: () => import('./animal/animal.module').then( m => m.AnimalPageModule)
+  },
 ];
 
 @NgModule({

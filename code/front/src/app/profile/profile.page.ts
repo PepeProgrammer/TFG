@@ -1,7 +1,7 @@
 import {Component, inject, OnInit, ViewChild} from '@angular/core';
 import {AuthenticationService} from "../services/authentication.service";
 import {Router} from "@angular/router";
-import {getBaseUrl, loggedUser, selectedUser, UserTypes} from "../../../variables";
+import {getBaseUrl, loggedUser, selected, UserTypes} from "../../../variables";
 import {UsersService} from "../services/users.service";
 import {User} from "../middleware/users";
 import {Camera, CameraResultType, CameraSource} from "@capacitor/camera";
@@ -69,11 +69,11 @@ export class ProfilePage implements OnInit {
   }
 
   async ionViewWillEnter() {
-    if(loggedUser.getUsername() === selectedUser.username){ // Por si el usuario decide pulsar en un post suyo y entrar en su propio perfil, así lo podrá editar
-      selectedUser.username = ''
+    if(loggedUser.getUsername() === selected.userUsername){ // Por si el usuario decide pulsar en un post suyo y entrar en su propio perfil, así lo podrá editar
+      selected.userUsername = ''
     }
 
-    this.user = await this.userService.getUserLogged(selectedUser.username)
+    this.user = await this.userService.getUserLogged(selected.userUsername)
     console.log(this.user?.username)
     console.log(loggedUser.getUsername())
     console.log(loggedUser.getUsername() === this.user?.username)
@@ -323,6 +323,6 @@ export class ProfilePage implements OnInit {
   protected readonly UserTypes = UserTypes;
   protected readonly Capacitor = Capacitor;
   protected readonly console = console;
-  protected readonly selectedUser = selectedUser;
+  protected readonly selectedUser = selected;
   protected readonly RequestType = RequestType;
 }

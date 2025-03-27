@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {AnimalsService} from "../services/animals.service";
 import {Association, Filter} from "../../types";
-import {getBaseUrl, loggedUser, selectedUser, UserTypes} from "../../../variables";
+import {getBaseUrl, loggedUser, selected, UserTypes} from "../../../variables";
 import {InfiniteScrollCustomEvent} from "@ionic/angular";
 import {RequestsService} from "../services/requests.service";
 import {RequestType} from "../middleware/request";
@@ -152,9 +152,14 @@ export class HomePage implements OnInit {
   }
 
   async goToProfile(username: string) {
-    selectedUser.username = username
+    selected.userUsername = username
     await this.router.navigate(['/profile'])
 
+  }
+
+  async goToAnimal(animal: Animal) {
+    selected.animal = animal
+    await this.router.navigate(['/animal'])
   }
 
   protected readonly loggedUser = loggedUser;

@@ -62,6 +62,9 @@ export class RequestsPage implements OnInit {
 
   async markAsViewed(request: Request) {
     await this.requestService.deleteRequest(request.id, request.type)
+    this.selRequest = 0
+    this.requests = await this.requestService.getRequests()
+
   }
   protected readonly RequestType = RequestType;
 }

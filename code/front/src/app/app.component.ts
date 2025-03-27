@@ -3,7 +3,7 @@ import {home, search} from "ionicons/icons";
 import {TranslateService} from "@ngx-translate/core";
 import {ThemeService} from "./services/theme.service";
 import {AuthenticationService} from "./services/authentication.service";
-import {loggedUser, selectedUser, UserTypes} from "../../variables";
+import {loggedUser, selected, UserTypes} from "../../variables";
 import {Router} from "@angular/router";
 
 @Component({
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
   }
 
 async goToMyProfile() {
-  selectedUser.username = ''
+  selected.userUsername = ''
   if(this.router.url === '/profile') {
     await this.router.navigate(['/home'])
   }

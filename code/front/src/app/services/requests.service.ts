@@ -36,6 +36,6 @@ export class RequestsService {
     const options = {
       withCredentials: true
     }
-    const response: any = await firstValueFrom(this.httpClient.delete(`${this.baseUrl}/api/requests/${id}?type${type}`, options))
+    const response: any = await firstValueFrom(this.httpClient.delete(`${this.baseUrl}/api/requests/${id}?type=${type}`, options))
   }
 }

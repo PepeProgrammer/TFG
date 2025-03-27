@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {AnimalsService} from "../services/animals.service";
 import {Filter} from "../../types";
-import {getBaseUrl, selectedUser} from "../../../variables";
+import {getBaseUrl, selected} from "../../../variables";
 import {InfiniteScrollCustomEvent} from "@ionic/angular";
 import {Router} from "@angular/router";
 
@@ -67,7 +67,7 @@ export class LostAnimalsPage implements OnInit {
   }
   async goToProfile(username: string) {
     console.log('go tooo')
-    selectedUser.username = username
+    selected.userUsername = username
     await this.router.navigate(['/profile'])
 
   }

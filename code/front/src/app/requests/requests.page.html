@@ -35,9 +35,12 @@
             } @else if (request.type === RequestType.REJECTED_SPONSOR) {
               <ion-text>{{ request.applicant.username }} {{ "requests.rejectSponsor" | translate }} {{ request.animal.name }}
                 <span>{{ request.createdAt }}</span></ion-text>
+            } @else if (request.type === RequestType.REJECTED_WANT_HOST) {
+              <ion-text>{{ request.applicant.username }} {{ "requests.rejectedWantHost" | translate }} {{ request.animal.name }}
+                <span>{{ request.createdAt }}</span></ion-text>
             }
             <ion-buttons>
-              @if(request.type < 5 || request.type > 7){
+              @if(request.type < 1000){
                 <ion-button slot="icon-only" shape="round">
                   <ion-icon name="send"></ion-icon>
                 </ion-button>

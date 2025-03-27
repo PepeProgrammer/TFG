@@ -15,12 +15,11 @@ export interface Animal {
   sponsored: boolean
   adopted: boolean
   takenIn: boolean
-  information: {
-    noParasite: boolean
-    chip: boolean
-    vaccinated: boolean
-    sterilized: boolean
-  }
+  noParasite: boolean
+  chip: boolean
+  vaccinated: boolean
+  sterilized: boolean
+
 }
 
 export const createVoidAnimal = (): Animal => {
@@ -44,12 +43,11 @@ export const createVoidAnimal = (): Animal => {
     sponsored: false,
     adopted: false,
     takenIn: false,
-    information: {
-      noParasite: false,
-      chip: false,
-      vaccinated: false,
-      sterilized: false
-    }
+    noParasite: false,
+    chip: false,
+    vaccinated: false,
+    sterilized: false
+
   }
 
 }

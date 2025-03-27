@@ -28,10 +28,10 @@
             <div>
               <p>{{ user.username }}</p>
 
-              @if (!editMode && selectedUser.username === '') {
+              @if (!editMode && selectedUser.userUsername === '') {
                 <ion-buttons slot="end">
                   <ion-button shape="round" (click)="changeEditMode(true)">
-                    Editar
+                    {{ "edit" | translate }}
                   </ion-button>
                 </ion-buttons>
               }
@@ -86,7 +86,7 @@
         }
 
         @if (user.type === UserTypes.ASSOCIATION) {
-          @if (selectedUser.username !== '') {
+          @if (selectedUser.userUsername !== '') {
             <div class="images-container">
               <div class="images">
                 <div>
@@ -261,7 +261,7 @@
   ></image-cropper>
 </ion-content>
 <ion-footer>
-  @if (selectedUser.username === '') {
+  @if (selectedUser.userUsername === '') {
     @if (!editMode) {
       <ion-button shape="round" color="danger" (click)="logout()" expand="full">{{ "closeSession" | translate }}
       </ion-button>

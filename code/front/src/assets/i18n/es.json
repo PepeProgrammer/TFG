@@ -105,7 +105,8 @@
     "wantHost": "quiere que acojas a",
     "rejectAdoption": "ha rechazado tu petición de adoptar a",
     "rejectHost": "ha rechazado tu petición de acoger a",
-    "rejectSponsor": "ha rechazado tu petición de apadrinar a"
+    "rejectSponsor": "ha rechazado tu petición de apadrinar a",
+    "rejectedWantHost": "ha rechazado tu petición de acoger a"
   },
   "noLogged": "Debes iniciar sesión para hacer esto",
  "accept": "Aceptar",
@@ -121,6 +122,7 @@
   "shelterSpecies": "Especies que puedo acoger",
   "allowShelterOwn": "Que se pueda acoger a mis animales",
   "allowSponsorOwn": "Que se pueda apadrinar a mis animales",
-  "animalsAdoption": "Animales en adopción"
+  "animalsAdoption": "Animales en adopción",
+  "edit": "editar"
 
 }

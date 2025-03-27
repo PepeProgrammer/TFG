@@ -1,3 +1,5 @@
+import {createVoidAnimal} from "./src/app/middleware/animals";
+
 const DEPLOY = false
 
 const DB_INFO_LOCAL = {
@@ -52,8 +54,9 @@ class LoggedUser {
 
 }
 
-export let selectedUser = {
-  username: ''
+export let selected = {
+  userUsername: '',
+  animal: createVoidAnimal()
 }
 
 export const loggedUser = new LoggedUser()

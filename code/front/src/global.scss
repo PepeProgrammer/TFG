@@ -210,6 +210,28 @@ ion-card-subtitle {
   width: 100%;
 }
 
+.between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chips-info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.swiper-pagination {
+  bottom: 0;
+}
+
+swiper-container::part(pagination) {
+  position: relative;  /* Cambia de absolute (por defecto) a relative */
+  bottom: 8px;
+  top: auto;
+}
+
 @media (min-width: 800px) {
   .flex {
     display: flex;
