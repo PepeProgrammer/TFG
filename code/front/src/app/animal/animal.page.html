@@ -1,0 +1,84 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>animal</ion-title>
+    @if (!editMode && selectedUser.userUsername === '') {
+      <ion-buttons slot="end">
+        <ion-button shape="round" (click)="changeEditMode(true)">
+          {{ "edit" | translate }}
+        </ion-button>
+      </ion-buttons>
+    }
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content">
+  <div class="content">
+    @if (loggedUser.getType() !== UserTypes.ASSOCIATION) {
+      <div class="profile-info" (click)="goToProfile(animal.user.username)">
+        <img src="{{baseUrl}}/uploads/images/profiles/{{ animal.user.profile_image}}">
+        <span>{{ animal.user.username }}</span>
+
+      </div>
+    }
+    <swiper-container [pagination]="true">
+      @for (image of animal.images; track image.url) {
+        <swiper-slide>
+          <img src="{{baseUrl}}/uploads/images/{{image.url}}" class="swiper-image">
+        </swiper-slide>
+      }
+    </swiper-container>
+    <div>
+      <span class="name">{{ animal.name }}</span>
+      <div class="between">
+        <span>{{ animal.breed | translate }}</span><span>{{ animal.age }} {{ "years" | translate }}</span>
+      </div>
+    </div>
+    <span>{{ animal.description }}</span>
+    <div class="chips-info">
+      @if (animal.chip) {
+        <ion-chip>
+          <ion-label>{{ 'checks.chip' | translate }}</ion-label>
+        </ion-chip>
+      }
+
+      @if (animal.noParasite) {
+        <ion-chip>
+          <ion-label>{{ 'checks.no_parasite' | translate }}</ion-label>
+        </ion-chip>
+      }
+
+      @if (animal.vaccinated) {
+        <ion-chip>
+          <ion-label>{{ 'checks.vaccinated' | translate }}</ion-label>
+        </ion-chip>
+      }
+
+      @if (animal.sterilized) {
+        <ion-chip>
+          <ion-label>{{ 'checks.sterilized' | translate }}</ion-label>
+        </ion-chip>
+      }
+    </div>
+
+    @if (loggedUser.getType() !== UserTypes.ASSOCIATION) {
+      @if (animal.user.sponsors && !animal.sponsored) {
+        <ion-button expand="full" shape="round" (click)="sendRequest(animal.id, animal.user.id, RequestType.ADOPTION)">
+          Solicitar adopción
+        </ion-button>
+      }
+
+      @if (animal.user.take_ins && !animal.takenIn) {
+        <ion-button expand="full" shape="round" (click)="sendRequest(animal.id, animal.user.id, RequestType.HOST)">
+          Solicitar acogida
+        </ion-button>
+      }
+    }
+  </div>
+
+  <ion-toast
+    [isOpen]="isToastOpen"
+    message="{{ toastMessage | translate}}"
+    [duration]="3000"
+    (didDismiss)="setOpen(false)"
+  ></ion-toast>
+</ion-content>

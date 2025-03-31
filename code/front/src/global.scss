@@ -257,12 +257,15 @@ swiper-container::part(pagination) {
   ion-card {
     width: 400px;
   }
-
-  img {
-    width: 800px;
-    align-self: center;
+  swiper-container {
+    width: 400px;
+    height: 320px;
   }
 
+  swiper-container::part(pagination) {
+    bottom: 20px;
+
+  }
   .empty_animals {
     margin-top: 10px;
     text-align: center;

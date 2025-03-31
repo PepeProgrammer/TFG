@@ -1,0 +1,25 @@
+.content {
+  padding: 20px;
+}
+
+.swiper-image {
+  border-radius: 20px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+* {
+  margin-bottom: 5px;
+}
+
+.chips-info {
+  margin-top: 5px;
+  //justify-content: start;
+}
+
+swiper-container::part(pagination) {
+  bottom: 15px;
+}

@@ -66,5 +66,10 @@ export class RequestsPage implements OnInit {
     this.requests = await this.requestService.getRequests()
 
   }
+
+
+  acceptRequest(request: Request) {
+
+  }
   protected readonly RequestType = RequestType;
 }

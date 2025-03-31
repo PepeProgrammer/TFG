@@ -38,4 +38,11 @@ export class RequestsService {
     }
     const response: any = await firstValueFrom(this.httpClient.delete(`${this.baseUrl}/api/requests/${id}?type=${type}`, options))
   }
+
+  async acceptRequest(id: number) {
+    const options = {
+      withCredentials: true
+    }
+    const response: any = await firstValueFrom(this.httpClient.put(`${this.baseUrl}/api/requests/${id}`, {}, options))
+  }
 }

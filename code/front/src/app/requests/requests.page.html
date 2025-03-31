@@ -42,7 +42,7 @@
             <ion-buttons>
               @if(request.type < 1000){
                 <ion-button slot="icon-only" shape="round">
-                  <ion-icon name="send"></ion-icon>
+                  <ion-icon name="send" (click)="acceptRequest(request)"></ion-icon>
                 </ion-button>
                 <ion-button slot="icon-only" shape="round" (click)="selectedRequest(request)">
                   <ion-icon name="trash"></ion-icon>
