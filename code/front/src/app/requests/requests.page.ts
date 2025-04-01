@@ -68,8 +68,11 @@ export class RequestsPage implements OnInit {
   }
 
 
-  acceptRequest(request: Request) {
-
+  async acceptRequest(request: Request) {
+    await this.requestService.acceptRequest(request.id)
+    this.selRequest = 0
+    this.requests = await this.requestService.getRequests()
+    console.log('acelgas')
   }
   protected readonly RequestType = RequestType;
 }

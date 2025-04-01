@@ -106,7 +106,8 @@
     "rejectAdoption": "ha rechazado tu petición de adoptar a",
     "rejectHost": "ha rechazado tu petición de acoger a",
     "rejectSponsor": "ha rechazado tu petición de apadrinar a",
-    "rejectedWantHost": "ha rechazado tu petición de acoger a"
+    "rejectedWantHost": "ha rechazado tu petición de acoger a",
+    "acceptedAdoption": "ha aceptado tu petición de adoptar a"
   },
   "noLogged": "Debes iniciar sesión para hacer esto",
  "accept": "Aceptar",

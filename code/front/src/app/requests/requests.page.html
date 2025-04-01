@@ -38,11 +38,14 @@
             } @else if (request.type === RequestType.REJECTED_WANT_HOST) {
               <ion-text>{{ request.applicant.username }} {{ "requests.rejectedWantHost" | translate }} {{ request.animal.name }}
                 <span>{{ request.createdAt }}</span></ion-text>
+            } @else if (request.type === RequestType.APPROVED_ADOPTION) {
+              <ion-text>{{ request.applicant.username }} {{ "requests.acceptedAdoption" | translate }} {{ request.animal.name }}
+                <span>{{ request.createdAt }}</span></ion-text>
             }
             <ion-buttons>
-              @if(request.type < 1000){
-                <ion-button slot="icon-only" shape="round">
-                  <ion-icon name="send" (click)="acceptRequest(request)"></ion-icon>
+              @if(request.type < 100){
+                <ion-button slot="icon-only" shape="round" (click)="acceptRequest(request)">
+                  <ion-icon name="send"></ion-icon>
                 </ion-button>
                 <ion-button slot="icon-only" shape="round" (click)="selectedRequest(request)">
                   <ion-icon name="trash"></ion-icon>

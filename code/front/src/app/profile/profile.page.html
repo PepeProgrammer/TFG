@@ -23,12 +23,17 @@
     @if (user !== null) {
       <div class="container">
         <div class="user-info">
+          @if (user.profile_image){
           <img src="{{this.baseUrl}}/uploads/images/profiles/{{user.profile_image}}" class="profile-img"/>
+          } @else {
+            <img src="assets/icon/defaultUser.png" class="profile-img"/>
+
+          }
           <div>
             <div>
               <p>{{ user.username }}</p>
 
-              @if (!editMode && selectedUser.userUsername === '') {
+              @if (!editMode && selectedUser.userUsername === '' && loggedUser.isAuth()) {
                 <ion-buttons slot="end">
                   <ion-button shape="round" (click)="changeEditMode(true)">
                     {{ "edit" | translate }}
@@ -261,7 +266,7 @@
   ></image-cropper>
 </ion-content>
 <ion-footer>
-  @if (selectedUser.userUsername === '') {
+  @if (selectedUser.userUsername === '' && loggedUser.isAuth()) {
     @if (!editMode) {
       <ion-button shape="round" color="danger" (click)="logout()" expand="full">{{ "closeSession" | translate }}
       </ion-button>

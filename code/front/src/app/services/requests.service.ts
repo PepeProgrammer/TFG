@@ -44,5 +44,6 @@ export class RequestsService {
       withCredentials: true
     }
     const response: any = await firstValueFrom(this.httpClient.put(`${this.baseUrl}/api/requests/${id}`, {}, options))
+    return response.success !== undefined ? response.success : false
   }
 }
