@@ -59,7 +59,7 @@ export class AddAnimalsPage implements OnInit {
   }
 
   async ngOnInit() {
-    this.species = await this.animalService.getFilters(28) //TODO: hacer que solo se traiga el filtro de especies y no el de estados
+   // this.species = await this.animalService.getFilters(28) //TODO: hacer que solo se traiga el filtro de especies y no el de estados
   }
 
 

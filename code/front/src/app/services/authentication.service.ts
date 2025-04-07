@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {getBaseUrl} from "../../../variables";
+import {getBaseUrl, loggedUser} from "../../../variables";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
 import {CapacitorCookies, CapacitorHttp, HttpOptions, HttpResponse} from "@capacitor/core";
@@ -41,5 +41,12 @@ export class AuthenticationService {
       withCredentials: true
     }
     return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/logout`, options))
+  }
+
+  async saveLoggedUser() {
+    const loggedData = await this.isSessionValid()
+    loggedUser.setAuth(loggedData.isSessionEnabled)
+    loggedUser.setType(loggedData.type)
+    loggedUser.setUsername(loggedData.username)
   }
 }

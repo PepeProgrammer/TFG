@@ -56,7 +56,7 @@
     "cropImage": "Recortar imagen",
     "register": "Registrarse",
     "login": "Iniciar sesión",
-    "requests": "Solicitudes",
+    "requests": "Notificaciones",
     "profile": "Perfil",
     "searchShelter": "Buscar casa de acogida"
   },
@@ -97,7 +97,7 @@
   "requests" : {
     "adopt": "quiere adoptar a",
     "host": "quiere acoger a",
-    "noRequests": "No hay solicitudes pendientes",
+    "noRequests": "No hay notificaciones pendientes",
     "deleteRequest": "Eliminar solicitud",
     "deleteRequestMessage": "¿Estás seguro de que quieres eliminar esta solicitud?",
     "rejectRequest": "Rechazar solicitud",

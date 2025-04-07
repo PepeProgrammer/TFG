@@ -47,13 +47,17 @@ export class HomePage implements OnInit {
   shelterHomeUsers: User[] | undefined
   modalFilters: { states: string[] }
   modalStateNames: string[] = []
+
+  MAX_CHARACTERS = 125
   constructor(private router: Router) {
     this.animalSelected = createVoidAnimal()
     this.modalFilters = {states: []}
   }
 
   async ngOnInit() {
-    this.filters = await this.animalService.getFilters(28) // TODO: found a way to get the country
+    const cc = await this.animalService.getCountryCode()
+    console.log(cc)
+    this.filters = await this.animalService.getFilters(cc) 
   }
 
   async ionViewWillEnter() {

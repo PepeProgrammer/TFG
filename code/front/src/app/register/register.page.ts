@@ -22,6 +22,7 @@ import {Router} from "@angular/router";
 import {loggedUser} from "../../../variables";
 import {AnimalsService} from "../services/animals.service";
 import {Species} from "../middleware/species";
+import {AuthenticationService} from "../services/authentication.service";
 
 @Component({
   selector: 'app-register',
@@ -34,6 +35,7 @@ export class RegisterPage implements OnInit {
   geolocationService = inject(GeolocationService)
   photoService = inject(PhotoService)
   animalService = inject(AnimalsService)
+  authService = inject(AuthenticationService)
 
   notCropImage: string | undefined;
   form: FormGroup
@@ -233,6 +235,7 @@ export class RegisterPage implements OnInit {
     this.formData = new FormData() //Reiniciamos el form data para evitar duplicidad si le volvemos a dar al botón de registro
 
     if (user) {
+      await this.authService.saveLoggedUser()
       await this.router.navigate(['/home'])
       return true
 

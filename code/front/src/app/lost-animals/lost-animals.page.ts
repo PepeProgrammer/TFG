@@ -27,7 +27,8 @@ export class LostAnimalsPage implements OnInit {
   constructor(private router: Router) { }
 
   async ngOnInit() {
-    this.filters = await this.animalService.getFilters(28) // TODO: found a way to get the country
+    const city = await this.animalService.getCountryCode()
+    this.filters = await this.animalService.getFilters(city) 
   }
 
   async ionViewWillEnter() {

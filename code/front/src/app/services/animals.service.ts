@@ -24,11 +24,17 @@ export class AnimalsService {
     return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/animals?offset=${offset}&range=${range}`, options))
   }
 
-  getFilters(country: number): Promise<any> {
+  getFilters(cc: string): Promise<any> {
     const options = {
       headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')
     }
-    return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/filters/${country}`, options))
+    return firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/filters/${cc}`, options))
+  }
+
+  async getCountryCode(): Promise<string> {
+    const country: any = await firstValueFrom(this.httpClient.get('http://ip-api.com/json'))
+    console.log(country)
+    return country.countryCode
   }
 
   getAnimalByFilters(states: string, species: string, offset: number, range: number, age: string = '', lost = false, userId: number = -1): Promise<any> {

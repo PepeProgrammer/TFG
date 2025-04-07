@@ -68,7 +68,7 @@
                 <span>{{ animal.breed | translate }}</span><span>{{ animal.age }} {{ "years" | translate }}</span>
               </ion-card-subtitle>
             </ion-card-header>
-            <ion-card-content>{{ animal.description }}</ion-card-content>
+            <ion-card-content>{{ animal.description.slice(0, MAX_CHARACTERS) }}@if(animal.description.length > MAX_CHARACTERS){...}</ion-card-content>
 
           </div>
           <ion-buttons>

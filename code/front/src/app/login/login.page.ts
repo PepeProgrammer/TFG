@@ -45,6 +45,7 @@ export class LoginPage {
     if (loggedUser.isAuth()) {
       this.router.navigate(['/home'])
     }
+    this.error = ''
   }
 
 }

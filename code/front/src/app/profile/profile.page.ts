@@ -84,12 +84,21 @@ export class ProfilePage implements OnInit {
       this.offset += this.range//con esto hago que la próxima vez busque los siguientes 5 animales
     }
 
+    this.updateFields()
+
+  }
+
+  ionViewWillLeave() {
+    this.user = null
+    this.updateFields()
+  }
+
+  updateFields() {
     this.imagesList = []
     this.imageUrls = []
     this.deletedImages = []
     this.changeImages()
     this.updateSelectors()
-
   }
 
   async logout() {
@@ -318,6 +327,8 @@ export class ProfilePage implements OnInit {
     this.isModalOpen = false
     this.setOpen(true);
   }
+
+
 
   protected readonly loggedUser = loggedUser;
   protected readonly UserTypes = UserTypes;
