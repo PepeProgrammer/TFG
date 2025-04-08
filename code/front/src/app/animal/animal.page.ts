@@ -31,7 +31,6 @@ export class AnimalPage implements OnInit {
     if(this.animal.id === 0) {
       await this.router.navigate(['/home'])
     }
-    console.log(this.animal)
   }
   async goToProfile(username: string) {
     selected.userUsername = username

@@ -29,7 +29,8 @@ const routes: Routes = [
   },
   {
     path: 'add-lost-animals',
-    loadChildren: () => import('./add-lost-animals/add-lost-animals.module').then( m => m.AddLostAnimalsPageModule)
+    loadChildren: () => import('./add-lost-animals/add-lost-animals.module').then( m => m.AddLostAnimalsPageModule),
+    canActivate: [AuthGuardService]
   },
   {
     path: 'register',

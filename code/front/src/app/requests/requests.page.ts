@@ -72,7 +72,6 @@ export class RequestsPage implements OnInit {
     await this.requestService.acceptRequest(request.id)
     this.selRequest = 0
     this.requests = await this.requestService.getRequests()
-    console.log('acelgas')
   }
   protected readonly RequestType = RequestType;
 }

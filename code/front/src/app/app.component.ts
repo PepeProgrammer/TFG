@@ -21,7 +21,9 @@ export class AppComponent implements OnInit {
   }
 
   constructor(private translate: TranslateService, private router: Router) {
+    this.translate.setDefaultLang(this.translate.getBrowserLang() as string); //coge el idioma del sistema para ponerlo por defecto
     this.translate.setDefaultLang('es');
+  
     this.themeService.initializeAppTheaming()
   }
 

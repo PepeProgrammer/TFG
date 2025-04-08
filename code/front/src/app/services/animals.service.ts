@@ -33,7 +33,6 @@ export class AnimalsService {
 
   async getCountryCode(): Promise<string> {
     const country: any = await firstValueFrom(this.httpClient.get('http://ip-api.com/json'))
-    console.log(country)
     return country.countryCode
   }
 

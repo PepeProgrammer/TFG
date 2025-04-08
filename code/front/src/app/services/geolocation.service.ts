@@ -7,6 +7,7 @@ import {firstValueFrom} from "rxjs";
 import {castToCountry, castToLocation, castToStates} from "../middleware/location";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {LocationInfo} from "../../types";
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class GeolocationService {
   baseUrl: string = ""
   httpClient = inject(HttpClient)
 
-  constructor() {
+  constructor(private translate: TranslateService) {
     this.baseUrl = getBaseUrl()
   }
 
@@ -37,7 +38,7 @@ export class GeolocationService {
     const options = {
       headers: new HttpHeaders().set('Access-Control-Allow-Origin', '*')
     }
-    const location = await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/countries?state=${state}`, options))
+    const location = await firstValueFrom(this.httpClient.get(`${this.baseUrl}/api/countries?state=${state}&lang=${this.translate.getDefaultLang()}`, options))
     return castToLocation(location)
 
   }

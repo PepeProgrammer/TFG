@@ -74,11 +74,7 @@ export class ProfilePage implements OnInit {
     }
 
     this.user = await this.userService.getUserLogged(selected.userUsername)
-    console.log(this.user?.username)
-    console.log(loggedUser.getUsername())
-    console.log(loggedUser.getUsername() === this.user?.username)
     if(this.user?.type === UserTypes.ASSOCIATION && this.user.username !== loggedUser.getUsername()){
-      console.log('en el perfil estoy')
       this.offset = 0
       this.animals = await this.animalService.getAnimalByFilters('', '', this.offset, this.range, '', false, this.user.id)
       this.offset += this.range//con esto hago que la próxima vez busque los siguientes 5 animales
@@ -90,6 +86,7 @@ export class ProfilePage implements OnInit {
 
   ionViewWillLeave() {
     this.user = null
+    this.editMode = false
     this.updateFields()
   }
 

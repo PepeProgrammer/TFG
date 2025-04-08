@@ -58,7 +58,8 @@
     "login": "Iniciar sesión",
     "requests": "Notificaciones",
     "profile": "Perfil",
-    "searchShelter": "Buscar casa de acogida"
+    "searchShelter": "Buscar casa de acogida",
+    "animalDetails": "Detalles del animal"
   },
   "lost": "Perdidos",
   "lostOptions": {

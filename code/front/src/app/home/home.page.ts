@@ -56,7 +56,6 @@ export class HomePage implements OnInit {
 
   async ngOnInit() {
     const cc = await this.animalService.getCountryCode()
-    console.log(cc)
     this.filters = await this.animalService.getFilters(cc) 
   }
 

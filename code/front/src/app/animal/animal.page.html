@@ -1,13 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>animal</ion-title>
-    @if (!editMode && selectedUser.userUsername === '') {
+    <ion-title>{{ "pageTitles.animalDetails" | translate}}</ion-title>
+    <!-- @if (!editMode && selectedUser.userUsername === '') {
       <ion-buttons slot="end">
         <ion-button shape="round" (click)="changeEditMode(true)">
           {{ "edit" | translate }}
         </ion-button>
       </ion-buttons>
-    }
+    } -->
   </ion-toolbar>
 </ion-header>
 

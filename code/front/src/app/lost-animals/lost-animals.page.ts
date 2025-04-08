@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {AnimalsService} from "../services/animals.service";
 import {Filter} from "../../types";
-import {getBaseUrl, selected} from "../../../variables";
+import {getBaseUrl, loggedUser, selected} from "../../../variables";
 import {InfiniteScrollCustomEvent} from "@ionic/angular";
 import {Router} from "@angular/router";
 
@@ -35,7 +35,6 @@ export class LostAnimalsPage implements OnInit {
     this.animals = []
     this.offset = 0
     this.disableScroll = false
-    console.log('entra', this.offset)
 
     this.animals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, '', true)
     this.offset += this.range//con esto hago que la próxima vez busque los siguientes 5 animales
@@ -51,7 +50,6 @@ export class LostAnimalsPage implements OnInit {
 
   async onIonInfinite(event: any) {
     const newAnimals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, '', true)
-    console.log('nuevos:', newAnimals)
     if(newAnimals.length !== 0) {
       this.animals.push(...newAnimals)
       this.offset += this.range
@@ -67,9 +65,10 @@ export class LostAnimalsPage implements OnInit {
     this.offset = 0
   }
   async goToProfile(username: string) {
-    console.log('go tooo')
     selected.userUsername = username
     await this.router.navigate(['/profile'])
 
   }
+
+    protected readonly loggedUser = loggedUser;
 }
