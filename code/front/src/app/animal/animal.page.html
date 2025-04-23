@@ -61,6 +61,7 @@
     </div>
 
     @if (loggedUser.getType() !== UserTypes.ASSOCIATION) {
+      <div class="buttons">
       @if (animal.user.sponsors && !animal.sponsored) {
         <ion-button expand="full" shape="round" (click)="sendRequest(animal.id, animal.user.id, RequestType.ADOPTION)">
           Solicitar adopción
@@ -72,6 +73,7 @@
           Solicitar acogida
         </ion-button>
       }
+      </div>
     }
   </div>
 

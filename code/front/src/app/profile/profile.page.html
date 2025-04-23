@@ -173,7 +173,13 @@
                 </ion-toggle>
               }
             } @else {
-              {{ user.description }}
+              @for (line of user.description.split('\n'); track line) {
+                @if (line !== '') {
+                  <p class="no-margin">{{ line }}</p>
+                } @else {
+                  <br/>
+                }
+              }
 
               @if (user.username !== loggedUser.getUsername() && user.type === UserTypes.ASSOCIATION) {
                 <!-- Si está viendo este perfil otro usuario que no sea el dueño de la cuenta -->

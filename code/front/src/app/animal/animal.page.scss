@@ -23,3 +23,21 @@
 swiper-container::part(pagination) {
   bottom: 15px;
 }
+
+@media (min-width: 900px) {
+  .content{
+    width: 90%;
+    margin: auto;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    ion-button {
+      width: 100%;
+    }
+  }
+
+}

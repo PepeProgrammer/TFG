@@ -91,6 +91,10 @@
 .title {
   margin-top: 15px;
 }
+
+.no-margin {
+  margin: 0 !important;
+}
 @media (min-width: 800px) {
   .container{
     .images-container {

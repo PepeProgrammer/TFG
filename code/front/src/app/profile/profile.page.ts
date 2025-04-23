@@ -79,6 +79,8 @@ export class ProfilePage implements OnInit {
       this.animals = await this.animalService.getAnimalByFilters('', '', this.offset, this.range, '', false, this.user.id)
       this.offset += this.range//con esto hago que la próxima vez busque los siguientes 5 animales
     }
+    console.log(this.user?.description.split('\n'))
+
 
     this.updateFields()
 
