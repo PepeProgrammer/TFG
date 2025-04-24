@@ -1,7 +1,14 @@
 \section{Propuesta}
 
 \subsection{Descripción}
-Esta aplicación se implementará tanto para dispositivos móviles como para navegadores web. Se realizarán las pruebas y ajustes necesarios para cada una de ellas, como se irá viendo a lo largo del desarrollo.
+En esta aplicación vamos a poder realizar diversas acciones en función del rol que tengamos, como explicaremos al inicio de la iteración 0, pero principalmente ésta será una aplicación destinada a la adopción y acogida de animales que lo necesiten. Aquí los usuarios podrán hablar con las asociaciones y enviar solicitudes de adopción y/o acogida, además también podrán anotarse en los voluntariados que ofrezcan las asociaciones y se le facilitará la gestión a las mismas.
+
+También se planea realizar el seguimiento de los animales en adopción desde la propia aplicación con el objetivo de centralizar la gestión de la asociación en un solo sistema.
+
+Por último se contempla la opción de que se pueda apadrinar a los animales desde la propia aplicación.
+
+Adoptapp se implementará tanto para dispositivos móviles como para navegadores web. Se realizarán las pruebas y ajustes necesarios, como se irá viendo a lo largo del desarrollo.
+
 \subsection{Herramientas de desarrollo elegidas}
 
 \subsection{Ciclo de vida/Metodología}
@@ -14,16 +21,17 @@ Debido a la fluctuación temporal, es posible que haya semanas en las que la car
 Vamos a incluir una iteración 0 para describir a los actores del sistema y los requisitos de la aplicación a desarrollar, creando un product backlog de historias de usuario. Calcularemos  su prioridad y haremos una estimación temporal de cada una en puntos de historia.  
 
 \subsection{Iteración 0}
-xx Antes de empezar con la realización de las historias de usuario, debemos tener en cuenta los actores que participarán en la aplicación, los hemos dividido en 5 principales.
+Antes de empezar con la realización de las historias de usuario, debemos tener en cuenta los actores que participarán en la aplicación, los hemos dividido en 5 principales.
 \begin{itemize}
 	\item \textbf{Usuario básico}: este es el único usuario que no necesitará registrarse en la aplicación, y solo podrá hacer consultas, como por ejemplo ver los animales en adopción o las publicaciones de animales perdido/encontrado.
-	\item \textbf{Usuario estándar}: Es el tipo de usuario registrado más común que habrá en la aplicación. Éste podrá, además de lo mencionado para el básico, crear publicaciones de animal perdido/encontrado, acceder a su perfil, hablar con las asociaciones para adoptar o apadrinar un animal y también hacerse voluntarios si hay asociaciones que lo deseen y ayudarlas en lo que necesiten.
-	\item \textbf{Asociaciones}: Este tipo de usuarios se caracteriza por ser los únicos que pueden subir publicaciones de animales en adopción. Éstas también podrán poner publicaciones de animales perdidos/encontrados y además decidirán si quieren que sus animales puedan ser acogidos o apadrinados, en caso de que alguna asociación no quiera ninguna de estas 2 opciones.
-	\item \textbf{Moderadores}: Son los encargados de que las publicaciones subidas a la aplicación sean consistentes, por ejemplo si alguien sube alguna publicación de animal perdido y son fotos de la cara de una persona, la gente podrá reportarlo y los moderadores decidirán si eliminarla o no, en este caso la eliminarían.
-	\item \textbf{Administradores}: Estos usuarios son los encargados de crear a los moderadores o asignar a usuarios estándar como tal, además podrá crear o eliminar todo tipo de usuarios.
+	\item \textbf{Usuario estándar o particular}: Es el tipo de usuario registrado más común que habrá en la aplicación. Éste podrá, además de lo mencionado para el básico, crear publicaciones de animal perdido/encontrado, acceder a su perfil, hablar con las asociaciones para adoptar o apadrinar un animal y también hacerse voluntarios si hay asociaciones que lo deseen y ayudarlas en lo que necesiten. Otra de sus capacidades será la de reportar publicaciones en caso de que consideren que son indebidas para la aplicación.
+	\item \textbf{Asociaciones}: Este tipo de usuarios se caracteriza por ser los únicos que pueden subir publicaciones de animales en adopción. Éstas también podrán gestionar publicaciones de animales perdidos/encontrados y además decidirán si quieren que sus animales puedan ser acogidos o apadrinados. También podrán solicitar voluntarios.
+	\item \textbf{Moderadores}: Son los encargados de que las publicaciones subidas a la aplicación sean consistentes, por ejemplo si alguien sube alguna publicación de animal perdido y son fotos de la cara de una persona, los usuarios particulares podrán reportarlo y los moderadores decidirán si eliminarla o no, en este caso la eliminarían. Además se encargarán de validar a las asociaciones que se registren mediante alguna documentación específica.
+	\item \textbf{Administradores}: Estos usuarios son los encargados de crear a los moderadores, además podrá crear o eliminar todo tipo de usuarios.
+	
 \end{itemize}
 \subsubsection{Product Backlog}
-Para obtener las prioridades hemos hecho uso de MoSCoW (tema 4 MDA) que es una herramienta de decisión y priorización de tareas y funcionalidades para la gestión de proyectos.
+Para obtener las prioridades hemos hecho uso de MoSCoW \cite{moscow} que es una herramienta de decisión y priorización de tareas y funcionalidades para la gestión de proyectos.
 
 La utilidad principal del método MoSCoW está enfocada en el desarrollo de productos y servicios digitales. Es una herramienta que ayuda a priorizar y gestionar los requisitos y tareas para avanzar.
 
@@ -40,6 +48,8 @@ La prioridad se marca con las siguientes letras:
 	\item \textbf{C}ould: Estas iniciativas son las que estaría bien tenerlas, ya que añadirían valor al proyecto, pero no son críticas.
 	\item \textbf{W}on't: Estas características no se merecen la inversión y no aportan ningún beneficio en este momento y se podrían considerar más tarde.
 \end{itemize}
+
+Antes de la creación de las historias de usuario hemos mantenido una entrevista con la asociación de \href{https://www.instagram.com/coloniasfelinasarmilla/}{Colonias felinas Armilla} la cual nos ha permitido concretar mejor los requisitos de la aplicación.
 
 \begin{table}[H]
 	\centering
@@ -69,8 +79,8 @@ La prioridad se marca con las siguientes letras:
 		&  Anular poner animal en acogida&  3& M\\ \cline{2-4} 
 		&  Ver solicitudes de acogida por parte de los particulares&  3& M\\ \cline{2-4}
 		
-		&  Ver que particulares tienen a sus animales en acogida&  5& M\\ \cline{2-4}
-		&  Buscar usuarios que estén como casa de acogida&  5& M\\ \cline{2-4}
+		&  Ver qué particulares tienen a sus animales en acogida&  5& M\\ \cline{2-4}
+		&  Buscar particulares que estén como casa de acogida&  5& M\\ \cline{2-4}
 		&  Solicitar acogida a particular puesto como casa de acogida &  5& M\\ \cline{2-4}
 		
 		
@@ -83,7 +93,7 @@ La prioridad se marca con las siguientes letras:
 		
 		&  Elegir si poner a sus animales como apadrinables o no &  5& S\\ \cline{2-4}
 		
-		&  Modificar su descripción para que los usuarios vean a que se dedican & 5 & M \\ \hline
+		&  Modificar su descripción para que los usuarios vean a qué se dedican & 5 & M \\ \hline
 		
 		
 		
@@ -113,7 +123,7 @@ La prioridad se marca con las siguientes letras:
 		&  Firmar contrato de adopción electrónicamente&  8& S\\ \cline{2-4}
 		
 		
-		&  Solicitar voluntariados&  3& M\\ \cline{2-4} 
+		&  Solicitar realización de voluntariado&  3& M\\ \cline{2-4} 
 		&  Ver servicios de voluntariado pendientes&  3& M\\ \cline{2-4}
 		&  Ver historial de servicios de voluntariado&  5& C\\ \cline{2-4}
 		
@@ -195,7 +205,7 @@ La prioridad se marca con las siguientes letras:
 	\begin{tabular}{|c|p{8cm}|c|c|} \hline 
 		\multirow[c]{7}{*}{Moderador}&  \textbf{Tarea}&  \textbf{Duración}& \textbf{Prio.}\\  \cline{2-4}
 		&  Ver publicaciones reportadas &  5& M\\ \cline{2-4}
-		&  Eliminar publicaciones reportadas &  3& M\\ \cline{2-4}
+		&  Eliminar publicaciones &  3& M\\ \cline{2-4}
 		
 		&  Ver usuarios reportados &  5& M\\ \cline{2-4}
 		&  Impedir acceso a usuarios reportados &  3& M\\ \cline{2-4}
@@ -210,11 +220,11 @@ La prioridad se marca con las siguientes letras:
 	\label{tab:pb_moderadores}
 \end{table}
 
-Una vez creadas todas las historias de usuario y considerando el tiempo estimado para realizar cada una, procedemos a su planificación y asignación en los diferentes sprints. La idea es seguir la metodología scrum con sprints de un mes.  \\
+Una vez creadas todas las historias de usuario y considerando el tiempo estimado para realizar cada una, procedemos a su planificación y asignación en los diferentes sprints. Como hemos comentado, la idea es seguir la metodología Scrum con sprints de un mes.  \\
 
-La  velocidad del sprint será aproximadamente de unos 35-40 puntos. Esta estimación es muy subjetiva y puede variar con el tiempo ya que no tengo sprints anteriores con los que calcular dicha velocidad de manera más meticulosa.
+La  velocidad del sprint será aproximadamente de unos 35-40 puntos. Esta estimación es muy subjetiva y puede variar con el tiempo ya que no se tienen sprints anteriores con los que calcular dicha velocidad de manera más meticulosa.
 
-Hablando con las asociaciones nos hemos dado cuenta de que los intercambios de acogidas no son una buena idea, por lo que se han descartado las historias de usuario relacionadas con las acogidas. \\
+Hablando con las asociaciones nos hemos dado cuenta de que los intercambios de acogidas no son una buena idea, ya que según la protectora sería fácil perder el control del animal en cuestión, por lo que se han descartado las historias de usuario relacionadas con las acogidas. \\
 
 A continuación se muestran las tareas asignadas a cada sprint, para la administración del trabajo hemos utilizado la herramienta \textit{JIRA} y lo que se muestra son capturas de la misma: \\
 
@@ -274,7 +284,9 @@ Product backlog restante \\
 
 \subsection{Iteración 1}
 
-En esta iteración se realizarán las historias que hacen referencia a los animales en adopción y su documentación asociada. Hay pocas historias de usuario debido a que en esta iteración también se realizará el aprendizaje de las tecnologías a utilizar, por lo que el desarrollo será más lento.
+\large{En esta iteración se realizarán las historias que hacen referencia a los animales en adopción y su documentación asociada. Hay pocas historias de usuario debido a que en esta iteración también se realizará el aprendizaje de las tecnologías a utilizar y la preparación de la arquitectura, por lo que el desarrollo será más lento.}
+ \\ 
+
 \large{\textbf{Especificación de tareas}} \\
 
 
@@ -1315,16 +1327,56 @@ Cabe destacar que hemos cambiado el nombre de la página de solicitudes a notifi
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{"sprint 4/hu23/impPublicaciónAmpliada"}
-	\caption{}
+	\caption{Implementación de la página de publicación ampliada en móviles}
 	\label{fig:imppublicacionampliada}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{"sprint 4/hu23/publicacionAmpliadaWeb"}
-	\caption{}
+	\caption{Implementación de la página de publicación ampliada en web}
 	\label{fig:publicacionampliadaweb}
 \end{figure}
+
+En esta última iteración como hemos visto, se han realizado implementaciones de las notificaciones y de vista de perfiles principalmente. 
+
+Además este ha sido el sprint en el que hemos hecho algunas correcciones finales más que ampliando funcionalidades primando la estabilidad de la aplicación frente a la cantidad de contenido añadido.
+
+Por ejemplo se ha solucionado la obtención de las provincias de un país en la página principal del los usuarios estándar, para ello hemos hecho uso de una api \cite{apiIp} la cual nos devuelve información del país en función de la dirección ip que tengamos asignada. Esto nos permite saber la localización aproximada del dispositivo sin tener que solicitar permisos de ubicación.
+
+Para que esto funcionase se ha modificado la tabla de países en la base de datos añadiéndole el campo \textit{code} para que la búsqueda sea posible, además también hemos puesto los nombres de dichos países en 3 de los principales idiomas: español, inglés y francés cada uno con sendos campos en la base de datos y solo obteniendo en las consultas aquel que sea necesario, en caso de no tener el dispositivo en ninguno de esos idiomas se obtienen los nombres en inglés.
+
+También hemos creado en la base de datos la tabla \textit{AsoSpecies} la cual refleja la relación de muchos a muchos que hay entre las asociaciones y las distintas especies. Gracias a esto ahora una asociación puede tener en adopción distintos tipos de animales y además se les ha añadido la posibilidad de avisar a los usuarios que también permiten acogidas de animales en la propia  asociación. Todo esto se puede modificar con los selectores que aparecen al querer editar el perfil como se muestra en la figura \ref{fig:implementacionEditarPerfil}.
+
+Por último, con respecto al perfil ahora cuando accedamos a alguno se nos indica que características tiene éste mediante etiquetas. Con esto permitimos que con un vistazo rápido se pueda obtener información básica sobre los perfiles.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{"sprint 4/etiquetasPerfil"}
+	\caption{Implementación de las etiquetas al  visualizar un perfil}
+	\label{fig:etiquetasperfil}
+\end{figure}
+
+La estructura final de los directorios quedaría de esta manera:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"sprint 4/directorios"}
+	\caption{Estructura de directorios del backend al final del sprint 4}
+	\label{fig:directorios4}
+\end{figure}
+
+A continuación se muestra el diagrama de clases al final de la cuarta iteración con los añadidos que hemos mencionado anteriormente.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{"sprint 4/clases"}
+	\caption{Diagrama de clases de la cuarta iteración}
+	\label{fig:clasesCuarta}
+\end{figure}
+
+A nivel de temporalización hemos ido según lo esperado terminando la iteración dentro de lo estimado y sin ningún problema reseñable.
+
 
 
 
