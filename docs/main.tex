@@ -6,37 +6,57 @@
 \usepackage{multirow}
 \usepackage{subfigure}
 
-\title{TFG}
-\author{JORDI PEREIRA GIL}
-\date{Octubre 2024}
+\renewcommand\maketitle{} %quita el error "no \title given"
 
 \begin{document}
+	\begin{titlepage}
+		
+		
+		\newlength{\centeroffset}
+		\setlength{\centeroffset}{-0.5\oddsidemargin}
+		\addtolength{\centeroffset}{0.5\evensidemargin}
+		\thispagestyle{empty}
+		
+		\noindent\hspace*{\centeroffset}\begin{minipage}{\textwidth}
+			
+			\centering
+			\includegraphics[width=0.9\textwidth]{imagenes/logo_ugr.jpg}\\[1.4cm]
+			
+			\textsc{ \Large TRABAJO FIN DE GRADO\\[0.2cm]}
+			\textsc{ INGENIERÍA INFORMÁTICA}\\[1cm]
+			% Upper part of the page
+			% 
+			% Title
+			{\Huge\bfseries Adoptapp\\
+			}
+			\noindent\rule[-1ex]{\textwidth}{3pt}\\[3.5ex]
+			{\large\bfseries Proyecto para la adopción y acogida de animales}
+		\end{minipage}
+		
+		\vspace{2.5cm}
+		\noindent\hspace*{\centeroffset}\begin{minipage}{\textwidth}
+			\centering
+			
+			\textbf{Autor}\\ {Jordi Pereira Gil}\\[2.5ex]
+			\textbf{Directores}\\
+			{María José Rodríguez Fórtiz}\\[2cm]
+			\includegraphics[width=0.3\textwidth]{imagenes/etsiit_logo.png}\\[0.1cm]
+			\textsc{Escuela Técnica Superior de Ingenierías Informática y de Telecomunicación}\\
+			\textsc{---}\\
+			Granada, junio de 2025
+		\end{minipage}
+		%\addtolength{\textwidth}{\centeroffset}
+		%\vspace{\stretch{2}}
+	\end{titlepage}
+	
+	
+	
 
 \maketitle
 
 \section{Introducción}
 Aquí escribiendo la biblia
 
-\begin{table}
-    \centering
-    \caption{Leyenda tabla}
-\scriptsize
-\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|} \hline 
-         \textbf{Característica}&  \textbf{Flutter}&  \textbf{Ionic}& \textbf{React navive}\\ \hline 
-         Lenguaje de programación&  Dart&  JavaScript, HTML, CSS& JavaScript, TypeScript\\ \hline 
-         Rendimiento&  Alto rendimiento (código nativo)&  Depende de WebView (más lento que nativo)& Cerca del rendimiento nativo\\ \hline 
-         Acceso a APIs nativas&  Directamente mediante canales nativos&  Plugins nativos a través de Capacitor& Mediante módulos nativos o librerías\\ \hline 
-         Facilidad de uso&  Curva de aprendizaje moderada (Dart)&  Fácil para desarrolladores web& Familiar para desarrolladores de JavaScript\\ \hline 
-         Soporte multiplataforma&  iOS, Android, Web, Desktop&  iOS, Android, Web& iOS, Android\\ \hline 
-         Componentes UI&  Propios y altamente personalizables&  Utiliza web components y plugins& Usa componentes nativos\\ \hline 
-         Tamaño de la app&  Relativamente grande&  Más pequeño que Flutter& Relativamente pequeño\\ \hline 
-         Licencia&  Open Source (BSD)&  Open Source (MIT)& Open Source (MIT)\\ \hline
-    \end{tabular}
-\caption{Comparativa tecnologías frontend}
-\label{tab:my_table}
-    
-    
-\end{table}
 
 
 \include{Estado del arte}

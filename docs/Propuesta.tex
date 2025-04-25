@@ -299,6 +299,7 @@ Product backlog restante \\
 	1.1 & Realizar bocetos & 0.5 \\ \hline
 	1.2 &  Implementar interfaz para ver las adopciones disponibles & 2 \\ \hline
 	1.3 &  Implementar la lógica de obtención de animales en adopción & 1 \\ \hline
+	1.4 &  Diseño y creación de la base de datos y tablas & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|l|}{Mostrar mensaje en caso de que no haya animales} \\ \hline
 	2 & \multicolumn{2}{|l|}{Mostrar lista de todos los animales con diferentes filtros de consulta} \\ \hline
@@ -315,8 +316,10 @@ Product backlog restante \\
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\ %Est. es estimación
 	\hline
 	2.1 & Realizar bocetos & 0.5 \\ \hline
-	2.2 &  Implementar formulario con previsualización de imágenes antes de subirlas al servidor para añadir un animal en adopción & 2 \\ \hline
-	2.3 &  Insertar datos de animales en la bd & 2 \\ \hline 
+	2.2 &  Implementar formulario con selección y previsualización de imágenes antes de subirlas al servidor para añadir un animal en adopción & 2 \\ \hline
+	2.3 &  Insertar datos de animales en la bd & 2 \\ \hline
+	2.4 & Modificar la base de datos & 0,5 \\ \hline
+	2.5 & Validar los campos introducidos & 0,5 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|l|}{Mostrar avisos en caso de error en el formulario} \\ \hline
 	2 & \multicolumn{2}{|l|}{Previsualizar imágenes asociadas al animal} \\ \hline
@@ -328,22 +331,22 @@ Product backlog restante \\
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
 	\hline
-	\multicolumn{3}{|c|}{\textbf{HUT.1 - Realizar documentación}} \\
+	\multicolumn{3}{|c|}{\textbf{HUT.1 - Aprender las tecnologías a utilizar}} \\
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	1.1 & Realizar documentación para cada tarea & 3 \\ \hline
-	1.2 &  Añadir tareas a las historias de usuario & 0.5 \\ \hline
+	2.1 & Buscar documentación sobre sequelize & 1,5 \\ \hline
+	2.2 & Buscar documentación sobre Ionic & 1,5 \\ \hline
 \end{tabular} \\ \\
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
 	\hline
-	\multicolumn{3}{|c|}{\textbf{HUT.2 - Aprender las tecnologías a utilizar}} \\
+	\multicolumn{3}{|c|}{\textbf{HUT.2 - Instalar y preparar el entorno de desarrollo}} \\
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	2.1 & Buscar documentación sobre sequelize & 1.5 \\ \hline
-	2.2 & Buscar documentación sobre Ionic & 1.5 \\ \hline
+	2.1 & Instalar programas necesarias & 0,5 \\ \hline
+	2.2 & Preparar entorno instalando las librerías pertinentes & 1,5 \\ \hline
 \end{tabular} \\ \\
 
 
@@ -449,14 +452,14 @@ Podemos apreciar que en esta página será básicamente un formulario que se div
 
 Como podemos apreciar en diferencia con el boceto, los campos básicos aparecen en vertical de uno en uno en lugar de ir por bloques, esto se ha decido para aportar mayor legibilidad y orden, ya que de la otra manera tendrían tamaños irregulares y en ciertos modelos de teléfono probablemente hubiese errores de superposición de elementos. \\
 
-Para esta historia de usuario se ha modificado la tabla de animales creada para la historia previa para añadir los campos del checkbox y su correspondiente actualización en el backend. También hemos creado sendos métodos para la subida de imágenes, que se guardan en la carpeta uploads del servidor y se enlaza con una tupla en la tabla \textit{images} en la base de datos, la cual contiene su nombre, y el id del animal al que pertenece. En caso de que no se puedan añadir las imágenes por algún error de conexión con el servidor, se borrará de la base de datos al animal y se le avisará al usuario de que ha habido un error. \\
+Para esta historia de usuario se ha modificado la tabla de animales creada para la historia previa para añadir los campos del checkbox y su correspondiente actualización en el backend. También hemos creado métodos para la subida de imágenes, que se guardan en la carpeta uploads del servidor y se enlaza con una tupla en la tabla \textit{images} en la base de datos, la cual contiene su nombre, y el id del animal al que pertenece. En caso de que no se puedan añadir las imágenes por algún error de conexión con el servidor, se borrará de la base de datos al animal y se le avisará al usuario de que ha habido un error. \\
 
 
-En cuanto al frontend hemos creado una página nueva en el proyecto, la cual contiene un formulario, y hemos hecho uso de \textit{FormGroup} de Angular. Éste es una clase la cual nos permite hacer validaciones básicas en los campos que contenga, como por ejemplo que una cadena tenga x caracteres. También se ha creado una función de validación de campos en la que se le da información al usuario de los errores de entrada en los campos a rellenar mediante un elemento \textit{Toast}. \\
+En cuanto al frontend hemos creado una página nueva en el proyecto, la cual contiene un formulario, y hemos hecho uso de \textit{FormGroup} de Angular \cite{formgroup}. Esto nos permite hacer validaciones básicas en los campos que contenga, como por ejemplo que una cadena tenga x caracteres. También se ha creado una función de validación de campos en la que se le da información al usuario de los errores de entrada en los campos a rellenar mediante un elemento \textit{Toast}. \\
 
 Por último, se han creado también funciones para la obtención de imágenes que pueden ser tomadas tanto desde la galería como desde la cámara en su versión móvil, y solo desde los archivos en la versión web. En el formulario de añadir animal podemos eliminar las imágenes seleccionadas, si así lo deseamos, esto se permite por si el usuario ha seleccionado alguna imagen incorrecta.\\
 
-\Large{\textbf{Fin del Sprint}}
+\Large{\textbf{Fin del Sprint}} \\ 
 
 \textbf{Velocidad del Sprint} \\ \\
 Como bien se puede ver, en la tabla del sprint 0 se habían planificado una serie de tareas para este mismo, pero una vez terminado debemos hacer una reestimación de la velocidad ya que el aprendizaje e investigación de las tecnologías ha supuesto más tiempo del esperado, produciendo así retrasos en la realización de las tareas. Debido a esto la planificación estimada de los siguientes sprints quedaría de la siguiente manera: \\
@@ -521,6 +524,8 @@ Además al utilizar un ORM se accede a la base de datos mediante clases por lo q
 
 
 \subsection{Iteración 2}
+En esta iteración nos encargaremos tanto de la creación como de la visualización de publicaciones de animales perdidos o encontrados. También crearemos la página de acceso a la aplicación, aunque solo podrán entrar los usuarios particulares ya que son de los únicos que registraremos por ahora, los demás se irán incluyendo en el iteraciones posteriores.  \\
+
 \large{\textbf{Especificación de tareas}} \\
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
@@ -529,13 +534,14 @@ Además al utilizar un ORM se accede a la base de datos mediante clases por lo q
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	3.1 & Realizar bocetos & 0.5 \\ \hline
-	3.2 &  Implementar la lógica de acceso a los animales perdidos & 2 \\ \hline
-	3.3 &  Implementar la interfaz obtener la lista de publicaciones & 1 \\ \hline
+	3.1 & Realizar bocetos & 0,5 \\ \hline
+	3.2 &  Implementar la lógica de acceso a los animales perdidos/encontrados& 2 \\ \hline
+	3.3 &  Implementar la interfaz obtener la lista de publicaciones de animales perdidos encontrados& 1 \\ \hline
+	3.4 & Crear tabla de publicaciones de animales perdidos/encontrados y tabla de imágenes para dichas publicaciones & 0,5\\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
-	1 & \multicolumn{2}{|l|}{Mostrar mensaje en caso de que no haya animales perdidos} \\ \hline
-	2 & \multicolumn{2}{|l|}{Mostrar lista de todos los animales perdidos} \\ \hline
-	3 & \multicolumn{2}{|l|}{Que los filtros de búsqueda funcionen correctamente} \\ \hline
+	1 & \multicolumn{2}{|p{10cm}|}{Mostrar mensaje en caso de que no haya animales perdidos/encontrados} \\ \hline
+	2 & \multicolumn{2}{|p{10cm}|}{Mostrar lista de todos los animales perdidos/encontrados} \\ \hline
+	3 & \multicolumn{2}{|p{10cm}|}{Que los filtros de búsqueda funcionen correctamente} \\ \hline
 \end{tabular} \\ \\
 
 
@@ -547,7 +553,7 @@ Además al utilizar un ORM se accede a la base de datos mediante clases por lo q
 	\hline
 	4.1 & Realizar bocetos & 0,5 \\ \hline
 	4.2 &  Actualizar la lógica para añadir publicaciones de perdido o encontrado a la base de datos & 2 \\ \hline
-	4.3 &  Implementar la interfaz para subir la publicación & 1 \\ \hline
+	4.3 &  Implementar la interfaz para crear la publicación de animal perdido/encontrado & 1 \\ \hline
 	4.4 &  Implementar la funcionalidad de añadir imágenes a las publicaciones de animal perdido/encontrado & 0,5 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que los campos deben estar cumplimentados antes de realizar la petición de creación al servidor} \\ \hline
@@ -561,7 +567,7 @@ Además al utilizar un ORM se accede a la base de datos mediante clases por lo q
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	5.1 & Realizar bocetos & 0.5 \\ \hline
+	5.1 & Realizar bocetos & 0,5 \\ \hline
 	5.2 &  Implementar la lógica de registro & 2 \\ \hline
 	5.3 &  Implementar la interfaz de registro & 1 \\ \hline
 	5.4 &  Implementar la funcionalidad de añadir imágenes de perfil & 0,5 \\ \hline
@@ -569,8 +575,7 @@ Además al utilizar un ORM se accede a la base de datos mediante clases por lo q
 	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que los campos deben estar cumplimentados correctamente antes de realizar la petición al servidor} \\ \hline
 	2 & \multicolumn{2}{|p{10cm}|}{Asegurarse de que la imágenes seleccionadas se almacena apropiadamente} \\ \hline
 	3 & \multicolumn{2}{|p{10cm}|}{Ver que la cámara funcione correctamente en dispositivos móviles} \\ \hline
-	4 & \multicolumn{2}{|p{10cm}|}{Ver que los campos de ubicación se autocompletan correctamente en caso de tener los permisos activados} \\ 
-	5 & \multicolumn{2}{|p{10cm}|}{Comprobar que no se pueda realizar la petición al servidor sin que los campos estén rellenados correctamente} \\\hline
+	4 & \multicolumn{2}{|p{10cm}|}{Ver que los campos de ubicación se autocompletan correctamente en caso de tener los permisos activados} \\ \hline
 \end{tabular} \\ \\\\
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
@@ -579,19 +584,13 @@ Además al utilizar un ORM se accede a la base de datos mediante clases por lo q
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
+		6.1 & Realizar bocetos & 0,5 \\ \hline
 	6.2 &  Implementar la lógica asociada al inicio de sesión & 2 \\ \hline
 	6.3 &  Implementar la interfaz asociada al inicio de sesión de las asociaciones y particulares. & 1,5 \\ \hline
+	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
+	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que se avise al usuario si los datos de acceso son incorrectos} \\ \hline
+	2 & \multicolumn{2}{|p{10cm}|}{Ver que se envía al usuario a la página principal en caso de que el acceso sea correcto} \\ \hline
 	
-\end{tabular} \\ \\
-
-\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
-	\hline
-	\multicolumn{3}{|c|}{\textbf{HUT.1 - Realizar documentación}} \\
-	\hline
-	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
-	\hline
-	1.1 & Realizar documentación para cada tarea & 3 \\ \hline
-	1.2 &  Añadir tareas a las historias de usuario & 0.5 \\ \hline
 \end{tabular} \\ \\
 
 \Large{\textbf{HU.3 - Ver lista de animales perdidos/encontrados}} \\
@@ -634,7 +633,7 @@ Además, también se han creado funciones para el acceso a dichas tablas para su
 
 \Large{\textbf{HU.4 - Añadir publicación de animal perdido o encontrado}}
 
-En esta historia nos vamos a encargar de las tareas relacionadas con el añadido de publicaciones a la sección de mascotas perdidas, para ello deberán rellenar un formulario con distinta información del animal. \\
+En esta historia nos vamos a encargar de las tareas relacionadas con el añadido de publicaciones a la sección de mascotas perdidas, para ello deberán rellenar un formulario con distinta información del animal. \\ \\
 \textbf{Bocetos}
 \begin{figure}[H]
 	\centering
@@ -643,7 +642,7 @@ En esta historia nos vamos a encargar de las tareas relacionadas con el añadido
 	\label{fig:postearperdido}
 \end{figure}
 
-Como podemos ver, a diferencia de la página en la que las asociaciones pueden añadir animales a su perfil en esta tenemos información diferente:
+Como podemos ver, a diferencia de la página en la que las asociaciones pueden añadir animales a su perfil, en esta tenemos información diferente:
 
 \begin{itemize}
 	\item \textbf{Tipo de publicación}: Para este apartado tenemos 2 opciones y son que puede que hayamos \textit{encontrado} un animal en la calle y lo publiquemos en la aplicación para buscar a su dueño, o por el contrario, hemos perdido a nuestra mascota y queremos encontrarla, en este caso sería una publicación del tipo \textit{perdido}. \\ 
@@ -672,7 +671,7 @@ Como podemos ver en la implementación para móviles, en función del tipo de pu
 
 Además, en esta historia cabe destacar que se soluciona un problema existente en las imágenes. Antes se podían subir imágenes de cualquier tamaño a la aplicación, haciendo que el ancho y el alto de las publicaciones pudiera llegar a ser diferentes, ahora todas deben tener el mismo ratio de escala, para que así cuando se visualicen todas las publicaciones, éstas tengan el mismo tamaño, haciendo del diseño algo más consistente.\\
 
-En el frontend hemos añadido la librería \textit{ngx-image-cropper}, la cual nos permite recortar las imágenes con un ratio determinado, como se ha mencionado anteriormente, lo que ha acelerado el desarrollo de la historia. El funcionamiento es sencillo, cada vez que subimos una imagen se nos pedirá que la recortemos con la proporción adecuada, pudiendo mover el selector por la imagen y haciéndola más grande o más pequeña en función de nuestras necesidades. \\
+En el frontend hemos añadido la librería \textit{ngx-image-cropper} \cite{cropper}, la cual nos permite recortar las imágenes con un ratio determinado, como se ha mencionado anteriormente, lo que ha acelerado el desarrollo de la historia. El funcionamiento es sencillo, cada vez que subimos una imagen se nos pedirá que la recortemos con la proporción adecuada, pudiendo mover el selector por la imagen y haciéndola más grande o más pequeña en función de nuestras necesidades. \\
 
 En cuanto a la base de datos, gracias a la historia anterior no debemos añadir ninguna tabla más. Por otra parte hemos creado un endpoint del tipo \textit{POST}, esto es un punto de acceso en el servidor para recibir peticiones del cliente, para añadir publicaciones a la base de datos. \\
 
@@ -770,8 +769,6 @@ Como podemos apreciar en el boceto la página, ésta contará con un pequeño fo
 	\label{fig:imploginweb}
 \end{figure}
 
-\textbf{Implementación} \\
-
 Como podemos ver en el diseño final, no ha habido cambios significativos con respecto a los bocetos, pero si que se ha cambiado la estética en los botones de la aplicación ahora son más redondeados, esto se ha hecho con carácter retroactivo aplicándose al resto de páginas. El motivo ha sido hacer una interfaz más acorde a las corrientes actuales.
 
 En esta página hemos creado un pequeño formulario con los datos de inicio de sesión que se enviarán al servidor en cuanto le demos aceptar.
@@ -808,8 +805,8 @@ Además también se ha actualizado el diagrama de clases, ya que aunque en esta 
 Como cierre de la iteración a nivel de tareas se han realizado todas las HU propuestas. No obstante, la realización de pruebas y corrección de este documento ha abarcado más de lo esperado ocupando 4 días del siguiente sprint.
 
 \subsection{Iteración 3}
-
-\textbf{Especificación de tareas}
+En esta iteración crearemos el registro de asociaciones crearemos una página para recibir solicitudes de adopción y/o acogida, crearemos la página para ver nuestro perfil, haremos que los usuarios particulares puedan ponerse como casa de acogida, para que las asociaciones los puedan buscar y pedirles que acojan a alguno de sus animales. Por último también mejoraremos el uso de sesiones haciéndolas persistentes frente a caídas del servidor. \\ \\
+\textbf{Especificación de tareas} \\
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
 	\hline
@@ -817,7 +814,7 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	7.1 & Realizar de bocetos. & 0.5 \\ \hline
+	7.1 & Realizar de bocetos. & 0,5 \\ \hline
 	7.2 &  Implementar la lógica asociada al cierre de sesión. & 1 \\ \hline
 	7.3 &  Implementar interfaz asociada al cierre de sesión. & 0.5 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
@@ -830,16 +827,18 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	8.1 & Realizar bocetos. & 0.5 \\ \hline
+	8.1 & Realizar bocetos. & 0,5 \\ \hline
 	8.2 &  Implementar la lógica de registro. & 2 \\ \hline
 	8.3 &  Implementar la interfaz de registro. & 1 \\ \hline
 	8.4 &  Implementar la funcionalidad de añadir imágenes de perfil. & 0,5 \\ \hline
+	8.5 &  Encriptar el archivo del acta fundacional. & 0,5 \\ \hline
+	
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que los campos deben estar cumplimentados correctamente antes de realizar la petición al servidor.} \\ \hline
-	2 & \multicolumn{2}{|p{10cm}|}{Asegurarse de que la imágenes seleccionadas se almacena apropiadamente.} \\ \hline
+	2 & \multicolumn{2}{|p{10cm}|}{Asegurarse de que la imágenes seleccionadas se almacenan apropiadamente.} \\ \hline
 	3 & \multicolumn{2}{|p{10cm}|}{Ver que la cámara funcione correctamente en dispositivos móviles.} \\ \hline
 	4 & \multicolumn{2}{|p{10cm}|}{Ver que los campos de ubicación se autocompletan correctamente en caso de tener los permisos activados.} \\ \hline
-	5 & \multicolumn{2}{|p{10cm}|}{Comprobar que no se pueda realizar la petición al servidor sin que los campos estén rellenados correctamente.} \\\hline
+	5 & \multicolumn{2}{|p{10cm}|}{Comprobar que el archivo se encripta correctamente.} \\ \hline
 	
 \end{tabular} \\ \\
 
@@ -849,15 +848,15 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	9.1 & Realizar bocetos. & 0.5 \\ \hline
+	9.1 & Realizar bocetos. & 0,5 \\ \hline
 	9.2 &  Implementar la lógica. & 2 \\ \hline
 	9.3 &  Implementar la interfaz para la visualización. & 1 \\ \hline
+	9.4 &  Crear tabla de solicitudes & 0,5 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que las solicitudes se envían correctamente.} \\ \hline
 	2 & \multicolumn{2}{|p{10cm}|}{Comprobar que las asociaciones no puedan hacer peticiones de adopción.} \\ \hline
 	3 & \multicolumn{2}{|p{10cm}|}{Comprobar que a un usuario no registrado se le avise de que no puede adoptar en caso de intentarlo.} \\ \hline
-	4 & \multicolumn{2}{|p{10cm}|}{Comprobar que a un usuario no registrado se le avise de que no puede adoptar en caso de intentarlo.} \\ \hline
-	5 & \multicolumn{2}{|p{10cm}|}{Comprobar que no se guardan notificaciones repetidas.} \\ \hline
+	4 & \multicolumn{2}{|p{10cm}|}{Comprobar que no se guardan solicitudes de adopción/acogida repetidas.} \\ \hline
 	
 	
 \end{tabular} \\ \\
@@ -868,14 +867,14 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	10.1 & Realizar bocetos. & 0.5 \\ \hline
+	10.1 & Realizar bocetos. & 0,5 \\ \hline
 	10.2 &  Implementar la lógica. & 1 \\ \hline
 	10.3 &  Implementar la interfaz para la visualización. & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|p{10cm}|}{Comprobar que las solicitudes se envían correctamente.} \\ \hline
 	2 & \multicolumn{2}{|p{10cm}|}{Comprobar que las asociaciones no puedan hacer peticiones de acogida.} \\ \hline
 	3 & \multicolumn{2}{|p{10cm}|}{Comprobar que a un usuario no registrado se le avise de que no puede acoger en caso de intentarlo.} \\ \hline
-	4 & \multicolumn{2}{|p{10cm}|}{Comprobar que a un usuario no registrado se le avise de que no puede acoger en caso de intentarlo.} \\ \hline
+	4 & \multicolumn{2}{|p{10cm}|}{Comprobar que a un usuario no registrado se le avise de que no puede adoptar en caso de intentarlo.} \\ \hline
 	5 & \multicolumn{2}{|p{10cm}|}{Comprobar que no se guardan notificaciones repetidas.} \\ \hline
 	
 \end{tabular} \\ \\
@@ -886,7 +885,7 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	11.1 & Realizar bocetos & 0.5 \\ \hline
+	11.1 & Realizar bocetos & 0,5 \\ \hline
 	11.2 &  Implementar la lógica de obtención del perfil & 2 \\ \hline
 	11.3 &  Implementar la interfaz para la visualización del perfil & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
@@ -900,7 +899,7 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	12.1 & Realizar bocetos & 0.5 \\ \hline
+	12.1 & Realizar bocetos & 0,5 \\ \hline
 	12.2 &  Implementar la lógica & 2 \\ \hline
 	12.3 &  Implementar la interfaz & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
@@ -911,17 +910,17 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
 	\hline
-	\multicolumn{3}{|c|}{\textbf{HU.13 - Buscar usuarios que estén como casa de acogida}} \\
+	\multicolumn{3}{|c|}{\textbf{HU.13 - Buscar particulares que estén como casa de acogida}} \\
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	13.1 & Realizar bocetos & 0.5 \\ \hline
+	13.1 & Realizar bocetos & 0,5 \\ \hline
 	13.2 &  Implementar la lógica & 2 \\ \hline
 	13.3 &  Implementar la interfaz & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
-	1 & \multicolumn{2}{|p{12cm}|}{Que solo aparezcan usuarios de tipo estándar que estén como casa de acogida} \\ \hline
+	1 & \multicolumn{2}{|p{12cm}|}{Que solo aparezcan usuarios particulares que estén como casa de acogida} \\ \hline
 	2 & \multicolumn{2}{|p{12cm}|}{Cuando se le envíe a alguien una petición para acoger, éste la reciba correctamente} \\ \hline
-	3 & \multicolumn{2}{|p{12cm}|}{Que el filtro de provincias funcione correctamente} \\ \hline
+	3 & \multicolumn{2}{|p{12cm}|}{Que el filtro para buscar particulares por provincias funcione correctamente} \\ \hline
 	
 \end{tabular} \\ \\
 
@@ -932,7 +931,7 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
 	14.1 &  Implementar la lógica & 2 \\ \hline
-	14.2 &  Implementar la interfaz & 1 \\ \hline
+	14.2 &  Implementar funcionalidad en los botones de las publicaciones de las asociaciones para poder solicitar adoptar/acoger & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|p{12cm}|}{En caso de error se le notifique al usuario} \\ \hline
 	2 & \multicolumn{2}{|p{12cm}|}{En caso de que sea satisfactoria se le notifique al usuario} \\ \hline
@@ -945,8 +944,8 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	15.1 &  Implementar la lógica & 2 \\ \hline
-	15.2 &  Implementar la interfaz & 1 \\ \hline
+	15.1 & Implementar la lógica & 2 \\ \hline
+	15.2 & Implementar la interfaz & 1 \\ \hline 
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|p{12cm}|}{Que se muestre el aviso de borrado para confirmarlo} \\ \hline
 	2 & \multicolumn{2}{|p{12cm}|}{Cuando se vuelvan a obtener las notificaciones no aparezca la eliminada} \\ \hline
@@ -959,22 +958,11 @@ Como cierre de la iteración a nivel de tareas se han realizado todas las HU pro
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	16.1 &  Implementar la lógica & 2 \\ \hline
+	16.1 &  Implementar la lógica & 1,5 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|p{12cm}|}{Cuando se reinicie el servidor se siga manteniendo la sesión} \\ \hline
 	2 & \multicolumn{2}{|p{12cm}|}{Ver que te deja acceder al login cuando cierras la sesión} \\ \hline
 	
-\end{tabular} \\ \\
-
-
-\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
-	\hline
-	\multicolumn{3}{|c|}{\textbf{HUT.1 - Realizar documentación}} \\
-	\hline
-	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
-	\hline
-	1.1 & Realizar documentación para cada tarea & 3 \\ \hline
-	1.2 &  Añadir tareas a las historias de usuario & 0.5 \\ \hline
 \end{tabular} \\ \\
 
 \Large{\textbf{HU.8 - Crear registro de asociaciones}}
@@ -1056,7 +1044,7 @@ Hemos decidido juntar estas dos historias ya que ponerse como casa de acogida se
 	\caption{Diseño de la página para ver el perfil en web}
 \end{figure}
 
-\Large{\textbf{HU.13 - Buscar usuarios que estén como casa de acogida}}
+\Large{\textbf{HU.13 - Buscar particulares que estén como casa de acogida}}
 
 \textbf{Bocetos} \\
 \begin{figure}[H]
@@ -1081,16 +1069,16 @@ Hemos decidido juntar estas dos historias ya que ponerse como casa de acogida se
 \end{figure}
 
 
-Como podemos ver en la figura \ref{fig:impRegAso} el registro de asociaciones utiliza la misma página en el de usuarios estándar en la figura \ref{fig:impregistroparticulares}, simplemente hemos añadido un selector para elegir la opción de registro deseado. Debemos mencionar que en el futuro la creación de asociaciones será revisada por los moderadores y aceptada o denegada por éstes, para ello haremos uso del acta fundacional \cite{actaFundacional}, que es un documento que se necesita a la hora de crear asociaciones. En este documento se encuentra información de relevancia como el NIF, nombre de la asociación, etc.
+Como podemos ver en la figura \ref{fig:impRegAso} el registro de asociaciones utiliza la misma página en el de usuarios estándar en la figura \ref{fig:impregistroparticulares}, simplemente hemos añadido un selector para elegir la opción de registro deseado. Debemos mencionar que en el futuro la creación de asociaciones será revisada por los moderadores y aceptada o denegada por éstos, para ello haremos uso del acta fundacional \cite{actaFundacional}, que es un documento que se necesita a la hora de crear asociaciones. En este documento se encuentra información de relevancia como el NIF, nombre de la asociación, etc.
 
-A consecuencia de esto nos surge la necesidad de encriptar el archivo según la lay de protección de datos, ya que contiene información sensible la cual no debe se accesible desde la base de datos. Para esto hemos usado la librería nativa de node \textit{crypto}, la cual nos permite almacenar el archivo encriptado en el servidor de manera segura.
+A consecuencia de esto nos surge la necesidad de encriptar el archivo según la lay de protección de datos, ya que contiene información sensible la cual no debe se accesible desde la base de datos. Para esto hemos usado la librería nativa de node \textit{crypto} \cite{crypto}, la cual nos permite almacenar el archivo encriptado en el servidor de manera segura.
 
 A coalición de lo último hemos tenido que crear la tabla \textit{Files} en la base de datos, la cual contiene el nombre del archivo encriptado y el usuario al que pertenece.
 
 
 En el proceso de la creación de la página de perfil \ref{fig:impPerfil} se hizo evidente la necesidad de mostrar una pequeña descripción sobre el usuario, por lo que hemos creado el campo \textit{description} en la tabla \textit{Users} de la base de datos.
 
-La búsqueda de casas de acogida nos hizo darnos cuenta de que la página principal de asociaciones debía ser distinta a la de usuarios estándar. Ahora a las asociaciones en su página principal solo se les muestra sus animales y tienen una serie de botones de acción como el de buscar casa de acogida para ese animal en concreto.
+La búsqueda de casas de acogida nos hizo darnos cuenta de que la página principal de asociaciones debía ser distinta a la de usuarios particulares y básicos. Ahora a las asociaciones en su página principal solo se les muestra sus animales y tienen una serie de botones de acción como el de buscar casa de acogida para ese animal en concreto.
 
 
 
@@ -1109,7 +1097,7 @@ En esta iteración debido a que se han hecho las tareas en menor tiempo al estim
 
 Hemos tenido que crear la tabla \textbf{Requests} en la base de datos para almacenar las solicitudes.
 
-También hemos modificado las sesiones, ya que cuando el servidor se caía o apagaba estas desaparecían por completo. Para ello hemos hecho uso de la librería \textit{express-session-mysql} la cual aporta persistencia a las sesiones, es decir, se almacenan en la tabla \textit{Sessions} de la base de datos.
+También hemos modificado las sesiones, ya que cuando el servidor se caía o apagaba estas desaparecían por completo. Para ello hemos hecho uso de la librería \textit{express-session-mysql} \cite{mysqlSession} la cual aporta persistencia a las sesiones, es decir, se almacenan en la tabla \textit{Sessions} de la base de datos.
 
 
 
@@ -1126,20 +1114,25 @@ A continuación se muestra el diagrama de clases al final de la tercera iteraci�
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{"sprint 3/clases"}
+	\includegraphics[width=1\linewidth]{"sprint 3/clases"}
 	\caption{Diagrama de clases de la tercera iteración}
 	\label{fig:clases3}
 \end{figure}
 
 
-En general hemos ido mejor de lo esperado en la planificación de la iteración, pero es en parte debido a la unión de las páginas de muestra de solicitudes, teniendo todo el sentido ya que tendrían la misma estructura y estética, además de que en la base de datos se almacenan exactamente igual a excepción del tipo de solicitud. 
+En general hemos ido mejor de lo esperado en la planificación de la iteración, pero es en parte debido a la unión de las páginas de consulta de solicitudes, es decir que las solicitudes de acogida y de adopción finalmente se muestran en la misma página, teniendo todo el sentido ya que tendrían la misma estructura y estética, además de que en la base de datos se almacenan exactamente igual a excepción del tipo de solicitud. 
 
 \subsection{Iteración 4}
 
+En esta última iteración haremos que tanto las asociaciones como los particulares puedan modificar su perfil y la aceptación y rechazo de las solicitudes de adopción y de acogida. También implementaremos la posibilidad de acceder a los perfiles de otros usuarios y de obtener información más detallada de las publicaciones cuando pulsemos en ellas.
+
+Por último en esta iteración también nos encargaremos de solucionar pequeños errores que hemos arrastrado de otras iteraciones, para darle más consistencia a la aplicación. \\ \\
+
+\textbf{Especificación de tareas} \\
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
 	\hline
-	\multicolumn{3}{|p{10.5cm}|}{\textbf{HU.17 - Como asociación y usuario estándar poder modificar el perfil}} \\
+	\multicolumn{3}{|p{10.5cm}|}{\textbf{HU.17 - Como asociación y usuario particular poder modificar el perfil}} \\
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
@@ -1252,19 +1245,9 @@ En general hemos ido mejor de lo esperado en la planificación de la iteración,
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
-	1.1 & Arreglar que solo se pueda subir una imagen a la hora de subir publicaciones  & 1 \\ \hline
-	1.2 &  Arreglar problema de scroll & 0,5 \\ \hline
+	24.1 & Arreglar que solo se pueda subir una imagen a la hora de subir publicaciones  & 1 \\ \hline
+	24.2 &  Arreglar problema de scroll & 0,5 \\ \hline
 	24.3 &  Mantenerte loggeado cuando te acabas de registrar como usuario particular & 0,5 \\ \hline
-\end{tabular} \\ \\
-
-\begin{tabular}{|c|p{9.5cm}|p{1cm}|}
-	\hline
-	\multicolumn{3}{|c|}{\textbf{HUT.1 - Realizar documentación}} \\
-	\hline
-	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
-	\hline
-	1.1 & Realizar documentación para cada tarea & 3 \\ \hline
-	1.2 &  Añadir tareas a las historias de usuario & 0,5 \\ \hline
 \end{tabular} \\ \\
 
 
@@ -1302,7 +1285,7 @@ En general hemos ido mejor de lo esperado en la planificación de la iteración,
 
 En estas historias no se requiere realización de bocetos ni de diseño ya que para aceptar y/o rechazar solicitudes usaremos la página de notificaciones vista anteriormente en la figura \ref{fig:notificaciones}. 
 
-Cabe destacar que hemos cambiado el nombre de la página de solicitudes a notificaciones, ya que en esta misma también se le avisará al usuario del estado final de sus solicitudes.
+Cabe destacar que hemos cambiado el nombre de la página de solicitudes a notificaciones, ya que en esta misma también se le avisará a las asociaciones y los usuarios particulares del estado final de sus solicitudes.
 
 \begin{figure}[H]
 	\centering
