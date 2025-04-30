@@ -910,7 +910,7 @@ En esta iteración crearemos el registro de asociaciones crearemos una página p
 
 \begin{tabular}{|c|p{9.5cm}|p{1cm}|}
 	\hline
-	\multicolumn{3}{|c|}{\textbf{HU.13 - Buscar particulares que estén como casa de acogida}} \\
+	\multicolumn{3}{|p{12.5cm}|}{\textbf{HU.13 - Buscar particulares que estén como casa de acogida}} \\
 	\hline
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
@@ -968,6 +968,7 @@ En esta iteración crearemos el registro de asociaciones crearemos una página p
 \Large{\textbf{HU.8 - Crear registro de asociaciones}}
 
 \textbf{Bocetos} \\
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.31\linewidth]{sprint 3//hu8/registro_asociaciones.png}
@@ -975,7 +976,13 @@ En esta iteración crearemos el registro de asociaciones crearemos una página p
 	\label{fig:boceto_regAso}
 \end{figure}
 
-\textbf{Implementación}
+\textbf{Implementación} \\
+
+Como podemos ver en la figura \ref{fig:impRegAso} el registro de asociaciones utiliza la misma página en el de usuarios estándar en la figura \ref{fig:impregistroparticulares}, simplemente hemos añadido un selector para elegir la opción de registro deseado. Debemos mencionar que en el futuro la creación de asociaciones será revisada por los moderadores y aceptada o denegada por éstos, para ello haremos uso del acta fundacional \cite{actaFundacional}, que es un documento que se necesita a la hora de crear asociaciones. En este documento se encuentra información de relevancia como el NIF, nombre de la asociación, etc.
+
+A consecuencia de esto nos surge la necesidad de encriptar el archivo según la lay de protección de datos, ya que contiene información sensible la cual no debe se accesible desde la base de datos. Para esto hemos usado la librería nativa de node \textit{crypto} \cite{crypto}, la cual nos permite almacenar el archivo encriptado en el servidor de manera segura.
+
+A coalición de lo último hemos tenido que crear la tabla \textit{Files} en la base de datos, la cual contiene el nombre del archivo encriptado y el usuario al que pertenece.
 
 \begin{figure} [H]
 	\centering
@@ -992,7 +999,7 @@ En esta iteración crearemos el registro de asociaciones crearemos una página p
 
 \Large{\textbf{HU.9 - Ver solicitudes de adopción y HU.10 - Ver solicitudes de acogida}} \\
 
-Para estas historias finalmente se ha decidido juntarlas en una página llamada solicitudes, ya que el código de ambas era muy similar y así evitamos duplicidad de código.
+Para estas historias finalmente se ha decidido juntarlas en una página llamada solicitudes, ya que el código de ambas era muy similar y así evitamos duplicidad de código. \\
 
 \textbf{Bocetos}
 \begin{figure}[H]
@@ -1003,7 +1010,9 @@ Para estas historias finalmente se ha decidido juntarlas en una página llamada 
 \end{figure}
 
 
-\textbf{Implementación}
+\textbf{Implementación} \\
+
+Para el correcto desarrollo de esta historia, hemos tenido que crear la tabla \textbf{Requests} en la base de datos para almacenar las solicitudes. Además hemos creado varias funciones en el servidor para el almacenamiento y la obtención de las mismas.
 
 \begin{figure} [H]
 	\centering
@@ -1031,6 +1040,8 @@ Hemos decidido juntar estas dos historias ya que ponerse como casa de acogida se
 
 \textbf{Implementación}
 
+En el proceso de la creación de la página de perfil se hizo evidente la necesidad de mostrar una pequeña descripción sobre el usuario, por lo que hemos creado el campo \textit{description} en la tabla \textit{Users} de la base de datos.
+
 \begin{figure} [H]
 	\centering
 	\includegraphics[width=1\linewidth]{sprint 3//hu11-12/implementacion.png}
@@ -1045,6 +1056,8 @@ Hemos decidido juntar estas dos historias ya que ponerse como casa de acogida se
 \end{figure}
 
 \Large{\textbf{HU.13 - Buscar particulares que estén como casa de acogida}}
+
+En esta historia nos encargamos de la búsqueda de casas de acogida como asociación para que en caso de ellos no tener más espacio o no poder hacerse cargo, solicitar a un usuario particular que sea éste el que lo cuide de manera temporal. \\ \\
 
 \textbf{Bocetos} \\
 \begin{figure}[H]
@@ -1068,19 +1081,7 @@ Hemos decidido juntar estas dos historias ya que ponerse como casa de acogida se
 	\caption{Diseño del modal de búsqueda de casas de acogida en web}
 \end{figure}
 
-
-Como podemos ver en la figura \ref{fig:impRegAso} el registro de asociaciones utiliza la misma página en el de usuarios estándar en la figura \ref{fig:impregistroparticulares}, simplemente hemos añadido un selector para elegir la opción de registro deseado. Debemos mencionar que en el futuro la creación de asociaciones será revisada por los moderadores y aceptada o denegada por éstos, para ello haremos uso del acta fundacional \cite{actaFundacional}, que es un documento que se necesita a la hora de crear asociaciones. En este documento se encuentra información de relevancia como el NIF, nombre de la asociación, etc.
-
-A consecuencia de esto nos surge la necesidad de encriptar el archivo según la lay de protección de datos, ya que contiene información sensible la cual no debe se accesible desde la base de datos. Para esto hemos usado la librería nativa de node \textit{crypto} \cite{crypto}, la cual nos permite almacenar el archivo encriptado en el servidor de manera segura.
-
-A coalición de lo último hemos tenido que crear la tabla \textit{Files} en la base de datos, la cual contiene el nombre del archivo encriptado y el usuario al que pertenece.
-
-
-En el proceso de la creación de la página de perfil \ref{fig:impPerfil} se hizo evidente la necesidad de mostrar una pequeña descripción sobre el usuario, por lo que hemos creado el campo \textit{description} en la tabla \textit{Users} de la base de datos.
-
 La búsqueda de casas de acogida nos hizo darnos cuenta de que la página principal de asociaciones debía ser distinta a la de usuarios particulares y básicos. Ahora a las asociaciones en su página principal solo se les muestra sus animales y tienen una serie de botones de acción como el de buscar casa de acogida para ese animal en concreto.
-
-
 
 \begin{figure}[H]
 	\centering
@@ -1089,17 +1090,15 @@ La búsqueda de casas de acogida nos hizo darnos cuenta de que la página princi
 	\label{fig:homeasociaciones}
 \end{figure}
 
-Al pulsar en el botón de la izquierda se mostrará el modal de búsqueda de asociaciones \ref{fig:impBusquedaAcogida}. Un modal es un cuadro de diálogo que aparece sobre el contenido de la aplicación y que ésta debe cerrar antes de reanudar la interacción.
+Al pulsar en el botón de la izquierda se mostrará el modal de búsqueda de asociaciones \ref{fig:impBusquedaAcogida}. Un modal es un cuadro de diálogo que aparece sobre el contenido de la aplicación y que ésta debe cerrar antes de reanudar la interacción. \\
+
+\Large{\textbf{HU.16 - Añadir persistencia a las sesiones}}
+
+Hemos tenido que modificar las sesiones, ya que cuando el servidor se caía o apagaba estas desaparecían por completo. Para ello hemos hecho uso de la librería \textit{express-session-mysql} \cite{mysqlSession} la cual aporta persistencia a las sesiones, es decir, se almacenan en la tabla \textit{Sessions} de la base de datos. \\
 
 \textbf{Fin del Sprint}
 
 En esta iteración debido a que se han hecho las tareas en menor tiempo al estimado y por el flujo de la programación se han añadido a mayores la HU-14 y HU-15 que son enviar solicitudes de acogida/adopción y borrarlas respectivamente, incluyendo también el envío de solicitudes de búsqueda de casa de acogida.
-
-Hemos tenido que crear la tabla \textbf{Requests} en la base de datos para almacenar las solicitudes.
-
-También hemos modificado las sesiones, ya que cuando el servidor se caía o apagaba estas desaparecían por completo. Para ello hemos hecho uso de la librería \textit{express-session-mysql} \cite{mysqlSession} la cual aporta persistencia a las sesiones, es decir, se almacenan en la tabla \textit{Sessions} de la base de datos.
-
-
 
 La estructura de directorios al final de esta iteración es la siguiente:
 
@@ -1112,21 +1111,24 @@ La estructura de directorios al final de esta iteración es la siguiente:
 
 A continuación se muestra el diagrama de clases al final de la tercera iteración con los añadidos que hemos mencionado anteriormente.
 
+\pagebreak
+
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=1\linewidth]{"sprint 3/clases"}
+	\hspace*{-3.5cm}  
+	\includegraphics[width=1.5\linewidth]{"sprint 3/clases"}
 	\caption{Diagrama de clases de la tercera iteración}
 	\label{fig:clases3}
 \end{figure}
 
+\pagebreak
 
 En general hemos ido mejor de lo esperado en la planificación de la iteración, pero es en parte debido a la unión de las páginas de consulta de solicitudes, es decir que las solicitudes de acogida y de adopción finalmente se muestran en la misma página, teniendo todo el sentido ya que tendrían la misma estructura y estética, además de que en la base de datos se almacenan exactamente igual a excepción del tipo de solicitud. 
 
 \subsection{Iteración 4}
 
-En esta última iteración haremos que tanto las asociaciones como los particulares puedan modificar su perfil y la aceptación y rechazo de las solicitudes de adopción y de acogida. También implementaremos la posibilidad de acceder a los perfiles de otros usuarios y de obtener información más detallada de las publicaciones cuando pulsemos en ellas.
+En esta última iteración haremos que tanto las asociaciones como los particulares puedan modificar su perfil, y también abordaremos la aceptación y rechazo de las solicitudes de adopción y de acogida. También implementaremos la posibilidad de acceder a los perfiles de otros usuarios y de obtener información más detallada de las publicaciones cuando pulsemos en ellas.
 
-Por último en esta iteración también nos encargaremos de solucionar pequeños errores que hemos arrastrado de otras iteraciones, para darle más consistencia a la aplicación. \\ \\
+Por último, en esta iteración también nos encargaremos de solucionar pequeños errores que hemos arrastrado de otras iteraciones, para darle más consistencia a la aplicación. \\ \\
 
 \textbf{Especificación de tareas} \\
 
@@ -1156,7 +1158,7 @@ Por último en esta iteración también nos encargaremos de solucionar pequeños
 	18.1 &  Implementar la lógica & 1 \\ \hline
 	18.2 &  Implementar la interfaz & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
-	1 & \multicolumn{2}{|p{12cm}|}{Comprobar que el animal adoptado no aparezca en la lista de animales en adopción} \\ \hline
+	1 & \multicolumn{2}{|p{12cm}|}{Comprobar que después de adoptar a un animal, éste no aparezca en la lista de animales en adopción} \\ \hline
 	2 & \multicolumn{2}{|p{12cm}|}{Comprobar que la asociación con el usuario adoptante se realiza correctamente} \\ \hline
 	3 & \multicolumn{2}{|p{12cm}|}{Comprobar que se le notifica al usuario que se ha aceptado la adopción} \\ \hline
 
@@ -1173,6 +1175,7 @@ Por último en esta iteración también nos encargaremos de solucionar pequeños
 	19.2 &  Implementar la interfaz & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|p{12cm}|}{Comprobar que se le notifica al usuario que se ha rechazado la adopción} \\ \hline
+	2 & \multicolumn{2}{|p{12cm}|}{Comprobar que la solicitud de adopción se elimina} \\ \hline
 	
 	
 \end{tabular} \\ \\
@@ -1189,6 +1192,7 @@ Por último en esta iteración también nos encargaremos de solucionar pequeños
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|p{12cm}|}{Comprobar que la asociación con el usuario que acoge se realiza correctamente} \\ \hline
 	2 & \multicolumn{2}{|p{12cm}|}{Comprobar que se le notifica al usuario que se ha aceptado la acogida} \\ \hline
+	3 & \multicolumn{2}{|p{12cm}|}{Comprobar que la solicitud de acogida se ha eliminado} \\ \hline
 	
 	
 \end{tabular} \\ \\
@@ -1204,6 +1208,7 @@ Por último en esta iteración también nos encargaremos de solucionar pequeños
 	21.2 &  Implementar la interfaz & 1 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
 	1 & \multicolumn{2}{|p{12cm}|}{Comprobar que se le notifica al usuario que se ha rechazado la acogida} \\ \hline
+	2 & \multicolumn{2}{|p{12cm}|}{Comprobar que la solicitud de acogida se elimina} \\ \hline
 	
 \end{tabular} \\ \\
 
@@ -1232,9 +1237,8 @@ Por último en esta iteración también nos encargaremos de solucionar pequeños
 	23.1 &  Implementar la lógica & 2 \\ \hline
 	23.2 &  Implementar la interfaz & 1,5 \\ \hline
 	\multicolumn{3}{|c|}{\textbf{Pruebas de aceptación}} \\ \hline
-	1 & \multicolumn{2}{|p{12cm}|}{Cuando se pulse en una publicación, accedas a la misma con la información ampliada} \\ \hline
-	2 & \multicolumn{2}{|p{12cm}|}{Comprobar que los botones de acción funcionan correctamente} \\ \hline
-	3 & \multicolumn{2}{|p{12cm}|}{Comprobar que un usuario no registrado no pueda solitar adopción ni acogida} \\ \hline
+	1 & \multicolumn{2}{|p{12cm}|}{Cuando se pulse en una publicación, se acceda a la misma con la información ampliada} \\ \hline
+	2 & \multicolumn{2}{|p{12cm}|}{Comprobar que los botones de la página funcionan correctamente} \\ \hline
 	
 \end{tabular} \\ \\
 
@@ -1246,12 +1250,12 @@ Por último en esta iteración también nos encargaremos de solucionar pequeños
 	\textbf{Id} & \textbf{Título de la tarea de desarrollo} & \textbf{Est. (días)} \\
 	\hline
 	24.1 & Arreglar que solo se pueda subir una imagen a la hora de subir publicaciones  & 1 \\ \hline
-	24.2 &  Arreglar problema de scroll & 0,5 \\ \hline
-	24.3 &  Mantenerte loggeado cuando te acabas de registrar como usuario particular & 0,5 \\ \hline
+	24.2 & Mantenerte conectado cuando te acabas de registrar como usuario particular & 0,5 \\ \hline
+	24.3 & Arreglar la carga de provincias la página principal de usuarios particulares & 1 \\ \hline
 \end{tabular} \\ \\
 
 
-\Large{\textbf{HU.17 - Como asociación y usuario estándar poder modificar el perfil}}
+\Large{\textbf{HU.17 - Como asociación y usuario estándar poder modificar el perfil}} \\
 
 \textbf{Bocetos}
 
@@ -1263,6 +1267,8 @@ Por último en esta iteración también nos encargaremos de solucionar pequeños
 \end{figure}
 
 \textbf{Implementación}
+
+Para esta historia hemos creado en la base de datos la tabla \textit{AsoSpecies} la cual refleja la relación de muchos a muchos que hay entre las asociaciones y las distintas especies. Gracias a esto ahora una asociación puede tener en adopción distintos tipos de animales y además se les ha añadido la posibilidad de avisar a los usuarios que también permiten acogidas de animales en la propia  asociación. Todo esto se puede modificar con los selectores que aparecen al querer editar el perfil como se muestran en la figura de abajo.
 
 
 \begin{figure}[H]
@@ -1283,9 +1289,9 @@ Por último en esta iteración también nos encargaremos de solucionar pequeños
 
 \Large{\textbf{HU.18, HU.19, HU.20, HU.21 - Aceptar/Rechazar solicitudes de adopción/acogida }} \\
 
-En estas historias no se requiere realización de bocetos ni de diseño ya que para aceptar y/o rechazar solicitudes usaremos la página de notificaciones vista anteriormente en la figura \ref{fig:notificaciones}. 
+En estas historias no se requiere realización de bocetos ni de diseño ya que para aceptar y/o rechazar solicitudes usaremos la página de notificaciones vista anteriormente en la figura \ref{fig:notificaciones}. No obstante, para las acciones mencionadas anteriormente se han creado funciones para la aceptación y rechazo de las solicitudes respectivamente. 
 
-Cabe destacar que hemos cambiado el nombre de la página de solicitudes a notificaciones, ya que en esta misma también se le avisará a las asociaciones y los usuarios particulares del estado final de sus solicitudes.
+Cabe destacar que hemos cambiado el nombre de la página de solicitudes a \textbf{"Solicitudes y Notificaciones"}, ya que en esta misma también se le avisará a las asociaciones y los usuarios particulares del estado final de sus solicitudes.
 
 \begin{figure}[H]
 	\centering
@@ -1294,8 +1300,16 @@ Cabe destacar que hemos cambiado el nombre de la página de solicitudes a notifi
 	\label{fig:notificacionesnueva}
 \end{figure}
 
+\Large{\textbf{HU.22 - Acceder al perfil del usuario seleccionado}} \\
 
-\Large{\textbf{HU.23 - Acceder a la publicación ampliada}}
+Para esta historia no se necesitan bocetos ya que cuando en una publicación pulsas en el nombre de usuario del autor de la misma se te redireccionará a la página de perfil de ese usuario. A nivel estético es exactamente igual que cuando accedes a tu perfil, solo que sin la funcionalidad de editar dicho perfil.
+
+No obstante, cabe destacar que se han creado un \textit{endpint} en el servidor para obtener perfiles distintos al del usuario conectado y poder visualizarlos en el cliente. \\ \\
+
+
+\Large{\textbf{HU.23 - Acceder a la publicación ampliada}} \\
+ 
+ En esta historia crearemos la página de publicación ampliada, a la que se accederá pulsando en una de las publicaciones existentes y mostrará datos de manera más detallada, como por ejemplo la descripción entera en caso de ser esta muy larga y detalles sobre el animal. \\
 
 \textbf{Bocetos}
 
@@ -1306,7 +1320,9 @@ Cabe destacar que hemos cambiado el nombre de la página de solicitudes a notifi
 	\label{fig:publicacionampliada}
 \end{figure}
 
-\textbf{Implementación}
+\textbf{Implementación} \\
+
+Para la creación de esta página no se ha tenido que hacer nada a nivel servidor ya que con los datos de la publicación obtenidos en la página principal rellenaremos ésta.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{"sprint 4/hu23/impPublicaciónAmpliada"}
@@ -1321,15 +1337,18 @@ Cabe destacar que hemos cambiado el nombre de la página de solicitudes a notifi
 	\label{fig:publicacionampliadaweb}
 \end{figure}
 
+\Large{\textbf{HU.24 - Resolución de errores}} \\
+
+Lo primero que hemos hecho en esta historia ha sido arreglar la subida de publicaciones tanto de animales en adopción como las de perdidos/encontrados. En éstas solo se almacenaba en la base de datos una única imagen aunque se le enviasen varías. Esto se debía a un error en una función del servidor y ya se ha solucionado, permitiendo subir las fotos que se deseen del animal.
+
+También se ha solucionado la obtención de las provincias de un país en la página principal de los usuarios estándar. Para ello hemos hecho uso de una api \cite{apiIp} la cual nos devuelve información del país en función de la dirección ip que tengamos asignada. Esto nos permite saber la localización aproximada del dispositivo sin tener que solicitar permisos de ubicación.
+
+Para que esto funcionase, se ha modificado la tabla de países en la base de datos añadiéndole el campo \textit{code} para que la búsqueda sea posible, además también hemos puesto los nombres de dichos países en 3 de los principales idiomas: español, inglés y francés cada uno con sendos campos en la base de datos y solo obteniendo en las consultas aquel que sea necesario, en caso de no tener el dispositivo en ninguno de esos idiomas se obtienen los nombres en inglés. \\
+
+\Large{\textbf{Fin del Sprint}} \\ \\
 En esta última iteración como hemos visto, se han realizado implementaciones de las notificaciones y de vista de perfiles principalmente. 
 
-Además este ha sido el sprint en el que hemos hecho algunas correcciones finales más que ampliando funcionalidades primando la estabilidad de la aplicación frente a la cantidad de contenido añadido.
-
-Por ejemplo se ha solucionado la obtención de las provincias de un país en la página principal del los usuarios estándar, para ello hemos hecho uso de una api \cite{apiIp} la cual nos devuelve información del país en función de la dirección ip que tengamos asignada. Esto nos permite saber la localización aproximada del dispositivo sin tener que solicitar permisos de ubicación.
-
-Para que esto funcionase se ha modificado la tabla de países en la base de datos añadiéndole el campo \textit{code} para que la búsqueda sea posible, además también hemos puesto los nombres de dichos países en 3 de los principales idiomas: español, inglés y francés cada uno con sendos campos en la base de datos y solo obteniendo en las consultas aquel que sea necesario, en caso de no tener el dispositivo en ninguno de esos idiomas se obtienen los nombres en inglés.
-
-También hemos creado en la base de datos la tabla \textit{AsoSpecies} la cual refleja la relación de muchos a muchos que hay entre las asociaciones y las distintas especies. Gracias a esto ahora una asociación puede tener en adopción distintos tipos de animales y además se les ha añadido la posibilidad de avisar a los usuarios que también permiten acogidas de animales en la propia  asociación. Todo esto se puede modificar con los selectores que aparecen al querer editar el perfil como se muestra en la figura \ref{fig:implementacionEditarPerfil}.
+Además, éste ha sido el sprint en el que hemos hecho algunas correcciones finales, en lugar de seguir ampliando funcionalidades, primando la estabilidad de la aplicación frente a la cantidad de contenido añadido.
 
 Por último, con respecto al perfil ahora cuando accedamos a alguno se nos indica que características tiene éste mediante etiquetas. Con esto permitimos que con un vistazo rápido se pueda obtener información básica sobre los perfiles.
 

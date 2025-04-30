@@ -56,7 +56,7 @@
     "cropImage": "Recortar imagen",
     "register": "Registrarse",
     "login": "Iniciar sesión",
-    "requests": "Notificaciones",
+    "requests": "Solicitudes y Notificaciones",
     "profile": "Perfil",
     "searchShelter": "Buscar casa de acogida",
     "animalDetails": "Detalles del animal"
@@ -125,6 +125,7 @@
   "allowShelterOwn": "Que se pueda acoger a mis animales",
   "allowSponsorOwn": "Que se pueda apadrinar a mis animales",
   "animalsAdoption": "Animales en adopción",
-  "edit": "editar"
+  "edit": "editar",
+  "advertisements": "avisos" 
 
 }
