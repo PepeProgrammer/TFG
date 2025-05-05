@@ -1,0 +1,5 @@
+Modificar el css de home y lost-animals para que no haya tanto margen
+
+Decir que se han juntado las solicitudes de adopción y acogida en la misma página.
+
+Mejorar las sesiones con express-mysql-session

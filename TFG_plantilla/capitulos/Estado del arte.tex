@@ -1,0 +1,135 @@
+\chapter{Estado del Arte}
+
+\section{Dominio del problema}
+
+\section{Revisión de tecnologías: alternativas}
+En esta sección vamos a comparar las distintas tecnologías para el desarrollo de aplicaciones híbridas y entre todas las vistas escogeremos las que sean más optimas para el desarrollo de dicha aplicación.
+
+\subsection{IDEs}
+Un entorno de desarrollo integrado (IDE) \cite{ide} es un sistema de software para el diseño de aplicaciones que combina herramientas del desarrollador comunes en una sola interfaz gráfica de usuario.
+
+Como todavía no sabemos que lenguajes de programación vamos a utilizar, lo mejor es buscar entornos de desarrollo que acepten varios lenguajes, para ello nos decantaremos entre la suite de Jetbrains \cite{jetbrains} o Visual Studio Code \cite{vscode}:
+
+\begin{table}[H]
+	\centering
+
+	\begin{tabular}{|>{\raggedright}p{3cm}|p{4cm}|p{4cm}|} 
+		\hline
+		\textbf{Característica} & \textbf{JetBrains (IntelliJ, PyCharm, etc.)} & \textbf{Visual Studio Code} \\ \hline
+		Enfoque & IDE completo para lenguajes específicos & Editor de código ligero con extensibilidad \\ \hline
+		Licencia & Comercial (gratis para estudiantes y OSS) & Código abierto \\ \hline
+		Rendimiento & Más uso de recursos (IDE completo) & Ligero y rápido \\ \hline
+		Integración & Herramientas integradas para cada lenguaje & Depende de extensiones \\ \hline
+		Depuración & Depurador avanzado integrado & Depurador mediante extensiones \\ \hline
+		Refactorización & Herramientas avanzadas de refactorización & Capacidades básicas de refactorización \\ \hline
+		Precio & Pago (excepto versiones Community) & Gratuito \\ \hline
+		Personalización & Limitada en comparación con VSCode & Altamente personalizable \\ \hline
+		Extensiones & Ecosistema más limitado & Amplio mercado de extensiones \\ \hline
+		Colaboración & Space (solución integrada) & Live Share (extensión) \\ \hline
+		Inteligencia & AI Assistant (en versiones pagas) & Copilot (extensión de pago) \\ \hline
+	\end{tabular}
+		\caption{Comparación entre JetBrains Suite y Visual Studio Code}
+\end{table}
+
+
+\subsection{Front-end}
+
+Primero hablaremos de las tecnologías para el front, para ello haremos uso de frameworks \cite{framework} que son estructuras conceptuales y tecnológicas de asistencia definida, normalmente, con artefactos o módulos concretos de software, que puede servir de base para la organización y desarrollo de software. Típicamente, puede incluir soporte de programas, bibliotecas, y un lenguaje interpretado, entre otras herramientas, para así ayudar a desarrollar y unir los diferentes componentes de un proyecto. A continuación se muestran las siguientes alternativas.
+
+\begin{table}[H] %Esto hace que se ponga donde le corresponde en lugar de "flotar"
+    \centering
+    \begin{tabular}{|p{2cm} |p{4 cm} |p{4cm} |p{4cm} |} \hline 
+         &  \textbf{Flutter}&  \textbf{Ionic}& \textbf{React Native}\\  \hline 
+         Descripción &  Marco multiplataforma de código abierto de Google para desarrollar aplicaciones iOS/Android &  Marco frontend para crear aplicaciones móviles para teléfonos iOS/Android que utilizan la misma base de código& Framework de programación de aplicaciones nativas multiplataforma, para desarrollar apps iOS/Android\\ \hline 
+         
+        Lenguaje de programación &  Dart&  HTML,CSS y Javascript & Javascript\\ \hline 
+        API nativas &  Si&  Si & Si\\ \hline 
+        Despliegue &  Móvil, Web, Escritorio&  Móvil, Web, PWA, Escritorio & Móvil\\ \hline 
+        Rendimiento móvil &  Excelente &  Bueno & Muy bueno\\ \hline 
+        Rendimiento web &  Deficiente &  Excelente & No tiene\\ \hline 
+    \end{tabular}
+    \caption{Comparativa tecnologías front-end \cite{flut-ion} \cite{flut-react}}
+    \label{tab:tec_front}
+\end{table}
+
+\subsection{Back-end}
+
+En cuanto al back, debemos separar entre las tecnologías de almacenamiento de datos y tecnologías de obtención y recepción de datos del front-end. A éstas últimas se les llama APIs \cite{api} son mecanismos que permiten a dos componentes de software comunicarse entre sí mediante un conjunto de definiciones y protocolos, en este caso al cliente con la base de datos. \\
+
+\textbf{Bases de datos} \\ \\
+Para la base de datos debemos saber que podemos elegir entre bases de datos relacionales (SQL) y no relacionales (NoSQL).
+
+Las primeras están organizadas en tablas con filas y columnas. Usan un modelo relacional que funciona mejor con datos estructurados bien definidos, en los que existen relaciones entre las diferentes entidades.
+
+En las NoSQL no se sigue un esquema rígido para el almacenamiento de los datos, éstas almacenan los datos en estructuras flexibles que suelen ser datos en formato JSON en unas entidades llamadas documentos, generalmente sin relación entre los mismos.\cite{sqlvsno}
+
+A continuación vamos a comparar una de las bases de datos relacionales más populares con la base de datos no relacional más popular. 
+
+\begin{table}[H] %Esto hace que se ponga donde le corresponde en lugar de "flotar"
+    \centering
+    \begin{tabular}{|p{2cm} |p{4 cm} |p{4cm} |} \hline 
+         &  \textbf{MongoDb}&  \textbf{MySQL}\\  \hline 
+         Tipo &  NoSQL &  SQL \\ \hline 
+         
+        Estructura de la base de datos &  Almacena los datos en documentos y colecciones de tipo JSON &  Almacena los datos en una estructura tabular con filas y columnas \\ \hline 
+        Arquitectura &  Nexus &  Cliente servidor\\ \hline 
+        Lenguaje de consulta &  MQL &  SQL\\ \hline
+        Escalabilidad & Horizontal & Vertical \\ \hline
+        Rendimiento & Alto rendimiento con grandes grupos de datos & Excelente para consultas y uniones de datos complejas \\ \hline 
+        Seguridad &  Al no tener una estructura fija, pueden surgir incoherencias y problemas de seguridad de los datos &  ofrece una mayor seguridad ya que tiene estructuras de datos definidas con mayor consistencia \\ \hline
+      	Integridad de los datos & No es muy consistente, es fácil que haya datos duplicados & Alta consistencia de datos \\ \hline
+        Complejidad &  Fácil &  Muy fácil \\ \hline
+        
+    \end{tabular}
+    \caption{Comparativa tecnologías BBDD \cite{sqlcomparison}}
+    \label{tab:tec_db}
+\end{table}
+
+
+\textbf{Lenguajes de programación back} \\ \\
+En esta sección vamos a comparar los 3 principales lenguajes de programación de desarrollo para el servidor y sus frameworks más reconocidos: 
+\begin{table}[H] %Esto hace que se ponga donde le corresponde en lugar de "flotar"
+    \centering
+    \begin{tabular}{|p{2cm} |p{3cm} |p{3cm} |p{3cm} |} \hline 
+         &  \textbf{Javascript}&  \textbf{Python}& \textbf{PHP}\\  \hline 
+         Framework &  Node.js &  Django & Laravel\\ \hline
+         
+        Conectividad BBDD &  Conectividad sencilla y con todo tipo de bases de datos&  La conectividad de la base de datos es posible, pero no para todos. Además, necesita controladores. & Conectividad sencilla, capaz de conectarse con más de 25 bases de datos sin problemas.\\ \hline 
+        Curva de aprendizaje &  Muy fácil & Fácil & Media\\ \hline 
+        Seguridad &  ofrece prácticas de seguridad que permiten securizar el sistema comodamente &  Más seguro con funciones de ciberseguridad integradas & Se han producido muchos ataques a la seguridad	\\ \hline 
+        velocidad &  Más rápido que php &  Rápido(menos que php) & Muy rápido a partir de la versión 7\\ \hline 
+        Popularidad & Un poco más popular que python 1.8\% &  Menos popular que PHP (alrededor del 1,1\% de todos los sitios de Internet utilizan Python) & Más popular (cerca del 79\% de los sitios web utilizan PHP)\\ \hline 
+    \end{tabular}
+    \caption{Comparativa tecnologías back-end }
+    \label{tab:tec_back}
+\end{table}
+
+
+\section{Revisión de aplicaciones similares} \label{appssimilares}
+
+%ASPCA Volunteer Portal: https://play.google.com/store/apps/details?id=org.aspca.volunteer&pli=1
+\begin{itemize}
+	\item Amazdog \cite{amazdog}: Es una aplicación móvil en la cual puedes adoptar animales y publicar si un animal se ha perdido además cuenta con servicios como búsqueda de playas y también proporcionan seguros para los animales.
+	
+	\item SukyCMS \cite{sukycms}: Es un gestor para las asociaciones de animales que cuenta con varios paneles de gestión en el que se destaca el del listado de animales, pero también tiene por ejemplo uno de formularios. Este servicio además proporciona también la creación de una web para que los usuarios puedan entrar en ellas y solicitar adopciones además de ver información sobre la propia asociación.
+	
+	\item Miwuki pet Center \cite{miwuki}: Este programa se encarga de a gestión de adopciones, acogidas y rescates de animales llevadas a cabo por protectoras, asociaciones, rescatistas y administraciones públicas, además cuenta con una funcionalidad para realizar publicaciones automáticas en las principales redes sociales.
+	 
+\end{itemize}
+
+\begin{table}[H] %Esto hace que se ponga donde le corresponde en lugar de "flotar"
+	\centering
+	\begin{tabular}{|p{3cm}|l|l|l|l|} \hline 
+		& \textbf{Adoptapp} & \textbf{Amazdog} & \textbf{SukyCMS} & \textbf{Miwuki} \\ \hline
+		App móvil & Sí & Sí & No & Solo Android \\ \hline
+		Versión web	& Sí & No & Sí &  Sí \\ \hline
+		Permite adopciones & Sí & Sí & Sí & Sí \\ \hline
+		Permite acogidas & Sí & No & Sí & Sí \\ \hline
+		Permite voluntariados & Sí & No & Sí & No \\ \hline
+		Gestiona animales perdidos & Sí & Sí & No & No \\ \hline
+		Gestiona animales encontrados & Sí & No & No & No \\ \hline
+		
+    \end{tabular}
+		\caption{Comparativa aplicaciones similares}
+		\label{tab:appsSimilares}
+	\end{table}
