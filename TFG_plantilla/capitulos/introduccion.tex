@@ -26,3 +26,51 @@ Además, también nos hemos decantado por esta propuesta debido a que las asocia
 \section{Planificación temporal}
 
 \section{Presupuesto}
+
+Para el entendimiento del presupuesto debemos tener en cuenta las siguientes consideraciones:
+
+\begin{itemize}
+	\item Para la realización de dicho presupuesto suponemos el desarrollo completo del sistema lo que se estima que serán unas 600 horas totales.
+	\item Supondremos que únicamente hay un desarrollador a cargo del proyecto.
+	\item Como veremos en el apartado de \textit{Dominio del problema} \ref{dompro}, donde explicaremos con más detalle cada apartado del que vemos en el presupuesto, vamos a usar \textit{amazon aws} para el servidor, por lo que los precios serán los que define amazon \cite{aws}
+	\item Para el calculo de la amortización de los equipos informáticos, básicamente hemos dividido el número de horas entre 8, suponiendo que el ritmo de trabajo es de 8 horas diarias 5 días a la semana, y ese mismo número dividiéndolo entre 5 para obtener el número de semanas que se va a utilizar el ordenador teóricamente. Con todo esto obtenemos la cifra que aparece en el presupuesto.
+	\item El cálculo de los impuestos de la seguridad social se ha calculado en base a lo que cobra en bruto un informático en España y sabiendo cuanto es el sueldo neto medio \cite{jobted}. Según la página de \textit{Jobted} el salario bruto medio es de 30300€ al año, mientras que el salario mensual neto es de 1640€. Si dividimos la cantidad bruta entre 14, el número de pagas anuales, obtenemos una cantidad 2164,29€ aproximadamente. Al realizar la resta de éste entre el salario neto obtenemos una cantidad de 524,28€ euros al mes en impuestos. 
+	
+	Con la información del sueldo en bruto mensual podemos calcular el precio hora que cuesta un trabajador, unos 13,52€/hora, pero para redondear, en el presupuesto hemos puesto 14€/hora.
+	
+\end{itemize}
+
+Todo esto es susceptible a modificaciones en función de los cambios que se vayan produciendo en el proyecto, así como en el caso de que haya algún retraso en la programación, pero el presupuesto estimado quedaría de la siguiente manera:
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{lr}
+		\toprule
+		\textbf{Concepto} & \textbf{Coste (EUR)} \\
+		\midrule
+		\textbf{Desarrollo de software (600 horas)} & \\
+		\quad Desarrollo frontend (250 horas × 14€/h) & 3500€ \\
+		\quad Desarrollo backend (350 horas × 14€/h) & 4900€ \\
+		\midrule
+		\textbf{Infraestructura AWS (mensual)} & \\
+		\quad EC2 t3.medium (servidor) & 35€ \\
+		\quad RDS db.t3.micro (base de datos) & 15€ \\
+		\quad S3 (almacenamiento) & 5€ \\
+		\quad CloudFront (CDN) & 10€ \\
+		\quad Route 53 (DNS) & 0,50€ \\
+		\quad \textbf{Total mensual AWS} & \textbf{65,50€} \\
+		\midrule
+		\textbf{Costes adicionales} & \\
+		\quad Dominio (.app o .com) & 15€/año \\
+		\quad Certificado SSL & 0€ (usando ACM) \\
+		\midrule
+		\textbf{Coste de adquisición de material inventariable} \\
+		\quad Amortización de equipos informáticos & 38,46€ \\
+		\midrule
+		\textbf{Total coste inicial (desarrollo + primer mes)} & \textbf{8453,46€} \\
+		\textbf{Total coste recurrente (anual)} & \textbf{15€} \\
+		\textbf{Total coste recurrente (mensual)} & \textbf{65.50€} \\
+		\bottomrule
+	\end{tabular}
+		\caption{Desglose de costes del proyecto}
+\end{table}

@@ -10,7 +10,31 @@ Por último se contempla la opción de que se pueda apadrinar a los animales des
 Adoptapp se implementará tanto para dispositivos móviles como para navegadores web. Se realizarán las pruebas y ajustes necesarios, como se irá viendo a lo largo del desarrollo.
 
 \section{Herramientas de desarrollo elegidas}
+En este apartado definiremos las tecnologías elegidas finalmente para el desarrollo de la aplicación de todas las comentadas en el apartado de \textit{Revisión de tecnologías} \ref{rev}.
 
+\begin{itemize}
+	\item \textbf{IDE}: finalmente nos hemos decantado por \textit{visual studio code} ya que, gracias a su versatilidad, nos vale para desarrollar tanto el cliente como el servidor. 
+	
+	Otra razón por la que lo hemos elegido frente a la suite de \textit{Jetbrains} es debido a que ésta es de pago frente frente a \textit{VScode}, la cual es gratuita.
+	
+	\item \textbf{Cliente}: para éste hemos decidido usar \textit{ionic}. Esto se debe principalmente a que a nivel de tiempo es de la que menos aprendizaje tendría que realizar, ya que su desarrollo se basa en HTML, css y javascript, tecnologías que hemos visto durante el grado.
+	
+	Además, también se ha elegido porque es la que mejor rendimiento web tiene, tema que le hizo ganar relevancia frente a las demás, ya que una de las prioridades es que se pueda usar en la mayor cantidad de entornos posibles.
+	
+	\item \textbf{Base de datos}: entre ambas opciones, la seleccionada ha sido \textit{MySQL} ya que, al igual que pasa en el cliente, es una tecnología con la que estamos familiarizados y además se adapta mejor a las necesidades del desarrollo, por ejemplo, proporciona una mayor seguridad en la consistencia de datos.
+	
+	\item \textbf{Servidor}: Nos hemos decantado por elegir \textit{Node.js} como entorno de desarrollo, debido a que es uno de los sistemas más rápidos de entre las opciones consultadas.
+	
+	Por otro lado, el lenguaje de programación es el mismo que el del cliente, lo que hace mucho más cómodo el desarrollo, no teniendo que consultar las mismas dudas para sendos programas, lo cual, además, aumenta el tiempo que podemos invertir en el desarrollo, recortando en el de aprendizaje.
+	
+	A continuación se muestra un diagrama de la arquitectura del proyecto: 
+\end{itemize}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{"Sprint 0/diagramaArquitectura"}
+	\caption{Diagrama de la arquitectura del sistema}
+	\label{fig:diagrama_arquitectura}
+\end{figure}
 \section{Ciclo de vida/Metodología}
 En esta sección hablaremos de la metodología empleada, que en este caso hemos decidido usar la famosa metodología ágil scrum, que vamos a adaptar a nuestro caso.
 
