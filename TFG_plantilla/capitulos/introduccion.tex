@@ -5,9 +5,9 @@ Este trabajo tratará sobre el desarrollo de una aplicación para la gestión de
 
 \section{Motivación}
 
-El desarrollo de este proyecto nace debido a la falta de organización con respecto a los avisos de adopciones ya la falta de centralización de dicha información, ya que la mayoría de las veces se difunden por las distintas redes sociales pero suele ser en un formato no persistente y poco organizado, en especial para las asociaciones de animales.
+El desarrollo de este proyecto nace debido a la falta de organización con respecto a los avisos de adopciones y a la falta de centralización de dicha información, ya que la mayoría de las veces se difunden por las distintas redes sociales pero suele ser en un formato no persistente y poco organizado, en especial para las asociaciones de animales.
 
-Esta idea se llevaba macerando varios años, ya que siempre que aparecía cualquier tipo de información sobre animales perdidos era en un formato temporal y solo visible en función de un algoritmo basado en tus preferencias personales, por lo que siempre aparecía el pensamiento de "ojalá esto llegara a la gente sí o sí". Básicamente ese fue el germen de AdoptApp, ya que aunque empezó por las publicaciones de animales perdidos, eso ha llevado a la idea de que también sería muy positivo que se pudiera ver que animales hay en adopción o para acogida en la zona.
+Esta idea se llevaba macerando varios años, ya que siempre que aparecía cualquier tipo de información sobre animales perdidos era en un formato temporal y solo visible en función de un algoritmo basado en tus preferencias personales, como en las historias de instagram por ejemplo, lo cual hace que esa información se pierda en poco tiempo y sea difícil realizar un seguimiento. Básicamente ese fue el germen de AdoptApp, ya que aunque empezó por las publicaciones de animales perdidos, eso ha llevado a la idea de que también sería muy positivo que se pudiera ver que animales hay en adopción o para acogida en la zona.
 
 Además, también nos hemos decantado por esta propuesta debido a que las asociaciones y protectoras realizan un trabajo enorme, sin ánimo de lucro, por lo que consideramos pertinente realizar un sistema con el que pudiesen tener las mayores facilidades posibles para dicho trabajo.
 
@@ -20,10 +20,16 @@ Además, también nos hemos decantado por esta propuesta debido a que las asocia
 	\item Proporcionar un apoyo de software para facilitar el trabajo a las protectoras y asociaciones.
 	\item Centralizar la información de las asociaciones en un espacio común para facilitar su búsqueda a los usuarios adoptantes.
 	\item Crear una plataforma con comunidad para hacer más rápido el encuentro de animales perdidos.
-	
 \end{itemize}
 
 \section{Planificación temporal}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{"Sprint 0/gantt"}
+	\caption{Diagrama de Gantt de la planificación proyecto}
+	\label{fig:gantt}
+\end{figure}
 
 \section{Presupuesto}
 
@@ -32,7 +38,8 @@ Para el entendimiento del presupuesto debemos tener en cuenta las siguientes con
 \begin{itemize}
 	\item Para la realización de dicho presupuesto suponemos el desarrollo completo del sistema lo que se estima que serán unas 600 horas totales.
 	\item Supondremos que únicamente hay un desarrollador a cargo del proyecto.
-	\item Como veremos en el apartado de \textit{Dominio del problema} \ref{dompro}, donde explicaremos con más detalle cada apartado del que vemos en el presupuesto, vamos a usar \textit{amazon aws} para el servidor, por lo que los precios serán los que define amazon \cite{aws}
+	%\item Como veremos en el apartado de \textit{Dominio del problema} \ref{dompro}, donde explicaremos con más detalle cada apartado del que vemos en el presupuesto, 
+	\item Para alojar el servidor, vamos a usar \textit{amazon aws} para el servidor, por lo que los precios serán los que define amazon \cite{aws}
 	\item Para el calculo de la amortización de los equipos informáticos, básicamente hemos dividido el número de horas entre 8, suponiendo que el ritmo de trabajo es de 8 horas diarias 5 días a la semana, y ese mismo número dividiéndolo entre 5 para obtener el número de semanas que se va a utilizar el ordenador teóricamente. Con todo esto obtenemos la cifra que aparece en el presupuesto.
 	\item El cálculo de los impuestos de la seguridad social se ha calculado en base a lo que cobra en bruto un informático en España y sabiendo cuanto es el sueldo neto medio \cite{jobted}. Según la página de \textit{Jobted} el salario bruto medio es de 30300€ al año, mientras que el salario mensual neto es de 1640€. Si dividimos la cantidad bruta entre 14, el número de pagas anuales, obtenemos una cantidad 2164,29€ aproximadamente. Al realizar la resta de éste entre el salario neto obtenemos una cantidad de 524,28€ euros al mes en impuestos. 
 	
