@@ -4,23 +4,31 @@
 
 En esta sección hablaremos más detalladamente del problema a resolver. 
 
-Un actor clave en el sistema son las asociaciones de animales, éstas son entidades sin ánimo de lucro, por lo que generalmente no tienen ingresos, y deben utilizar herramientas de gestión gratuitas para ahorrar la mayor cantidad de dinero posible para utilizarlo con sus animales. Éstas no suelen ser muy completas como veremos en el apartado \ref{appssimilares}, haciendo necesario el uso de varias aplicaciones para la gestión de una sola entidad.
 
-A coalición de esto, por ejemplo el proceso posterior a la adopción no suele ser controlado en este tipo de aplicaciones, haciendo que se tenga que recurrir a otras, copo apps de mensajería u otras opciones para su gestión, lo cual produce un aumento la desorganización.
 
-Como hemos mencionado anteriormente, la información acerca de los animales en adopción y/o acogida de una zona concreta está muy dispersa y se hace tediosa su búsqueda, esto sumado a los párrafos leídos previamente, nos ha llevado a la conclusión que lo mejor sería centralizar dicha información en nuestro sistema.
+Un actor clave en el sistema son las asociaciones de animales \cite{asociaciones}, éstas son entidades sin ánimo de lucro, legalmente constituidas cuyo fin principal es la protección y defensa de los animales, tanto de los animales de compañía como de los salvajes.
+
+Técnicamente se conocen como «asociaciones de protección y defensa de los animales», aunque desde siempre las llamamos «protectoras de animales». Éstas se encargan, entre otras muchas tareas, de gestionar la adopción y acogida de los mismos. También suelen firmar convenios de colaboración con Comunidades autónomas y/o ayuntamientos para prestar servicios que estas administraciones no puedan prestar o no sean eficientes haciéndolos, como por ejemplo la recogida de animales callejeros.
+
+Éstas se comunican mediante las redes sociales con las personas interesadas en realizar alguna de las acciones mencionadas previamente, esto lo sabemos gracias a la reuniones que tuvimos con Colonias Felinas de Armilla previas al desarrollo, las cuales además de proporcionarnos información para perfilar las tareas a realizar, también nos explicaron sobre su flujo de trabajo y como interactúan con la gente interesada. 
+
+ Las asociaciones, generalmente no tienen demasiados ingresos, y deben utilizar herramientas de gestión gratuitas para ahorrar la mayor cantidad de dinero posible para utilizarlo con sus animales. Éstas no suelen ser muy completas como veremos en el apartado \ref{appssimilares}, haciendo necesario el uso de varias aplicaciones para la gestión de una sola entidad.
+
+A coalición de esto, por ejemplo el proceso posterior a la adopción no suele ser controlado en este tipo de aplicaciones, haciendo que se tenga que recurrir a otras, como apps de mensajería u otras opciones para su gestión, lo cual produce un aumento la desorganización.
+
+Como hemos mencionado anteriormente, la información acerca de los animales en adopción y/o acogida de una zona concreta está muy dispersa y se hace tediosa su búsqueda, esto sumado a lo indicado previamente, nos ha llevado a la conclusión que lo mejor sería centralizar dicha información en única aplicación.
 
 Además, para los usuarios que decidan adoptar, es una buena idea que la aplicación les resulte familiar y manejable, en ese sentido creemos que el diseño debería ser similar al de las redes sociales actuales, ya que eso les resultaría atractivo y haría que, por lo menos una mayor cantidad de usuarios le diese una oportunidad a la aplicación. El objetivo de todo esto es que sea intuitiva teniendo que aprender lo menos posible para su uso, ya que si es muy complicada, éstos no querrán utilizarla.
 
-Otra carencia en este ámbito, es la falta de gestión en los voluntariados. Esto suele ser algo común entre las asociaciones y protectoras, que no haya un registro de los voluntarios, o mismo de la propia gente que trabaja ahí, eso genera problemas de coordinación que serían fácilmente evitables si estuviese registrado en alguna plataforma.
+Otra carencia en este ámbito, es la falta de gestión en los voluntariados. Esto suele ser algo común entre las asociaciones y protectoras, que no haya un registro de los voluntarios y su trabajo, y lo mismo ocurre con la propia gente que trabaja ahí, eso genera problemas de coordinación que serían fácilmente evitables si estuviesen registrados en alguna plataforma.
 
-La idea es crear un sistema en que todas estas carencias sean suplidas en la medida de lo posible y ayudar tanto asociaciones y usuarios adoptantes a tener una plataforma en la que poder compartir información sobre los animales.
+La idea es crear un sistema en que todas estas carencias sean suplidas en la medida de lo posible y ayudar tanto asociaciones y usuarios adoptantes, voluntarios y ciudadanos en general a tener una plataforma en la que poder compartir información sobre los animales.
 
 
 
 
 \section{Revisión de tecnologías: alternativas} \label{rev}
-En esta sección vamos a comparar las distintas tecnologías para el desarrollo de aplicaciones y entre todas las vistas escogeremos las que sean más optimas para el desarrollo de dicha aplicación.
+En esta sección vamos a comparar las distintas tecnologías para el desarrollo de aplicaciones y entre todas las vistas podremos escoger las que sean más optimas para nuestro propósito. A continuación haremos una comparación entre los diferentes IDEs y tecnologías tanto para el cliente como para el servidor.
 
 \subsection{IDEs}
 Un entorno de desarrollo integrado (IDE) \cite{ide} es un sistema de software para el diseño de aplicaciones que combina herramientas del desarrollador comunes en una sola interfaz gráfica de usuario.
@@ -49,9 +57,9 @@ Como todavía no sabemos que lenguajes de programación vamos a utilizar, lo mej
 \end{table}
 
 
-\subsection{Front-end}
+\subsection{Cliente}
 
-Primero hablaremos de las tecnologías para el front, para ello haremos uso de frameworks \cite{framework} que son estructuras conceptuales y tecnológicas de asistencia definida, normalmente, con artefactos o módulos concretos de software, que puede servir de base para la organización y desarrollo de software. Típicamente, puede incluir soporte de programas, bibliotecas, y un lenguaje interpretado, entre otras herramientas, para así ayudar a desarrollar y unir los diferentes componentes de un proyecto. A continuación se muestran las siguientes alternativas.
+Primero hablaremos de las tecnologías para el cliente, para ello haremos uso de frameworks \cite{framework} que son estructuras conceptuales y tecnológicas de asistencia definida, normalmente, con artefactos o módulos concretos de software, que puede servir de base para la organización y desarrollo de software. Típicamente, puede incluir soporte de programas, bibliotecas, y un lenguaje interpretado, entre otras herramientas, para así ayudar a desarrollar y unir los diferentes componentes de un proyecto. A continuación se mostrán las siguientes alternativas: Flutter, Ionic y React Native.
 
 \begin{table}[H] %Esto hace que se ponga donde le corresponde en lugar de "flotar"
     \centering
@@ -64,16 +72,17 @@ Primero hablaremos de las tecnologías para el front, para ello haremos uso de f
         Despliegue &  Móvil, Web, Escritorio&  Móvil, Web, PWA, Escritorio & Móvil\\ \hline 
         Rendimiento móvil &  Excelente &  Bueno & Muy bueno\\ \hline 
         Rendimiento web &  Deficiente &  Excelente & No tiene\\ \hline 
+        Conocimiento previo & Bajo & Medio & Nulo \\ \hline
     \end{tabular}
     \caption{Comparativa tecnologías front-end \cite{flut-ion} \cite{flut-react}}
     \label{tab:tec_front}
 \end{table}
 
-\subsection{Back-end}
+\subsection{Servidor}
 
-En cuanto al back, debemos separar entre las tecnologías de almacenamiento de datos y tecnologías de obtención y recepción de datos del front-end. A éstas últimas se les llama APIs \cite{api} son mecanismos que permiten a dos componentes de software comunicarse entre sí mediante un conjunto de definiciones y protocolos, en este caso al cliente con la base de datos. \\
+En cuanto al servidor, debemos separar entre las tecnologías de almacenamiento de datos y tecnologías de obtención y recepción de datos del cliente. A éstas últimas se les llama APIs \cite{api} son mecanismos que permiten a dos componentes de software comunicarse entre sí mediante un conjunto de definiciones y protocolos, en este caso al cliente con la base de datos. A continuación compararemos diferentes tipos de bases de datos y diferentes lenguajes para el servidor.
 
-\textbf{Bases de datos} \\ \\
+\subsubsection{Bases de datos}
 Para la base de datos debemos saber que podemos elegir entre bases de datos relacionales (SQL) y no relacionales (NoSQL).
 
 Las primeras están organizadas en tablas con filas y columnas. Usan un modelo relacional que funciona mejor con datos estructurados bien definidos, en los que existen relaciones entre las diferentes entidades.
@@ -103,7 +112,7 @@ A continuación vamos a comparar una de las bases de datos relacionales más pop
 \end{table}
 
 
-\textbf{Lenguajes de programación back} \\ \\
+\subsubsection{Lenguajes de programación para el servidor}
 En esta sección vamos a comparar los 3 principales lenguajes de programación de desarrollo para el servidor y sus frameworks más reconocidos: 
 \begin{table}[H] %Esto hace que se ponga donde le corresponde en lugar de "flotar"
     \centering
@@ -121,17 +130,39 @@ En esta sección vamos a comparar los 3 principales lenguajes de programación d
     \label{tab:tec_back}
 \end{table}
 
-
+\pagebreak
 \section{Revisión de aplicaciones similares} \label{appssimilares}
 
 %ASPCA Volunteer Portal: https://play.google.com/store/apps/details?id=org.aspca.volunteer&pli=1
 \begin{itemize}
 	\item Amazdog \cite{amazdog}: Es una aplicación móvil en la cual puedes adoptar animales y publicar si un animal se ha perdido además cuenta con servicios como búsqueda de playas y también proporcionan seguros para los animales.
 	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"Sprint 0/amazdog"}
+	\caption{Pantalla de inicio y de adopiones de la aplicación Amazdog}
+	\label{fig:amazdog}
+\end{figure}
+	
 	\item SukyCMS \cite{sukycms}: Es un gestor para las asociaciones de animales que cuenta con varios paneles de gestión en el que se destaca el del listado de animales, pero también tiene por ejemplo uno de formularios. Este servicio además proporciona también la creación de una web para que los usuarios puedan entrar en ellas y solicitar adopciones además de ver información sobre la propia asociación.
+	
+	
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"Sprint 0/sukycms"}
+	\caption{Imagen de panel de administración de SukyCMS}
+	\label{fig:sukycms}
+\end{figure}
 	
 	\item Miwuki pet Center \cite{miwuki}: Este programa se encarga de a gestión de adopciones, acogidas y rescates de animales llevadas a cabo por protectoras, asociaciones, rescatistas y administraciones públicas, además cuenta con una funcionalidad para realizar publicaciones automáticas en las principales redes sociales.
 	 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"Sprint 0/miwuki"}
+	\caption{Ejemplo de visualización de Miwuki}
+	\label{fig:miwuki}
+\end{figure}
+
 \end{itemize}
 
 \begin{table}[H] %Esto hace que se ponga donde le corresponde en lugar de "flotar"

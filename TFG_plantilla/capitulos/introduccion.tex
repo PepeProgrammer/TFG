@@ -1,28 +1,34 @@
 
 \chapter{Introducción}
 
-Este trabajo tratará sobre el desarrollo de una aplicación para la gestión de las asociaciones de animales en diferentes acciones como por ejemplo las adopciones y acogidas.
+Este trabajo tratará sobre el desarrollo de una aplicación para la gestión de las asociaciones de animales, facilitando la realización de diferentes acciones, como por ejemplo, las adopciones o las acogidas.
 
 \section{Motivación}
 
-El desarrollo de este proyecto nace debido a la falta de organización con respecto a los avisos de adopciones y a la falta de centralización de dicha información, ya que la mayoría de las veces se difunden por las distintas redes sociales pero suele ser en un formato no persistente y poco organizado, en especial para las asociaciones de animales.
+En la actualidad, si una persona está interesada en adoptar un animal, quiere ser voluntaria en una asociación, o desea informar que se ha perdido o encontrado un animal, no dispone de ninguna aplicación para hacer estas acciones. Tendría que buscar una asociación y dirigirse personalmente a ella, o bien anunciarse en redes sociales o poner letreros en la calle o en veterinarias indicando qué desea (adoptar, buscar, acoger, etc.). Todas estas son acciones que requieren bastante esfuerzo y una alta motivación. No hay una centralización de información, y la difusión por redes sociales suele ser en un formato no persistente y poco organizado, en especial para las asociaciones de animales.
 
-Esta idea se llevaba macerando varios años, ya que siempre que aparecía cualquier tipo de información sobre animales perdidos era en un formato temporal y solo visible en función de un algoritmo basado en tus preferencias personales, como en las historias de instagram por ejemplo, lo cual hace que esa información se pierda en poco tiempo y sea difícil realizar un seguimiento. Básicamente ese fue el germen de AdoptApp, ya que aunque empezó por las publicaciones de animales perdidos, eso ha llevado a la idea de que también sería muy positivo que se pudiera ver que animales hay en adopción o para acogida en la zona.
+Llevo varios años macerando la idea de desarrollar una app que ayude a las asociaciones a organizar su trabajo y a los ciudadanos o personas particulares a facilitar su colaboración con las asociaciones buscando el bien de los animales. Las soluciones existentes hasta el momento tienen un formato temporal y solo visible en función de un algoritmo basado en tus preferencias personales, como en las historias de instagram por ejemplo, lo cual hace que esa información se pierda en poco tiempo y sea difícil realizar un seguimiento. Básicamente ese fue el germen de AdoptApp, ya que aunque empezó por las publicaciones de animales perdidos, eso ha llevado a la idea de que también sería muy positivo que se pudiera ver que animales hay en adopción o para acogida en la zona, e incluir otras funcionalidades para facilitar la comunicación entre ciudadanos y asociaciones.
 
 Además, también nos hemos decantado por esta propuesta debido a que las asociaciones y protectoras realizan un trabajo enorme, sin ánimo de lucro, por lo que consideramos pertinente realizar un sistema con el que pudiesen tener las mayores facilidades posibles para dicho trabajo.
 
 \section{Objetivos}
 
 \begin{itemize}
-	\item Crear una aplicación para la adopción y acogida de animales. %objetivo específico
+	\item Desarrollar una aplicación móvil multiplataforma para ciudadanos y asociaciones o protectoras de animales que facilite la adopción y acogida, así como la comunicación entre estos. %objetivo específico
 	\item Revisar aplicaciones similares para analizar carencias a nivel funcional. %: No hay una gran cantidad de aplicaciones de este estilo, pero como veremos en el capítulo 3 en la parte de revisión de aplicaciones similares \ref{appssimilares}, no hay demasiadas.
 	\item Proporcionar un apoyo software para aumentar la eficiencia de las adopciones y acogidas de los animales. %: con AdoptApp buscamos principalmente que se consigan adoptar y/o acoger a la mayor cantidad de animales posible, por lo que trataremos de crear una aplicación que permita dar visibilidad y agilidad a ese proceso.
 	\item Proporcionar un apoyo de software para facilitar el trabajo a las protectoras y asociaciones.
 	\item Centralizar la información de las asociaciones en un espacio común para facilitar su búsqueda a los usuarios adoptantes.
 	\item Crear una plataforma con comunidad para hacer más rápido el encuentro de animales perdidos.
+	\item Realizar una aplicación en colaboración con una entidad real, una asociación de animales, para mejorar mis habilidades blandas, específicamente aprender a comunicarme con ella y a cubrir los requisitos consensuados.
+	\item Analizar diferentes tecnologías candidatas para ser usadas en el desarrollo.
+	\item Profundizar en el aprendizaje de las tecnologías seleccionadas para ser más eficiente y mejorar mi formación.
+	\item Mejorar mis conocimientos en ingeniería del software al aplicar metodologías ágiles de desarrollo y usar herramientas de especificación y diseño.
+	
 \end{itemize}
 
 \section{Planificación temporal}
+En esta sección veremos como se ha desarrollado el proyecto en cuanto a la planificación temporal. Como veremos en el apartado \ref{metod} hemos decidido trabajar con la metodología Scrum realizando 4 sprints de una duración aproximada de un mes cada uno. A continuación se muestra el digrama de gantt con la temporalización final del proyecto:
 
 \begin{figure}[H]
 	\centering
@@ -31,33 +37,56 @@ Además, también nos hemos decantado por esta propuesta debido a que las asocia
 	\label{fig:gantt}
 \end{figure}
 
+\begin{itemize}
+	\item \textbf{Estado del arte y tecnologías}: Este apartado fue el primero en realizarse debido a la necesidad de estudiar el dominio del problema, viendo aplicaciones similares y explorando el mercado, para tomar las decisiones iniciales en cuanto al desarrollo de la aplicación, es decir, ver la dirección que debíamos llevar para cumplir con las necesidades de los usuarios y con los objetivos expuestos en el apartado anterior. Además, también tuvimos que realizar una investigación sobre las tecnologías existentes para elegir la más adecuada y aprender como funciona la seleccionada.
+	
+	Como podemos ver en el la figura anterior, la revisión del estado del arte también se hace al final, esto se debe a que por ejemplo, el análisis de las aplicaciones similares se redactó después de terminar la parte de la propuesta (capítulo \ref{propuesta}). 
+	
+	\item \textbf{Iteración 0}: Aquí incluimos la creación del \textit{product backlog} con las historias de usuario a realizar para el correcto desarrollo del sistema. También tenemos en cuenta el tiempo de buscar asociaciones con las que hablar manteniendo reuniones para mejorar y modificar las historias de usuario creadas previamente.
+	
+	\item \textbf{Primera iteración}: En este tramo tuvimos que continuar con el aprendizaje de las tecnologías además de empezar con la codificación de la aplicación. Debido a esto, el desarrollo de esta iteración fue bastante más lento de lo estimado, no obstante, fue el que permitió asentar las bases y hacer que las siguientes fueran avanzando a un mejor ritmo.
+	
+	\item \textbf{Segunda iteración}: Como podemos ver el diagrama, esta iteración duró aproximadamente mes y medio. La razón principal fueron retrasos debido a compromisos de mayor prioridad, por lo que la solución fue desplazar el final del sprint a finales de enero. En éste ya había un mayor entendimiento de las tecnologías por lo que la velocidad aumentó notablemente.
+	
+	\item \textbf{Tercera iteración}: Este fue, sin lugar a dudas, un punto de inflexión en el desarrollo del proyecto. El bagaje de las iteraciones anteriores nos permitieron mejorar la estructura del mismo haciendo el código más compacto y reusable. Esta iteración duró mes y medio también debido a varios desajustes, pero cabe destacar que fue el sprint en el que más horas se han dedicado al proyecto.Todo esto, permitió avances muy significativos en la aplicación.
+	
+	\item \textbf{Cuarta iteración}: En este último tramo del desarrollo, se realizaron las tareas necesarias para que la aplicación fuese lo más estable posible, detectando y arreglando varios errores en el funcionamiento de la misma. Además, se añadieron las últimas funcionalidades necesarias.
+	
+	\item \textbf{Documentación}: Esta sección atraviesa todo el proceso de desarrollo. En este apartado hablamos del tiempo empleado en la documentación, pero no de toda, algunas partes se cuentan en otras secciones, por ejemplo, parte del estado del arte ha sido redactado durante la investigación y parte de la propuesta se ha ido redactando durante las iteraciones pertinentes. No obstante, el resto de la documentación es la que se tiene en cuenta, por lo que era necesario crear este apartado.
+\end{itemize}
+
 \section{Presupuesto}
 
 Para el entendimiento del presupuesto debemos tener en cuenta las siguientes consideraciones:
 
 \begin{itemize}
-	\item Para la realización de dicho presupuesto suponemos el desarrollo completo del sistema lo que se estima que serán unas 600 horas totales.
-	\item Supondremos que únicamente hay un desarrollador a cargo del proyecto.
+	\item Para la realización de dicho presupuesto suponemos el desarrollo completo del sistema, lo que se estima que serán unas 600 horas totales.
+	\item Supondremos que únicamente hay un desarrollador trabajando a tiempo parcial a cargo del proyecto.
 	%\item Como veremos en el apartado de \textit{Dominio del problema} \ref{dompro}, donde explicaremos con más detalle cada apartado del que vemos en el presupuesto, 
 	\item Para alojar el servidor, vamos a usar \textit{amazon aws} para el servidor, por lo que los precios serán los que define amazon \cite{aws}
-	\item Para el calculo de la amortización de los equipos informáticos, básicamente hemos dividido el número de horas entre 8, suponiendo que el ritmo de trabajo es de 8 horas diarias 5 días a la semana, y ese mismo número dividiéndolo entre 5 para obtener el número de semanas que se va a utilizar el ordenador teóricamente. Con todo esto obtenemos la cifra que aparece en el presupuesto.
-	\item El cálculo de los impuestos de la seguridad social se ha calculado en base a lo que cobra en bruto un informático en España y sabiendo cuanto es el sueldo neto medio \cite{jobted}. Según la página de \textit{Jobted} el salario bruto medio es de 30300€ al año, mientras que el salario mensual neto es de 1640€. Si dividimos la cantidad bruta entre 14, el número de pagas anuales, obtenemos una cantidad 2164,29€ aproximadamente. Al realizar la resta de éste entre el salario neto obtenemos una cantidad de 524,28€ euros al mes en impuestos. 
+	\item Para el calculo de la amortización de los equipos informáticos, necesitamos saber cuánto tiempo de uso tendrán los equipos con los que se cuenta a priori. Para calcular ese tiempo, básicamente hemos dividido el número de horas entre 8, suponiendo que el ritmo de trabajo es de 8 horas diarias 5 días a la semana, y ese mismo número dividiéndolo entre 5 para obtener el número de semanas que se va a utilizar el ordenador teóricamente. Con todo esto obtenemos la cifra que aparece en el presupuesto.
+	
+	\item El cálculo de costes de personal se hace considerando impuestos de seguridad social. Esto se ha calculado en base a lo que cobra en bruto un informático en España y sabiendo cuanto es el sueldo neto medio \cite{jobted}. Según la página de \textit{Jobted} el salario bruto medio es de 30300€ al año, mientras que el salario mensual neto es de 1640€. Si dividimos la cantidad bruta entre 14, el número de pagas anuales, obtenemos una cantidad 2164,29€ aproximadamente. Al realizar la resta de éste entre el salario neto obtenemos una cantidad de 524,28€ euros al mes en impuestos. 
 	
 	Con la información del sueldo en bruto mensual podemos calcular el precio hora que cuesta un trabajador, unos 13,52€/hora, pero para redondear, en el presupuesto hemos puesto 14€/hora.
+	
+	\item Cabe destacar, que el mantenimiento de la aplicación tendrá una serie de costes recurrentes, los cuales tendrán un cargo anual, en el caso del dominio de la página web y el servidor, y mensuales hablando de la facturación que haga \textit{amazon aws} en función de la carga que haya en el servidor de la aplicación. Lo que veremos en el presupuesto es una estimación ya que no podemos dar cifras exactas.
 	
 \end{itemize}
 
 Todo esto es susceptible a modificaciones en función de los cambios que se vayan produciendo en el proyecto, así como en el caso de que haya algún retraso en la programación, pero el presupuesto estimado quedaría de la siguiente manera:
 
-\begin{table}[h]
+\begin{table}[H]
 	\centering
 	\begin{tabular}{lr}
 		\toprule
 		\textbf{Concepto} & \textbf{Coste (EUR)} \\
 		\midrule
 		\textbf{Desarrollo de software (600 horas)} & \\
-		\quad Desarrollo frontend (250 horas × 14€/h) & 3500€ \\
-		\quad Desarrollo backend (350 horas × 14€/h) & 4900€ \\
+		\quad Planificación de tareas (10 horas x 14€/h) & 140€ \\
+		\quad Crear entornos de desarrollo  (10 horas x 14€/h) & 140€ \\
+		\quad Desarrollo cliente (240 horas × 14€/h) & 3360€ \\
+		\quad Desarrollo servidor (340 horas × 14€/h) & 4760€ \\
 		\midrule
 		\textbf{Infraestructura AWS (mensual)} & \\
 		\quad EC2 t3.medium (servidor) & 35€ \\
@@ -74,10 +103,12 @@ Todo esto es susceptible a modificaciones en función de los cambios que se vaya
 		\textbf{Coste de adquisición de material inventariable} \\
 		\quad Amortización de equipos informáticos & 38,46€ \\
 		\midrule
-		\textbf{Total coste inicial (desarrollo + primer mes)} & \textbf{8453,46€} \\
+		\textbf{Total coste inicial} & \textbf{8453,46€} \\
 		\textbf{Total coste recurrente (anual)} & \textbf{15€} \\
 		\textbf{Total coste recurrente (mensual)} & \textbf{65.50€} \\
 		\bottomrule
 	\end{tabular}
 		\caption{Desglose de costes del proyecto}
 \end{table}
+
+
