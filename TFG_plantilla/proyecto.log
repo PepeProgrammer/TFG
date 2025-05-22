@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.4.1)  20 MAY 2025 19:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.4.1)  22 MAY 2025 18:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -582,16 +582,16 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.28 \cleardoublepage
+l.32 \cleardoublepage
                       [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
@@ -600,7 +600,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--46
 [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
@@ -609,7 +609,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--53
 [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
 
@@ -695,7 +695,7 @@ l.13
 
 
 ]
-<Sprint 0/gantt.png, id=489, 3134.71124pt x 1535.7375pt>
+<Sprint 0/gantt.png, id=490, 3134.71124pt x 1535.7375pt>
 File: Sprint 0/gantt.png Graphic file (type png)
 <use Sprint 0/gantt.png>
 Package pdftex.def Info: Sprint 0/gantt.png  used on input line 35.
@@ -1061,22 +1061,7 @@ File: Sprint 0/miwuki.png Graphic file (type png)
 Package pdftex.def Info: Sprint 0/miwuki.png  used on input line 161.
 (pdftex.def)             Requested size: 251.9989pt x 177.89673pt.
 
-Underfull \hbox (badness 1902) in paragraph at lines 176--176
-[]|\OT1/cmr/m/n/10.95 Permite vo-lun-ta-
- []
-
-
-Underfull \hbox (badness 5036) in paragraph at lines 177--177
-[]|\OT1/cmr/m/n/10.95 Gestiona ani-ma-
- []
-
-
-Underfull \hbox (badness 5036) in paragraph at lines 178--178
-[]|\OT1/cmr/m/n/10.95 Gestiona ani-ma-
- []
-
-
-Overfull \hbox (12.39194pt too wide) in paragraph at lines 170--182
+Overfull \hbox (2.07939pt too wide) in paragraph at lines 170--189
  [][] 
  []
 
@@ -1133,417 +1118,412 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.49 \begin{itemize}
-                     <./Sprint 0/diagramaArquitectura.png>]
+l.49 
+      <./Sprint 0/diagramaArquitectura.png>]
 
-LaTeX Info: Redefining \. on input line 63.
-LaTeX Info: Redefining \% on input line 63.
+LaTeX Info: Redefining \. on input line 61.
+LaTeX Info: Redefining \% on input line 61.
 [19]
-Overfull \hbox (10.80998pt too wide) in paragraph at lines 72--73
+Overfull \hbox (10.80998pt too wide) in paragraph at lines 79--80
 []\OT1/cmr/bx/sc/10.95 C\OT1/cmr/m/n/10.95 ould: Es-tas ini-cia-ti-vas son las 
 que es-tar^^S^^Pa bien te-ner-las, ya que a~nadir^^S^^Pan
  []
 
 
-Overfull \hbox (31.95021pt too wide) in paragraph at lines 80--85
- [][] 
- []
-
-
-Overfull \hbox (46.21564pt too wide) in paragraph at lines 91--126
+Overfull \hbox (31.95021pt too wide) in paragraph at lines 87--92
  [][] 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 129.
-LaTeX Info: Redefining \% on input line 129.
-[20
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.129 
-      ]
-Underfull \hbox (badness 1205) in paragraph at lines 146--146
+LaTeX Info: Redefining \. on input line 95.
+LaTeX Info: Redefining \% on input line 95.
+[20]
+Overfull \hbox (46.21564pt too wide) in paragraph at lines 98--133
+ [][] 
+ []
+
+
+Underfull \hbox (badness 1205) in paragraph at lines 153--153
 []|\OT1/cmr/m/n/10.95 Cumplimentar el for-mu-la-rio de so-li-ci-tud de
  []
 
 
-Overfull \hbox (43.02188pt too wide) in paragraph at lines 133--160
+Overfull \hbox (43.02188pt too wide) in paragraph at lines 140--167
  [][] 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 163.
-LaTeX Info: Redefining \% on input line 163.
+LaTeX Info: Redefining \. on input line 170.
+LaTeX Info: Redefining \% on input line 170.
 [21
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.170 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.163 
+l.170 
       ]
-Overfull \hbox (51.96025pt too wide) in paragraph at lines 166--193
+Overfull \hbox (51.96025pt too wide) in paragraph at lines 173--200
  [][] 
  []
 
 
-Overfull \hbox (51.96025pt too wide) in paragraph at lines 199--208
+Overfull \hbox (51.96025pt too wide) in paragraph at lines 206--215
  [][] 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 211.
-LaTeX Info: Redefining \% on input line 211.
+LaTeX Info: Redefining \. on input line 218.
+LaTeX Info: Redefining \% on input line 218.
 [22
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.3}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.211 
+l.218 
       
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.4}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.211 
+l.218 
       ]
-Overfull \hbox (64.83069pt too wide) in paragraph at lines 214--223
+Overfull \hbox (64.83069pt too wide) in paragraph at lines 221--230
  [][] 
  []
 
 
-Overfull \hbox (47.43233pt too wide) in paragraph at lines 229--243
+Overfull \hbox (47.43233pt too wide) in paragraph at lines 236--250
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--248
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--252
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 253--254
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 255.
-LaTeX Info: Redefining \% on input line 255.
+LaTeX Info: Redefining \. on input line 262.
+LaTeX Info: Redefining \% on input line 262.
 [23
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.5}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.255 S
+l.262 S
        print 1 \\
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.6}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.255 S
+l.262 S
        print 1 \\
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.7}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.255 S
+l.262 S
        print 1 \\]
-<screenshot001.png, id=625, 1210.5225pt x 339.51843pt>
+<screenshot001.png, id=631, 1210.5225pt x 339.51843pt>
 File: screenshot001.png Graphic file (type png)
 <use screenshot001.png>
-Package pdftex.def Info: screenshot001.png  used on input line 258.
+Package pdftex.def Info: screenshot001.png  used on input line 265.
 (pdftex.def)             Requested size: 360.0pt x 100.97041pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 255--261
+Underfull \hbox (badness 10000) in paragraph at lines 262--268
 
  []
 
-<screenshot002.png, id=626, 1210.5225pt x 307.1475pt>
+<screenshot002.png, id=632, 1210.5225pt x 307.1475pt>
 File: screenshot002.png Graphic file (type png)
 <use screenshot002.png>
-Package pdftex.def Info: screenshot002.png  used on input line 267.
+Package pdftex.def Info: screenshot002.png  used on input line 274.
 (pdftex.def)             Requested size: 360.0pt x 91.34354pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--270
+Underfull \hbox (badness 10000) in paragraph at lines 271--277
 
  []
 
-<sprint3.png, id=627, 1211.27531pt x 340.27126pt>
+<sprint3.png, id=633, 1211.27531pt x 340.27126pt>
 File: sprint3.png Graphic file (type png)
 <use sprint3.png>
-Package pdftex.def Info: sprint3.png  used on input line 276.
+Package pdftex.def Info: sprint3.png  used on input line 283.
 (pdftex.def)             Requested size: 360.0pt x 101.132pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 273--279
+Underfull \hbox (badness 10000) in paragraph at lines 280--286
 
  []
 
-<sprint4.png, id=628, 1211.27531pt x 377.91188pt>
+<sprint4.png, id=634, 1211.27531pt x 377.91188pt>
 File: sprint4.png Graphic file (type png)
 <use sprint4.png>
-Package pdftex.def Info: sprint4.png  used on input line 284.
+Package pdftex.def Info: sprint4.png  used on input line 291.
 (pdftex.def)             Requested size: 360.0pt x 112.31917pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 281--287
+Underfull \hbox (badness 10000) in paragraph at lines 288--294
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 287.
-LaTeX Info: Redefining \% on input line 287.
+LaTeX Info: Redefining \. on input line 294.
+LaTeX Info: Redefining \% on input line 294.
 [24
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.287 \end{figure}
+l.294 \end{figure}
                   
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.287 \end{figure}
+l.294 \end{figure}
                   
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.287 \end{figure}
+l.294 \end{figure}
                    <./screenshot001.png> <./screenshot002.png> <./sprint3.png>]
-<sprint5.png, id=637, 1211.27531pt x 320.69812pt>
+<sprint5.png, id=643, 1211.27531pt x 320.69812pt>
 File: sprint5.png Graphic file (type png)
 <use sprint5.png>
-Package pdftex.def Info: sprint5.png  used on input line 292.
+Package pdftex.def Info: sprint5.png  used on input line 299.
 (pdftex.def)             Requested size: 360.0pt x 95.31467pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--295
+Underfull \hbox (badness 10000) in paragraph at lines 296--302
 
  []
 
-<pb.png, id=638, 1211.27531pt x 400.49625pt>
+<pb.png, id=644, 1211.27531pt x 400.49625pt>
 File: pb.png Graphic file (type png)
 <use pb.png>
-Package pdftex.def Info: pb.png  used on input line 300.
+Package pdftex.def Info: pb.png  used on input line 307.
 (pdftex.def)             Requested size: 360.0pt x 119.03146pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 297--303
+Underfull \hbox (badness 10000) in paragraph at lines 304--310
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 311--313
+Underfull \hbox (badness 10000) in paragraph at lines 318--320
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 313.
-LaTeX Info: Redefining \% on input line 313.
+LaTeX Info: Redefining \. on input line 320.
+LaTeX Info: Redefining \% on input line 320.
 [25
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.313 
+l.320 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.313 
+l.320 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.7}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.313 
+l.320 
        <./sprint4.png> <./sprint5.png> <./pb.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 322--323
+Underfull \hbox (badness 10000) in paragraph at lines 329--330
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 322--323
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 329--330
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Overfull \hbox (5.65865pt too wide) in paragraph at lines 318--334
+Overfull \hbox (5.65865pt too wide) in paragraph at lines 325--341
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+Underfull \hbox (badness 10000) in paragraph at lines 351--352
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 344--345
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 351--352
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Overfull \hbox (19.71976pt too wide) in paragraph at lines 339--358
+Overfull \hbox (19.71976pt too wide) in paragraph at lines 346--365
  []|  [] 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 361.
+(Font)              <12> on input line 368.
 
-Underfull \hbox (badness 10000) in paragraph at lines 365--366
+Underfull \hbox (badness 10000) in paragraph at lines 372--373
 []|\OT1/cmr/bx/n/12 Est.
  []
 
 
-Overfull \hbox (5.18477pt too wide) in paragraph at lines 365--366
+Overfull \hbox (5.18477pt too wide) in paragraph at lines 372--373
 \OT1/cmr/bx/n/12 (d^^S^^Pas)| 
  []
 
 
-Overfull \hbox (8.36763pt too wide) in paragraph at lines 361--370
+Overfull \hbox (8.36763pt too wide) in paragraph at lines 368--377
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--370
+Underfull \hbox (badness 10000) in paragraph at lines 368--377
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--370
+Underfull \hbox (badness 10000) in paragraph at lines 368--377
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 370.
-LaTeX Info: Redefining \% on input line 370.
+LaTeX Info: Redefining \. on input line 377.
+LaTeX Info: Redefining \% on input line 377.
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 375--376
+Underfull \hbox (badness 10000) in paragraph at lines 382--383
 []|\OT1/cmr/bx/n/12 Est.
  []
 
 
-Overfull \hbox (5.18477pt too wide) in paragraph at lines 375--376
+Overfull \hbox (5.18477pt too wide) in paragraph at lines 382--383
 \OT1/cmr/bx/n/12 (d^^S^^Pas)| 
  []
 
 
-Overfull \hbox (8.36763pt too wide) in paragraph at lines 371--380
+Overfull \hbox (8.36763pt too wide) in paragraph at lines 378--387
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--380
+Underfull \hbox (badness 10000) in paragraph at lines 378--387
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--380
+Underfull \hbox (badness 10000) in paragraph at lines 378--387
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--383
+Underfull \hbox (badness 10000) in paragraph at lines 389--390
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 382--383
+Underfull \hbox (badness 10000) in paragraph at lines 389--390
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--387
+Underfull \hbox (badness 10000) in paragraph at lines 393--394
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 388--389
+Underfull \hbox (badness 10000) in paragraph at lines 395--396
 
  []
 
-<bocetos/iteracion 1/adopciones.png, id=651, 211.79124pt x 427.5975pt>
+<bocetos/iteracion 1/adopciones.png, id=657, 211.79124pt x 427.5975pt>
 File: bocetos/iteracion 1/adopciones.png Graphic file (type png)
 <use bocetos/iteracion 1/adopciones.png>
 Package pdftex.def Info: bocetos/iteracion 1/adopciones.png  used on input line
- 396.
+ 403.
 (pdftex.def)             Requested size: 111.59912pt x 225.31415pt.
 
 
-LaTeX Info: Redefining \. on input line 400.
-LaTeX Info: Redefining \% on input line 400.
+LaTeX Info: Redefining \. on input line 407.
+LaTeX Info: Redefining \% on input line 407.
 [27]
-<Diseños finales/Iteracion 1/adopciones.png, id=657, 1022.82124pt x 911.405pt>
+<Diseños finales/Iteracion 1/adopciones.png, id=663, 1022.82124pt x 911.405pt>
 
 File: Diseños finales/Iteracion 1/adopciones.png Graphic file (type png)
 <use Diseños finales/Iteracion 1/adopciones.png>
 Package pdftex.def Info: Diseños finales/Iteracion 1/adopciones.png  used on i
-nput line 413.
+nput line 420.
 (pdftex.def)             Requested size: 180.0pt x 160.3883pt.
 
 
-LaTeX Info: Redefining \. on input line 417.
-LaTeX Info: Redefining \% on input line 417.
+LaTeX Info: Redefining \. on input line 424.
+LaTeX Info: Redefining \% on input line 424.
 [28
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.8}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.417 
+l.424 
        <./bocetos/iteracion 1/adopciones.png>]
-<Diseños finales/Iteracion 1/adopciones_web.png, id=663, 1932.21875pt x 930.47
+<Diseños finales/Iteracion 1/adopciones_web.png, id=669, 1932.21875pt x 930.47
 626pt>
 File: Diseños finales/Iteracion 1/adopciones_web.png Graphic file (type png)
 <use Diseños finales/Iteracion 1/adopciones_web.png>
 Package pdftex.def Info: Diseños finales/Iteracion 1/adopciones_web.png  used 
-on input line 421.
+on input line 428.
 (pdftex.def)             Requested size: 288.0011pt x 138.68513pt.
 
 
-LaTeX Info: Redefining \. on input line 428.
-LaTeX Info: Redefining \% on input line 428.
+LaTeX Info: Redefining \. on input line 435.
+LaTeX Info: Redefining \% on input line 435.
 [29
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.9}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.428 
+l.435 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.10})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.428 
+l.435 
        <./Diseños finales/Iteracion 1/adopciones.png> <./Diseños finales/Iter
 acion 1/adopciones_web.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 431--432
+Underfull \hbox (badness 10000) in paragraph at lines 438--439
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 435--436
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--438
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 439--440
+Underfull \hbox (badness 10000) in paragraph at lines 444--445
 
  []
 
@@ -1553,80 +1533,74 @@ Underfull \hbox (badness 10000) in paragraph at lines 446--447
  []
 
 
-
-LaTeX Info: Redefining \. on input line 448.
-LaTeX Info: Redefining \% on input line 448.
-[30]
-<bocetos/iteracion 1/poner-adopción.png, id=678, 211.79124pt x 603.25375pt>
-File: bocetos/iteracion 1/poner-adopción.png Graphic file (type png)
-<use bocetos/iteracion 1/poner-adopción.png>
-Package pdftex.def Info: bocetos/iteracion 1/poner-adopción.png  used on input
- line 452.
-(pdftex.def)             Requested size: 111.59912pt x 317.87277pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 457--458
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
 
  []
 
+<bocetos/iteracion 1/poner-adopción.png, id=677, 211.79124pt x 603.25375pt>
+File: bocetos/iteracion 1/poner-adopción.png Graphic file (type png)
+<use bocetos/iteracion 1/poner-adopción.png>
+Package pdftex.def Info: bocetos/iteracion 1/poner-adopción.png  used on input
+ line 459.
+(pdftex.def)             Requested size: 111.59912pt x 317.87277pt.
 
 
 LaTeX Info: Redefining \. on input line 463.
 LaTeX Info: Redefining \% on input line 463.
-[31
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.11})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.463 \end{itemize}
-                    <./bocetos/iteracion 1/poner-adopción.png>]
-<Diseños finales/Iteracion 1/subidaAdopciones.png, id=685, 3047.385pt x 2559.5
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 464--465
+
+ []
+
+<Diseños finales/Iteracion 1/subidaAdopciones.png, id=683, 3047.385pt x 2559.5
 625pt>
 File: Diseños finales/Iteracion 1/subidaAdopciones.png Graphic file (type png)
 
 <use Diseños finales/Iteracion 1/subidaAdopciones.png>
 Package pdftex.def Info: Diseños finales/Iteracion 1/subidaAdopciones.png  use
-d on input line 469.
+d on input line 476.
 (pdftex.def)             Requested size: 251.9989pt x 211.64299pt.
-<Diseños finales/Iteracion 1/subAdopWeb2.png, id=686, 1927.2pt x 1084.05pt>
+
+
+LaTeX Info: Redefining \. on input line 480.
+LaTeX Info: Redefining \% on input line 480.
+[31
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.11})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.480 
+       <./bocetos/iteracion 1/poner-adopción.png>]
+<Diseños finales/Iteracion 1/subAdopWeb2.png, id=690, 1927.2pt x 1084.05pt>
 File: Diseños finales/Iteracion 1/subAdopWeb2.png Graphic file (type png)
 <use Diseños finales/Iteracion 1/subAdopWeb2.png>
 Package pdftex.def Info: Diseños finales/Iteracion 1/subAdopWeb2.png  used on 
-input line 477.
+input line 484.
 (pdftex.def)             Requested size: 360.0pt x 202.49797pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 482--483
+Underfull \hbox (badness 10000) in paragraph at lines 489--490
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 483.
-LaTeX Info: Redefining \% on input line 483.
+LaTeX Info: Redefining \. on input line 490.
+LaTeX Info: Redefining \% on input line 490.
 [32
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.12})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.483 
+l.490 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.13})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.483 
+l.490 
        <./Diseños finales/Iteracion 1/subidaAdopciones.png> <./Diseños finale
 s/Iteracion 1/subAdopWeb2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 484--485
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 487--488
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 489--490
+Underfull \hbox (badness 10000) in paragraph at lines 491--492
 
  []
 
@@ -1636,1196 +1610,1206 @@ Underfull \hbox (badness 10000) in paragraph at lines 494--495
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 496--497
 
-LaTeX Info: Redefining \. on input line 495.
-LaTeX Info: Redefining \% on input line 495.
-[33]
-<newSprint2.png, id=700, 877.77937pt x 193.47281pt>
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 501--502
+
+ []
+
+<newSprint2.png, id=698, 877.77937pt x 193.47281pt>
 File: newSprint2.png Graphic file (type png)
 <use newSprint2.png>
-Package pdftex.def Info: newSprint2.png  used on input line 499.
+Package pdftex.def Info: newSprint2.png  used on input line 506.
 (pdftex.def)             Requested size: 360.0pt x 79.34798pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 496--502
+Underfull \hbox (badness 10000) in paragraph at lines 503--509
 
  []
 
-<newSprint3.png, id=701, 877.77937pt x 281.55188pt>
+
+
+LaTeX Info: Redefining \. on input line 509.
+LaTeX Info: Redefining \% on input line 509.
+[33]
+<newSprint3.png, id=705, 877.77937pt x 281.55188pt>
 File: newSprint3.png Graphic file (type png)
 <use newSprint3.png>
-Package pdftex.def Info: newSprint3.png  used on input line 508.
+Package pdftex.def Info: newSprint3.png  used on input line 515.
 (pdftex.def)             Requested size: 360.0pt x 115.47137pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 505--511
+Underfull \hbox (badness 10000) in paragraph at lines 512--518
 
  []
 
-<newSprint4.png, id=702, 877.77937pt x 314.67563pt>
+<newSprint4.png, id=706, 877.77937pt x 314.67563pt>
 File: newSprint4.png Graphic file (type png)
 <use newSprint4.png>
-Package pdftex.def Info: newSprint4.png  used on input line 516.
+Package pdftex.def Info: newSprint4.png  used on input line 523.
 (pdftex.def)             Requested size: 360.0pt x 129.05624pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 513--519
+Underfull \hbox (badness 10000) in paragraph at lines 520--526
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 520.
-LaTeX Info: Redefining \% on input line 520.
+LaTeX Info: Redefining \. on input line 529.
+LaTeX Info: Redefining \% on input line 529.
 [34
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.14})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.520 
+l.529 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.15})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.520 
-       <./newSprint2.png> <./newSprint3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 521--522
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 525--526
-
- []
-
-<sprint 1/directoriosBack.png, id=709, 219.82124pt x 383.18156pt>
-File: sprint 1/directoriosBack.png Graphic file (type png)
-<use sprint 1/directoriosBack.png>
-Package pdftex.def Info: sprint 1/directoriosBack.png  used on input line 531.
-(pdftex.def)             Requested size: 251.9989pt x 439.2872pt.
-
-
-LaTeX Info: Redefining \. on input line 535.
-LaTeX Info: Redefining \% on input line 535.
-[35
+l.529 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.16})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.535 
-       <./newSprint4.png>]
-<sprint 1/clases.png, id=716, 926.46124pt x 626.34pt>
+l.529 
+       <./newSprint2.png> <./newSprint3.png> <./newSprint4.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 532--533
+
+ []
+
+<sprint 1/directoriosBack.png, id=714, 219.82124pt x 383.18156pt>
+File: sprint 1/directoriosBack.png Graphic file (type png)
+<use sprint 1/directoriosBack.png>
+Package pdftex.def Info: sprint 1/directoriosBack.png  used on input line 538.
+(pdftex.def)             Requested size: 251.9989pt x 439.2872pt.
+
+
+LaTeX Info: Redefining \. on input line 542.
+LaTeX Info: Redefining \% on input line 542.
+[35]
+<sprint 1/clases.png, id=720, 926.46124pt x 626.34pt>
 File: sprint 1/clases.png Graphic file (type png)
 <use sprint 1/clases.png>
-Package pdftex.def Info: sprint 1/clases.png  used on input line 540.
+Package pdftex.def Info: sprint 1/clases.png  used on input line 547.
 (pdftex.def)             Requested size: 360.0pt x 243.3828pt.
 
 
-LaTeX Info: Redefining \. on input line 544.
-LaTeX Info: Redefining \% on input line 544.
+LaTeX Info: Redefining \. on input line 551.
+LaTeX Info: Redefining \% on input line 551.
 [36
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.17})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.544 
+l.551 
        <./sprint 1/directoriosBack.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 547--548
+Underfull \hbox (badness 10000) in paragraph at lines 554--555
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 556--557
+Underfull \hbox (badness 10000) in paragraph at lines 563--564
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 556--557
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 563--564
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 568.
-LaTeX Info: Redefining \% on input line 568.
+LaTeX Info: Redefining \. on input line 575.
+LaTeX Info: Redefining \% on input line 575.
 [37
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.18})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.568 
+l.575 
        <./sprint 1/clases.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 575--576
+Underfull \hbox (badness 10000) in paragraph at lines 582--583
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 575--576
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 582--583
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 594--595
+Underfull \hbox (badness 10000) in paragraph at lines 601--602
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 594--595
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 601--602
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 607.
-LaTeX Info: Redefining \% on input line 607.
+LaTeX Info: Redefining \. on input line 614.
+LaTeX Info: Redefining \% on input line 614.
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 614--615
+Underfull \hbox (badness 10000) in paragraph at lines 621--622
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 614--615
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 621--622
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
-<sprint 2/hu3/listaPerdidos.png, id=733, 210.7875pt x 497.86pt>
+<sprint 2/hu3/listaPerdidos.png, id=737, 210.7875pt x 497.86pt>
 File: sprint 2/hu3/listaPerdidos.png Graphic file (type png)
 <use sprint 2/hu3/listaPerdidos.png>
-Package pdftex.def Info: sprint 2/hu3/listaPerdidos.png  used on input line 634
+Package pdftex.def Info: sprint 2/hu3/listaPerdidos.png  used on input line 641
 .
 (pdftex.def)             Requested size: 111.59912pt x 263.59105pt.
 
 
-LaTeX Info: Redefining \. on input line 638.
-LaTeX Info: Redefining \% on input line 638.
+LaTeX Info: Redefining \. on input line 645.
+LaTeX Info: Redefining \% on input line 645.
 [39]
-<sprint 2/hu3/disenoFinal.png, id=739, 2031.59pt x 1706.375pt>
+<sprint 2/hu3/disenoFinal.png, id=743, 2031.59pt x 1706.375pt>
 File: sprint 2/hu3/disenoFinal.png Graphic file (type png)
 <use sprint 2/hu3/disenoFinal.png>
-Package pdftex.def Info: sprint 2/hu3/disenoFinal.png  used on input line 646.
+Package pdftex.def Info: sprint 2/hu3/disenoFinal.png  used on input line 653.
 (pdftex.def)             Requested size: 180.0pt x 151.1717pt.
 
 
-LaTeX Info: Redefining \. on input line 650.
-LaTeX Info: Redefining \% on input line 650.
+LaTeX Info: Redefining \. on input line 657.
+LaTeX Info: Redefining \% on input line 657.
 [40
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.19})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.650 
+l.657 
        <./sprint 2/hu3/listaPerdidos.png>]
-<sprint 2/hu3/disenoFinalWeb.png, id=746, 1927.2pt x 1084.05pt>
+<sprint 2/hu3/disenoFinalWeb.png, id=750, 1927.2pt x 1084.05pt>
 File: sprint 2/hu3/disenoFinalWeb.png Graphic file (type png)
 <use sprint 2/hu3/disenoFinalWeb.png>
-Package pdftex.def Info: sprint 2/hu3/disenoFinalWeb.png  used on input line 65
-3.
+Package pdftex.def Info: sprint 2/hu3/disenoFinalWeb.png  used on input line 66
+0.
 (pdftex.def)             Requested size: 288.0011pt x 161.98845pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 658--659
+Underfull \hbox (badness 10000) in paragraph at lines 665--666
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 660--661
+Underfull \hbox (badness 10000) in paragraph at lines 667--668
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 662--663
+Underfull \hbox (badness 10000) in paragraph at lines 669--670
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 662--663
+Underfull \hbox (badness 10000) in paragraph at lines 669--670
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 663.
-LaTeX Info: Redefining \% on input line 663.
+LaTeX Info: Redefining \. on input line 670.
+LaTeX Info: Redefining \% on input line 670.
 [41
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.20})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.663 
+l.670 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.21})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.663 
+l.670 
        <./sprint 2/hu3/disenoFinal.png> <./sprint 2/hu3/disenoFinalWeb.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 666--667
+Underfull \hbox (badness 10000) in paragraph at lines 673--674
 
  []
 
-<sprint 2/hu4/postearPerdido.png, id=753, 211.79124pt x 603.25375pt>
+<sprint 2/hu4/postearPerdido.png, id=758, 211.79124pt x 603.25375pt>
 File: sprint 2/hu4/postearPerdido.png Graphic file (type png)
 <use sprint 2/hu4/postearPerdido.png>
 Package pdftex.def Info: sprint 2/hu4/postearPerdido.png  used on input line 67
-0.
+7.
 (pdftex.def)             Requested size: 90.0pt x 256.34723pt.
 
 
-LaTeX Info: Redefining \. on input line 676.
-LaTeX Info: Redefining \% on input line 676.
+LaTeX Info: Redefining \. on input line 683.
+LaTeX Info: Redefining \% on input line 683.
 [42
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.22})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.676 
+l.683 
        <./sprint 2/hu4/postearPerdido.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 678--679
+Underfull \hbox (badness 10000) in paragraph at lines 685--686
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--681
+Underfull \hbox (badness 10000) in paragraph at lines 687--688
 
  []
 
-<sprint 2/hu4/impPerdidos.png, id=762, 3047.385pt x 2559.5625pt>
+<sprint 2/hu4/impPerdidos.png, id=766, 3047.385pt x 2559.5625pt>
 File: sprint 2/hu4/impPerdidos.png Graphic file (type png)
 <use sprint 2/hu4/impPerdidos.png>
-Package pdftex.def Info: sprint 2/hu4/impPerdidos.png  used on input line 688.
+Package pdftex.def Info: sprint 2/hu4/impPerdidos.png  used on input line 695.
 (pdftex.def)             Requested size: 288.0011pt x 241.87213pt.
-<sprint 2/hu4/impPerdidosWeb.png, id=763, 1927.2pt x 927.465pt>
+<sprint 2/hu4/impPerdidosWeb.png, id=767, 1927.2pt x 927.465pt>
 File: sprint 2/hu4/impPerdidosWeb.png Graphic file (type png)
 <use sprint 2/hu4/impPerdidosWeb.png>
-Package pdftex.def Info: sprint 2/hu4/impPerdidosWeb.png  used on input line 69
-5.
+Package pdftex.def Info: sprint 2/hu4/impPerdidosWeb.png  used on input line 70
+2.
 (pdftex.def)             Requested size: 288.0011pt x 138.59012pt.
 
 
-LaTeX Info: Redefining \. on input line 699.
-LaTeX Info: Redefining \% on input line 699.
+LaTeX Info: Redefining \. on input line 706.
+LaTeX Info: Redefining \% on input line 706.
 [43
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.23})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.699 
+l.706 
        <./sprint 2/hu4/impPerdidos.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 700--701
+Underfull \hbox (badness 10000) in paragraph at lines 707--708
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 702--703
+Underfull \hbox (badness 10000) in paragraph at lines 709--710
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 704--705
+Underfull \hbox (badness 10000) in paragraph at lines 711--712
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--707
+Underfull \hbox (badness 10000) in paragraph at lines 713--714
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 707.
-LaTeX Info: Redefining \% on input line 707.
+LaTeX Info: Redefining \. on input line 714.
+LaTeX Info: Redefining \% on input line 714.
 [44
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.24})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.707 
+l.714 
        <./sprint 2/hu4/impPerdidosWeb.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 708--709
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 715--716
 
  []
 
-<sprint 2/hu5/registro_particulares.png, id=776, 213.79875pt x 685.56125pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 722--723
+
+ []
+
+<sprint 2/hu5/registro_particulares.png, id=780, 213.79875pt x 685.56125pt>
 File: sprint 2/hu5/registro_particulares.png Graphic file (type png)
 <use sprint 2/hu5/registro_particulares.png>
 Package pdftex.def Info: sprint 2/hu5/registro_particulares.png  used on input 
-line 720.
+line 727.
 (pdftex.def)             Requested size: 86.40198pt x 277.05452pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 725--726
+Underfull \hbox (badness 10000) in paragraph at lines 732--733
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 726.
-LaTeX Info: Redefining \% on input line 726.
+LaTeX Info: Redefining \. on input line 733.
+LaTeX Info: Redefining \% on input line 733.
 [45
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.25})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.726 
+l.733 
        <./sprint 2/hu5/registro_particulares.png>]
-<sprint 2/hu5/impRegistroParticulares.png, id=783, 3047.385pt x 2710.125pt>
+<sprint 2/hu5/impRegistroParticulares.png, id=787, 3047.385pt x 2710.125pt>
 File: sprint 2/hu5/impRegistroParticulares.png Graphic file (type png)
 <use sprint 2/hu5/impRegistroParticulares.png>
 Package pdftex.def Info: sprint 2/hu5/impRegistroParticulares.png  used on inpu
-t line 731.
+t line 738.
 (pdftex.def)             Requested size: 251.9989pt x 224.09258pt.
-<sprint 2/hu5/impRegistroParticularesWeb.png, id=784, 1927.2pt x 1084.05pt>
+<sprint 2/hu5/impRegistroParticularesWeb.png, id=788, 1927.2pt x 1084.05pt>
 File: sprint 2/hu5/impRegistroParticularesWeb.png Graphic file (type png)
 <use sprint 2/hu5/impRegistroParticularesWeb.png>
 Package pdftex.def Info: sprint 2/hu5/impRegistroParticularesWeb.png  used on i
-nput line 738.
+nput line 745.
 (pdftex.def)             Requested size: 251.9989pt x 141.74196pt.
 
 
-LaTeX Info: Redefining \. on input line 745.
-LaTeX Info: Redefining \% on input line 745.
+LaTeX Info: Redefining \. on input line 752.
+LaTeX Info: Redefining \% on input line 752.
 [46
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.26})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.745 
+l.752 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.27})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.745 
+l.752 
        <./sprint 2/hu5/impRegistroParticulares.png> <./sprint 2/hu5/impRegistro
 ParticularesWeb.png>]
 
-LaTeX Info: Redefining \. on input line 766.
-LaTeX Info: Redefining \% on input line 766.
+LaTeX Info: Redefining \. on input line 773.
+LaTeX Info: Redefining \% on input line 773.
 [47]
-Underfull \hbox (badness 10000) in paragraph at lines 767--768
+Underfull \hbox (badness 10000) in paragraph at lines 774--775
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 772--773
+Underfull \hbox (badness 10000) in paragraph at lines 779--780
 
  []
 
-<sprint 2/hu6/login.png, id=797, 212.795pt x 406.51875pt>
+<sprint 2/hu6/login.png, id=801, 212.795pt x 406.51875pt>
 File: sprint 2/hu6/login.png Graphic file (type png)
 <use sprint 2/hu6/login.png>
-Package pdftex.def Info: sprint 2/hu6/login.png  used on input line 779.
+Package pdftex.def Info: sprint 2/hu6/login.png  used on input line 786.
 (pdftex.def)             Requested size: 111.59912pt x 213.19601pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 784--785
+Underfull \hbox (badness 10000) in paragraph at lines 791--792
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 785.
-LaTeX Info: Redefining \% on input line 785.
+LaTeX Info: Redefining \. on input line 792.
+LaTeX Info: Redefining \% on input line 792.
 [48
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.28})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.785 
+l.792 
        <./sprint 2/hu6/login.png>]
-<sprint 2/hu6/ImpLoginMovil.png, id=805, 2031.59pt x 1706.375pt>
+<sprint 2/hu6/ImpLoginMovil.png, id=809, 2031.59pt x 1706.375pt>
 File: sprint 2/hu6/ImpLoginMovil.png Graphic file (type png)
 <use sprint 2/hu6/ImpLoginMovil.png>
-Package pdftex.def Info: sprint 2/hu6/ImpLoginMovil.png  used on input line 790
+Package pdftex.def Info: sprint 2/hu6/ImpLoginMovil.png  used on input line 797
 .
 (pdftex.def)             Requested size: 251.9989pt x 211.656pt.
-<sprint 2/hu6/ImpLoginWeb.png, id=806, 1927.2pt x 1084.05pt>
+<sprint 2/hu6/ImpLoginWeb.png, id=810, 1927.2pt x 1084.05pt>
 File: sprint 2/hu6/ImpLoginWeb.png Graphic file (type png)
 <use sprint 2/hu6/ImpLoginWeb.png>
-Package pdftex.def Info: sprint 2/hu6/ImpLoginWeb.png  used on input line 797.
+Package pdftex.def Info: sprint 2/hu6/ImpLoginWeb.png  used on input line 804.
 (pdftex.def)             Requested size: 251.9989pt x 141.74196pt.
 
 
-LaTeX Info: Redefining \. on input line 803.
-LaTeX Info: Redefining \% on input line 803.
+LaTeX Info: Redefining \. on input line 810.
+LaTeX Info: Redefining \% on input line 810.
 [49
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.29})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.803 
+l.810 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.30})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.803 
+l.810 
        <./sprint 2/hu6/ImpLoginMovil.png> <./sprint 2/hu6/ImpLoginWeb.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 812--813
+Underfull \hbox (badness 10000) in paragraph at lines 819--820
 
  []
 
-<sprint 2/directoriosBackS2.png, id=813, 393.47pt x 469.755pt>
+<sprint 2/directoriosBackS2.png, id=817, 393.47pt x 469.755pt>
 File: sprint 2/directoriosBackS2.png Graphic file (type png)
 <use sprint 2/directoriosBackS2.png>
-Package pdftex.def Info: sprint 2/directoriosBackS2.png  used on input line 820
+Package pdftex.def Info: sprint 2/directoriosBackS2.png  used on input line 827
 .
 (pdftex.def)             Requested size: 251.9989pt x 300.85005pt.
 
 
-LaTeX Info: Redefining \. on input line 824.
-LaTeX Info: Redefining \% on input line 824.
+LaTeX Info: Redefining \. on input line 831.
+LaTeX Info: Redefining \% on input line 831.
 [50]
-<sprint 2/clases.png, id=818, 1061.9675pt x 1023.825pt>
+<sprint 2/clases.png, id=822, 1061.9675pt x 1023.825pt>
 File: sprint 2/clases.png Graphic file (type png)
 <use sprint 2/clases.png>
-Package pdftex.def Info: sprint 2/clases.png  used on input line 829.
+Package pdftex.def Info: sprint 2/clases.png  used on input line 836.
 (pdftex.def)             Requested size: 360.0pt x 347.06482pt.
 
 
-LaTeX Info: Redefining \. on input line 833.
-LaTeX Info: Redefining \% on input line 833.
+LaTeX Info: Redefining \. on input line 840.
+LaTeX Info: Redefining \% on input line 840.
 [51
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.31})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.833 
+l.840 
        <./sprint 2/directoriosBackS2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 838--839
+Underfull \hbox (badness 10000) in paragraph at lines 845--846
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 839.
-LaTeX Info: Redefining \% on input line 839.
+LaTeX Info: Redefining \. on input line 846.
+LaTeX Info: Redefining \% on input line 846.
 [52
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.32})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.839 \subsection
+l.846 \subsection
                  {Especificación de tareas} <./sprint 2/clases.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 847--848
+Underfull \hbox (badness 10000) in paragraph at lines 854--855
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 847--848
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 854--855
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 863--864
+Underfull \hbox (badness 10000) in paragraph at lines 870--871
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 863--864
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 870--871
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 888--889
+Underfull \hbox (badness 10000) in paragraph at lines 895--896
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 888--889
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 895--896
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 903.
-LaTeX Info: Redefining \% on input line 903.
+LaTeX Info: Redefining \. on input line 910.
+LaTeX Info: Redefining \% on input line 910.
 [53]
-Underfull \hbox (badness 10000) in paragraph at lines 911--912
+Underfull \hbox (badness 10000) in paragraph at lines 918--919
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 911--912
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 918--919
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 933--934
+Underfull \hbox (badness 10000) in paragraph at lines 940--941
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 933--934
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 940--941
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 950--951
+Underfull \hbox (badness 10000) in paragraph at lines 957--958
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 950--951
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 957--958
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 961.
-LaTeX Info: Redefining \% on input line 961.
+LaTeX Info: Redefining \. on input line 968.
+LaTeX Info: Redefining \% on input line 968.
 [54]
-Underfull \hbox (badness 10000) in paragraph at lines 969--970
+Underfull \hbox (badness 10000) in paragraph at lines 976--977
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 969--970
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 976--977
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Overfull \hbox (14.7067pt too wide) in paragraph at lines 964--980
+Overfull \hbox (14.7067pt too wide) in paragraph at lines 971--987
  []|  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 989--990
+Underfull \hbox (badness 10000) in paragraph at lines 996--997
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 989--990
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 996--997
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Overfull \hbox (14.7067pt too wide) in paragraph at lines 984--998
+Overfull \hbox (14.7067pt too wide) in paragraph at lines 991--1005
  []|  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1007--1008
+Underfull \hbox (badness 10000) in paragraph at lines 1014--1015
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 1007--1008
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 1014--1015
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Overfull \hbox (26.49973pt too wide) in paragraph at lines 1003--1016
+Overfull \hbox (26.49973pt too wide) in paragraph at lines 1010--1023
  [][] 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 1017.
-LaTeX Info: Redefining \% on input line 1017.
+LaTeX Info: Redefining \. on input line 1024.
+LaTeX Info: Redefining \% on input line 1024.
 [55]
-Underfull \hbox (badness 10000) in paragraph at lines 1025--1026
+Underfull \hbox (badness 10000) in paragraph at lines 1032--1033
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 1025--1026
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 1032--1033
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Overfull \hbox (26.49973pt too wide) in paragraph at lines 1021--1033
+Overfull \hbox (26.49973pt too wide) in paragraph at lines 1028--1040
  [][] 
  []
 
-<sprint 3//hu8/registro_asociaciones.png, id=842, 211.79124pt x 718.685pt>
+<sprint 3//hu8/registro_asociaciones.png, id=846, 211.79124pt x 718.685pt>
 File: sprint 3//hu8/registro_asociaciones.png Graphic file (type png)
 <use sprint 3//hu8/registro_asociaciones.png>
 Package pdftex.def Info: sprint 3//hu8/registro_asociaciones.png  used on input
- line 1041.
+ line 1048.
 (pdftex.def)             Requested size: 111.59912pt x 378.69702pt.
 
 
-LaTeX Info: Redefining \. on input line 1045.
-LaTeX Info: Redefining \% on input line 1045.
+LaTeX Info: Redefining \. on input line 1052.
+LaTeX Info: Redefining \% on input line 1052.
 [56]
 
-LaTeX Info: Redefining \. on input line 1049.
-LaTeX Info: Redefining \% on input line 1049.
+LaTeX Info: Redefining \. on input line 1056.
+LaTeX Info: Redefining \% on input line 1056.
 [57
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.33})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1049 
+l.1056 
         <./sprint 3//hu8/registro_asociaciones.png>]
-<sprint 3//hu8/implementacion.png, id=859, 2031.59pt x 2208.25pt>
+<sprint 3//hu8/implementacion.png, id=863, 2031.59pt x 2208.25pt>
 File: sprint 3//hu8/implementacion.png Graphic file (type png)
 <use sprint 3//hu8/implementacion.png>
 Package pdftex.def Info: sprint 3//hu8/implementacion.png  used on input line 1
-056.
+063.
 (pdftex.def)             Requested size: 288.0011pt x 313.02783pt.
-<sprint 3//hu8/implementacionWeb.png, id=860, 1927.2pt x 1084.05pt>
+<sprint 3//hu8/implementacionWeb.png, id=864, 1927.2pt x 1084.05pt>
 File: sprint 3//hu8/implementacionWeb.png Graphic file (type png)
 <use sprint 3//hu8/implementacionWeb.png>
 Package pdftex.def Info: sprint 3//hu8/implementacionWeb.png  used on input lin
-e 1063.
+e 1070.
 (pdftex.def)             Requested size: 288.0011pt x 161.98845pt.
 
 
-LaTeX Info: Redefining \. on input line 1066.
-LaTeX Info: Redefining \% on input line 1066.
+LaTeX Info: Redefining \. on input line 1073.
+LaTeX Info: Redefining \% on input line 1073.
 [58
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.34})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1066 
+l.1073 
         <./sprint 3//hu8/implementacion.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1069--1070
+Underfull \hbox (badness 10000) in paragraph at lines 1076--1077
 
  []
 
-<sprint 3//hu9-10/solicitudesAcogidaAdopción.png, id=866, 211.79124pt x 437.63
+<sprint 3//hu9-10/solicitudesAcogidaAdopción.png, id=870, 211.79124pt x 437.63
 5pt>
 File: sprint 3//hu9-10/solicitudesAcogidaAdopción.png Graphic file (type png)
 <use sprint 3//hu9-10/solicitudesAcogidaAdopción.png>
 Package pdftex.def Info: sprint 3//hu9-10/solicitudesAcogidaAdopción.png  used
- on input line 1074.
+ on input line 1081.
 (pdftex.def)             Requested size: 90.0pt x 185.96904pt.
 
 
-LaTeX Info: Redefining \. on input line 1083.
-LaTeX Info: Redefining \% on input line 1083.
+LaTeX Info: Redefining \. on input line 1090.
+LaTeX Info: Redefining \% on input line 1090.
 [59
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.35})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1083 
+l.1090 
        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.36})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1083 
+l.1090 
         <./sprint 3//hu8/implementacionWeb.png> <./sprint 3//hu9-10/solicitudes
 AcogidaAdopción.png>]
-<sprint 3//hu9-10/solicitudes.png, id=874, 2047.65pt x 1706.375pt>
+<sprint 3//hu9-10/solicitudes.png, id=878, 2047.65pt x 1706.375pt>
 File: sprint 3//hu9-10/solicitudes.png Graphic file (type png)
 <use sprint 3//hu9-10/solicitudes.png>
 Package pdftex.def Info: sprint 3//hu9-10/solicitudes.png  used on input line 1
-086.
+093.
 (pdftex.def)             Requested size: 360.0pt x 300.00006pt.
-<sprint 3//hu9-10/solicitudesWeb.png, id=875, 1927.2pt x 1084.05pt>
+<sprint 3//hu9-10/solicitudesWeb.png, id=879, 1927.2pt x 1084.05pt>
 File: sprint 3//hu9-10/solicitudesWeb.png Graphic file (type png)
 <use sprint 3//hu9-10/solicitudesWeb.png>
 Package pdftex.def Info: sprint 3//hu9-10/solicitudesWeb.png  used on input lin
-e 1093.
+e 1100.
 (pdftex.def)             Requested size: 288.0011pt x 161.98845pt.
 
 
-LaTeX Info: Redefining \. on input line 1096.
-LaTeX Info: Redefining \% on input line 1096.
+LaTeX Info: Redefining \. on input line 1103.
+LaTeX Info: Redefining \% on input line 1103.
 [60
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.37})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1096 
+l.1103 
         <./sprint 3//hu9-10/solicitudes.png>]
-<sprint 3//hu11-12/boceto.png, id=883, 211.79124pt x 457.71pt>
+<sprint 3//hu11-12/boceto.png, id=887, 211.79124pt x 457.71pt>
 File: sprint 3//hu11-12/boceto.png Graphic file (type png)
 <use sprint 3//hu11-12/boceto.png>
-Package pdftex.def Info: sprint 3//hu11-12/boceto.png  used on input line 1104.
+Package pdftex.def Info: sprint 3//hu11-12/boceto.png  used on input line 1111.
 
 (pdftex.def)             Requested size: 90.0pt x 194.49973pt.
 
 
-LaTeX Info: Redefining \. on input line 1111.
-LaTeX Info: Redefining \% on input line 1111.
+LaTeX Info: Redefining \. on input line 1118.
+LaTeX Info: Redefining \% on input line 1118.
 [61
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.38})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1111 
+l.1118 
        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.39})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1111 
+l.1118 
         <./sprint 3//hu9-10/solicitudesWeb.png> <./sprint 3//hu11-12/boceto.png
 >]
-<sprint 3//hu11-12/implementacion.png, id=892, 2047.65pt x 1706.375pt>
+<sprint 3//hu11-12/implementacion.png, id=896, 2047.65pt x 1706.375pt>
 File: sprint 3//hu11-12/implementacion.png Graphic file (type png)
 <use sprint 3//hu11-12/implementacion.png>
 Package pdftex.def Info: sprint 3//hu11-12/implementacion.png  used on input li
-ne 1114.
+ne 1121.
 (pdftex.def)             Requested size: 288.0011pt x 239.98444pt.
-<sprint 3//hu11-12/implementacionWeb.png, id=893, 1927.2pt x 1084.05pt>
+<sprint 3//hu11-12/implementacionWeb.png, id=897, 1927.2pt x 1084.05pt>
 File: sprint 3//hu11-12/implementacionWeb.png Graphic file (type png)
 <use sprint 3//hu11-12/implementacionWeb.png>
 Package pdftex.def Info: sprint 3//hu11-12/implementacionWeb.png  used on input
- line 1121.
+ line 1128.
 (pdftex.def)             Requested size: 288.0011pt x 161.98845pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1127--1128
+Underfull \hbox (badness 10000) in paragraph at lines 1134--1135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1127--1128
+Underfull \hbox (badness 10000) in paragraph at lines 1134--1135
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 1128.
-LaTeX Info: Redefining \% on input line 1128.
+LaTeX Info: Redefining \. on input line 1135.
+LaTeX Info: Redefining \% on input line 1135.
 [62
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.40})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1128 
+l.1135 
        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.41})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1128 
+l.1135 
         <./sprint 3//hu11-12/implementacion.png> <./sprint 3//hu11-12/implement
 acionWeb.png>]
-<sprint 3//hu13/boceto.png, id=900, 211.79124pt x 477.785pt>
+<sprint 3//hu13/boceto.png, id=904, 211.79124pt x 477.785pt>
 File: sprint 3//hu13/boceto.png Graphic file (type png)
 <use sprint 3//hu13/boceto.png>
-Package pdftex.def Info: sprint 3//hu13/boceto.png  used on input line 1132.
+Package pdftex.def Info: sprint 3//hu13/boceto.png  used on input line 1139.
 (pdftex.def)             Requested size: 111.59912pt x 251.75946pt.
-<sprint 3//hu13/implementacion.png, id=901, 2047.65pt x 1706.375pt>
+<sprint 3//hu13/implementacion.png, id=905, 2047.65pt x 1706.375pt>
 File: sprint 3//hu13/implementacion.png Graphic file (type png)
 <use sprint 3//hu13/implementacion.png>
 Package pdftex.def Info: sprint 3//hu13/implementacion.png  used on input line 
-1140.
+1147.
 (pdftex.def)             Requested size: 288.0011pt x 239.98444pt.
 
 
-LaTeX Info: Redefining \. on input line 1144.
-LaTeX Info: Redefining \% on input line 1144.
+LaTeX Info: Redefining \. on input line 1151.
+LaTeX Info: Redefining \% on input line 1151.
 [63
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.42})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1144 
+l.1151 
         <./sprint 3//hu13/boceto.png>]
-<sprint 3//hu13/implementacionWeb.png, id=908, 1927.2pt x 1084.05pt>
+<sprint 3//hu13/implementacionWeb.png, id=912, 1927.2pt x 1084.05pt>
 File: sprint 3//hu13/implementacionWeb.png Graphic file (type png)
 <use sprint 3//hu13/implementacionWeb.png>
 Package pdftex.def Info: sprint 3//hu13/implementacionWeb.png  used on input li
-ne 1147.
+ne 1154.
 (pdftex.def)             Requested size: 288.0011pt x 161.98845pt.
-<sprint 3/homeAsociaciones.png, id=909, 1015.795pt x 1706.375pt>
+<sprint 3/homeAsociaciones.png, id=913, 1015.795pt x 1706.375pt>
 File: sprint 3/homeAsociaciones.png Graphic file (type png)
 <use sprint 3/homeAsociaciones.png>
-Package pdftex.def Info: sprint 3/homeAsociaciones.png  used on input line 1155
+Package pdftex.def Info: sprint 3/homeAsociaciones.png  used on input line 1162
 .
 (pdftex.def)             Requested size: 111.59912pt x 187.4675pt.
 
 
-LaTeX Info: Redefining \. on input line 1159.
-LaTeX Info: Redefining \% on input line 1159.
+LaTeX Info: Redefining \. on input line 1166.
+LaTeX Info: Redefining \% on input line 1166.
 [64
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.43})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1159 
+l.1166 
        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.44})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1159 
+l.1166 
         <./sprint 3//hu13/implementacion.png> <./sprint 3//hu13/implementacionW
 eb.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1160--1161
+Underfull \hbox (badness 10000) in paragraph at lines 1167--1168
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1164--1165
+Underfull \hbox (badness 10000) in paragraph at lines 1171--1172
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 1169.
-LaTeX Info: Redefining \% on input line 1169.
+LaTeX Info: Redefining \. on input line 1176.
+LaTeX Info: Redefining \% on input line 1176.
 [65
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.45})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1169 
+l.1176 
         <./sprint 3/homeAsociaciones.png>]
-<sprint 3/structuraBack.png, id=924, 489.83pt x 603.25375pt>
+<sprint 3/structuraBack.png, id=928, 489.83pt x 603.25375pt>
 File: sprint 3/structuraBack.png Graphic file (type png)
 <use sprint 3/structuraBack.png>
-Package pdftex.def Info: sprint 3/structuraBack.png  used on input line 1174.
+Package pdftex.def Info: sprint 3/structuraBack.png  used on input line 1181.
 (pdftex.def)             Requested size: 251.9989pt x 310.34317pt.
 
 
-LaTeX Info: Redefining \. on input line 1182.
-LaTeX Info: Redefining \% on input line 1182.
+LaTeX Info: Redefining \. on input line 1189.
+LaTeX Info: Redefining \% on input line 1189.
 [66
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.46})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1182 
+l.1189 
         <./sprint 3/structuraBack.png>]
-<sprint 3/clases.png, id=930, 951.555pt x 955.57pt>
+<sprint 3/clases.png, id=934, 951.555pt x 955.57pt>
 File: sprint 3/clases.png Graphic file (type png)
 <use sprint 3/clases.png>
-Package pdftex.def Info: sprint 3/clases.png  used on input line 1185.
+Package pdftex.def Info: sprint 3/clases.png  used on input line 1192.
 (pdftex.def)             Requested size: 540.0pt x 542.3039pt.
 
-Overfull \hbox (82.8487pt too wide) in paragraph at lines 1184--1186
+Overfull \hbox (82.8487pt too wide) in paragraph at lines 1191--1193
 []|  []
  []
 
 
 
-LaTeX Info: Redefining \. on input line 1191.
-LaTeX Info: Redefining \% on input line 1191.
+LaTeX Info: Redefining \. on input line 1198.
+LaTeX Info: Redefining \% on input line 1198.
 [67
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.47})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1191 
+l.1198 
         <./sprint 3/clases.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1198--1199
+Underfull \hbox (badness 10000) in paragraph at lines 1205--1206
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1198--1199
+Underfull \hbox (badness 10000) in paragraph at lines 1205--1206
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1208--1209
+Underfull \hbox (badness 10000) in paragraph at lines 1215--1216
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 1208--1209
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 1215--1216
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Overfull \hbox (26.49973pt too wide) in paragraph at lines 1204--1220
+Overfull \hbox (26.49973pt too wide) in paragraph at lines 1211--1227
  [][] 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 1221.
-LaTeX Info: Redefining \% on input line 1221.
+LaTeX Info: Redefining \. on input line 1228.
+LaTeX Info: Redefining \% on input line 1228.
 [68]
-Underfull \hbox (badness 10000) in paragraph at lines 1228--1229
+Underfull \hbox (badness 10000) in paragraph at lines 1235--1236
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 1228--1229
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 1235--1236
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Overfull \hbox (26.49973pt too wide) in paragraph at lines 1224--1239
+Overfull \hbox (26.49973pt too wide) in paragraph at lines 1231--1246
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1247--1248
+Underfull \hbox (badness 10000) in paragraph at lines 1254--1255
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 1247--1248
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 1254--1255
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Overfull \hbox (26.49973pt too wide) in paragraph at lines 1243--1257
+Overfull \hbox (26.49973pt too wide) in paragraph at lines 1250--1264
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1265--1266
+Underfull \hbox (badness 10000) in paragraph at lines 1272--1273
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 1265--1266
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 1272--1273
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Overfull \hbox (26.49973pt too wide) in paragraph at lines 1261--1276
+Overfull \hbox (26.49973pt too wide) in paragraph at lines 1268--1283
  [][] 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 1277.
-LaTeX Info: Redefining \% on input line 1277.
+LaTeX Info: Redefining \. on input line 1284.
+LaTeX Info: Redefining \% on input line 1284.
 [69]
-Underfull \hbox (badness 10000) in paragraph at lines 1284--1285
+Underfull \hbox (badness 10000) in paragraph at lines 1291--1292
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 1284--1285
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 1291--1292
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Overfull \hbox (26.49973pt too wide) in paragraph at lines 1280--1293
+Overfull \hbox (26.49973pt too wide) in paragraph at lines 1287--1300
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1301--1302
+Underfull \hbox (badness 10000) in paragraph at lines 1308--1309
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 1301--1302
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 1308--1309
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Overfull \hbox (26.49973pt too wide) in paragraph at lines 1297--1312
+Overfull \hbox (26.49973pt too wide) in paragraph at lines 1304--1319
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1320--1321
+Underfull \hbox (badness 10000) in paragraph at lines 1327--1328
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 1320--1321
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 1327--1328
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
-Overfull \hbox (26.49973pt too wide) in paragraph at lines 1316--1329
+Overfull \hbox (26.49973pt too wide) in paragraph at lines 1323--1336
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1337--1338
+Underfull \hbox (badness 10000) in paragraph at lines 1344--1345
 []|\OT1/cmr/bx/sc/10.95 Est.
  []
 
 
-Overfull \hbox (2.92336pt too wide) in paragraph at lines 1337--1338
+Overfull \hbox (2.92336pt too wide) in paragraph at lines 1344--1345
 \OT1/cmr/bx/sc/10.95 (d^^S^^Pas)| 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 1344.
-LaTeX Info: Redefining \% on input line 1344.
+LaTeX Info: Redefining \. on input line 1351.
+LaTeX Info: Redefining \% on input line 1351.
 [70]
-<sprint 4/hu17/editarPerfil.png, id=948, 224.84pt x 457.71pt>
+<sprint 4/hu17/editarPerfil.png, id=952, 224.84pt x 457.71pt>
 File: sprint 4/hu17/editarPerfil.png Graphic file (type png)
 <use sprint 4/hu17/editarPerfil.png>
 Package pdftex.def Info: sprint 4/hu17/editarPerfil.png  used on input line 135
-2.
+9.
 (pdftex.def)             Requested size: 111.59912pt x 227.18524pt.
 
 
-LaTeX Info: Redefining \. on input line 1360.
-LaTeX Info: Redefining \% on input line 1360.
+LaTeX Info: Redefining \. on input line 1367.
+LaTeX Info: Redefining \% on input line 1367.
 [71
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.48})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1360 
+l.1367 
         <./sprint 4/hu17/editarPerfil.png>]
-<sprint 4/hu17/implementacion.png, id=956, 2047.65pt x 1706.375pt>
+<sprint 4/hu17/implementacion.png, id=960, 2047.65pt x 1706.375pt>
 File: sprint 4/hu17/implementacion.png Graphic file (type png)
 <use sprint 4/hu17/implementacion.png>
 Package pdftex.def Info: sprint 4/hu17/implementacion.png  used on input line 1
-364.
+371.
 (pdftex.def)             Requested size: 360.0pt x 300.00006pt.
-<sprint 4/hu17/implementacionWeb.png, id=957, 1927.2pt x 1084.05pt>
+<sprint 4/hu17/implementacionWeb.png, id=961, 1927.2pt x 1084.05pt>
 File: sprint 4/hu17/implementacionWeb.png Graphic file (type png)
 <use sprint 4/hu17/implementacionWeb.png>
 Package pdftex.def Info: sprint 4/hu17/implementacionWeb.png  used on input lin
-e 1372.
+e 1379.
 (pdftex.def)             Requested size: 360.0pt x 202.49797pt.
 
 
-LaTeX Info: Redefining \. on input line 1376.
-LaTeX Info: Redefining \% on input line 1376.
+LaTeX Info: Redefining \. on input line 1383.
+LaTeX Info: Redefining \% on input line 1383.
 [72
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.49})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1376 
+l.1383 
         <./sprint 4/hu17/implementacion.png>]
-<sprint 4/hu17/notificacionesNueva.png, id=964, 1023.825pt x 1706.375pt>
+<sprint 4/hu17/notificacionesNueva.png, id=968, 1023.825pt x 1706.375pt>
 File: sprint 4/hu17/notificacionesNueva.png Graphic file (type png)
 <use sprint 4/hu17/notificacionesNueva.png>
 Package pdftex.def Info: sprint 4/hu17/notificacionesNueva.png  used on input l
-ine 1386.
+ine 1393.
 (pdftex.def)             Requested size: 180.0pt x 300.00006pt.
 
 
-LaTeX Info: Redefining \. on input line 1390.
-LaTeX Info: Redefining \% on input line 1390.
+LaTeX Info: Redefining \. on input line 1397.
+LaTeX Info: Redefining \% on input line 1397.
 [73
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.50})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1390 
+l.1397 
         <./sprint 4/hu17/implementacionWeb.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1395--1396
+Underfull \hbox (badness 10000) in paragraph at lines 1402--1403
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1395--1396
+Underfull \hbox (badness 10000) in paragraph at lines 1402--1403
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1400--1401
+Underfull \hbox (badness 10000) in paragraph at lines 1407--1408
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 1401.
-LaTeX Info: Redefining \% on input line 1401.
+LaTeX Info: Redefining \. on input line 1408.
+LaTeX Info: Redefining \% on input line 1408.
 [74
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.51})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1401 
+l.1408 
         <./sprint 4/hu17/notificacionesNueva.png>]
-<sprint 4/hu23/publicacionAmpliada.png, id=975, 211.79124pt x 457.71pt>
+<sprint 4/hu23/publicacionAmpliada.png, id=979, 211.79124pt x 457.71pt>
 File: sprint 4/hu23/publicacionAmpliada.png Graphic file (type png)
 <use sprint 4/hu23/publicacionAmpliada.png>
 Package pdftex.def Info: sprint 4/hu23/publicacionAmpliada.png  used on input l
-ine 1406.
+ine 1413.
 (pdftex.def)             Requested size: 111.59912pt x 241.18135pt.
-<sprint 4/hu23/impPublicaciónAmpliada.png, id=976, 2047.65pt x 1706.375pt>
+<sprint 4/hu23/impPublicaciónAmpliada.png, id=980, 2047.65pt x 1706.375pt>
 File: sprint 4/hu23/impPublicaciónAmpliada.png Graphic file (type png)
 <use sprint 4/hu23/impPublicaciónAmpliada.png>
 Package pdftex.def Info: sprint 4/hu23/impPublicaciónAmpliada.png  used on inp
-ut line 1416.
+ut line 1423.
 (pdftex.def)             Requested size: 360.0pt x 300.00006pt.
 
 
-LaTeX Info: Redefining \. on input line 1420.
-LaTeX Info: Redefining \% on input line 1420.
+LaTeX Info: Redefining \. on input line 1427.
+LaTeX Info: Redefining \% on input line 1427.
 [75
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.52})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1420 
+l.1427 
         <./sprint 4/hu23/publicacionAmpliada.png>]
-<sprint 4/hu23/publicacionAmpliadaWeb.png, id=984, 1927.2pt x 1084.05pt>
+<sprint 4/hu23/publicacionAmpliadaWeb.png, id=988, 1927.2pt x 1084.05pt>
 File: sprint 4/hu23/publicacionAmpliadaWeb.png Graphic file (type png)
 <use sprint 4/hu23/publicacionAmpliadaWeb.png>
 Package pdftex.def Info: sprint 4/hu23/publicacionAmpliadaWeb.png  used on inpu
-t line 1423.
+t line 1430.
 (pdftex.def)             Requested size: 288.0011pt x 161.98845pt.
 
 
-LaTeX Info: Redefining \. on input line 1431.
-LaTeX Info: Redefining \% on input line 1431.
+LaTeX Info: Redefining \. on input line 1438.
+LaTeX Info: Redefining \% on input line 1438.
 [76
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.53})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1431 
+l.1438 
        
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.54})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1431 
+l.1438 
         <./sprint 4/hu23/impPublicaciónAmpliada.png> <./sprint 4/hu23/publicac
 ionAmpliadaWeb.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1434--1435
+Underfull \hbox (badness 10000) in paragraph at lines 1441--1442
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1436--1438
+Underfull \hbox (badness 10000) in paragraph at lines 1443--1445
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 1440.
-LaTeX Info: Redefining \% on input line 1440.
+LaTeX Info: Redefining \. on input line 1447.
+LaTeX Info: Redefining \% on input line 1447.
 [77]
-<sprint 4/etiquetasPerfil.png, id=996, 1023.825pt x 1706.375pt>
+<sprint 4/etiquetasPerfil.png, id=1000, 1023.825pt x 1706.375pt>
 File: sprint 4/etiquetasPerfil.png Graphic file (type png)
 <use sprint 4/etiquetasPerfil.png>
-Package pdftex.def Info: sprint 4/etiquetasPerfil.png  used on input line 1445.
+Package pdftex.def Info: sprint 4/etiquetasPerfil.png  used on input line 1452.
 
 (pdftex.def)             Requested size: 180.0pt x 300.00006pt.
-<sprint 4/directorios.png, id=997, 463.7325pt x 556.0775pt>
+<sprint 4/directorios.png, id=1001, 463.7325pt x 556.0775pt>
 File: sprint 4/directorios.png Graphic file (type png)
 <use sprint 4/directorios.png>
-Package pdftex.def Info: sprint 4/directorios.png  used on input line 1455.
+Package pdftex.def Info: sprint 4/directorios.png  used on input line 1462.
 (pdftex.def)             Requested size: 251.9989pt x 302.18651pt.
 
 
-LaTeX Info: Redefining \. on input line 1459.
-LaTeX Info: Redefining \% on input line 1459.
+LaTeX Info: Redefining \. on input line 1466.
+LaTeX Info: Redefining \% on input line 1466.
 [78
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.55})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1459 
+l.1466 
         <./sprint 4/etiquetasPerfil.png>]
 
-LaTeX Info: Redefining \. on input line 1463.
-LaTeX Info: Redefining \% on input line 1463.
+LaTeX Info: Redefining \. on input line 1470.
+LaTeX Info: Redefining \% on input line 1470.
 [79
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.56})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1463 
+l.1470 
         <./sprint 4/directorios.png>]
-<sprint 4/clases.png, id=1009, 971.63pt x 1118.1775pt>
+<sprint 4/clases.png, id=1013, 971.63pt x 1118.1775pt>
 File: sprint 4/clases.png Graphic file (type png)
 <use sprint 4/clases.png>
-Package pdftex.def Info: sprint 4/clases.png  used on input line 1468.
+Package pdftex.def Info: sprint 4/clases.png  used on input line 1475.
 (pdftex.def)             Requested size: 540.0pt x 621.4319pt.
 
-Overfull \hbox (82.8487pt too wide) in paragraph at lines 1467--1469
+Overfull \hbox (82.8487pt too wide) in paragraph at lines 1474--1476
  []|  [] 
  []
 
@@ -2834,14 +2818,14 @@ Overfull \vbox (64.96082pt too high) has occurred while \output is active []
 
 
 
-LaTeX Info: Redefining \. on input line 1472.
-LaTeX Info: Redefining \% on input line 1472.
+LaTeX Info: Redefining \. on input line 1479.
+LaTeX Info: Redefining \% on input line 1479.
 [80
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.57})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1472 
+l.1479 
         <./sprint 4/clases.png>])
 (./capitulos/Conclusiones y trabajos futuros.tex
 
@@ -2849,25 +2833,43 @@ LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 [81]
 Cap\'{\i }tulo 4.
-) (./capitulos/Bibliografia.tex
+
 
 [82
 
 ]
 
-[83
+LaTeX Info: Redefining \. on input line 16.
+LaTeX Info: Redefining \% on input line 16.
+[83]) (./capitulos/Bibliografia.tex
 
-]
+LaTeX Info: Redefining \. on input line 3.
+LaTeX Info: Redefining \% on input line 3.
+[84]
 
-LaTeX Info: Redefining \. on input line 50.
-LaTeX Info: Redefining \% on input line 50.
-[84])
-
-LaTeX Info: Redefining \. on input line 223.
-LaTeX Info: Redefining \% on input line 223.
+LaTeX Info: Redefining \. on input line 3.
+LaTeX Info: Redefining \% on input line 3.
 [85]
 
 [86
+
+]
+Overfull \hbox (65.49292pt too wide) in paragraph at lines 43--44
+[][]\OT1/cmr/m/n/14.4 https://es.wikipedia.org/wiki/Seguridad[]de[]la[]capa[]de
+[]transporte[][]  
+ []
+
+
+
+LaTeX Info: Redefining \. on input line 51.
+LaTeX Info: Redefining \% on input line 51.
+[87])
+
+LaTeX Info: Redefining \. on input line 223.
+LaTeX Info: Redefining \% on input line 223.
+[88]
+
+[89
 
 ] (./proyecto.aux
 LaTeX Info: Redefining \. on input line 11.
@@ -2885,10 +2887,10 @@ Package rerunfilecheck Info: File `proyecto.out' has not changed.
 (rerunfilecheck)             Checksum: B3613C3A6308228BC9B766CFC1251F99;9777.
  ) 
 Here is how much of TeX's memory you used:
- 14599 strings out of 475109
- 242226 string characters out of 5765326
- 653043 words of memory out of 5000000
- 37114 multiletter control sequences out of 15000+600000
+ 14609 strings out of 475109
+ 242311 string characters out of 5765326
+ 653176 words of memory out of 5000000
+ 37119 multiletter control sequences out of 15000+600000
  567917 words of font info for 65 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
  75i,13n,80p,946b,777s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2902,10 +2904,10 @@ usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf
 e1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.
 pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on proyecto.pdf (99 pages, 18950919 bytes).
+Output written on proyecto.pdf (102 pages, 19336262 bytes).
 PDF statistics:
- 1194 PDF objects out of 1200 (max. 8388607)
- 947 compressed objects within 10 object streams
- 277 named destinations out of 1000 (max. 500000)
+ 1217 PDF objects out of 1440 (max. 8388607)
+ 967 compressed objects within 10 object streams
+ 282 named destinations out of 1000 (max. 500000)
  705 words of extra memory for PDF output out of 10000 (max. 10000000)
 

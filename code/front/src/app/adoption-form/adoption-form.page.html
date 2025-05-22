@@ -1,0 +1,89 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>adoption-form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item-group>
+    <ion-text class="title">Datos del adoptante</ion-text>
+    <div>
+      <ion-input label-placement="floating" label="Nombre y apellidos" fill="outline"></ion-input>
+      <ion-input label-placement="floating" label="Edad" fill="outline" type="number"></ion-input>
+    </div>
+
+    <div>
+      <ion-input label-placement="floating" label="Correo electrónico" fill="outline" type="email"></ion-input>
+      <ion-input label-placement="floating" label="Telefono" fill="outline" type="number"></ion-input>
+    </div>
+
+    <div class="only">
+      <ion-input label-placement="floating" label="DNI/NIE" fill="outline"></ion-input>
+    </div>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-text class="title">Domicilio</ion-text>
+    <div class="only">
+      <ion-input label-placement="floating" label="Calle" fill="outline"></ion-input>
+    </div>
+
+    <div>
+      <ion-input label-placement="floating" label="Localidad" fill="outline"></ion-input>
+      <ion-input label-placement="floating" label="Código postal" fill="outline" type="number"></ion-input>
+    </div>
+
+    <div>
+      <ion-input label-placement="floating" label="Provincia" fill="outline"></ion-input>
+      <ion-input label-placement="floating" label="País" fill="outline"></ion-input>
+    </div>
+
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-text class="title">Sobre el hogar</ion-text>
+    <div>
+      <ion-select label-placement="floating" label="Tipo de vivienda" fill="outline" class="first">
+        <ion-select-option value="flat">piso</ion-select-option>
+        <ion-select-option value="chale">chalet</ion-select-option>
+        <ion-select-option value="house">casa</ion-select-option>
+      </ion-select>
+
+      <ion-select label-placement="floating" label="¿Tiene terraza o balcón?" fill="outline" class="second">
+        <ion-select-option value="yes">Sí</ion-select-option>
+        <ion-select-option value="no">No</ion-select-option>
+      </ion-select>
+    </div>
+
+    <div class="only">
+      <ion-select label-placement="floating" label="En caso de que viva de alquiler, ¿Está de acuerdo su casero con la entrada de un animal?" fill="outline">
+        <ion-select-option value="yes">Sí</ion-select-option>
+        <ion-select-option value="no">No</ion-select-option>
+      </ion-select>
+    </div>
+
+    <div class="only">
+      <ion-input label-placement="floating" label="¿Que lugar de la vivienda estaría destinada para el animal?" fill="outline"></ion-input>
+    </div>
+
+    <div class="only">
+      <ion-input label-placement="floating" label="¿A que lugar tendría el acceso prohibido el animal?" fill="outline"></ion-input>
+    </div>
+
+    <div class="only">
+      <ion-input label-placement="floating" label="¿Cree que una ventana abierta es peligrosa para el animal?" fill="outline"></ion-input>
+    </div>
+
+    <div class="only">
+      <ion-input label-placement="floating" label="¿El animal convivirá con la familia dentro de la casa?" fill="outline"></ion-input>
+    </div>
+
+    <div class="only">
+      <ion-input label-placement="floating" label="¿En que lugar dormiría el animal dentro de la casa?" fill="outline"></ion-input>
+    </div>
+
+
+  </ion-item-group>
+
+
+</ion-content>

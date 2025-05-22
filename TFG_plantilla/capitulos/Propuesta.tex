@@ -21,7 +21,7 @@ En este apartado definiremos las tecnologías elegidas finalmente para el desarr
 	
 	Además, también se ha elegido porque es la que mejor rendimiento web tiene, tema que le hizo ganar relevancia frente a las demás, ya que una de las prioridades es que se pueda usar en la mayor cantidad de entornos posibles.
 	
-	\item \textbf{Base de datos}: entre ambas opciones, la seleccionada ha sido \textit{MySQL} ya que, al igual que pasa en el cliente, es una tecnología con la que estamos familiarizados y además se adapta mejor a las necesidades del desarrollo, por ejemplo, proporciona una mayor seguridad en la consistencia de datos.
+	\item \textbf{Base de datos}: entre ambas opciones, la seleccionada ha sido \textit{MySQL} ya que, al igual que pasa en el cliente, es una tecnología con la que estamos familiarizados y además se adapta mejor a las necesidades del desarrollo, ya que vamos a trabajar con datos estructurados y ésta proporciona una mayor seguridad en la consistencia de datos.
 	
 	\item \textbf{Servidor}: Nos hemos decantado por elegir \textit{Node.js} como entorno de desarrollo, debido a que es uno de los sistemas más rápidos de entre las opciones consultadas.
 	
@@ -35,6 +35,13 @@ En este apartado definiremos las tecnologías elegidas finalmente para el desarr
 	\caption{Diagrama de la arquitectura del sistema}
 	\label{fig:diagrama_arquitectura}
 \end{figure}
+
+En este diagrama podemos ver como los distintos actores de la aplicación entran en el sistema interactuando con el cliente, qué sería la aplicación propiamente dicha. 
+
+Para obtener y almacenar la información de la aplicación nos conectaremos al servidor mediante \textit{HTTP} \cite{http}, éste es un protocolo el cual nos permite realizar una petición de datos y recursos a través de la web. Además se añaden protocolos criptográficos como el \textit{TLS} \cite{tls} los cuales proporcionan comunicaciones seguras por una red, comúnmente Internet. La suma de estos 2 elementos se mostrará en la url de los navegadores como una página \textit{HTTPS}.
+
+Debemos manejar los datos en el servidor, para ello hacemos uso de la base de datos MySQL que hemos creado, para realizar las operaciones con la base de datos lo hacemos con el ORM para \textit{node.js} llamado \textit{sequelize} \cite{orm}. Éste es un software que nos permite convertir nuestros datos de estas bases de datos relacionales a objetos de nuestro lenguaje orientado a objetos. Gracias a esto, conseguimos interactuar con la base de datos de manera más sencilla.
+
 \section{Ciclo de vida/Metodología}  \label{metod}
 En esta sección hablaremos de la metodología empleada, que en este caso hemos decidido usar la famosa metodología ágil scrum, que vamos a adaptar a nuestro caso.
 
@@ -44,7 +51,7 @@ Debido a la fluctuación temporal, es posible que haya semanas en las que la car
 
 Vamos a incluir una iteración 0 para describir a los actores del sistema y los requisitos de la aplicación a desarrollar, creando un \textit{product backlog} de historias de usuario. Calcularemos  su prioridad y haremos una estimación temporal de cada una en puntos de historia.  
 
-\section{Iteración 0}
+\section{Iteración 0} \label{it0}
 Antes de empezar con la realización de las historias de usuario, debemos tener en cuenta los actores que participarán en la aplicación, los hemos dividido en 5 principales.
 \begin{itemize}
 	\item \textbf{Usuario básico}: este es el único usuario que no necesitará registrarse en la aplicación, y solo podrá hacer consultas, como por ejemplo ver los animales en adopción o las publicaciones de animales perdido/encontrado.
@@ -422,7 +429,7 @@ Como podemos ver, la idea para la página es mostrar una lista con los animales 
 	\caption{Vista final de la página que muestra a los animales en adopción en web}
 	\label{fig:adopcionesDefWeb}
 \end{figure}
-Para la implantación de todas las historias de usuario usaremos las herramientas elegidas anteriormente, usaremos ionic basado en Angular para la aplicación del cliente y node.js con sequelize como ORM \cite{orm}. Éste es un software que nos permite convertir nuestros datos de estas bases de datos relacionales a objetos de nuestro lenguaje orientado a objetos. es  en el servidor. Para esto debemos instalar los paquetes necesarios que en este caso se descargan todos con el comando \textit{npm install "nombre del paquete"}.
+Para la implantación de todas las historias de usuario usaremos las herramientas elegidas anteriormente, usaremos ionic basado en Angular para la aplicación del cliente y node.js con sequelize como ORM. Para esto debemos instalar los paquetes necesarios que en este caso se descargan todos con el comando \textit{npm install "nombre del paquete"}.
 
 En la parte de ionic debemos crear una página con el comando \textit{ionic generate page "nombre de la página"}, a parir de ahí obtenemos 3 archivos principales uno html donde organizaremos la información con etiquetas tanto html como propias de ionic, otro archivo de typescript en el que se encontrará la lógica del cliente y el último es un archivo scss, que es una ampliación del css en el que por ejemplo se pueden anidar clases de estilos y usar variables, en el que estableceremos el diseño de la página.
 

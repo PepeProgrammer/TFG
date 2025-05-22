@@ -18,7 +18,7 @@
 \contentsline {section}{\numberline {3.2}Herramientas de desarrollo elegidas}{16}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Ciclo de vida/Metodología}{18}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Iteración 0}{19}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Product Backlog}{19}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.1}Product Backlog}{20}{subsection.3.4.1}%
 \contentsline {section}{\numberline {3.5}Iteración 1}{26}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}Especificación de tareas}{26}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}HU.1 - Ver animales en adopción}{27}{subsection.3.5.2}%
@@ -74,4 +74,4 @@
 \contentsline {subsection}{\numberline {3.8.7}Fin del sprint}{78}{subsection.3.8.7}%
 \contentsline {chapter}{\numberline {4}Conclusiones y trabajos futuros}{82}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Conclusiones}{82}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Trabajos futuros}{82}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Trabajos futuros}{84}{section.4.2}%
