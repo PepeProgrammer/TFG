@@ -133,18 +133,22 @@ En esta sección vamos a comparar los 3 principales lenguajes de programación d
 \pagebreak
 \section{Revisión de aplicaciones similares} \label{appssimilares}
 
+En este apartado, vamos a revisar las tres aplicaciones más relevantes y usadas en el ámbito de la organización de las asociaciones y las adopciones. Estas son Amazdog, SukyCMS y Miwuki pet Center.
+
+A continuación, vamos a describir las aplicaciones mencionadas anteriormente. Al final pondremos una tabla comparativa considerando las principales características que necesitamos que cubran según nuestros objetivos.
+
 %ASPCA Volunteer Portal: https://play.google.com/store/apps/details?id=org.aspca.volunteer&pli=1
 \begin{itemize}
-	\item Amazdog \cite{amazdog}: Es una aplicación móvil en la cual puedes adoptar animales y publicar si un animal se ha perdido además cuenta con servicios como búsqueda de playas y también proporcionan seguros para los animales.
+	\item Amazdog \cite{amazdog}: Es una aplicación móvil en la cual se pueden adoptar animales y publicar si un animal se ha perdido. Además cuenta con servicios como búsqueda de playas que admiten mascotas y también proporcionan seguros para los animales.
 	
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"Sprint 0/amazdog"}
-	\caption{Pantalla de inicio y de adopiones de la aplicación Amazdog}
+	\caption{Pantalla de inicio y de adopciones de la aplicación Amazdog}
 	\label{fig:amazdog}
 \end{figure}
 	
-	\item SukyCMS \cite{sukycms}: Es un gestor para las asociaciones de animales que cuenta con varios paneles de gestión en el que se destaca el del listado de animales, pero también tiene por ejemplo uno de formularios. Este servicio además proporciona también la creación de una web para que los usuarios puedan entrar en ellas y solicitar adopciones además de ver información sobre la propia asociación.
+	\item SukyCMS \cite{sukycms}: Es un gestor para las asociaciones de animales que cuenta con varios paneles de gestión en el que se destaca el del listado de animales que tiene en adopción la asociación. Esta aplicación, proporciona también la creación de una web a la que los usuarios pueden acceder para solicitar adopciones, además de ver información sobre la propia asociación.
 	
 	
 \begin{figure} [H]
@@ -154,7 +158,9 @@ En esta sección vamos a comparar los 3 principales lenguajes de programación d
 	\label{fig:sukycms}
 \end{figure}
 	
-	\item Miwuki pet Center \cite{miwuki}: Este programa se encarga de a gestión de adopciones, acogidas y rescates de animales llevadas a cabo por protectoras, asociaciones, rescatistas y administraciones públicas, además cuenta con una funcionalidad para realizar publicaciones automáticas en las principales redes sociales.
+	\item Miwuki pet Center \cite{miwuki}: Este programa se encarga de la gestión de adopciones, acogidas y rescates de animales llevadas a cabo por protectoras, asociaciones, rescatistas y administraciones públicas. Una funcionalidad llamativa es la opción de realizar publicaciones automáticas en las principales redes sociales. 
+	
+	Por otra parte, el resto de usuarios pueden adoptar a los animales publicados por las distintas protectoras y filtrarlos por protectora específica. 
 	 
 \begin{figure}[H]
 	\centering
@@ -167,7 +173,7 @@ En esta sección vamos a comparar los 3 principales lenguajes de programación d
 
 \begin{table}[H] %Esto hace que se ponga donde le corresponde en lugar de "flotar"
 	\centering
-	\begin{tabular}{|p{5cm}|l|l|l|} \hline 
+	\begin{tabular}{|p{5cm}|l|l|p{2.3cm}|} \hline 
 		 & \textbf{Amazdog} & \textbf{SukyCMS} & \textbf{Miwuki} \\ \hline
 		App móvil & Sí & No & Solo Android \\ \hline
 		Versión web & No & Sí &  Sí \\ \hline
@@ -178,7 +184,7 @@ En esta sección vamos a comparar los 3 principales lenguajes de programación d
 		Gestiona animales perdidos & Sí & No & No \\ \hline
 		Gestiona animales encontrados & No & No & No \\ \hline
 		Seguimiento post-adopción & No & No & No \\ \hline
-		Acceso al perfil de otros usuarios & No & No & No \\ \hline
+		Ver el perfil de otros usuarios & No & No & Solo a protectoras \\ \hline
 		Ver los animales de una protectora en especifico & No & No & Sí \\ \hline
 		Buscar animales por zona & Sí & No & Sí \\ \hline
 		Las asociaciones pueden recibir donaciones desde la app & No & No & No \\ \hline
@@ -189,3 +195,7 @@ En esta sección vamos a comparar los 3 principales lenguajes de programación d
 		\caption{Comparativa aplicaciones similares}
 		\label{tab:appsSimilares}
 	\end{table}
+	
+	Una vez revisadas y comparadas las distintas aplicaciones, podemos decir que la más completa es la de miwuki, cumpliendo con más requisitos que sus competidoras. No obstante, ninguna cubre con todas las funcionalidades deseadas, lo que refuerza la idea de crear una aplicación que aglutine todas estas características.
+	
+	Una funcionalidad interesante de miwuki, que añadiremos en nuestra aplicación, es la posibilidad de acceder al perfil de las protectoras y ver sus animales en adopción, además de una breve descripción de las mismas.  
