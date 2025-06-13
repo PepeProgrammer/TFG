@@ -8,6 +8,7 @@ import {Capacitor} from "@capacitor/core";
 import {ImageCroppedEvent, ImageCropperComponent, LoadedImage} from "ngx-image-cropper";
 import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 import {PhotoService} from "../services/photo.service";
+import {Species} from "../middleware/species";
 
 interface LocalFile {
   name: string
@@ -32,7 +33,7 @@ export class AddAnimalsPage implements OnInit {
 
   form: FormGroup
   formData = new FormData()
-  species: Filter | undefined
+  species: Species[] | undefined
 
   isToastOpen: boolean = false
   isModalOpen: boolean = false
@@ -59,7 +60,7 @@ export class AddAnimalsPage implements OnInit {
   }
 
   async ngOnInit() {
-   // this.species = await this.animalService.getFilters(28) //TODO: hacer que solo se traiga el filtro de especies y no el de estados
+   this.species = await this.animalService.getAllSpecies()
   }
 
 

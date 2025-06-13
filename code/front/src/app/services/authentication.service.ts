@@ -23,9 +23,6 @@ export class AuthenticationService {
   }
 
   async isSessionValid() {
-    // headers.set('credentials', 'include')
-    // console.log(await CapacitorCookies.getCookies({url: this.baseUrl}))
-    // const headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*')
     const options = {
       withCredentials: true,
       // headers

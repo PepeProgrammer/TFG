@@ -12,7 +12,7 @@
 \contentsline {subsection}{\numberline {2.2.3}Servidor}{10}{subsection.2.2.3}%
 \contentsline {subsubsection}{Bases de datos}{10}{section*.8}%
 \contentsline {subsubsection}{Lenguajes de programación para el servidor}{11}{section*.9}%
-\contentsline {section}{\numberline {2.3}Revisión de aplicaciones similares}{13}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Revisión de aplicaciones similares}{12}{section.2.3}%
 \contentsline {chapter}{\numberline {3}Propuesta}{16}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Descripción}{16}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Herramientas de desarrollo elegidas}{16}{section.3.2}%
@@ -30,49 +30,49 @@
 \contentsline {subsection}{\numberline {3.5.4}Fin del sprint}{33}{subsection.3.5.4}%
 \contentsline {subsubsection}{Velocidad del Sprint}{33}{section*.14}%
 \contentsline {subsubsection}{Backend}{35}{section*.15}%
-\contentsline {section}{\numberline {3.6}Iteración 2}{37}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Especificación de tareas}{38}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}HU.3 - Ver lista de animales perdidos/encontrados}{39}{subsection.3.6.2}%
-\contentsline {subsubsection}{Bocetos}{40}{section*.16}%
-\contentsline {subsubsection}{Implementación}{41}{section*.17}%
-\contentsline {subsection}{\numberline {3.6.3}HU.4 - Añadir publicación de animal perdido o encontrado}{42}{subsection.3.6.3}%
-\contentsline {subsubsection}{Bocetos}{42}{section*.18}%
-\contentsline {subsubsection}{Implementación}{43}{section*.19}%
-\contentsline {subsection}{\numberline {3.6.4}HU.5 - Crear registro de particulares}{45}{subsection.3.6.4}%
-\contentsline {subsubsection}{Bocetos}{45}{section*.20}%
-\contentsline {subsubsection}{Implementación}{46}{section*.21}%
-\contentsline {subsection}{\numberline {3.6.5}HU.6 - Acceder a la aplicación}{48}{subsection.3.6.5}%
-\contentsline {subsubsection}{Bocetos}{48}{section*.22}%
-\contentsline {subsubsection}{Implementación}{49}{section*.23}%
-\contentsline {subsection}{\numberline {3.6.6}Fin del sprint}{50}{subsection.3.6.6}%
-\contentsline {section}{\numberline {3.7}Iteración 3}{52}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}Especificación de tareas}{53}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}HU.8 - Crear registro de asociaciones}{57}{subsection.3.7.2}%
-\contentsline {subsubsection}{Bocetos}{57}{section*.24}%
-\contentsline {subsubsection}{Implementación}{57}{section*.25}%
-\contentsline {subsection}{\numberline {3.7.3}HU.9 - Ver solicitudes de adopción y HU.10 - Ver solicitudes de acogida}{59}{subsection.3.7.3}%
-\contentsline {subsubsection}{Bocetos}{59}{section*.26}%
-\contentsline {subsubsection}{Implementación}{60}{section*.27}%
-\contentsline {subsection}{\numberline {3.7.4}HU.11 - Ver tu perfil y HU.12 - Ponerse como casa de acogida}{61}{subsection.3.7.4}%
-\contentsline {subsubsection}{Bocetos}{61}{section*.28}%
-\contentsline {subsubsection}{Implementación}{62}{section*.29}%
-\contentsline {subsection}{\numberline {3.7.5}HU.13 - Buscar particulares que estén como casa de acogida}{63}{subsection.3.7.5}%
-\contentsline {subsubsection}{Bocetos}{63}{section*.30}%
-\contentsline {subsubsection}{Implementación}{64}{section*.31}%
-\contentsline {subsection}{\numberline {3.7.6}Fin del sprint}{65}{subsection.3.7.6}%
-\contentsline {section}{\numberline {3.8}Iteración 4}{68}{section.3.8}%
-\contentsline {subsection}{\numberline {3.8.1}Especificación de tareas}{69}{subsection.3.8.1}%
-\contentsline {subsection}{\numberline {3.8.2}HU.17 - Como asociación y usuario estándar poder modificar el perfil}{71}{subsection.3.8.2}%
-\contentsline {subsubsection}{Bocetos}{71}{section*.32}%
-\contentsline {subsubsection}{Implementación}{71}{section*.33}%
-\contentsline {subsection}{\numberline {3.8.3}HU.18, HU.19, HU.20, HU.21 - Aceptar/Rechazar solicitudes de adopción/acogida }{73}{subsection.3.8.3}%
-\contentsline {subsection}{\numberline {3.8.4}HU.22 - Acceder al perfil del usuario seleccionado}{74}{subsection.3.8.4}%
-\contentsline {subsection}{\numberline {3.8.5}HU.23 - Acceder a la publicación ampliada}{75}{subsection.3.8.5}%
-\contentsline {subsubsection}{Bocetos}{75}{section*.34}%
-\contentsline {subsubsection}{Implementación}{75}{section*.35}%
-\contentsline {subsection}{\numberline {3.8.6}HU.24 - Resolución de errores}{77}{subsection.3.8.6}%
-\contentsline {subsection}{\numberline {3.8.7}Fin del sprint}{78}{subsection.3.8.7}%
-\contentsline {chapter}{\numberline {4}Conclusiones y trabajos futuros}{82}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Conclusiones}{82}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Trabajos futuros}{87}{section.4.2}%
-\contentsline {chapter}{Bibliografía}{89}{section*.36}%
+\contentsline {section}{\numberline {3.6}Iteración 2}{36}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Especificación de tareas}{37}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}HU.3 - Ver lista de animales perdidos/encontrados}{38}{subsection.3.6.2}%
+\contentsline {subsubsection}{Bocetos}{39}{section*.16}%
+\contentsline {subsubsection}{Implementación}{40}{section*.17}%
+\contentsline {subsection}{\numberline {3.6.3}HU.4 - Añadir publicación de animal perdido o encontrado}{41}{subsection.3.6.3}%
+\contentsline {subsubsection}{Bocetos}{41}{section*.18}%
+\contentsline {subsubsection}{Implementación}{42}{section*.19}%
+\contentsline {subsection}{\numberline {3.6.4}HU.5 - Crear registro de particulares}{44}{subsection.3.6.4}%
+\contentsline {subsubsection}{Bocetos}{44}{section*.20}%
+\contentsline {subsubsection}{Implementación}{45}{section*.21}%
+\contentsline {subsection}{\numberline {3.6.5}HU.6 - Acceder a la aplicación}{47}{subsection.3.6.5}%
+\contentsline {subsubsection}{Bocetos}{47}{section*.22}%
+\contentsline {subsubsection}{Implementación}{48}{section*.23}%
+\contentsline {subsection}{\numberline {3.6.6}Fin del sprint}{49}{subsection.3.6.6}%
+\contentsline {section}{\numberline {3.7}Iteración 3}{51}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Especificación de tareas}{52}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}HU.8 - Crear registro de asociaciones}{56}{subsection.3.7.2}%
+\contentsline {subsubsection}{Bocetos}{56}{section*.24}%
+\contentsline {subsubsection}{Implementación}{56}{section*.25}%
+\contentsline {subsection}{\numberline {3.7.3}HU.9 - Ver solicitudes de adopción y HU.10 - Ver solicitudes de acogida}{58}{subsection.3.7.3}%
+\contentsline {subsubsection}{Bocetos}{58}{section*.26}%
+\contentsline {subsubsection}{Implementación}{59}{section*.27}%
+\contentsline {subsection}{\numberline {3.7.4}HU.11 - Ver tu perfil y HU.12 - Ponerse como casa de acogida}{60}{subsection.3.7.4}%
+\contentsline {subsubsection}{Bocetos}{60}{section*.28}%
+\contentsline {subsubsection}{Implementación}{61}{section*.29}%
+\contentsline {subsection}{\numberline {3.7.5}HU.13 - Buscar particulares que estén como casa de acogida}{62}{subsection.3.7.5}%
+\contentsline {subsubsection}{Bocetos}{62}{section*.30}%
+\contentsline {subsubsection}{Implementación}{63}{section*.31}%
+\contentsline {subsection}{\numberline {3.7.6}Fin del sprint}{64}{subsection.3.7.6}%
+\contentsline {section}{\numberline {3.8}Iteración 4}{67}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Especificación de tareas}{68}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}HU.17 - Como asociación y usuario estándar poder modificar el perfil}{70}{subsection.3.8.2}%
+\contentsline {subsubsection}{Bocetos}{70}{section*.32}%
+\contentsline {subsubsection}{Implementación}{70}{section*.33}%
+\contentsline {subsection}{\numberline {3.8.3}HU.18, HU.19, HU.20, HU.21 - Aceptar/Rechazar solicitudes de adopción/acogida }{72}{subsection.3.8.3}%
+\contentsline {subsection}{\numberline {3.8.4}HU.22 - Acceder al perfil del usuario seleccionado}{73}{subsection.3.8.4}%
+\contentsline {subsection}{\numberline {3.8.5}HU.23 - Acceder a la publicación ampliada}{74}{subsection.3.8.5}%
+\contentsline {subsubsection}{Bocetos}{74}{section*.34}%
+\contentsline {subsubsection}{Implementación}{74}{section*.35}%
+\contentsline {subsection}{\numberline {3.8.6}HU.24 - Resolución de errores}{76}{subsection.3.8.6}%
+\contentsline {subsection}{\numberline {3.8.7}Fin del sprint}{77}{subsection.3.8.7}%
+\contentsline {chapter}{\numberline {4}Conclusiones y trabajos futuros}{81}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Conclusiones}{81}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Trabajos futuros}{86}{section.4.2}%
+\contentsline {chapter}{Bibliografía}{88}{section*.36}%

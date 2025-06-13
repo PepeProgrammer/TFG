@@ -28,7 +28,8 @@ export class UsersService {
     headers.set('Access-Control-Allow-Origin', '*')
     headers.set('Content-Type', 'application/json')
     const options = {
-      headers: headers
+      headers: headers,
+      withCredentials: true
     }
 
     const user: any = await firstValueFrom(this.httpClient.post(`${this.baseUrl}/api/users?option=create`, data, options))

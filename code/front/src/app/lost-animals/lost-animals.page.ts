@@ -28,14 +28,15 @@ export class LostAnimalsPage implements OnInit {
 
   async ngOnInit() {
     const city = await this.animalService.getCountryCode()
-    this.filters = await this.animalService.getFilters(city) 
+    this.filters = await this.animalService.getFilters(city)
   }
 
   async ionViewWillEnter() {
     this.animals = []
     this.offset = 0
     this.disableScroll = false
-
+    this.selectedState = ""
+    this.selectedSpecies = ""
     this.animals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, '', true)
     this.offset += this.range//con esto hago que la próxima vez busque los siguientes 5 animales
   }

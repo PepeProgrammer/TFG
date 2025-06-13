@@ -38,8 +38,8 @@
         <ion-item>
           <ion-select label="{{'filters.animal_species' | translate}}"
                       label-placement="floating" formControlName="species">
-            @for (species of species?.species; track species.id) {
-              <ion-select-option value="{{species.id}}">{{ species.name | translate }}</ion-select-option>
+            @for (specie of species; track specie.id) {
+              <ion-select-option value="{{specie.id}}">{{ specie.name | translate }}</ion-select-option>
             }
           </ion-select>
         </ion-item>

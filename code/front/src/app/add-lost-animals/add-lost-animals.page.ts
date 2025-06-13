@@ -60,7 +60,6 @@ export class AddLostAnimalsPage implements OnInit {
   async ngOnInit() {
     this.species = await this.animalService.getAllSpecies()
     this.locationInfo = await this.geolocationService.fillLocationData(this.locationInfo)
-    console.log('locationInfo', this.locationInfo)
     if(this.locationInfo.state.id !== 0){ // Si se ha podido obtener la ubicación actual del usuario
       this.form.setControl('country', new FormControl(this.locationInfo.country.id, [Validators.required]))
       this.form.setControl('state', new FormControl(this.locationInfo.state.id, [Validators.required])) // Con setControl sustituimos el control que ya existía por uno nuevo para que al enviar la provincia en

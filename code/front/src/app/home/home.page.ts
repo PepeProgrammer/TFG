@@ -56,13 +56,16 @@ export class HomePage implements OnInit {
 
   async ngOnInit() {
     const cc = await this.animalService.getCountryCode()
-    this.filters = await this.animalService.getFilters(cc) 
+    this.filters = await this.animalService.getFilters(cc)
   }
 
   async ionViewWillEnter() {
     this.animals = []
     this.offset = 0
     this.disableScroll = false
+    this.selectedState = ""
+    this.selectedSpecies = ""
+    this.selectedAge = ""
     this.animals = await this.animalService.getAnimalByFilters(this.selectedState, this.selectedSpecies, this.offset, this.range, this.selectedAge)
     this.offset += this.range//con esto hago que la próxima vez busque los siguientes 5 animales
 
